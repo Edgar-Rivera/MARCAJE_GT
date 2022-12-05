@@ -1,0 +1,362 @@
+﻿@model IEnumerable<purchaseTracking.Models.Tracking.LocalPurchase>
+@using purchaseTracking.Models.Activities
+@{
+    ViewBag.Title = "Seguimiento Compras Locales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    int dias = 0;
+    int estado_solicitud = 0;
+}
+<script type="text/javascript">
+    function refreshPage() { location.reload(true); }
+    setInterval("refreshPage()", 50000);
+</script>
+<div class="container-fluid">
+
+    <div class="row justify-content-md-center">
+        <div class="col-9">
+            <h4>Detalles de Solicitud de Compra</h4>
+            <hr />
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#contenido" role="tab" aria-controls="contenido" aria-selected="false">Ordenes de Compra</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
+                    <br />
+                    @foreach (OrderDetails detalle in ViewBag.header)
+                    {
+                       
+                            estado_solicitud = detalle.Status;
+                            
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Número de Solicitud </label></strong>
+                                <input type="text" class="form-control" value="@detalle.ClgCode" disabled>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Número de Orden de Venta </label></strong>
+                                <input type="text" class="form-control" value="@detalle.DocNum" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Socio de Negocios </label></strong>
+                                <input type="text" class="form-control" value="@detalle.CardName" disabled>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Fecha Necesaria Proyecto </label></strong>
+                                <input type="text" class="form-control" value="@detalle.endDate" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Detalles Solicitud </label></strong>
+                                <textarea rows="5" class="form-control" readonly>@detalle.Notes</textarea>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Comentarios Ejecutivo(a) Compras</label></strong>
+                                <textarea rows="5" class="form-control" readonly>@detalle.U_Comentarios</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+
+                                <strong><label class="control-label"> Correo(s) electrónico a notificar </label></strong>
+                                <textarea rows="2" class="form-control" readonly>@detalle.U_Correo</textarea>
+                            </div>
+                            <div class="col-sm-6">
+
+                                <strong><label class="control-label">Última Fecha Actualización </label></strong>
+                                @if (detalle.FechaActualizacion != "")
+                                {
+                                    <input type="text" class="form-control" value="@Convert.ToDateTime(detalle.FechaActualizacion).ToString("dd/MM/yyyy")" disabled>
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" value="@detalle.FechaActualizacion" disabled>
+                                }
+                            </div>
+                        </div>
+
+                    }
+                </div>
+                <div class="tab-pane fade" id="contenido" role="tabpanel" aria-labelledby="profile-tab">
+                    <br />
+                    <h5>Ordenes de Compra en Solicitud</h5>
+                    <hr />
+                    @if (Enumerable.Count(ViewBag.orders) > 0)
+                    {
+                        <table class="table table-responsive-sm table-hover table-bordered table-sm">
+                            <thead class="text-center thead-dark table-border">
+                                <tr>
+                                    <th>
+                                        No. Orden de Compra
+                                    </th>
+                                    <th>
+                                        Proveedor
+                                    </th>
+                                    <th>
+                                        Fecha Orden Compra
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            @foreach (OrderListPurchase purchase in ViewBag.orders)
+                            {
+                                <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("details", "Tracking", new { id = purchase.DocNum }))'">
+                                    <td>
+                                        @string.Concat("GT-", purchase.DocNum)
+                                    </td>
+                                    <td>
+                                        @purchase.CardName
+                                    </td>
+                                    <td class="text-center">
+                                        @purchase.DocDate
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            No existen ordenes de compra en esta solicitud!
+                        </div>
+                    }
+                </div>
+            </div>
+            <br />
+            <br />
+            <h4>Seguimiento Ordenes de Compra</h4>
+            <hr />
+
+            <article class="card card-purchase-border">
+                <h5 class="card-header text-center card-purchase">
+                    <b>Número de Solicitud: @ViewBag.activity </b>
+                </h5>
+                @foreach (var item in Model)
+                {
+                    string oc_temp = item.OC > 0 ? "" + item.OC : "";
+            <div class="card-body">
+                <h5 class="card-header card-purchase-order">Orden de Compra: <strong> @oc_temp</strong></h5>
+                <h5 class="card-header card-purchase-order-cant">Artículos en Tracking: <button type="button" class="btn btn-primary">@item.cantidad</button></h5>
+
+                <article class="card">
+                    <div class="card-body row text-center">
+                        <div class="col-md-3">
+                            <strong>Solicitud de Compra Generada</strong>
+                            <br>@item.CntctDate.ToString("dd/MM/yyyy")
+                        </div>
+                        @if (item.OC > 0)
+                        {
+                            <div class="col-md-3">
+                                <strong>Fecha Orden de Compra</strong>
+                                <br> @item.FechaOC<br />
+
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="col-md-3">
+                                <strong>Orden de Compra</strong>
+                                <br>
+                            </div>
+                        }
+
+                        @if (item.EM > 0)
+                        {
+                            <div class="col-md-3">
+                                <strong>Fecha Ingreso Centro de Distribución </strong>
+                                <br> @item.FechaEM
+                            </div>
+                            <div class="col-md-3">
+                                <strong>Ingreado por </strong>
+                                <br> @item.Bodega
+                            </div>
+                        }
+                        else
+                        {
+                            if (item.OC > 0)
+                            {
+                                <div class="col-md-3">
+                                    <strong>Fecha Estimada Ingreso Centro de Distribución</strong>
+                                    <br> @item.U_FechaIngresoCD
+                                </div>
+                                <div class="col-md-3">
+                                    <strong>Pendiente Ingreso  </strong>
+                                    <br>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-3">
+                                    <strong>Fecha Estimada Ingreso Centro de Distribucion</strong>
+                                    <br>
+                                </div>
+                                <div class="col-md-3">
+                                    <strong>Pendiente Ingreso </strong>
+                                    <br>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </article>
+                <div class="card-body row">
+                    <div class="track">
+                        <div class="step active">
+                            <span class="icon"> <i class="fa fa-check"></i> </span>
+                            <span class="text">Solicitud Confirmada</span>
+                        </div>
+                        @if (item.OC > 0)
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-shopping-cart"></i> </span>
+                                <span class="text"> Orden de Compra <br /><b class="text-muted">@item.CardName</b></span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-shopping-cart"></i> </span>
+                                <span class="text"> Orden de Compra</span>
+                            </div>
+                        }
+                        @if (item.EM > 0)
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-warehouse"></i> </span>
+                                <span class="text">Ingreso Centro de Distribución </span>
+                            </div>
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-check"></i></span>
+                                <span class="text">Disponible para generar entregas</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-warehouse"></i> </span>
+                                <span class="text">Ingreso Centro de Distribución </span>
+                            </div>
+
+
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-check"></i></span>
+                                <span class="text">Disponible para generar entregas</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <br />
+                <hr>
+                <div class="card-body row">
+                    <div class="col-md-3">
+                        <b>Solicitante</b>
+                        <p>@item.U_Solicitante</p>
+                        <b>Asignado a</b>
+                        <p>@item.U_NAME</p>
+                    </div>
+                    <div class="col-md-3">
+                        @if (item.OC > 0)
+                        {
+                            <b>No. Orden de Compra</b>
+                            <p>@item.OC</p>
+                            <b>Fecha Orden</b>
+                            <p>@item.FechaOC</p>
+                            <div class="text-left">
+                                <b>Fecha Envío Orden de Compra Proveedor</b>
+                                <p>@item.U_FechaEnvioProveedor</p>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-3">
+                        @if (item.EM > 0)
+                        {
+                            <b>No. Entrada Mercancias</b>
+                            <p>@item.EM</p>
+                            <b>Fecha Estimada</b>
+                            <p>@item.U_FechaIngresoCD</p>
+                        }
+                    </div>
+                    <div class="col-md-3">
+                        @if (item.EM > 0)
+                        {
+                            <p>La mercadería se encuentra disponible para realizar entregas</p>
+                        }
+                    </div>
+                </div>
+                <hr>
+
+                @{
+                    if (item.U_FechaCliente != "" && item.U_FechaProveedor != "")
+                    {
+                        DateTime temp1 = Convert.ToDateTime(item.U_FechaCliente);
+                        DateTime temp2 = Convert.ToDateTime(item.U_FechaProveedor);
+                        TimeSpan diferencia = temp1 - temp2;
+                        dias = diferencia.Days;
+                    }
+                }
+                @if (item.U_FechaCliente != "" && item.U_FechaProveedor != "")
+                {
+                    <div class="text-left">
+                        <h6><span class="badge badge-success text-center">Control Tiempo de Entrega</span></h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>Fecha Ofrecida al Cliente</b>
+                            <p>@item.U_FechaCliente</p><br />
+
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <b>Fecha del Proveedor</b>
+                            <p>@item.U_FechaProveedor</p>
+                        </div>
+                        <div class="col-md-3">
+                            @if (dias <= 0)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    <b>Dias para entrega al Cliente: </b>
+                                    @dias
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-secondary" role="alert">
+                                    <b>Dias para entrega al Cliente: </b>
+                                    @dias
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                }
+
+                @if (item.OC > 0)
+                {
+                   
+                    <a href="@Url.Action("details", "Tracking", new { id = item.OC, paramDate = item.U_FechaIngresoCD, status = estado_solicitud })" class="btn btn-details float-lg-right" data-abc="true">  Ver detalles &nbsp; <i class="fas fa-chevron-right"></i></a>
+
+                }
+            </div>
+                }
+            </article>
+            <br />
+            <br />
+
+        </div>
+    </div>
+</div>

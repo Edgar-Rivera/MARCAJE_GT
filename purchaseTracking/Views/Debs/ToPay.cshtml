@@ -1,0 +1,214 @@
+﻿@model PagedList.IPagedList<purchaseTracking.Models.CuentaPorPagar.CuentaPorPagar>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Cuentas por Pagar- SAP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            <h4>Cuentas por Pagar - SAP <span class="badge badge-secondary">@ViewBag.totalItem</span></h4>
+            <hr />
+            @using (Html.BeginForm("ToPay", "Debs", FormMethod.Get))
+            {
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="input-group mb-">
+                            <br />
+                            <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <input type="submit" class="btn btn-success" value="Buscar" />
+                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("ToPay", "Debs")'"><i class="fas fa-redo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-row">
+                    <div class="col-sm-auto">
+                        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("ToPayBusinessPartners", "Debs")'"><i class="fas fa-arrow-left">  </i> Regresar</button>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterString", new List<SelectListItem>
+                           {
+                          new SelectListItem{ Text="Filtrar Datos", Value = "0" },
+                               new SelectListItem{ Text="Registros SAP", Value = "SAP" },
+                                  new SelectListItem{ Text="Registros Tracking", Value = "TRACKING" },
+                           }, new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
+                    </div>
+                </div>
+            }
+            <br />
+            @if (ViewBag.findString != null && Model.Count() > 0)
+            {
+                <div class="alert alert-success" role="alert">
+                    @Model.TotalItemCount resultados para: <b> @ViewBag.findString</b> <b> @ViewBag.filterString</b>
+                </div>
+            }
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-bordered table-responsive-sm ">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>
+                                Tipo Documento
+                            </th>
+                            <th>
+                                Número Documento
+                            </th>
+                            <th>
+                                Proveedor
+                            </th>
+                            <th>
+                                Tipo Proveedor
+                            </th>
+                            <th>
+                                Dias Vencimiento
+                            </th>
+                            <th>
+                                Orden Compra
+                            </th>
+                            <th>
+                                Total Documento
+                            </th>
+                            <th>
+                                Saldo Pendiente
+                            </th>
+                            <th>
+                                Estatus
+                            </th>
+                            <th>
+                                Origen
+                            </th>
+                            <th>
+                                Estatus Pago
+                            </th>
+                            <th>
+                                Detalles Pago
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                <tr>
+                    <td>
+                        @item.TipoDocumento
+                    </td>
+                    <td>
+                        @item.DocNum
+                    </td>
+                    <td>
+                        @item.NombreSN
+                    </td>
+                    <td class="text-center">
+                        @item.TipoProveedor
+                    </td>
+                    <td class="text-center">
+                        @item.dias
+                    </td>
+                    <td class="text-center">
+                        @item.OC
+                    </td>
+                    <td class="text-right">
+                        @string.Format("$ {0:#,##0.#0}", item.totalUSD)
+                    </td>
+                    <td class="text-right">
+                        @string.Format("$ {0:#,##0.#0}", item.saldoUSD)
+                    </td>
+                    <td class="text-center">
+                        @item.Estatus
+                    </td>
+                    <td class="text-center">
+                        @item.origen
+                    </td>
+                    <td class="text-center">
+                        @if (item.TT > 0)
+                        {
+                            if (item.EP == "PP")
+                            {
+                                <label> Pendiente de Liquidar</label>
+                            }
+                        }
+                        else
+                        {
+                            if (item.origen == "TRACKING")
+                            {
+                                <label> Pendiente Registro Factura SAP</label>
+                            }
+                            else
+                            {
+                                @item.Estatus_Pago
+                            }
+
+                        }
+                    </td>
+                    <td class="text-center">
+                        @if (item.TT > 0)
+                        {
+                            if (item.EP == "PP")
+                            {
+                                <div class="alert alert-primary" role="alert">
+                                    Existe una factura en SAP pendiente de liquidar<br />
+                                    <strong>@item.TT</strong>
+                                </div>
+                            }
+                        }
+                    </td>
+                </tr>
+                    }
+                </table>
+                <a href="@Url.Action("ExportDebs", "Debs", new {  findString = ViewBag.findString })" class="float-left">
+                    <span>
+                        Exportar a Excel
+                    </span>
+                </a>
+                <br />
+                <br />
+                <hr />
+                <p class="text-center">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        @Html.PagedListPager(
+                    Model,
+                    page => Url.Action("ToPay",
+                    new
+                    {
+                        page,
+                        findString = ViewBag.findString,
+                        filterString = ViewBag.filterString
+                    }
+                    ),
+                    new PagedListRenderOptions()
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Anterior",
+                        LinkToNextPageFormat = "Siguiente",
+                        LinkToLastPageFormat = ">>",
+                        DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                        LiElementClasses = new List<string> { "page-item", "page-link" }
+                    })
+                    </ul>
+                </nav>
+                <br />
+                <br />
+            }
+            else
+            {
+                if (ViewBag.findString != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        No se encontraron resultados para <b>@ViewBag.findString</b>
+                    </div>
+                }
+            }
+
+
+            <br />
+        </div>
+    </div>
+</div>

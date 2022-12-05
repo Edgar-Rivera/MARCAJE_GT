@@ -1,0 +1,16 @@
++		jObject	{{
+    "CardCode": "CLI00025",
+    "Notes": "COMPRAR LINEA 65 A LA 67\r\nLINEA 23 A LA 45",
+    "ActivityDate": null,
+    "Priority": "pr_Normal",
+    "DocType": null,
+    "DocNum": null,
+    "DocEntry": "42297",
+    "Details": "10006897_ISERTEC, S. A.",
+    "Activity": null,
+    "ActivityType": 56,
+    "U_Solicitante": "Alejandro Cesar Acuña Samayoa",
+    "HandledBy": 13,
+    "U_Correo": 0
+  }}	Newtonsoft.Json.Linq.JObject
+  
