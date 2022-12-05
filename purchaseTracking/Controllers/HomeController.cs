@@ -65,11 +65,10 @@ namespace purchaseTracking.Controllers
                         }
                         else
                         {
-                            ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!.");
+                            ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!");
                             return View();
 
-                        }
-                        
+                        }                      
                     }
                     else
                     {
@@ -78,14 +77,14 @@ namespace purchaseTracking.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "DEBE DE SELECCIONAR UNA OV VÁLIDA!.");
+                    ModelState.AddModelError(string.Empty, "DEBE DE SELECCIONAR UNA OV VÁLIDA!");
                     return View();
                 }
                 
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "NO CUENTA CON UNA LOCALIZACIÓN VÁLIDA!.");
+                ModelState.AddModelError(string.Empty, "NO CUENTA CON UNA LOCALIZACIÓN VÁLIDA!");
                 return View();
             }
         }

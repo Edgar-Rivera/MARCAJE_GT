@@ -317,7 +317,6 @@ C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\bin\es\System.Web.Raz
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\bin\es\System.Web.WebPages.resources.dll
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.AssemblyReference.cache
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.CoreCompileInputs.cache
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.CopyComplete
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\purchaseTracking.dll
