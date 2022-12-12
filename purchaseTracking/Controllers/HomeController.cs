@@ -50,42 +50,49 @@ namespace purchaseTracking.Controllers
         [HttpPost]
         public ActionResult page(string ORDR, string CardName, string lt, string lg, string uuid, string type_p, string TYPE_V)
         {
-            var data = new Connection.UserData.UserData().GetSAPData(Convert.ToInt32(ORDR));
-            // METODO PARA REALIZAR MARCAS, SE REALIZA METODO POST DEPENDIENDO DE BOTON
-            if (!string.IsNullOrEmpty(lt) && !string.IsNullOrEmpty(lg))
+            if (!string.IsNullOrEmpty(Session["nombre"] as string))
             {
-                if (ORDR != "0" )
+                var data = new Connection.UserData.UserData().GetSAPData(Convert.ToInt32(ORDR));
+                // METODO PARA REALIZAR MARCAS, SE REALIZA METODO POST DEPENDIENDO DE BOTON
+                if (!string.IsNullOrEmpty(lt) && !string.IsNullOrEmpty(lg))
                 {
-                    if (type_p == "INICIO" || type_p == "INICIO_TRASLADO" || type_p == "INICIO_COMIDA" || type_p == "SALIDA" || type_p == "FIN_TRASLADO" || type_p == "FIN_COMIDA")
-                    { 
-
-                        if(new Connection.UserData.UserData().InsertWEA(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p),lt,lg,data.Project,uuid,Convert.ToString(Session["external_code"]),ORDR,CardName,"",TYPE_V,data.CardName,data.Comments ))
+                    if (ORDR != "0")
+                    {
+                        if (type_p == "INICIO" || type_p == "INICIO_TRASLADO" || type_p == "INICIO_COMIDA" || type_p == "SALIDA" || type_p == "FIN_TRASLADO" || type_p == "FIN_COMIDA")
                         {
-                            return RedirectToAction("page","Home");
+
+                            if (new Connection.UserData.UserData().InsertWEA(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt, lg, data.Project, uuid, Convert.ToString(Session["external_code"]), ORDR, CardName, "", TYPE_V, data.CardName, data.Comments))
+                            {
+                                return RedirectToAction("page", "Home");
+                            }
+                            else
+                            {
+                                ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!");
+                                return View();
+
+                            }
                         }
                         else
                         {
-                            ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!");
-                            return View();
-
-                        }                      
+                            return RedirectToAction("page", "Home");
+                        }
                     }
                     else
                     {
-                        return RedirectToAction("page", "Home");
+                        ModelState.AddModelError(string.Empty, "DEBE DE SELECCIONAR UNA OV VÁLIDA!");
+                        return View();
                     }
+
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "DEBE DE SELECCIONAR UNA OV VÁLIDA!");
+                    ModelState.AddModelError(string.Empty, "NO CUENTA CON UNA LOCALIZACIÓN VÁLIDA!");
                     return View();
                 }
-                
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "NO CUENTA CON UNA LOCALIZACIÓN VÁLIDA!");
-                return View();
+                return RedirectToAction("Login", "Login");
             }
         }
 
@@ -93,59 +100,67 @@ namespace purchaseTracking.Controllers
         [HttpPost]
         public ActionResult page_c(string CardCode, string lt_c, string lg_c, string uuid_c, string TYPE_V, string prospect, string type_p)
         {
-            var data = new Connection.UserData.UserData().GetSAPDataName(CardCode);
-            // METODO PARA REALIZAR MARCAS, SE REALIZA METODO POST DEPENDIENDO DE BOTON
-            if (!string.IsNullOrEmpty(lt_c) && !string.IsNullOrEmpty(lg_c))
+            if (!string.IsNullOrEmpty(Session["nombre"] as string))
             {
-                if ((!string.IsNullOrEmpty(CardCode) && CardCode != "0") || (!string.IsNullOrEmpty(prospect)))
+
+                var data = new Connection.UserData.UserData().GetSAPDataName(CardCode);
+                // METODO PARA REALIZAR MARCAS, SE REALIZA METODO POST DEPENDIENDO DE BOTON
+                if (!string.IsNullOrEmpty(lt_c) && !string.IsNullOrEmpty(lg_c))
                 {
-                    if (type_p == "INICIO" || type_p == "INICIO_TRASLADO" || type_p == "INICIO_COMIDA" || type_p == "SALIDA" || type_p == "FIN_TRASLADO" || type_p == "FIN_COMIDA")
+                    if ((!string.IsNullOrEmpty(CardCode) && CardCode != "0") || (!string.IsNullOrEmpty(prospect)))
                     {
-                        if (!string.IsNullOrEmpty(prospect))
+                        if (type_p == "INICIO" || type_p == "INICIO_TRASLADO" || type_p == "INICIO_COMIDA" || type_p == "SALIDA" || type_p == "FIN_TRASLADO" || type_p == "FIN_COMIDA")
                         {
-                            if (new Connection.UserData.UserData().InsertWEA_CP(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt_c, lg_c, "", uuid_c, Convert.ToString(Session["external_code"]), "1", "", prospect, TYPE_V, "", ""))
+                            if (!string.IsNullOrEmpty(prospect))
                             {
-                                return RedirectToAction("page", "Home");
+                                if (new Connection.UserData.UserData().InsertWEA_CP(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt_c, lg_c, "", uuid_c, Convert.ToString(Session["external_code"]), "1", "", prospect, TYPE_V, "", ""))
+                                {
+                                    return RedirectToAction("page", "Home");
+                                }
+                                else
+                                {
+                                    ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!.");
+                                    return View("page");
+
+                                }
                             }
                             else
                             {
-                                ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!.");
-                                return View("page");
+                                if (new Connection.UserData.UserData().InsertWEA_C(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt_c, lg_c, "", uuid_c, Convert.ToString(Session["external_code"]), "1", CardCode, "", TYPE_V, data.CardName, data.Comments))
+                                {
+                                    return RedirectToAction("page", "Home");
+                                }
+                                else
+                                {
+                                    ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!.");
+                                    return View("page");
 
+                                }
                             }
+
+
                         }
                         else
                         {
-                            if (new Connection.UserData.UserData().InsertWEA_C(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt_c, lg_c, "", uuid_c, Convert.ToString(Session["external_code"]), "1", CardCode, "", TYPE_V, data.CardName, data.Comments))
-                            {
-                                return RedirectToAction("page", "Home");
-                            }
-                            else
-                            {
-                                ModelState.AddModelError(string.Empty, "HA OCURRIDO UN ERROR AL INGRESAR LA MARCA!.");
-                                return View("page");
-
-                            }
+                            return RedirectToAction("page", "Home");
                         }
-
-                       
                     }
                     else
                     {
-                        return RedirectToAction("page", "Home");
+                        ModelState.AddModelError(string.Empty, "DEBE DE SELECCIONAR UN SOCIO DE NEGOCIO VÁLIDO!.");
+                        return View("page");
                     }
+
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "DEBE DE SELECCIONAR UN SOCIO DE NEGOCIO VÁLIDO!.");
+                    ModelState.AddModelError(string.Empty, "NO CUENTA CON UNA LOCALIZACIÓN VÁLIDA!.");
                     return View("page");
                 }
-
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "NO CUENTA CON UNA LOCALIZACIÓN VÁLIDA!.");
-                return View("page");
+                return RedirectToAction("Login", "Login");
             }
         }
         public ActionResult About()
