@@ -48,7 +48,7 @@ namespace purchaseTracking.Controllers
                         // Se inicializa el MiddleWare para guardar los datos de los usuarios
                         Session.Add("nombre", fullName);
                         Session.Add("code", internalKey);
-                        Session.Add("schema", "SBO_ISERTEC_HN");
+                        Session.Add("schema", "SBO_ISERTEC_GT");
                         Session.Add("user", attemp.UserName);
                         Session.Add("eMail", eMail);
                         List<Models.UserData.OHEM> data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(internalKey));
@@ -118,7 +118,7 @@ namespace purchaseTracking.Controllers
             httpWebRequest.Method = "POST";
             httpWebRequest.CookieContainer = new CookieContainer();
             LoginUserData ObjectLogin = new LoginUserData();
-            ObjectLogin.CompanyDB = "SBO_ISERTEC_HN";
+            ObjectLogin.CompanyDB = "SBO_ISERTEC_GT";
             ObjectLogin.Password = attempSession.Password;
             ObjectLogin.UserName = attempSession.UserName;
             string Parametros = JsonConvert.SerializeObject(ObjectLogin);
