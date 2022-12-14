@@ -321,4 +321,3 @@ C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\EASYACCESS_
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.CopyComplete
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\purchaseTracking.dll
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Debug\purchaseTracking.pdb
-C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.AssemblyReference.cache
