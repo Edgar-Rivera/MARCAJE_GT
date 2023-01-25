@@ -196,6 +196,7 @@
     <Compile Include="Connection\Projet\DataProject.cs" />
     <Compile Include="Connection\Tracking\DataTracking.cs" />
     <Compile Include="Connection\UserData\UserData.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\DebsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="Models\DataIntegration\DocumentLine.cs" />
     <Compile Include="Models\DataIntegration\PurchaseOrder.cs" />
     <Compile Include="Models\DataIntegration\PurchaseOrders.cs" />
+    <Compile Include="Models\eTALENT\EPDO_MASTER_DATA.cs" />
     <Compile Include="Models\Invoice\Invoice.cs" />
     <Compile Include="Models\Invoice\RecurrentInvoice.cs" />
     <Compile Include="Models\Invoice\SalesOrders.cs" />
@@ -462,6 +464,7 @@
     <Content Include="Views\Project\SalesOrderDetails.cshtml" />
     <Content Include="Views\PaymentReceived\PaymentsDetailsUnit.cshtml" />
     <Content Include="Views\PaymentReceived\PaymentsDetailsBMA.cshtml" />
+    <Content Include="Views\Account\PersonalInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

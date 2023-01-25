@@ -226,5 +226,66 @@ namespace purchaseTracking.Connection.UserData
             }
             return data;
         }
+
+
+
+        //// DATOS OBTENDIOS DESDE ETLAENT PARA DATOS GENERALES DE EMPLEADOS
+        ///
+        public List<Models.eTALENT.EPDO_MASTER_DATA> DatosEmpleados(int external_code)
+        {
+            var data = new List<Models.eTALENT.EPDO_MASTER_DATA>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "SELECT * FROM TR_DATOS_MAESTROS_EMPLEADO_ISERTEC WHERE EPDO_CODIGO_EXTERNO = @CODE;";
+            cmd = new SqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("@CODE", external_code);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.EPDO_MASTER_DATA()
+                {
+                    EPDO_CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    P_APELLIDO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    S_APELLIDO = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    P_NOMBRE = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    S_NOMBRE = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    DIRECCION = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    NACIONALIDAD = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    FECHA_NACIMIENTO = reader.IsDBNull(7) ? string.Empty : reader.GetDateTime(7).ToString("dd/MM/yyyy"),
+                    EPDO_SEXO = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    EPDO_ESTADO = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                    ESTADO_CIVIL = reader.IsDBNull(10) ? string.Empty : reader.GetString(10),
+                    FECHA_INGRESO = reader.IsDBNull(11) ? string.Empty : reader.GetDateTime(11).ToString("dd/MM/yyyy"),
+                    SALARIO = reader.IsDBNull(12) ? 0 : reader.GetDecimal(12),
+                    BONIFICACION = reader.IsDBNull(13) ? 0 : reader.GetDecimal(13),
+                    CUENTA = reader.IsDBNull(14) ? string.Empty : reader.GetString(14),
+                    FORMA_PAGO = reader.IsDBNull(15) ? string.Empty : reader.GetString(15),
+                    TIPO_CIUENTA = reader.IsDBNull(16) ? string.Empty : reader.GetString(16),
+                    CONTRATO_INICIO = reader.IsDBNull(17) ? string.Empty : reader.GetDateTime(17).ToString("dd/MM/yyyy"),
+                    CONTRATO_FIN = reader.IsDBNull(18) ? string.Empty : reader.GetDateTime(18).ToString("dd/MM/yyyy"),
+                    EDAD = reader.IsDBNull(19) ? 0 : reader.GetInt32(19),
+                    FECHA_INGRESO_COPR = reader.IsDBNull(20) ? string.Empty : reader.GetDateTime(20).ToString("dd/MM/yyyy"),
+                    BONO_NO_AFECTO = reader.IsDBNull(21) ? 0 : reader.GetDecimal(21),
+                    MAIL = reader.IsDBNull(22) ? string.Empty : reader.GetString(22),
+                    MAIL_INTERNO = reader.IsDBNull(23) ? string.Empty : reader.GetString(23),
+                    CELULAR = reader.IsDBNull(24) ? string.Empty : reader.GetString(24),
+                    EPDO_MOTIVO_RETIRO = reader.IsDBNull(25) ? string.Empty : reader.GetString(25),
+                    CAUSA_RETIRO = reader.IsDBNull(26) ? string.Empty : reader.GetString(26),
+                    EPDO_PUESTO_RETIRO = reader.IsDBNull(27) ? string.Empty : reader.GetString(27),
+                    NOMBRE_COMPLETO = reader.IsDBNull(28) ? string.Empty : reader.GetString(28),
+                    EPDO_CASADA = reader.IsDBNull(29) ? string.Empty : reader.GetString(29),
+                    NUMERO_HIJOS = reader.IsDBNull(30) ? 0 : reader.GetInt32(30),
+                    PROFESION = reader.IsDBNull(31) ? string.Empty : reader.GetString(31),
+                    CODIGO_EXTERNO = reader.IsDBNull(32) ? string.Empty : reader.GetString(32),
+                    NUMERO_EMERGENCIA = reader.IsDBNull(33) ? string.Empty : reader.GetString(33),
+                    UNIDAD = reader.IsDBNull(34) ? string.Empty : reader.GetString(34),
+                    JEFE_INMEDIATO = reader.IsDBNull(35) ? string.Empty : reader.GetString(35),
+                });
+            }
+            return data;
+        }
+
     }
 }
