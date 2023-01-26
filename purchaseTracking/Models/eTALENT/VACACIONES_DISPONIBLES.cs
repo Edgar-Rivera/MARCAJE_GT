@@ -7,7 +7,7 @@ namespace purchaseTracking.Models.eTALENT
 {
     public class VACACIONES_DISPONIBLES
     {
-        public decimal CODIGO { get; set; }
+        public int CODIGO { get; set; }
         public string NOMBRE { get; set; }
         public string FECHA_INGRESO { get; set; }
         public int TOTAL_VACACIONES { get; set; }

@@ -288,5 +288,33 @@ namespace purchaseTracking.Connection.UserData
             return data;
         }
 
+        // RETORNA VACACIONES DISPONIBLES
+        public List<Models.eTALENT.VACACIONES_DISPONIBLES> VacacionesDia(int external_code)
+        {
+            var data = new List<Models.eTALENT.VACACIONES_DISPONIBLES>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "SELECT * FROM TR_VACACIONES_DISPONIBLES_ISERTEC WHERE EPDO_CODIGO_EXTERNO = @CODE;";
+            cmd = new SqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("@CODE", external_code);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.VACACIONES_DISPONIBLES()
+                {
+                    CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    NOMBRE = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    FECHA_INGRESO = reader.IsDBNull(2) ? string.Empty : reader.GetDateTime(2).ToString("dd/MM/yyyy"),
+                    TOTAL_VACACIONES = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                    DIAS_TOMADOS = reader.IsDBNull(4) ? 0 : reader.GetInt32(4),
+                    CODIGO_EXTERNO = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    DIAS_PENDIENTES = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
+                });
+            }
+            return data;
+        }
+
     }
 }

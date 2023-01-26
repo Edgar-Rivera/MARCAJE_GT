@@ -14,6 +14,12 @@ namespace purchaseTracking.Controllers
         {
             List<Models.eTALENT.EPDO_MASTER_DATA> datos = new List<Models.eTALENT.EPDO_MASTER_DATA>();
             datos = new Connection.UserData.UserData().DatosEmpleados(Convert.ToInt32(Session["external_code"]));
+
+            List<Models.eTALENT.VACACIONES_DISPONIBLES> vacaciones = new List<Models.eTALENT.VACACIONES_DISPONIBLES>();
+            vacaciones = new Connection.UserData.UserData().VacacionesDia(Convert.ToInt32(Session["external_code"]));
+
+            ViewBag.vacaciones = vacaciones;
+
             return View(datos);
         }
     }
