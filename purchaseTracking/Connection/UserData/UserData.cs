@@ -306,11 +306,11 @@ namespace purchaseTracking.Connection.UserData
                 {
                     CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                     NOMBRE = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
-                    FECHA_INGRESO = reader.IsDBNull(2) ? string.Empty : reader.GetDateTime(2).ToString("dd/MM/yyyy"),
+                    FECHA_INGRESO = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
                     TOTAL_VACACIONES = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
-                    DIAS_TOMADOS = reader.IsDBNull(4) ? 0 : reader.GetInt32(4),
+                    DIAS_TOMADOS = reader.IsDBNull(4) ? 0 : reader.GetDouble(4),
                     CODIGO_EXTERNO = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
-                    DIAS_PENDIENTES = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
+                    DIAS_PENDIENTES = reader.IsDBNull(6) ? 0 : reader.GetDouble(6),
                 });
             }
             return data;

@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using purchaseTracking.Models.eTALENT
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-11">
@@ -115,8 +116,47 @@
                 </div>
             </div>
             <br />
-            <h5 class="text-left">Datos Generales</h5>
+            <h5 class="text-left"> Vacaciones Disponibles </h5>
             <hr />
+            @foreach (VACACIONES_DISPONIBLES itm in ViewBag.vacaciones)
+            {
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Total Días Vacaciones</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button"><i class="fas fa-calendar"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@itm.TOTAL_VACACIONES">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Días Tomados</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-secondary" type="button"><i class="fas fa-calendar-day"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@itm.DIAS_TOMADOS">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Total Días Disponibles</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-primary" type="button"><i class="fas fa-sticky-note"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@itm.DIAS_PENDIENTES">
+                        </div>
+                    </div>
+                </div>
+            }
+            <br />
+            <h5 class="text-left"> Historico Periodos </h5>
+            <hr />
+            <div class="form-group row">
+            </div>
         </fieldset>
             }
         </div>
