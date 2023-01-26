@@ -13,8 +13,8 @@ namespace purchaseTracking.Controllers
         public ActionResult PersonalInformation()
         {
             List<Models.eTALENT.EPDO_MASTER_DATA> datos = new List<Models.eTALENT.EPDO_MASTER_DATA>();
-            datos = new Connection.UserData.UserData().DatosEmpleados(Convert.ToInt32(Session["code"]));
-            return View();
+            datos = new Connection.UserData.UserData().DatosEmpleados(Convert.ToInt32(Session["external_code"]));
+            return View(datos);
         }
     }
 }

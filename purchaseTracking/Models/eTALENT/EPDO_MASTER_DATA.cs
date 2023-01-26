@@ -43,6 +43,7 @@ namespace purchaseTracking.Models.eTALENT
         public string NUMERO_EMERGENCIA { get; set; }
         public string UNIDAD { get; set; }
         public string JEFE_INMEDIATO { get; set; }
+        public string PLAZA { get; set; }
 
     }
 }

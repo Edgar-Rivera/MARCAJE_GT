@@ -282,6 +282,7 @@ namespace purchaseTracking.Connection.UserData
                     NUMERO_EMERGENCIA = reader.IsDBNull(33) ? string.Empty : reader.GetString(33),
                     UNIDAD = reader.IsDBNull(34) ? string.Empty : reader.GetString(34),
                     JEFE_INMEDIATO = reader.IsDBNull(35) ? string.Empty : reader.GetString(35),
+                    PLAZA = reader.IsDBNull(36) ? string.Empty : reader.GetString(36),
                 });
             }
             return data;
