@@ -228,6 +228,7 @@
     <Compile Include="Models\DataIntegration\PurchaseOrder.cs" />
     <Compile Include="Models\DataIntegration\PurchaseOrders.cs" />
     <Compile Include="Models\eTALENT\EPDO_MASTER_DATA.cs" />
+    <Compile Include="Models\eTALENT\HISTORICO_VACACIONES.cs" />
     <Compile Include="Models\eTALENT\VACACIONES_DISPONIBLES.cs" />
     <Compile Include="Models\Invoice\Invoice.cs" />
     <Compile Include="Models\Invoice\RecurrentInvoice.cs" />

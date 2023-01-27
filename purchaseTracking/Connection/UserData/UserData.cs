@@ -316,5 +316,27 @@ namespace purchaseTracking.Connection.UserData
             return data;
         }
 
+        public List<Models.eTALENT.HISTORICO_VACACIONES> HistoricoVacaciones(int external_code)
+        {
+            var data = new List<Models.eTALENT.HISTORICO_VACACIONES>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "SELECT * FROM TR_VACACIONES_DISPONIBLES_ISERTEC WHERE EPDO_CODIGO_EXTERNO = @CODE;";
+            cmd = new SqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("@CODE", external_code);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.HISTORICO_VACACIONES()
+                {
+                    CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    NOMBRE_COMPLETO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                });
+            }
+            return data;
+        }
+
     }
 }
