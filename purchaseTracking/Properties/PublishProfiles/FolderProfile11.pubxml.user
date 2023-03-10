@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\erivera\Documents\MARCAJE_GT</_PublishTargetUrl>
-    <History>True|2023-01-31T13:43:56.2144423Z;True|2023-01-31T07:39:48.3650887-06:00;True|2023-01-31T07:39:29.4677702-06:00;True|2023-01-30T07:12:17.2716725-06:00;True|2023-01-30T07:12:12.8096016-06:00;True|2022-12-13T11:40:13.0191129-06:00;True|2022-12-13T11:25:22.2289680-06:00;True|2022-12-12T15:11:42.5842879-06:00;True|2022-12-12T15:10:33.7884759-06:00;True|2022-12-05T14:12:17.9352785-06:00;</History>
+    <History>True|2023-03-10T16:52:54.4922779Z;True|2023-01-31T07:43:56.2144423-06:00;True|2023-01-31T07:39:48.3650887-06:00;True|2023-01-31T07:39:29.4677702-06:00;True|2023-01-30T07:12:17.2716725-06:00;True|2023-01-30T07:12:12.8096016-06:00;True|2022-12-13T11:40:13.0191129-06:00;True|2022-12-13T11:25:22.2289680-06:00;True|2022-12-12T15:11:42.5842879-06:00;True|2022-12-12T15:10:33.7884759-06:00;True|2022-12-05T14:12:17.9352785-06:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -90,10 +90,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/22/2022 07:24:45</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>01/31/2023 07:44:51</publishTime>
+      <publishTime>03/10/2023 10:52:52</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>01/31/2023 07:44:51</publishTime>
+      <publishTime>03/10/2023 10:52:52</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>11/22/2022 07:24:44</publishTime>
@@ -699,7 +699,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/22/2022 07:24:45</publishTime>
     </File>
     <File Include="Views/Account/PersonalInformation.cshtml">
-      <publishTime>01/26/2023 09:29:10</publishTime>
+      <publishTime>03/10/2023 10:36:04</publishTime>
     </File>
     <File Include="Views/Activity/details.cshtml">
       <publishTime>11/22/2022 07:24:45</publishTime>
@@ -732,7 +732,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/22/2022 07:24:45</publishTime>
     </File>
     <File Include="Views/Home/page.cshtml">
-      <publishTime>01/31/2023 07:44:43</publishTime>
+      <publishTime>03/10/2023 10:52:39</publishTime>
     </File>
     <File Include="Views/Invoice/BusinessPartnersSalesOrders.cshtml">
       <publishTime>11/22/2022 07:24:45</publishTime>
@@ -792,7 +792,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/22/2022 07:24:45</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/27/2023 16:04:02</publishTime>
+      <publishTime>03/10/2023 10:37:46</publishTime>
     </File>
     <File Include="Views/Tracking/CompletedRequest.cshtml">
       <publishTime>11/22/2022 07:24:45</publishTime>
