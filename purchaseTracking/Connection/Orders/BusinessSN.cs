@@ -45,7 +45,46 @@ namespace purchaseTracking.Connection.Orders
             conn.Close();
             return data;
         }
-
+        public List<Models.Orders.BusinessPartners> getListProgramacion(int codigo_usuario)
+        {
+            var data = new List<Models.Orders.BusinessPartners>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT \"OV\", \"Comments\" FROM TR_VISTA_PROGRAMACION WHERE \"U_InternalID\" = ? AND CURRENT_DATE BETWEEN \"U_FechaAsignacion\" AND \"U_FechaFin\";", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = codigo_usuario;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            bool firstRow = true;
+            while (reader.Read())
+            {
+                if (firstRow)
+                {
+                    data.Add(new Models.Orders.BusinessPartners()
+                    {
+                        CardCode = "0",
+                        CardName = "Seleccione Orden de Venta",
+                    });
+                    data.Add(new Models.Orders.BusinessPartners()
+                    {
+                        CardCode = reader.IsDBNull(0) ? string.Empty : reader.GetString(0),
+                        CardName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    });
+                    firstRow = false;
+                }
+                else
+                {
+                    data.Add(new Models.Orders.BusinessPartners()
+                    {
+                        CardCode = reader.IsDBNull(0) ? string.Empty : reader.GetString(0),
+                        CardName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    });
+                }
+            }
+            conn.Close();
+            return data;
+        }
         public List<Models.Orders.BusinessPartners> getList()
         {
             var data = new List<Models.Orders.BusinessPartners>();

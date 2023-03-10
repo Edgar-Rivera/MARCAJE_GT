@@ -7,7 +7,7 @@
     data = new purchaseTracking.Connection.UserData.UserData().LASTWEA(Convert.ToInt32(Session["external_code"]));
 
     // LSITA CON VALORES ESTATICOS DE USUARIOS INFRAESTRUCTURA ** PV_27-01-2023
-    List<string> user_values = new List<string> { "165", "544", "589", "275", "151", "535", "537", "36", "392", "45", "534", "47", "41", "43", "536", "526", "531", "530", "540" ,"135"};
+    List<string> user_values = new List<string> { "168","200","216","287","174","288","289","290","170","148","291","175","227","292","293","251","294","296","297"};
 
 }
 <style>
@@ -135,12 +135,23 @@
                     {
                         if ((data.CODIGO == 0 || data.TIPO == "SALIDA" || data.TIPO == "FIN TRASLADO") || (!string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA"))
                         {
+
+
                             <div class="form-group">
                                 <label>Órden de Venta</label>
                                 @{
-                                    // Code behind user handled
                                     List<purchaseTracking.Models.Orders.BusinessPartners> sn = new List<purchaseTracking.Models.Orders.BusinessPartners>();
-                                    sn = new purchaseTracking.Connection.Orders.BusinessSN().getList();
+                                    if (user_values.Contains(Session["code"].ToString()))
+                                    {
+
+                                        sn = new purchaseTracking.Connection.Orders.BusinessSN().getListProgramacion(Convert.ToInt32(Session["code"].ToString()));
+                                    }
+                                    else
+                                    {
+                                        sn = new purchaseTracking.Connection.Orders.BusinessSN().getList();
+                                    }
+                                    // Code behind user handled
+
 
                                     @Html.DropDownList("ORDR", new SelectList(sn, "CardCode", "CardName"),
                                  new { @id = "carcode", @class = "form-control chosen", @onchange = "onchangeC(this.value,'card',this.options[this.selectedIndex].innerHTML)" })
