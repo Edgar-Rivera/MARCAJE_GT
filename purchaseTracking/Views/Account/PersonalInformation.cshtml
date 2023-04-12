@@ -154,8 +154,40 @@
             }
             <br />
             <h5 class="text-left"> Historico Periodos Vacaciones</h5>
-            <hr />
             <div class="form-group row">
+                <div class="col-sm-10">
+                    <table class="table table-sm table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nombre Empleado</th>
+                                <th scope="col">Fecha Ingreso</th>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Desde</th>
+                                <th scope="col">Hasta</th>
+                                <th scope="col">Días</th>
+                                <th scope="col">Gozados</th>
+                                <th scope="col">Disponibles</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (HISTORICO_VACACIONES itm in ViewBag.historico)
+                            {
+                                <tr>
+                                    <td>@itm.NOMBRE_COMPLETO</td>
+                                    <td>@itm.FECHA_INGRESO</td>
+                                    <td>@itm.PERIODO</td>
+                                    <td>@itm.DESDE</td>
+                                    <td>@itm.HASTA</td>
+                                    <td>@itm.DIAS</td>
+                                    <td>@itm.GOZADOS</td>
+                                    <td>@itm.DVCON_DIAS</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </fieldset>
             }

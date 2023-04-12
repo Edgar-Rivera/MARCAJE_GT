@@ -186,7 +186,7 @@ namespace purchaseTracking.Connection.UserData
             var data = new List<Models.UserData.OHEM>();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT \"empID\", \"Active\" FROM OHEM WHERE \"userId\" = ?;", conn);
+            HanaCommand cmd = new HanaCommand("SELECT \"Code\", \"Active\" FROM OHEM WHERE \"userId\" = ?;", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = user;
@@ -333,6 +333,36 @@ namespace purchaseTracking.Connection.UserData
                 {
                     CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                     NOMBRE_COMPLETO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                });
+            }
+            return data;
+        }
+
+        public List<Models.eTALENT.HISTORICO_VACACIONES> HistoricoEmpleado(int external_code)
+        {
+            var data = new List<Models.eTALENT.HISTORICO_VACACIONES>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "SELECT * FROM TR_VACACIONES_EMPLEADOS_ISERTEC WHERE EPDO_CODIGO_EXTERNO = @CODE;";
+            cmd = new SqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("@CODE", external_code);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.HISTORICO_VACACIONES()
+                {
+                    CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    NOMBRE_COMPLETO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    FECHA_INGRESO = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    PERIODO = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    DIAS = reader.IsDBNull(4) ? 0: reader.GetFloat(4),
+                    GOZADOS = reader.IsDBNull(5) ? 0 : reader.GetFloat(5),
+                    DVCON_DIAS = reader.IsDBNull(6) ? 0 : reader.GetFloat(6),
+                    DESDE = reader.IsDBNull(7) ? string.Empty : reader.GetDateTime(7).ToString("dd/MM/yyyy"),
+                    HASTA = reader.IsDBNull(8) ? string.Empty : reader.GetDateTime(8).ToString("dd/MM/yyyy"),
+                    CODIGO_EXTERNO = reader.IsDBNull(9) ? string.Empty : reader.GetString(9)
                 });
             }
             return data;

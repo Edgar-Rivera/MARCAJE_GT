@@ -79,13 +79,13 @@ namespace purchaseTracking.Controllers
                             }
                             else
                             {
-                                ModelState.AddModelError(string.Empty, "El usurio no existe en eTALENT!.");
+                                ModelState.AddModelError(string.Empty, "El usuario no existe en eTALENT!");
                                 return View();
                             }
                         }
                         else
                         {
-                            ModelState.AddModelError(string.Empty, "El usurio no existe en eTALENT!.");
+                            ModelState.AddModelError(string.Empty, "El usuario no existe en eTALENT!");
                             return View();
                         }
                     }

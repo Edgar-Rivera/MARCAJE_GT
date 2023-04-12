@@ -467,6 +467,7 @@
     <Content Include="Views\PaymentReceived\PaymentsDetailsUnit.cshtml" />
     <Content Include="Views\PaymentReceived\PaymentsDetailsBMA.cshtml" />
     <Content Include="Views\Account\PersonalInformation.cshtml" />
+    <Content Include="Views\Account\Documentos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
