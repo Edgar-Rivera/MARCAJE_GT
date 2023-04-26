@@ -75,9 +75,8 @@
         <div class="col-md-8">
             <h4>Solicitud Disfrute de Vacaciones</h4>
             <hr />
-            @using (Html.BeginForm("newRequest", "Request", FormMethod.Post))
+            @using (Html.BeginForm("newRequest", "Account", FormMethod.Post))
             {
-                @Html.Hidden("CardName", "Test");
                 <div class="form-group row" style="display:none">               
                     <div class="col-sm-3">
                         <div class="input-group mb-3">

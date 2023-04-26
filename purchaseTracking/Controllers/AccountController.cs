@@ -44,7 +44,33 @@ namespace purchaseTracking.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult newRequest(Models.Activities.RequestActivity requestActivity)
+        {
+            // VARIABLES DEL SERVICE LAYER ESTATICAS
+          
+            
+            requestActivity.DurationType = "du_Seconds";
+            requestActivity.U_internalKey = Session["code"].ToString();
+            // METODO QUE RECIBE EL MODULO Y HACE EL POST EN SAP   
+            if (new ServiceLayer.Activity.ActivityComponents().addActivity(requestActivity))
+            {
+                // VALIDA LA CREACION DE LA ACTIVIDAD EN SAP Y ENVIA CORREO ELECTORNICO
+                var data = new Connection.Activities.DataActivities().GetEjecutivo(requestActivity.HandledBy);
+                ViewBag.email_to = data.correo;
+                ViewBag.email_bcc = requestActivity.U_Correo;
+                ViewBag.activity = new purchaseTracking.Connection.Activities.DataActivities().getID();
+               // SendMailer message = new SendMailer();
+               // message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", data.nombre, ViewBag.activity, requestActivity.U_Solicitante,
+                //    requestActivity.Notes, requestActivity.DocNum, CardName);
+                return View("Success");
+            }
+            else
+            {
+                return View("Error");
+            }
 
+        }
 
     }
 }
