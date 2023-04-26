@@ -33,6 +33,18 @@ namespace purchaseTracking.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult RequestForms()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult VacationsRequest()
+        {
+            return View();
+        }
+
 
     }
 }

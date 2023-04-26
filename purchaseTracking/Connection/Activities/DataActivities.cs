@@ -993,7 +993,7 @@ namespace purchaseTracking.Connection.Activities
             var data = new List<Models.Activities.HandledUsers>();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT \"USERID\", \"U_NAME\" FROM OUSR WHERE \"Department\" = 18", conn);
+            HanaCommand cmd = new HanaCommand("SELECT \"USERID\", \"U_NAME\" FROM OUSR", conn);
             HanaDataReader reader = cmd.ExecuteReader();
             data.Add(new Models.Activities.HandledUsers()
             {
@@ -1004,8 +1004,8 @@ namespace purchaseTracking.Connection.Activities
             {
                 data.Add(new Models.Activities.HandledUsers()
                 {
-                    USERID = reader.GetInt32(0),
-                    U_NAME = reader.GetString(1),
+                    USERID = reader.IsDBNull(0)? 0 : reader.GetInt32(0),
+                    U_NAME = reader.IsDBNull(1)? string.Empty : reader.GetString(1),
                 });
             }
 
