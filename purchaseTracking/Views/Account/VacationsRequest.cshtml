@@ -6,68 +6,8 @@
 }
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type='text/javascript'>
-
-    function onchangeS(seleccion, desplegable) {
-        if (seleccion == "56") {
-            document.getElementById(desplegable).textContent = "Compra Local";
-            document.getElementById(desplegable).className = "badge badge-success float-right";
-            document.getElementById('atype').value = "56";
-        } else if (seleccion = "1") {
-            document.getElementById(desplegable).textContent = "Compra Internacional";
-            document.getElementById(desplegable).className = "badge badge-primary float-right";
-            document.getElementById('atype').value = "1";
-        } else {
-            document.getElementById(desplegable).textContent = "Solicitud de Compra";
-            document.getElementById(desplegable).className = "badge badge-info float-right";
-        }
-    }
-    function onchangeC(seleccion, desplegable,texto) {
-        if (seleccion != "") {
-            document.getElementById(desplegable).value = seleccion;
-            document.getElementById('CardName').value = texto;
-        } else {
-            document.getElementById(desplegable).value = "";
-        }
-    }
-
-    function onchangeE(seleccion, desplegable) {
-        if (seleccion != "") {
-            var docselect = document.getElementById('DocNumForm');
-            var selectedText = docselect.options[docselect.selectedIndex].text;
-            document.getElementById(desplegable).value = selectedText;
-
-        } else {
-            document.getElementById(desplegable).value = "";
-        }
-    }
-
-
-    function getAsunto() {
-        if (document.getElementById('DocNumForm').value != "0") {
-            var docselect = document.getElementById('DocNumForm');
-            var selectedText = docselect.options[docselect.selectedIndex].text;
-
-            var cardselect = document.getElementById('carcode');
-            var selectedTextCard = cardselect.options[cardselect.selectedIndex].text;
-            document.getElementById('asunto').value = selectedText + "_" + selectedTextCard;
-        } else {
-            $('#modalOrder').modal('show');
-        }
-    }
     $(function () {
         $(".chosen").chosen();
-    });
-    $(function () {
-        $("#carcode").change(function () {
-            var val = $(this).val();
-            var subItems="";
-            $.getJSON("@Url.Action("GetSub","Request")", {cardCode:val} ,function (data) {
-              $.each(data,function(index,item){
-                subItems+="<option value='"+item.Value+"'>"+item.Text+"</option>"
-              });
-                $("#DocNumForm").html(subItems)
-            });
-        });
     });
 </script>
 <div class="container-fluid">
