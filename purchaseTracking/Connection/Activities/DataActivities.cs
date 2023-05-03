@@ -1040,8 +1040,8 @@ namespace purchaseTracking.Connection.Activities
             HanaDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                data.nombre = reader.GetString(0);
-                data.correo = reader.GetString(1);
+                data.nombre = reader.IsDBNull(0)? string.Empty : reader.GetString(0);
+                data.correo = reader.IsDBNull(1) ? "notificaciones@isertec.com" : reader.GetString(1);
             }
             conn.Close();
             return data;

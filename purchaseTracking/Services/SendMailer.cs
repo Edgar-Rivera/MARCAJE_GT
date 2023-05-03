@@ -82,11 +82,11 @@ namespace purchaseTracking.Services
         public void sendMail(string from, string to, string subject, string path, string customer, string workorder, string solicitante, string cuerpo, string orden_venta, string sn)
         {
             var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("Tracking Isertec", from));
+            email.From.Add(new MailboxAddress("Solicitud eTALENT", from));
             email.To.Add(new MailboxAddress("", from));
             email.Cc.AddRange(address(to));
             //crea libro electronico de direcciones para la copia del correo
-            email.Cc.AddRange(copyAddress("maba@isertec.com"));
+            email.Cc.AddRange(copyAddress("erivera@isertec.com,jaleman@isertec.com"));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using purchaseTracking.Services;
 
 namespace purchaseTracking.Controllers
 {
@@ -47,9 +48,7 @@ namespace purchaseTracking.Controllers
         [HttpPost]
         public ActionResult newRequest(Models.Activities.RequestActivity requestActivity)
         {
-            // VARIABLES DEL SERVICE LAYER ESTATICAS
-          
-            
+            // VARIABLES DEL SERVICE LAYER ESTATICAS    
             requestActivity.DurationType = "du_Seconds";
             requestActivity.U_internalKey = Session["code"].ToString();
             // METODO QUE RECIBE EL MODULO Y HACE EL POST EN SAP   
@@ -61,8 +60,8 @@ namespace purchaseTracking.Controllers
                 ViewBag.email_bcc = requestActivity.U_Correo;
                 ViewBag.activity = new purchaseTracking.Connection.Activities.DataActivities().getID();
                // SendMailer message = new SendMailer();
-               // message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", data.nombre, ViewBag.activity, requestActivity.U_Solicitante,
-                //    requestActivity.Notes, requestActivity.DocNum, CardName);
+               //message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", data.nombre, ViewBag.activity, requestActivity.U_Solicitante,
+               //requestActivity.Notes, requestActivity.DocNum, CardName);
                 return View("Success");
             }
             else

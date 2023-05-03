@@ -18,8 +18,10 @@ namespace purchaseTracking.Models.Activities
         public string Activity { get; set; }
         public int ActivityType { get; set; }
         public string EndDueDate { get; set; }
+        public string StartDate { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }
+        public string U_FechaActualizacion { get; set; }
         public string DurationType { get; set; }
         public string U_Solicitante { get; set; }
         public string U_retrasoDias { get; set; }
