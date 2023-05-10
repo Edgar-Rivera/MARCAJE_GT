@@ -15,7 +15,7 @@ namespace purchaseTracking.Services
     */
     public interface IsendMailer
     {
-        void sendMail(string from, string to, string subject, string path, string customer, string workorder, string solicitante, string cuerpo, string orden_venta, string sn);
+        void sendMail(string from, string to, string subject, string path, string empleado, string actividad);
         
     }
     public interface IsendNotification
@@ -79,7 +79,7 @@ namespace purchaseTracking.Services
     public class SendMailer : IsendMailer
     {
         // path from controller
-        public void sendMail(string from, string to, string subject, string path, string customer, string workorder, string solicitante, string cuerpo, string orden_venta, string sn)
+        public void sendMail(string from, string to, string subject, string path, string empleado, string actividad)
         {
             var email = new MimeMessage();
             email.From.Add(new MailboxAddress("Solicitud eTALENT", from));
@@ -90,17 +90,13 @@ namespace purchaseTracking.Services
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
-            using (StreamReader reader = System.IO.File.OpenText("C:\\Template\\response_tracking.html"))
+            using (StreamReader reader = System.IO.File.OpenText("C:\\Template\\etalent_template.html"))
             {
                 mytemplate = reader.ReadToEnd();
             }
-            mytemplate = mytemplate.Replace("{customer}", customer);
-            mytemplate = mytemplate.Replace("{solicitante}", solicitante);
-            mytemplate = mytemplate.Replace("{ot}", workorder);
-            mytemplate = mytemplate.Replace("{cuerpo}", cuerpo);
-            mytemplate = mytemplate.Replace("{orden_venta}", orden_venta);
-            mytemplate = mytemplate.Replace("{sn}", sn);
-            mytemplate = mytemplate.Replace("{link-confirm}", "https://tracking.isertec.com/Tracking/purchase/"+workorder);
+            mytemplate = mytemplate.Replace("{empleado}", empleado);
+            mytemplate = mytemplate.Replace("{actividad}", actividad);
+            mytemplate = mytemplate.Replace("{link-confirm}", "https://tracking.isertec.com/Tracking/purchase/"+actividad);
             
             mensaje.HtmlBody = mytemplate;
            // mensaje.Attachments.Add(path);

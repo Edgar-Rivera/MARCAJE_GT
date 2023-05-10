@@ -59,9 +59,8 @@ namespace purchaseTracking.Controllers
                 ViewBag.email_to = data.correo;
                 ViewBag.email_bcc = requestActivity.U_Correo;
                 ViewBag.activity = new purchaseTracking.Connection.Activities.DataActivities().getID();
-               // SendMailer message = new SendMailer();
-               //message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", data.nombre, ViewBag.activity, requestActivity.U_Solicitante,
-               //requestActivity.Notes, requestActivity.DocNum, CardName);
+                SendMailer message = new SendMailer();
+                message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", requestActivity.U_Solicitante, ViewBag.activity);
                 return View("Success");
             }
             else
