@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using purchaseTracking.Services;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace purchaseTracking.Controllers
 {
@@ -60,6 +62,10 @@ namespace purchaseTracking.Controllers
                 ViewBag.email_bcc = requestActivity.U_Correo;
                 ViewBag.activity = new purchaseTracking.Connection.Activities.DataActivities().getID();
                 SendMailer message = new SendMailer();
+
+                // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
+                ReportDocument rpt = new ReportDocument();
+                rpt = new CrystalReports.VACACIONES();
                 message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", requestActivity.U_Solicitante, ViewBag.activity);
                 return View("Success");
             }
