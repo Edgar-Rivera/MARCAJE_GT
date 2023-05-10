@@ -65,7 +65,7 @@ namespace purchaseTracking.Controllers
 
                 // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
                 ReportDocument rpt = new ReportDocument();
-                rpt = new CrystalReports.VACACIONES();
+                rpt = new VACACIONES();
                 message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", requestActivity.U_Solicitante, ViewBag.activity);
                 return View("Success");
             }

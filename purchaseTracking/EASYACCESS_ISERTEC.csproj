@@ -103,6 +103,7 @@
       <HintPath>..\packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.4003\lib\net40\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <HintPath>..\packages\CrystalReports.Shared.13.0.4003\lib\net40\CrystalDecisions.Shared.dll</HintPath>
     </Reference>
@@ -309,6 +310,7 @@
     <Compile Include="Models\WEA\ORDR_DATA.cs" />
     <Compile Include="Models\WEA\W_MARCAS_LOC_PROY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="purchaseTracking\CrystalReports.cs" />
     <Compile Include="ServiceLayer\Activity\ActivityComponents.cs" />
     <Compile Include="ServiceLayer\Activity\DataTransfer.cs" />
     <Compile Include="ServiceLayer\Conexion.cs" />
@@ -316,6 +318,12 @@
     <Compile Include="ServiceLayer\Login.cs" />
     <Compile Include="Services\Mailer.cs" />
     <Compile Include="Services\SendMailer.cs" />
+    <Compile Include="VACACIONES.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VACACIONES.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -545,6 +553,13 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VACACIONES.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VACACIONES.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
