@@ -8,6 +8,31 @@ namespace purchaseTracking.Connection.Activities
 {
     public class DataActivities
     {
+        public List<Models.Activities.HandledUsers> getUsersAssign()
+        {
+            var data = new List<Models.Activities.HandledUsers>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT \"USERID\", \"U_NAME\" FROM OUSR WHERE \"USERID\" IN(13,70,191)", conn);
+            HanaDataReader reader = cmd.ExecuteReader();
+            data.Add(new Models.Activities.HandledUsers()
+            {
+                USERID = 0,
+                U_NAME = "Seleccione Valor",
+            });
+            while (reader.Read())
+            {
+                data.Add(new Models.Activities.HandledUsers()
+                {
+                    USERID = reader.GetInt32(0),
+                    U_NAME = reader.GetString(1),
+                });
+            }
+
+            conn.Close();
+            return data;
+        }
+
         public List<Models.Activities.List> getListAllInvoice_A(int idUser)
         {
             var data = new List<Models.Activities.List>();
