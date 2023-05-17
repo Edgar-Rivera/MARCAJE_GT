@@ -8,6 +8,275 @@ namespace purchaseTracking.Connection.Activities
 {
     public class DataActivities
     {
+        public List<Models.Activities.List> getListAllInvoice_A(int idUser)
+        {
+            var data = new List<Models.Activities.List>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT A.\"ClgCode\",A.\"CntctDate\"," +
+                "(CASE WHEN  A.\"Action\" = 'C' THEN 'Llamada Teléfonica'" +
+                "WHEN  A.\"Action\" = 'M' THEN 'Reunión'  " +
+                "WHEN  A.\"Action\" = 'T' THEN 'Tarea'	" +
+                "WHEN  A.\"Action\" = 'E' THEN 'Nota'	" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Campaña'" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Otros'	" +
+                "END)\"Actividad\", C.\"Name\", A.\"AttendUser\", B.\"U_NAME\", A.\"U_Solicitante\"," +
+                " A.\"DocNum\", A.\"Details\", A.\"Recontact\", A.\"endDate\" ,  A.\"U_retrasoDias\", A.\"status\" " +
+                "FROM OCLG A " +
+                "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
+                "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
+                "WHERE A.\"AttendUser\" IN(?) AND A.\"status\" <> -3 AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = idUser;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int temp = reader.GetInt32(0);
+                data.Add(new Models.Activities.List()
+                {
+                    ClgCode = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    CntctDate = reader.IsDBNull(1) ? DateTime.Now : reader.GetDateTime(1),
+                    Actividad = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    Name = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    AttendUser = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    U_NAME = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    U_Solicitante = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    DocNum = reader.IsDBNull(7) ? 0 : reader.GetInt32(7),
+                    Details = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    ODC = string.Empty,
+                    Recontact = reader.IsDBNull(9) ? "" : reader.GetDateTime(9).ToString("dd/MM/yyyy"),
+                    endDate = reader.IsDBNull(10) ? "" : reader.GetDateTime(10).ToString("dd/MM/yyyy"),
+                    U_retrasoDias = reader.IsDBNull(11) ? "0" : reader.GetString(11),
+                    status = reader.IsDBNull(12) ? string.Empty : reader.GetString(12),
+                    Estado = getStatus(Convert.ToInt32(reader.GetString(12)))
+                });
+            }
+            conn.Close();
+            return data;
+        }
+
+        // DATOS DE ETALENT
+        public List<Models.Activities.List> getListAllNonStatusInvoice_A(int idUser)
+        {
+            var data = new List<Models.Activities.List>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT A.\"ClgCode\",A.\"CntctDate\"," +
+                "(CASE WHEN  A.\"Action\" = 'C' THEN 'Llamada Teléfonica'" +
+                "WHEN  A.\"Action\" = 'M' THEN 'Reunión'  " +
+                "WHEN  A.\"Action\" = 'T' THEN 'Tarea'	" +
+                "WHEN  A.\"Action\" = 'E' THEN 'Nota'	" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Campaña'" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Otros'	" +
+                "END)\"Actividad\", C.\"Name\", A.\"AttendUser\", B.\"U_NAME\", A.\"U_Solicitante\"," +
+                " A.\"DocNum\", A.\"Details\", A.\"Recontact\", A.\"endDate\" ,  A.\"U_retrasoDias\", A.\"status\" " +
+                "FROM OCLG A " +
+                "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
+                "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
+                "WHERE A.\"AttendUser\" IN(?)  AND A.\"CntctType\" IN (86) AND A.\"Recontact\" >= '20230101'  ORDER BY 2 DESC", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = idUser;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int temp = reader.GetInt32(0);
+                data.Add(new Models.Activities.List()
+                {
+                    ClgCode = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    CntctDate = reader.IsDBNull(1) ? DateTime.Now : reader.GetDateTime(1),
+                    Actividad = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    Name = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    AttendUser = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    U_NAME = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    U_Solicitante = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    DocNum = reader.IsDBNull(7) ? 0 : reader.GetInt32(7),
+                    Details = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    ODC = string.Empty,
+                    Recontact = reader.IsDBNull(9) ? "" : reader.GetDateTime(9).ToString("dd/MM/yyyy"),
+                    endDate = reader.IsDBNull(10) ? "" : reader.GetDateTime(10).ToString("dd/MM/yyyy"),
+                    U_retrasoDias = reader.IsDBNull(11) ? "0" : reader.GetString(11),
+                    status = reader.IsDBNull(12) ? string.Empty : reader.GetString(12),
+                    Estado = getStatus(Convert.ToInt32(reader.GetString(12)))
+                });
+            }
+            conn.Close();
+            return data;
+        }
+        public Models.Activities.details getDetailsInvoice(int id)
+        {
+            var data = new Models.Activities.details();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT A.\"ClgCode\",A.\"CntctDate\"," +
+                "(CASE WHEN  A.\"Action\" = 'C' THEN 'Llamada Teléfonica'" +
+                "WHEN  A.\"Action\" = 'M' THEN 'Reunión'	" +
+                "WHEN  A.\"Action\" = 'T' THEN 'Tarea'	" +
+                "WHEN  A.\"Action\" = 'E' THEN 'Nota'	" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Campaña'" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Otros'	" +
+                "END)\"Actividad\", C.\"Name\", A.\"AttendUser\", B.\"U_NAME\", A.\"U_Solicitante\"," +
+                "A.\"DocNum\", A.\"Details\", A.\"CardCode\",  D.\"CardName\",A.\"status\", A.\"Priority\"," +
+                "(CASE WHEN A.\"DocType\" = 17 THEN 'Pedidos de Cliente'" +
+                "WHEN A.\"DocType\" = 22 THEN 'Orden de Compra'" +
+                "WHEN A.\"DocType\" = 20 THEN 'Entrada de Mercancias'" +
+                "WHEN A.\"DocType\" = 21 THEN 'Devolución de Mercancias'" +
+                "WHEN A.\"DocType\" = 18 THEN 'Factura de Proveedores' " +
+                "WHEN A.\"DocType\" = 69 THEN 'Precio de Entrega'" +
+                "END) \"ClaseDocumento\", A.\"DocType\", A.\"Notes\", A.\"Recontact\", A.\"endDate\",A.\"U_Comentarios\", A.\"U_Correo\", B.\"E_Mail\", A.\"U_FechaActualizacion\", A.\"U_DireccionFacturacion\", A.\"U_MontoFacturar\", A.\"U_OrdenCompra\", A.\"U_Entregas\", A.\"U_Contacto\", A.\"U_Observaciones\", A.\"U_TipoEnvio\", A.\"U_Moneda\", A.\"U_Refacturacion\",  A.\"U_Concepto\" " +
+                "FROM OCLG A " +
+                "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
+                "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
+                "LEFT JOIN OCRD D ON D.\"CardCode\" = A.\"CardCode\"" +
+                "WHERE  A.\"ClgCode\" = ?", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = id;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.ClgCode = reader.GetInt32(0);
+                data.CntctDate = reader.GetDateTime(1);
+                data.Actividad = reader.GetString(2);
+                data.Name = reader.GetString(3);
+                data.AttendUser = reader.GetString(4);
+                data.U_NAME = reader.GetString(5);
+                data.U_Solicitante = reader.IsDBNull(6) ? string.Empty : reader.GetString(6);
+                data.DocNum = reader.IsDBNull(7) ? 0 : reader.GetInt32(7);
+                data.Details = reader.IsDBNull(8) ? string.Empty : reader.GetString(8);
+                data.CardCode = reader.IsDBNull(9) ? string.Empty : reader.GetString(9);
+                data.CardName = reader.IsDBNull(10) ? string.Empty : reader.GetString(10);
+                data.status = reader.GetInt32(11);
+                data.Priority = reader.GetInt32(12);
+                data.ClaseDocumento = reader.IsDBNull(13) ? string.Empty : reader.GetString(13);
+                data.DocType = reader.IsDBNull(14) ? 0 : reader.GetInt32(14);
+                data.Notes = reader.IsDBNull(15) ? string.Empty : reader.GetString(15);
+                data.Recontact = reader.GetDateTime(16);
+                data.endDate = reader.GetDateTime(17);
+                data.U_Comentarios = reader.IsDBNull(18) ? string.Empty : reader.GetString(18);
+                data.U_Correo = reader.IsDBNull(19) ? string.Empty : reader.GetString(19);
+                data.E_Mail = reader.IsDBNull(20) ? string.Empty : reader.GetString(20);
+                data.FechaActualizacion = reader.IsDBNull(21) ? string.Empty : reader.GetString(21);
+                data.DireccionFacturacion = reader.IsDBNull(22) ? string.Empty : reader.GetString(22);
+                data.MontoFacturar = reader.IsDBNull(23) ? 0 : reader.GetDouble(23);
+                data.OC = reader.IsDBNull(24) ? 0 : reader.GetInt32(24);
+                data.Entregas = reader.IsDBNull(25) ? string.Empty : reader.GetString(25);
+                data.NombreContacto = reader.IsDBNull(26) ? string.Empty : reader.GetString(26);
+                data.observaciones = reader.IsDBNull(27) ? string.Empty : reader.GetString(27);
+                data.TipoEnvio = reader.IsDBNull(28) ? string.Empty : reader.GetString(28);
+                data.Moneda = reader.IsDBNull(29) ? string.Empty : reader.GetString(29);
+                data.Refacturacion = reader.IsDBNull(30) ? 0 : reader.GetInt32(30);
+                data.U_Concepto = reader.IsDBNull(31) ? "" : reader.GetString(31);
+
+            }
+            conn.Close();
+            return data;
+        }
+
+        // OBTIENE LISTAOD DE ACTIVIDADES DEL SOLICITANTE PARA SOLICITUDES DE ETALENT
+        public List<Models.Activities.List> getListRequestInvoice(int idUser)
+        {
+            var data = new List<Models.Activities.List>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT A.\"ClgCode\",A.\"CntctDate\"," +
+                "(CASE WHEN  A.\"Action\" = 'C' THEN 'Llamada Teléfonica'" +
+                "WHEN  A.\"Action\" = 'M' THEN 'Reunión'	" +
+                "WHEN  A.\"Action\" = 'T' THEN 'Tarea'	" +
+                "WHEN  A.\"Action\" = 'E' THEN 'Nota'	" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Campaña'" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Otros'	" +
+                "END)\"Actividad\", C.\"Name\", A.\"AttendUser\", B.\"U_NAME\", A.\"U_Solicitante\"," +
+                " A.\"DocNum\", A.\"Details\", A.\"Recontact\", A.\"endDate\" ,  A.\"U_retrasoDias\", A.\"status\" " +
+                "FROM OCLG A " +
+                "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
+                "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
+                "WHERE A.\"U_internalKey\" = ? AND A.\"status\" <> -3 AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = idUser;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int temp = reader.GetInt32(0);
+                data.Add(new Models.Activities.List()
+                {
+                    ClgCode = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    CntctDate = reader.IsDBNull(1) ? DateTime.Now : reader.GetDateTime(1),
+                    Actividad = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    Name = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    AttendUser = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    U_NAME = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    U_Solicitante = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    DocNum = reader.IsDBNull(7) ? 0 : reader.GetInt32(7),
+                    Details = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    ODC = string.Empty,
+                    Recontact = reader.IsDBNull(9) ? "" : reader.GetDateTime(9).ToString("dd/MM/yyyy"),
+                    endDate = reader.IsDBNull(10) ? DateTime.Now.ToString("dd/MM/yyyy") : reader.GetDateTime(10).ToString("dd/MM/yyyy"),
+                    U_retrasoDias = reader.IsDBNull(11) ? "0" : reader.GetString(11),
+                    status = reader.IsDBNull(12) ? "0" : reader.GetString(12),
+                    Estado = getStatus(Convert.ToInt32(reader.GetString(12)))
+                }); ;
+            }
+            conn.Close();
+            return data;
+        }
+        /* RUTINA PRA SOLICITUDES DE ETALENT */
+        public List<Models.Activities.List> getListRequestInvoiceNonEstatus(int idUser)
+        {
+            var data = new List<Models.Activities.List>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT A.\"ClgCode\",A.\"CntctDate\"," +
+                "(CASE WHEN  A.\"Action\" = 'C' THEN 'Llamada Teléfonica'" +
+                "WHEN  A.\"Action\" = 'M' THEN 'Reunión'	" +
+                "WHEN  A.\"Action\" = 'T' THEN 'Tarea'	" +
+                "WHEN  A.\"Action\" = 'E' THEN 'Nota'	" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Campaña'" +
+                "WHEN  A.\"Action\" = 'P' THEN 'Otros'	" +
+                "END)\"Actividad\", C.\"Name\", A.\"AttendUser\", B.\"U_NAME\", A.\"U_Solicitante\"," +
+                " A.\"DocNum\", A.\"Details\", A.\"Recontact\", A.\"endDate\" ,  A.\"U_retrasoDias\", A.\"status\" " +
+                "FROM OCLG A " +
+                "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
+                "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
+                "WHERE A.\"U_internalKey\" = ?  AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = idUser;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int temp = reader.GetInt32(0);
+                data.Add(new Models.Activities.List()
+                {
+                    ClgCode = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    CntctDate = reader.IsDBNull(1) ? DateTime.Now : reader.GetDateTime(1),
+                    Actividad = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    Name = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    AttendUser = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    U_NAME = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    U_Solicitante = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    DocNum = reader.IsDBNull(7) ? 0 : reader.GetInt32(7),
+                    Details = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    ODC = string.Empty,
+                    Recontact = reader.IsDBNull(9) ? "" : reader.GetDateTime(9).ToString("dd/MM/yyyy"),
+                    endDate = reader.IsDBNull(10) ? DateTime.Now.ToString("dd/MM/yyyy") : reader.GetDateTime(10).ToString("dd/MM/yyyy"),
+                    U_retrasoDias = reader.IsDBNull(11) ? "0" : reader.GetString(11),
+                    status = reader.IsDBNull(12) ? "0" : reader.GetString(12),
+                    Estado = getStatus(Convert.ToInt32(reader.GetString(12)))
+                }); ;
+            }
+            conn.Close();
+            return data;
+        }
+
+
         /** OBTEIEN LOS DATOS DE LAS OV PARA LUEGO FILTRAR LAS FACTURAS Y PAGOS SIN FILTRO -- SOLICITADO NLOPEZ  **/
         public List<Models.Orders.SalesOrder> GetSalesOrdersUnitBMA()
         {

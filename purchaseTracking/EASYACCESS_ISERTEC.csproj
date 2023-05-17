@@ -318,6 +318,7 @@
     <Compile Include="ServiceLayer\Login.cs" />
     <Compile Include="Services\Mailer.cs" />
     <Compile Include="Services\SendMailer.cs" />
+    <Compile Include="SessionExpireFilterAttribute.cs" />
     <Compile Include="VACACIONES.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -535,6 +536,9 @@
     <Content Include="Views\Account\Documentos.cshtml" />
     <Content Include="Views\Account\RequestForms.cshtml" />
     <Content Include="Views\Account\VacationsRequest.cshtml" />
+    <Content Include="Views\Account\RequestInvoice.cshtml" />
+    <Content Include="Views\Account\listInvoice.cshtml" />
+    <Content Include="Views\Account\detailsInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -214,3 +214,10 @@ C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Release\EASYACCES
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Release\EASYACCESS_ISERTEC.csproj.CopyComplete
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Release\purchaseTracking.dll
 C:\Users\erivera\source\repos\MARCAJES_GT\purchaseTracking\obj\Release\purchaseTracking.pdb
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\CrystalDecisions.ReportSource.dll
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\CrystalDecisions.Shared.dll
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\log4net.dll
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\log4net.xml
+C:\Users\erivera\Source\Repos\MARCAJES_GT\purchaseTracking\bin\Sap.Data.Hana.v4.5.pdb

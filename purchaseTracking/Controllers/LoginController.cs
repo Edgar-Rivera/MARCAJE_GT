@@ -59,14 +59,7 @@ namespace purchaseTracking.Controllers
                             {
                                 Session.Add("Profession", data_etalent[0].EDPO_EMPL_PROFESION);
                                 Session.Add("external_code", data_sap[0].empID);
-                                Session.Add("internal_code", data_etalent[0].EPDO_CODIGO);
-                                Session.Timeout = 640;  // Tiempo que ASP.NET guardara la cookie de sesión del Usuario, tambien de debe manejar desde IIS o Apache Tomcat
-                                DateTime expire = DateTime.Now.AddMinutes(FormsAuthentication.Timeout.TotalMinutes);
-                                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(Convert.ToInt32(internalKey), fullName, DateTime.Now, expire, false, attemp.UserName); // se crea un nuevo ticket de Sesión para el usuario
-                                string hashTicket = FormsAuthentication.Encrypt(ticket); // Encriptación del ticket para no ser expuesta en el navegador
-                                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hashTicket);
-                                cookie.HttpOnly = true;
-                                HttpContext.Response.Cookies.Add(cookie);
+                                Session.Add("internal_code", data_etalent[0].EPDO_CODIGO);                                                         
                                 await LogoutSL(LoginResponse);
                                 if (!string.IsNullOrEmpty(returnUrl))
                                 {

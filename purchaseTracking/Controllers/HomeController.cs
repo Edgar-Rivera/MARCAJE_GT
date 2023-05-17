@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace purchaseTracking.Controllers
 {
-    [Authorize]
+    [SessionExpireFilter]
     public class HomeController : Controller
     {
         private string TYPE_M(string temp)

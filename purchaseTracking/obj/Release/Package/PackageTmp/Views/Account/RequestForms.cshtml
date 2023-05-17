@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "Formularios / Solicitudes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid rgba(0, 0, 0, 0);
+        border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+    }
+
+    .bg-gradient-scooter {
+        background: #17ead9;
+    }
+
+    .widgets-icons-2 {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ededed;
+        font-size: 27px;
+        border-radius: 10px;
+    }
+
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+
+    .text-white {
+        color: #fff !important;
+    }
+
+    .ms-auto {
+        margin-left: auto !important;
+    }
+
+    .bg-gradient-bloody {
+        background: #f54ea2;
+    }
+
+    .bg-gradient-ohhappiness {
+        background: #00b09b;
+    }
+
+    .bg-gradient-blooker {
+        background: #ffdf40;
+    }
+
+    thead tr th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #292b2c;
+    }
+
+    .table-responsive {
+        height: 200px;
+        overflow: scroll;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            <h4>Formularios de Solicitud</h4>
+            <hr />
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <a href="@Url.Action("VacationsRequest", "Account")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Solicitud de Vacaciones</h5>
+                                        <p class="mb-0 font-13">Solicitud digital&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-success text-white ms-auto">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action("myAction", "myController")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Solicitud de Anticipo Sueldo</h5>
+                                        <p class="mb-0 font-13">Solicitud digital&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-primary text-white ms-auto">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action("myAction", "myController")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Solicitud de Anticipo Bono 14</h5>
+                                        <p class="mb-0 font-13">Solicitud digital&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-warning text-white ms-auto">
+                                        <i class="fas fa-money-bill-wave-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="@Url.Action("myAction", "myController")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Solicitud de Anticipo Aguinaldo</h5>
+                                        <p class="mb-0 font-13">Solicitud digital&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-red text-white ms-auto">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <a href="@Url.Action("myAction", "myController")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Solicitud Anticipo Bonificaciones</h5>
+                                        <p class="mb-0 font-13">Solicitud digital&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-orange text-white ms-auto">
+                                        <i class="fas fa-comment-dollar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <h4>Politicas / Controles Internos</h4>
+            <hr />
+            <div class="form-row">
+
+            </div>
+        </div>
+    </div>
+</div>
+

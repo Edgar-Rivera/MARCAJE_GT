@@ -15,7 +15,7 @@ namespace purchaseTracking.Services
     */
     public interface IsendMailer
     {
-        void sendMail(string from, string to, string subject, string path, string empleado, string actividad);
+        void sendMail(string from, string to, string subject, string path, string empleado, string actividad, string path_file);
         
     }
     public interface IsendNotification
@@ -79,7 +79,7 @@ namespace purchaseTracking.Services
     public class SendMailer : IsendMailer
     {
         // path from controller
-        public void sendMail(string from, string to, string subject, string path, string empleado, string actividad)
+        public void sendMail(string from, string to, string subject, string path, string empleado, string actividad, string path_file)
         {
             var email = new MimeMessage();
             email.From.Add(new MailboxAddress("Solicitud eTALENT", from));
@@ -99,7 +99,7 @@ namespace purchaseTracking.Services
             mytemplate = mytemplate.Replace("{link-confirm}", "https://tracking.isertec.com/Tracking/purchase/"+actividad);
             
             mensaje.HtmlBody = mytemplate;
-           // mensaje.Attachments.Add(path);
+            mensaje.Attachments.Add(path_file);
             email.Body = mensaje.ToMessageBody();
             email.Headers.Add("Disposition-Notification-To", "ticket@isertec.com");
             var smtp = new SmtpClient();

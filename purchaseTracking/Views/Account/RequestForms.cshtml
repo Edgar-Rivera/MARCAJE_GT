@@ -5,6 +5,10 @@
 }
 
 <style>
+    a[href] {
+        color: black !important;
+    }
+
     .card {
         position: relative;
         display: flex;
@@ -73,6 +77,46 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-11">
+            <h4>Solcitudes Realizadas / Asignadas</h4>
+            <hr />
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <a href="@Url.Action("listInvoice", "Account")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Solicitudes Asignadas</h5>
+                                        <p class="mb-0 font-13">Solicitudes realizadas por empleados&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-red text-white ms-auto">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <a href="@Url.Action("RequestInvoice", "Account")">
+                    <div class="col">
+                        <div class="card radius-10 border-start border-0 border-3 border-info">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Mis solicitudes Creadas</h5>
+                                        <p class="mb-0 font-13">Solicitudes realizadas&nbsp;</p>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-success text-white ms-auto">
+                                        <i class="fas fa-share"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <h4>Formularios de Solicitud</h4>
             <hr />
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
@@ -170,6 +214,6 @@
 
             </div>
         </div>
-    </div>
+        </div>
 </div>
 

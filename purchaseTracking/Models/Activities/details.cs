@@ -33,5 +33,18 @@ namespace purchaseTracking.Models.Activities
         public string E_Mail { get; set; }
         public string Estado { get; set; }
         public string FechaActualizacion { get; set; }
+        public double LineasP { get; set; }
+        public double LineasI { get; set; }
+        public string DireccionFacturacion { get; set; }
+        public double MontoFacturar { get; set; }
+        public int OC { get; set; }
+        public string Entregas { get; set; }
+        public string NombreContacto { get; set; }
+        public string observaciones { get; set; }
+        public string TipoEnvio { get; set; }
+        public string Moneda { get; set; }
+        public int Refacturacion { get; set; }
+        public string U_Concepto { get; set; }
+        public string UnidadComercial { get; set; }
     }
 }
