@@ -16,9 +16,6 @@
 <div class="bg-img" style="background-image: url(/Content/Images/bg-3.jpg)">
     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "container" }))
     {
-
-        string temp = ViewBag.ReturnUrl;
-        @Html.Hidden("returnUrl", temp);
         <img src="https://www.isertec.com/storage/images/contents/5af4cdc8f31e5_.svg" width="200" height="60" alt="isericon" class="image-logon">
         <div class="input-container">
             <i class="fa fa-user icon"></i>

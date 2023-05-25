@@ -25,9 +25,8 @@ namespace purchaseTracking.Controllers
             FormsAuthentication.SignOut();// Cierra sesión de FormsAuthenticationTicket
             return RedirectToAction("Login");
         }
-        public async Task<ActionResult> Login(SiteUser attemp, string returnUrl)
+        public async Task<ActionResult> Login(SiteUser attemp)
         {
-            ViewBag.ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
                 try
@@ -62,14 +61,7 @@ namespace purchaseTracking.Controllers
                                 Session.Add("external_code", data_sap[0].empID);
                                 Session.Add("internal_code", data_etalent[0].EPDO_CODIGO);                                                         
                                 await LogoutSL(LoginResponse);
-                                if (!string.IsNullOrEmpty(returnUrl))
-                                {
-                                    return Redirect(returnUrl);
-                                }
-                                else
-                                {
-                                    return RedirectToAction("page", "Home");
-                                }
+                                return RedirectToAction("page", "Home");
                             }
                             else
                             {
