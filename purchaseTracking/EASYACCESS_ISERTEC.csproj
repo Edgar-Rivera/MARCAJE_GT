@@ -264,6 +264,12 @@
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\TrackingController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
+    <Compile Include="CrystalReports\EvidenciaFotografica1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EvidenciaFotografica.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -564,6 +570,10 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CrystalReports\EvidenciaFotografica.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EvidenciaFotografica1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="VACACIONES.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VACACIONES.cs</LastGenOutput>
