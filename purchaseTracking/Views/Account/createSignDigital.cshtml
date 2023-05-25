@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Crear Firma Digital";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section Scripts{
+    <script src="~/Scripts/signature_pad.min.js"></script>
+
+    <script>
+        $(function () {
+            var canvas = document.querySelector('#signature');
+            var pad = new SignaturePad(canvas);
+
+            $('#save').click(function () {
+                var data = pad.toDataURL();
+                $('#savetarget').attr('src', data);
+                $('#SignatureDataUrl').val(data);
+                pad.off();
+            });
+
+            $('#accept').click(function () {
+
+                pad.clear();
+                pad.on();
+
+            });
+
+        });
+                /**/
+    </script>
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+
+            @if (!string.IsNullOrEmpty(ViewBag.source))
+            {
+                <h4>Firma Resgistrada por Empleado</h4>
+                <hr />
+                <br />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            <img width="500" height="400" src="@ViewBag.source"
+                                 style="border:1px solid"><br>
+                        </p>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm("createSignDigital", "Schedulings", FormMethod.Post))
+                {
+                    <h4>Creación de Firma Digital</h4>
+                    <hr />
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>
+                                <canvas width="350" height="300" id="signature"
+                                        style="border:1px solid black"></canvas><br>
+                                <button type="button" id="accept"
+                                        class="btn btn-primary">
+                                    Limpiar Firma
+                                </button>
+
+                                <img width="500" height="400" id="savetarget"
+                                     style="border:1px solid black;display:none"><br>
+                                <input type="text" name="SignatureDataUrl" id="SignatureDataUrl" style="display:none" required>
+                            </p>
+                        </div>
+                    </div>
+                    <button style="float:right" type="submit" class="btn btn-success" id="save">Guardar Firma</button>
+                }
+            }
+        </div>
+    </div>
+</div>
+

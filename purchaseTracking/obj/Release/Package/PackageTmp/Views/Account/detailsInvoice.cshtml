@@ -37,12 +37,12 @@
                 <fieldset disabled>
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Fecha Inicio Vacaciones </label></strong>
-                            <input class="form-control" type="text" value="@Model.CntctDate.ToString("dd/MM/yyyy")">
+                            <strong><label class="control-label">Fecha Actividad </label></strong>
+                            <input class="form-control" type="text" value="@Model.Recontact.ToString("dd/MM/yyyy")">
                         </div>
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Fecha Fin Vacaciones</label></strong>
-                            <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
+                            <strong><label class="control-label">Fecha Necesario Proyecto </label></strong>
+                            <input class="form-control" type="text" value="@Model.endDate.ToString("dd/MM/yyyy")">
                         </div>
                     </div>
 
@@ -123,11 +123,51 @@
                             <input type="text" class="form-control" value="@Model.U_Solicitante" id="contract">
                         </div>
                     </div>
-                </div>   
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Código SN </label></strong>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" class="form-control" value="@Model.CardCode">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Nombre SN </label></strong>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" class="form-control" value="@Model.CardName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Órden de Venta </label></strong>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" class="form-control" value="@Model.DocNum">
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <div class="col-sm-8">
-                        <strong><label class="control-label">Asunto </label></strong>
-                        <textarea type="text" class="form-control" rows="2">@Model.Details</textarea>
+                        <strong><label class="control-label">Última Fecha de Actualización</label></strong>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            </div>
+                            @if (Model.FechaActualizacion != "")
+                            {
+                                <input type="text" class="form-control" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control" value="@Model.FechaActualizacion">
+                            }
+
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -140,23 +180,7 @@
                         </div>
                     </div>
                 </div>
-    
-                    @if (!string.IsNullOrEmpty(ViewBag.source))
-                    {
-                        <h4>Firma Resgistradas en Solicitud</h4>
-                        <hr />
-                        <br />
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p>
-                                    <img width="250" height="200" src="@ViewBag.source"
-                                         style="border:1px solid"><br>
-                                </p>
-                            </div>
 
-                        </div>
-                    }
-        
             </fieldset>
 
             <br />
@@ -164,24 +188,101 @@
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#contenido" role="tab" aria-controls="contenido" aria-selected="false">Contenido</a>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <br />
                 <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
-                    <fieldset disabled>                  
+                    <fieldset disabled>
                         <div class="form-group row">
-                            <div class="col-sm-8">
+                            <div class="col-sm-4">
+                                <strong><label class="control-label">Refacturación </label></strong>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="text" class="form-control" value="@Model.Refacturacion">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <strong><label class="control-label">Monto a Facturar </label></strong>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="text" class="form-control" value="@string.Format("{0:#,##0.#0}", Model.MontoFacturar)">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <strong><label class="control-label">Moneda a Facturar</label></strong>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="text" class="form-control" value="@Model.Moneda">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <strong><label class="control-label">Detalle de Entregas </label></strong>
+                                <textarea type="text" class="form-control" rows="7">@Model.Entregas</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <strong><label class="control-label">Tipo de Entrega </label></strong>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="text" class="form-control" value="@temp">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <strong><label class="control-label">Orden de Compra</label></strong>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    </div>
+                                    <input type="text" class="form-control" value="@Model.OC">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
                                 <strong>
                                     <label class="control-label">
-                                        Detalles de Solicitud
+                                        Datos para trámite de pago factura (Correo Electrónico, Plataforma o Datos de
+                                        Entrega Física (Dirección, Contacto y Número de Teléfono, Correo electrónico si
+                                        Aplica))
+                                    </label>
+                                </strong>
+                                <textarea type="text" class="form-control" rows="7">@Model.observaciones</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <strong>
+                                    <label class="control-label">
+                                        Concepto
+                                    </label>
+                                </strong>
+                                <textarea type="text" class="form-control" rows="7">@Model.U_Concepto</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <strong>
+                                    <label class="control-label">
+                                        Nit, Razón Social, Dirección
                                     </label>
                                 </strong>
                                 <textarea type="text" class="form-control" rows="7">@Model.Notes</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-8">
-                                <strong><label class="control-label">Comentarios Jefe Inmediato </label></strong>
+                            <div class="col-sm-12">
+                                <strong><label class="control-label">Comentarios Analista Financiero </label></strong>
                                 <textarea type="text" class="form-control" rows="7">@Model.U_Comentarios</textarea>
                             </div>
                         </div>
@@ -220,7 +321,35 @@
                     <br />
 
                 </div>
-                
+                <div class="tab-pane fade" id="contenido" role="tabpanel" aria-labelledby="profile-tab">
+
+                    <fieldset disabled>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label">Asunto </label></strong>
+                                <textarea type="text" class="form-control" rows="2">@Model.Details</textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <strong><label class="control-label"> Clase de Documento</label></strong>
+
+                            <input type="text" class="form-control" value="@Model.ClaseDocumento" readonly>
+                        </div>
+                        <div class="col-sm-4">
+                            <strong><label class="control-label">Documento vinculado </label></strong>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" value="@Model.DocNum" readonly>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
 

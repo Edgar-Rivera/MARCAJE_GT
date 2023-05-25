@@ -8,6 +8,30 @@ namespace purchaseTracking.Connection.Activities
 {
     public class DataActivities
     {
+        // obtiene firma de tecnicos / empleados
+        public Models.Images.ImageSign GetSignTechnician(int codigo)
+        {
+            var data = new Models.Images.ImageSign();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT A.\"U_InternalKey\", A.\"U_PathSign\" , B.\"U_NAME\"" +
+                " FROM \"@SIGN_DIGITAL_OT\" A" +
+                " INNER JOIN OUSR B ON B.\"USERID\" = A.\"U_InternalKey\"" +
+                " WHERE A.\"U_InternalKey\" = ?; ", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            param.Value = codigo;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.U_InternalKey = reader.GetInt32(0);
+                data.U_PathSign = reader.GetString(1);
+                data.U_Nombre = reader.GetString(2);
+            }
+            conn.Close();
+            return data;
+        }
         public List<Models.Activities.HandledUsers> getUsersAssign()
         {
             var data = new List<Models.Activities.HandledUsers>();

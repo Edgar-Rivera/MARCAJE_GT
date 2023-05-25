@@ -287,6 +287,7 @@
     <Compile Include="Models\eTALENT\EPDO_MASTER_DATA.cs" />
     <Compile Include="Models\eTALENT\HISTORICO_VACACIONES.cs" />
     <Compile Include="Models\eTALENT\VACACIONES_DISPONIBLES.cs" />
+    <Compile Include="Models\Images\ImageSign.cs" />
     <Compile Include="Models\Invoice\Invoice.cs" />
     <Compile Include="Models\Invoice\RecurrentInvoice.cs" />
     <Compile Include="Models\Invoice\SalesOrders.cs" />
@@ -298,6 +299,7 @@
     <Compile Include="Models\Orders\Solicitante.cs" />
     <Compile Include="Models\Project\FinancialProject.cs" />
     <Compile Include="Models\Project\SalesOrders.cs" />
+    <Compile Include="Models\SignDigitalTechnician\SIGN_DIGITAL_OT.cs" />
     <Compile Include="Models\SiteUser.cs" />
     <Compile Include="Models\Tracking\Activities.cs" />
     <Compile Include="Models\Tracking\Details.cs" />
@@ -316,6 +318,7 @@
     <Compile Include="ServiceLayer\Conexion.cs" />
     <Compile Include="ServiceLayer\getUserName.cs" />
     <Compile Include="ServiceLayer\Login.cs" />
+    <Compile Include="ServiceLayer\Schedulings.cs" />
     <Compile Include="Services\Mailer.cs" />
     <Compile Include="Services\SendMailer.cs" />
     <Compile Include="SessionExpireFilterAttribute.cs" />
@@ -539,6 +542,7 @@
     <Content Include="Views\Account\RequestInvoice.cshtml" />
     <Content Include="Views\Account\listInvoice.cshtml" />
     <Content Include="Views\Account\detailsInvoice.cshtml" />
+    <Content Include="Views\Account\createSignDigital.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

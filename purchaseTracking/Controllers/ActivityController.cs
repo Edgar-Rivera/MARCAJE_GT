@@ -18,7 +18,13 @@ namespace purchaseTracking.Controllers
     [Authorize]
     public class ActivityController : Controller
     {
+        public Models.Images.ImageSign GetSignTechnician(int internalKey)
+        {
 
+            Models.Images.ImageSign dataImage = new Models.Images.ImageSign();
+            dataImage = new Connection.Activities.DataActivities().GetSignTechnician(internalKey);
+            return dataImage;
+        }
         // GET: Activity
         [HttpGet]
         public ActionResult list(int? page, string findString, string filterString)

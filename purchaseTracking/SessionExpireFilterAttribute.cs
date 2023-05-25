@@ -17,7 +17,6 @@ namespace purchaseTracking
                 // Realizar acciones apropiadas, como redireccionar a una página de inicio de sesión
                 filterContext.Result = new RedirectResult("~/Login/Login");
             }
-
             base.OnActionExecuting(filterContext);
         }
     }

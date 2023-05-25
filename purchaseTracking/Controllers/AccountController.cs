@@ -16,6 +16,35 @@ namespace purchaseTracking.Controllers
     [SessionExpireFilter]
     public class AccountController : Controller
     {
+        [HttpGet]
+        public ActionResult createSignDigital()
+        {
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult createSignDigital(string SignatureDataUrl)
+        {
+            Models.SignDigitalTechnician.SIGN_DIGITAL_OT temp = new Models.SignDigitalTechnician.SIGN_DIGITAL_OT();
+            temp.U_InternalKey = Session["code"].ToString();
+            temp.U_PathSign = SignatureDataUrl;
+            if (new purchaseTracking.ServiceLayer.Schedulings().AddSign(temp))
+            {
+                return View("Success");
+            }
+            else
+            {
+                ViewBag.exception = "No ha sido posible crear la rutina";
+                return View("Error");
+            }
+        }
+
+
         // GET: Account
         [HttpGet]
         public ActionResult PersonalInformation()
@@ -139,6 +168,10 @@ namespace purchaseTracking.Controllers
         [HttpGet]
         public ActionResult detailsInvoice(int id)
         {
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
             Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
             return View(data);
         }
