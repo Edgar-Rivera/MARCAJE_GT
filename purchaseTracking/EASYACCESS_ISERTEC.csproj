@@ -270,6 +270,12 @@
       <DependentUpon>EvidenciaFotografica.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\Signs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Signs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +300,7 @@
     <Compile Include="Models\eTALENT\HISTORICO_VACACIONES.cs" />
     <Compile Include="Models\eTALENT\VACACIONES_DISPONIBLES.cs" />
     <Compile Include="Models\Images\ImageSign.cs" />
+    <Compile Include="Models\Images\Signs.cs" />
     <Compile Include="Models\Invoice\Invoice.cs" />
     <Compile Include="Models\Invoice\RecurrentInvoice.cs" />
     <Compile Include="Models\Invoice\SalesOrders.cs" />
@@ -573,6 +580,10 @@
     <EmbeddedResource Include="CrystalReports\EvidenciaFotografica.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EvidenciaFotografica1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\Signs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Signs.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VACACIONES.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

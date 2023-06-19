@@ -10,6 +10,8 @@ using System.Data.SqlClient;
 using purchaseTracking.Connection;
   using PagedList;
 using PagedList.Mvc;
+using System.IO;
+using System.Drawing;
 
 namespace purchaseTracking.Controllers
 {
@@ -80,6 +82,43 @@ namespace purchaseTracking.Controllers
         {
             return View();
         }
+
+        public byte[] convertStringtoByte(string SignatureDataUrl)
+        {
+            byte[] jpgArray;
+            string temp = string.Empty;
+            var base64Signature = SignatureDataUrl.Split(',')[1];
+            byte[] imageBytes = System.Convert.FromBase64String(base64Signature);
+            using (MemoryStream msIn = new MemoryStream(imageBytes))
+            {
+                using (Image pic = Image.FromStream(msIn))
+                {
+                    using (MemoryStream msOut = new MemoryStream())
+                    {
+                        pic.Save(msOut, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        temp = Convert.ToBase64String(msOut.ToArray());
+                        jpgArray = System.Convert.FromBase64String(temp);
+                    }
+                }
+            }
+
+            return jpgArray;
+        }
+
+        public List<Models.Images.Signs> GetListSigns( int codigo)
+        {
+            List<Models.Images.Signs> data = new List<Models.Images.Signs>();
+            Models.Images.ImageSign dataImage = new Models.Images.ImageSign();
+            dataImage = new Connection.Activities.DataActivities().GetSignTechnician(codigo);
+            if (dataImage.U_PathSign!="")
+            {
+                Models.Images.Signs imageData = new Models.Images.Signs();
+                imageData.nombre = "Empleado: " + dataImage.U_Nombre;
+                imageData.image = convertStringtoByte(dataImage.U_PathSign);
+                data.Add(imageData);
+            }   
+            return data;
+        }
         [HttpPost]
         public ActionResult newRequest(Models.Activities.RequestActivity requestActivity)
         {
@@ -89,6 +128,7 @@ namespace purchaseTracking.Controllers
             // METODO QUE RECIBE EL MODULO Y HACE EL POST EN SAP   
             if (new ServiceLayer.Activity.ActivityComponents().addActivity(requestActivity))
             {
+                var tableSigns = GetListSigns(Convert.ToInt32(Session["code"].ToString()));
                 // VALIDA LA CREACION DE LA ACTIVIDAD EN SAP Y ENVIA CORREO ELECTORNICO
                 var data = new Connection.Activities.DataActivities().GetEjecutivo(requestActivity.HandledBy);
                 ViewBag.email_to = data.correo;
@@ -100,18 +140,23 @@ namespace purchaseTracking.Controllers
                 // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
                 string direct = string.Empty;
                 ReportDocument rpt = new ReportDocument();
-                rpt = new VACACIONES();
+                rpt = new VACACIONES();             
                 rpt.SetDatabaseLogon("sa","manag3RS");
+                rpt.Subreports[0].SetDataSource(tableSigns);
 
-                // DATA SOURCE 
-                
+                // DATA SOURCE FIRMAS
+
+
+
+                // DATOS DE FIRMAS
+
                 rpt.SetParameterValue("@FECHA",requestActivity.StartDate);
                 rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
                 rpt.SetParameterValue("MotivoCambio", "");
                 rpt.SetParameterValue("FechaFin", requestActivity.U_FechaActualizacion);
                 rpt.SetParameterValue("CantidadDiasVacaciones", 15);
                 rpt.SetParameterValue("Observaciones", requestActivity.Details);
-                
+          
                 ExportOptions myoptions;
                 DiskFileDestinationOptions path = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions pdf = new PdfRtfWordFormatOptions();
@@ -203,6 +248,67 @@ namespace purchaseTracking.Controllers
                 return View(obj.ToPagedList(pageNumber, pageSize));
             }
             return View(data.ToPagedList(pageNumber, pageSize));
+        }
+
+
+        [HttpPost]
+        public ActionResult updateStatus(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Activities.Activities();
+            data.U_Comentarios = comment;
+            data.Status = status;
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
+            {
+                SendNotification message = new SendNotification();
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_ESTADO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult updateComments(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Activities.Activities();
+            data.U_Comentarios = comment;
+            data.Status = status;
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
+            {
+                SendNotification message = new SendNotification();
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult updateNotes(int id, string comment, string ejecutivo, string involucrados, string orden_venta, string sn)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Orders.Activities();
+            data.Notes = comment;
+            data.U_FechaActualizacion = DateTime.Now.ToString("yyyy-MM-dd");
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaNotas(id, data))
+            {
+                SendNotification message = new SendNotification();
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+
         }
     }
 }

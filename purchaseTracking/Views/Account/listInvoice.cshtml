@@ -112,16 +112,16 @@
                                 <td class="text-center">
                                     @item.U_Solicitante
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @item.Name
                                 </td>
-                                <td >
+                                <td class="text-center">
                                     @item.Details
                                 </td>
                                 <td class="text-center">
                                     @if (item.status == "-2")
                                     {
-                                        <span class="badge badge-warning">No iniciado</span>
+                                    <span class="badge badge-success">En proceso</span>
                                     }
                                     else if (item.status == "1")
                                     {
@@ -129,12 +129,12 @@
                                     }
                                     else if (item.status == "4")
                                     {
-                                        <span class="badge badge-danger">Tarea en espera</span>
+                                        <span class="badge badge-danger">Rechazado</span>
 
                                     }
                                     else if (item.status == "-3")
                                     {
-                                        <span class="badge badge-success">Concluido</span>
+                                        <span class="badge badge-success">Aprobado</span>
 
                                     }
                                     else if (item.status == "6")
