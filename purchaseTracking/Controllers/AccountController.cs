@@ -275,6 +275,7 @@ namespace purchaseTracking.Controllers
             List<Models.Activities.List> data = new List<Models.Activities.List>();
             if (!string.IsNullOrEmpty(filterString))
             {
+                
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_A(Convert.ToInt32(Session["code"]));
                 data = (from t in data where t.Estado.ToString() == filterString select t).ToList();
             }
@@ -297,7 +298,35 @@ namespace purchaseTracking.Controllers
             return View(data.ToPagedList(pageNumber, pageSize));
         }
 
+        [HttpGet]
+        public ActionResult listNomina(int? page, string findString, string filterString)
+        {
 
+            List<Models.Activities.List> data = new List<Models.Activities.List>();
+            if (!string.IsNullOrEmpty(filterString))
+            {
+
+                data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
+                data = (from t in data where t.Estado.ToString() == filterString select t).ToList();
+            }
+            else
+            {
+                data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
+            }
+            ViewBag.findString = findString;
+            ViewBag.totalItem = data.Count();
+            ViewBag.filterString = filterString;
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            if (!String.IsNullOrEmpty(findString))
+            {
+                var obj = data.Where(s => s.ClgCode.ToString().Contains(findString) || s.CntctDate.ToString().Contains(findString) || s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.AttendUser.ToString().Contains(findString) || s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.DocNum.ToString().Contains(findString)
+                || s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.Estado.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+                return View(obj.ToPagedList(pageNumber, pageSize));
+            }
+            return View(data.ToPagedList(pageNumber, pageSize));
+        }
         [HttpPost]
         public ActionResult updateStatus(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
         {

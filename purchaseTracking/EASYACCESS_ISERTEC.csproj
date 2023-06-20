@@ -558,6 +558,7 @@
     <Content Include="Views\Account\listInvoice.cshtml" />
     <Content Include="Views\Account\detailsInvoice.cshtml" />
     <Content Include="Views\Account\createSignDigital.cshtml" />
+    <Content Include="Views\Account\listNomina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

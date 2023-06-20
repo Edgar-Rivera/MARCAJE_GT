@@ -1,12 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Crear Firma Digital";
+    ViewBag.Title = "Firma Digital";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
 @section Scripts{
+
     <script src="~/Scripts/signature_pad.min.js"></script>
 
     <script>
@@ -29,7 +30,6 @@
             });
 
         });
-                /**/
     </script>
 }
 
@@ -54,7 +54,7 @@
             }
             else
             {
-                using (Html.BeginForm("createSignDigital", "Schedulings", FormMethod.Post))
+                using (Html.BeginForm("createSignDigital", "Account", FormMethod.Post))
                 {
                     <h4>Creación de Firma Digital</h4>
                     <hr />
