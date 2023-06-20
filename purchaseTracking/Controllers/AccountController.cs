@@ -129,6 +129,10 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().addActivity(requestActivity))
             {
                 var tableSigns = GetListSigns(Convert.ToInt32(Session["code"].ToString()));
+
+                
+
+
                 // VALIDA LA CREACION DE LA ACTIVIDAD EN SAP Y ENVIA CORREO ELECTORNICO
                 var data = new Connection.Activities.DataActivities().GetEjecutivo(requestActivity.HandledBy);
                 ViewBag.email_to = data.correo;
@@ -141,11 +145,19 @@ namespace purchaseTracking.Controllers
                 string direct = string.Empty;
                 ReportDocument rpt = new ReportDocument();
                 rpt = new VACACIONES();             
-                rpt.SetDatabaseLogon("sa","manag3RS");
+                rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
                 rpt.Subreports[0].SetDataSource(tableSigns);
 
                 // DATA SOURCE FIRMAS
-
+                int dias = 0;
+                if(!String.IsNullOrEmpty(requestActivity.StartDate) && !string.IsNullOrEmpty(requestActivity.U_FechaActualizacion))
+                {
+                    DateTime fecha1 = Convert.ToDateTime(requestActivity.StartDate);
+                    DateTime fecha2 = Convert.ToDateTime(requestActivity.U_FechaActualizacion);
+                    TimeSpan diferencia = fecha2.Subtract(fecha1);
+                    dias = diferencia.Days;
+                }
+               
 
 
                 // DATOS DE FIRMAS
@@ -154,7 +166,7 @@ namespace purchaseTracking.Controllers
                 rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
                 rpt.SetParameterValue("MotivoCambio", "");
                 rpt.SetParameterValue("FechaFin", requestActivity.U_FechaActualizacion);
-                rpt.SetParameterValue("CantidadDiasVacaciones", 15);
+                rpt.SetParameterValue("CantidadDiasVacaciones", dias);
                 rpt.SetParameterValue("Observaciones", requestActivity.Details);
           
                 ExportOptions myoptions;
