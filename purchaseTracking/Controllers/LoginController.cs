@@ -16,7 +16,7 @@ namespace purchaseTracking.Controllers
 {
     public class LoginController : Controller
     {
-        [Authorize]
+       
         [SessionExpireFilter]
         public ActionResult logoutSession()
         {

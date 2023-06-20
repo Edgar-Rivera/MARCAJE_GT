@@ -221,6 +221,24 @@ namespace purchaseTracking.Controllers
             return View(data);
         }
 
+        [HttpPost]
+        public ActionResult updateMails(int id, string comment)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Tracking.Activities();
+            data.U_Correo = comment;
+
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaEmail(id, data))
+            {
+                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+
+        }
+
         [HttpGet]
         public ActionResult listInvoice(int? page, string findString, string filterString)
         {

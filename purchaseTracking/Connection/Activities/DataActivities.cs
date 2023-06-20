@@ -74,7 +74,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"AttendUser\" IN(?) AND A.\"status\" <> -3 AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
+                "WHERE A.\"AttendUser\" IN(?) AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = idUser;

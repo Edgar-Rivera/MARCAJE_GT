@@ -28,22 +28,19 @@ namespace purchaseTracking.Services
         public void sendNotification(string from, string to, string subject, string ejecutivo, string solicitud, string cuerpo, string orden_venta, string sn)
         {
             var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("Tracking Isertec", from));
+            email.From.Add(new MailboxAddress("Notificaciones eTALENT", from));
             email.To.AddRange(address(to));
             email.Cc.AddRange(address(from));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
-            using (StreamReader reader = System.IO.File.OpenText("C:\\Template\\response_notification.html"))
+            using (StreamReader reader = System.IO.File.OpenText("C:\\Template\\response_notification_a.html"))
             {
                 mytemplate = reader.ReadToEnd();
             }
             mytemplate = mytemplate.Replace("{ejecutivo}", ejecutivo);
             mytemplate = mytemplate.Replace("{solicitud}", solicitud);
             mytemplate = mytemplate.Replace("{cuerpo}", cuerpo);
-            mytemplate = mytemplate.Replace("{orden_venta}", orden_venta);
-            mytemplate = mytemplate.Replace("{sn}", sn);
-            mytemplate = mytemplate.Replace("{link-confirm}", "https://tracking.isertec.com/Tracking/purchase/" + solicitud);
             mensaje.HtmlBody = mytemplate;
             // mensaje.Attachments.Add(path);
             email.Body = mensaje.ToMessageBody();

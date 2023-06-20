@@ -5,17 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-    string temp = string.Empty;
-    if (Model.TipoEnvio == "F")
-    {
-        temp = "Entrega Fisica";
-    }
-    else
-    {
-        temp = "Correo electronico";
-    }
-}
+
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
@@ -152,6 +142,7 @@
                                     <img width="250" height="200" src="@ViewBag.source"
                                          style="border:1px solid"><br>
                                 </p>
+                                <h7>Firma de Empleado: @Model.U_Solicitante</h7>
                             </div>
 
                         </div>
@@ -242,7 +233,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateStatus", "Activity"))
+                        @using (Html.BeginForm("updateStatus", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             @Html.Hidden("ejecutivo", Model.E_Mail);
@@ -293,7 +284,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateComments", "Activity"))
+                        @using (Html.BeginForm("updateComments", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             @Html.Hidden("status", Model.status);
@@ -334,7 +325,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateMails", "Activity"))
+                        @using (Html.BeginForm("updateMails", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             <div class="form-group">
@@ -364,7 +355,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateDate", "Activity"))
+                        @using (Html.BeginForm("updateDate", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             @Html.Hidden("correo", Model.U_Correo);
