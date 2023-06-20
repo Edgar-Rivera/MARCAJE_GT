@@ -113,7 +113,7 @@
                             <input type="text" class="form-control" value="@Model.U_Solicitante" id="contract">
                         </div>
                     </div>
-                </div>   
+                </div>
                 <div class="form-group row">
                     <div class="col-sm-8">
                         <strong><label class="control-label">Asunto </label></strong>
@@ -130,24 +130,44 @@
                         </div>
                     </div>
                 </div>
-    
-                    @if (!string.IsNullOrEmpty(ViewBag.source))
-                    {
-                        <h4>Firma Resgistradas en Solicitud</h4>
-                        <hr />
-                        <br />
-                        <div class="row">
-                            <div class="col-sm-6">
+
+                @if (!string.IsNullOrEmpty(ViewBag.source))
+                {
+                    <h4>Firma Resgistradas en Solicitud</h4>
+                    <hr />
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p>
+                                <img width="250" height="200" src="@ViewBag.source"
+                                     style="border:1px solid"><br>
+                            </p>
+                            <h7 class="font-weight-bold">Firma de Empleado: </h7>
+                            <h7> <br /> @Model.U_Solicitante</h7>
+                        </div>
+                        @if (Model.status == -3)
+                        {
+                            <div class="col-sm-2">
                                 <p>
-                                    <img width="250" height="200" src="@ViewBag.source"
+                                    <img width="250" height="200" src="@ViewBag.source_j"
                                          style="border:1px solid"><br>
                                 </p>
-                                <h7>Firma de Empleado: @Model.U_Solicitante</h7>
+                                <h7 class="font-weight-bold">Firma Jefe Inmediato: </h7>
+                                <h7> <br /> @ViewBag.nombre_j</h7>
                             </div>
+                            <div class="col-sm-2">
+                                <p>
+                                    <img width="250" height="200" src="@ViewBag.source_n"
+                                         style="border:1px solid"><br>
+                                </p>
+                                <h7 class="font-weight-bold">Firma Nomina: </h7>
+                                <h7> <br /> @ViewBag.nombre_n</h7>
+                            </div>
+                        }
 
-                        </div>
-                    }
-        
+                    </div>
+                }
+
             </fieldset>
 
             <br />
@@ -159,7 +179,7 @@
             <div class="tab-content" id="myTabContent">
                 <br />
                 <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
-                    <fieldset disabled>                  
+                    <fieldset disabled>
                         <div class="form-group row">
                             <div class="col-sm-8">
                                 <strong>
@@ -177,33 +197,24 @@
                             </div>
                         </div>
                     </fieldset>
-                    @if (Session["code"].ToString() == "1" || Session["code"].ToString() == "191" || Session["code"].ToString() == "208")
-                    {
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalEstado">
-                            Cambiar Estado
-                        </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLocalC">
-                            <i class="fas fa-comment"></i> Ingresar Comentarios
-                        </button>
-                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalMail">
-                            <i class="fas fa-envelope"></i> Modificar Correos a Notificar
-                        </button>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCheck">
-                            <i class="fas fa-check-circle"></i> Marcar Revisado
-                        </button>
-                    }
-                    else
-                    {
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalClose">
-                            <i class="fas fa-times-circle"></i> Cerrar Solicitud
-                        </button>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalNotas">
-                            <i class="fas fa-comment"></i> Modificar Notas
-                        </button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalMail">
-                            <i class="fas fa-envelope"></i> Modificar Correos a Notificar
-                        </button>
-                    }
+
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalEstado">
+                        Cambiar Estado
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLocalC">
+                        <i class="fas fa-comment"></i> Ingresar Comentarios
+                    </button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalMail">
+                        <i class="fas fa-envelope"></i> Modificar Correos a Notificar
+                    </button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCheck">
+                        <i class="fas fa-check-circle"></i> Marcar Revisado
+                    </button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCheck">
+                        <i class="fas fa-download"></i> Descargar Solicitud
+                    </button>
+
+
 
                     <br />
                     <br />
@@ -211,7 +222,7 @@
                     <br />
 
                 </div>
-                
+
 
             </div>
 
@@ -220,7 +231,7 @@
         <br />
         <br />
 
-        
+
 
         <!-- Modal para Ingreso de actualizacion de Status -->
         <div class="modal fade bd-example-modal-lg" id="exampleModalEstado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -313,7 +324,6 @@
         </div>
 
         <!-- Modal para Ingreso de Comentarios Locales -->
-       
         <!-- Modal para Ingreso de Comentarios Locales -->
         <div class="modal fade bd-example-modal-lg" id="exampleModalMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -373,7 +383,7 @@
             </div>
         </div>
 
-        
+
     </div>
 </div>
 

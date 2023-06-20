@@ -217,7 +217,24 @@ namespace purchaseTracking.Controllers
             temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
             ViewBag.source = temp.U_PathSign;
             ViewBag.nombre = temp.U_Nombre;
+
+
             Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+
+
+            // SE OBTEIEN FIRMA DE JEFE INMEDIATO
+            Models.Images.ImageSign temp_j = new Models.Images.ImageSign();
+            temp_j = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(data.AttendUser));
+            ViewBag.source_j = temp_j.U_PathSign;
+            ViewBag.nombre_j = temp_j.U_Nombre;
+
+
+            // SE OBTEIEN FIRMA NOMINA
+            Models.Images.ImageSign temp_n = new Models.Images.ImageSign();
+            temp_n = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(6);
+            ViewBag.source_n = temp_n.U_PathSign;
+            ViewBag.nombre_n = temp_n.U_Nombre;
+
             return View(data);
         }
 
