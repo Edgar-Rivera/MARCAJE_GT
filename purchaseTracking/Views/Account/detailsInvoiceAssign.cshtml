@@ -35,6 +35,17 @@
                             <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
                         </div>
                     </div>
+                    @{
+                        int cantidad = 1;
+                        TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.CntctDate;
+                        cantidad = cantidad + diferencia.Days;
+                    }
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <strong><label class="control-label">Días a Tomar</label></strong>
+                            <input class="form-control" type="text" value="@cantidad">
+                        </div>
+                    </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4">

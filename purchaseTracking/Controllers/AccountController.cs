@@ -138,10 +138,10 @@ namespace purchaseTracking.Controllers
             dataImage_j = new Connection.Activities.DataActivities().GetSignTechnician(jefe_inmediato);
             if (dataImage_j.U_PathSign != "")
             {
-                Models.Images.Signs imageData = new Models.Images.Signs();
-                imageData.nombre = "Jefe Inmediato: " + dataImage.U_Nombre;
-                imageData.image = convertStringtoByte(dataImage.U_PathSign);
-                data.Add(imageData);
+                Models.Images.Signs imageData_j = new Models.Images.Signs();
+                imageData_j.nombre = "Jefe Inmediato: " + dataImage_j.U_Nombre;
+                imageData_j.image = convertStringtoByte(dataImage_j.U_PathSign);
+                data.Add(imageData_j);
             }
             return data;
         }
@@ -254,14 +254,16 @@ namespace purchaseTracking.Controllers
         [HttpGet]
         public ActionResult detailsInvoiceAssign(int id)
         {
-            Models.Images.ImageSign temp = new Models.Images.ImageSign();
-            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
-            ViewBag.source = temp.U_PathSign;
-            ViewBag.nombre = temp.U_Nombre;
+           
 
 
             Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
 
+
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(data.U_InternalKey));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
 
             // SE OBTEIEN FIRMA DE JEFE INMEDIATO
             Models.Images.ImageSign temp_j = new Models.Images.ImageSign();
@@ -282,13 +284,15 @@ namespace purchaseTracking.Controllers
         [HttpGet]
         public ActionResult detailsInvoice(int id)
         {
-            Models.Images.ImageSign temp = new Models.Images.ImageSign();
-            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
-            ViewBag.source = temp.U_PathSign;
-            ViewBag.nombre = temp.U_Nombre;
+            
 
 
             Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32 (data.U_InternalKey));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
 
 
             // SE OBTEIEN FIRMA DE JEFE INMEDIATO
@@ -457,7 +461,6 @@ namespace purchaseTracking.Controllers
                 if (status == "-3")
                 {
                     
-
                     Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
                     var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
                     involucrados = involucrados + ",nomina@isertec.com";
