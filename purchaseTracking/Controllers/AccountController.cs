@@ -172,7 +172,7 @@ namespace purchaseTracking.Controllers
                 ExportOptions myoptions;
                 DiskFileDestinationOptions path = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions pdf = new PdfRtfWordFormatOptions();
-                path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante +  '_' + DateTime.Now.ToString("MM-dd-yyyy") + ".pdf";
+                path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante +  '_' + DateTime.Now.ToString("MM-dd-yyyy") + "a_.pdf";
                 direct = path.DiskFileName;
                 myoptions = rpt.ExportOptions;
                 myoptions.ExportDestinationType = ExportDestinationType.DiskFile;
@@ -220,6 +220,35 @@ namespace purchaseTracking.Controllers
                 return View(obj.ToPagedList(pageNumber, pageSize));
             }
             return View(data.ToPagedList(pageNumber, pageSize));
+        }
+
+
+        [HttpGet]
+        public ActionResult detailsInvoiceAssign(int id)
+        {
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
+
+
+            Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+
+
+            // SE OBTEIEN FIRMA DE JEFE INMEDIATO
+            Models.Images.ImageSign temp_j = new Models.Images.ImageSign();
+            temp_j = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(data.AttendUser));
+            ViewBag.source_j = temp_j.U_PathSign;
+            ViewBag.nombre_j = temp_j.U_Nombre;
+
+
+            // SE OBTEIEN FIRMA NOMINA
+            Models.Images.ImageSign temp_n = new Models.Images.ImageSign();
+            temp_n = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(6);
+            ViewBag.source_n = temp_n.U_PathSign;
+            ViewBag.nombre_n = temp_n.U_Nombre;
+
+            return View(data);
         }
 
         [HttpGet]
@@ -379,6 +408,106 @@ namespace purchaseTracking.Controllers
                 SendNotification message = new SendNotification();
                 message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
                 return RedirectToAction("detailsInvoice", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+
+        }
+
+
+
+
+
+        [HttpPost]
+        public ActionResult updateStatusAssign(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Activities.Activities();
+            data.U_Comentarios = comment;
+            data.Status = status;
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
+            {
+                SendNotification message = new SendNotification();
+                if (status == "-3")
+                {
+                    Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+                    involucrados = involucrados + ",nomina@isertec.com";
+                    // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
+                    string direct = string.Empty;
+                    ReportDocument rpt = new ReportDocument();
+                    rpt = new VACACIONES();
+                    rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
+                    rpt.Subreports[0].SetDataSource(tableSigns);
+
+                    rpt.SetParameterValue("@FECHA", requestActivity.StartDate);
+                    rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
+                    rpt.SetParameterValue("MotivoCambio", "");
+                    rpt.SetParameterValue("FechaFin", requestActivity.U_FechaActualizacion);
+                    rpt.SetParameterValue("CantidadDiasVacaciones", dias);
+                    rpt.SetParameterValue("Observaciones", requestActivity.Details);
+
+                    ExportOptions myoptions;
+                    DiskFileDestinationOptions path = new DiskFileDestinationOptions();
+                    PdfRtfWordFormatOptions pdf = new PdfRtfWordFormatOptions();
+                    path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante + '_' + DateTime.Now.ToString("MM-dd-yyyy") + "a_.pdf";
+                    direct = path.DiskFileName;
+                    myoptions = rpt.ExportOptions;
+                    myoptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                    myoptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                    myoptions.ExportDestinationOptions = path;
+                    myoptions.ExportFormatOptions = pdf;
+                    rpt.Export();
+                    message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                }
+                else
+                {
+                    message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                }
+                
+                return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult updateCommentsAssign(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Activities.Activities();
+            data.U_Comentarios = comment;
+            data.Status = status;
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
+            {
+                SendNotification message = new SendNotification();
+
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
+            }
+            else
+            {
+                return View("Error");
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult updateNotesAssign(int id, string comment, string ejecutivo, string involucrados, string orden_venta, string sn)
+        {
+            // METODO PARA ACTULIZAR LOS COMENTARIOS
+            var data = new purchaseTracking.Models.Orders.Activities();
+            data.Notes = comment;
+            data.U_FechaActualizacion = DateTime.Now.ToString("yyyy-MM-dd");
+            if (new ServiceLayer.Activity.ActivityComponents().actualizaNotas(id, data))
+            {
+                SendNotification message = new SendNotification();
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
             }
             else
             {
