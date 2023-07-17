@@ -289,7 +289,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"U_internalKey\" = ? AND A.\"status\" <> -3 AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
+                "WHERE A.\"U_internalKey\" = ? AND A.\"CntctType\" IN (86)   ORDER BY 2 DESC", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = idUser;
@@ -1356,7 +1356,7 @@ namespace purchaseTracking.Connection.Activities
             var data = new List<Models.Activities.HandledUsers>();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT \"USERID\", \"U_NAME\" FROM OUSR", conn);
+            HanaCommand cmd = new HanaCommand("SELECT*  FROM TR_JEFE_ETALENT ORDER BY 2 ASC;", conn);
             HanaDataReader reader = cmd.ExecuteReader();
             data.Add(new Models.Activities.HandledUsers()
             {

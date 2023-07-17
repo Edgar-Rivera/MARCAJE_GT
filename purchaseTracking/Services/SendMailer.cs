@@ -93,7 +93,7 @@ namespace purchaseTracking.Services
             }
             mytemplate = mytemplate.Replace("{empleado}", empleado);
             mytemplate = mytemplate.Replace("{actividad}", actividad);
-            mytemplate = mytemplate.Replace("{link-confirm}", "https://tracking.isertec.com/Tracking/purchase/"+actividad);
+            mytemplate = mytemplate.Replace("{link-confirm}", "https://localhost:44360/Account/detailsInvoice/" + actividad);
             
             mensaje.HtmlBody = mytemplate;
             mensaje.Attachments.Add(path_file);

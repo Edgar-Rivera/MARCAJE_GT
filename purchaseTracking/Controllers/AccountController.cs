@@ -149,13 +149,13 @@ namespace purchaseTracking.Controllers
                 rpt.Subreports[0].SetDataSource(tableSigns);
 
                 // DATA SOURCE FIRMAS
-                int dias = 0;
+                int dias = 1;
                 if(!String.IsNullOrEmpty(requestActivity.StartDate) && !string.IsNullOrEmpty(requestActivity.U_FechaActualizacion))
                 {
                     DateTime fecha1 = Convert.ToDateTime(requestActivity.StartDate);
                     DateTime fecha2 = Convert.ToDateTime(requestActivity.U_FechaActualizacion);
                     TimeSpan diferencia = fecha2.Subtract(fecha1);
-                    dias = diferencia.Days;
+                    dias = dias + diferencia.Days;
                 }
                
 
@@ -337,8 +337,8 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_ESTADO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
-                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+                message.sendNotification(ejecutivo, involucrados, "CANCELACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                return RedirectToAction("RequestInvoice", "Account", new { id = id });
             }
             else
             {

@@ -15,7 +15,7 @@
                         <p> <label>Se ha enviado una notificacion por correo electronico a: <strong> @ViewBag.email_to </strong> </label> <br /></p>
                         <p> <label>Una copia del correo electrónico para seguimeinto fue recibida por: <strong> @ViewBag.email_bcc </strong> </label> <br /></p>
                         <p> Puedes dar seguimiento a tu solictud en el siguiente enlace </p>
-                        @Html.ActionLink("Ir a mis Solicitudes", "PurchaseList", "Tracking", "", new { @class = "btn btn-second" })
+                        @Html.ActionLink("Ir a mis Solicitudes", "RequestInvoice", "Account", "", new { @class = "btn btn-second" })
                     </div>
                 </div>
             </div>
