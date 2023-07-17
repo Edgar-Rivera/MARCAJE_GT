@@ -207,7 +207,7 @@ namespace purchaseTracking.Controllers
             if(new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id,data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_"+ id +"", Session["nombre"].ToString(),""+id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_"+ id +"", Session["nombre"].ToString(),""+id, comment, orden_venta, sn,"");
                 return RedirectToAction("details", "Activity", new { id = id });
             } else
             {
@@ -226,7 +226,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_ESTADO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_ESTADO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("details", "Activity", new { id = id });
             }
             else
@@ -253,7 +253,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "DISPONIBLE_ENTREGA"+ tipoEntrega +"SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "DISPONIBLE_ENTREGA"+ tipoEntrega +"SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("details", "Activity", new { id = id });
             }
             else
@@ -273,7 +273,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaNotas(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta,sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta,sn,"");
                 return RedirectToAction("details", "Activity", new { id = id });
             }
             else
@@ -331,7 +331,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_ESTADO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, temp, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_ESTADO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, temp, orden_venta, sn,"");
                 return RedirectToAction("RequestPurchase", "Activity");
             }
             else

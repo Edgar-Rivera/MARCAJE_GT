@@ -20,12 +20,12 @@ namespace purchaseTracking.Services
     }
     public interface IsendNotification
     {
-        void sendNotification(string from, string to, string subject, string ejecutivo, string solicitud, string cuerpo, string orden_venta, string sn);
+        void sendNotification(string from, string to, string subject, string ejecutivo, string solicitud, string cuerpo, string orden_venta, string sn, string path);
     }
 
     public class SendNotification : IsendNotification
     {
-        public void sendNotification(string from, string to, string subject, string ejecutivo, string solicitud, string cuerpo, string orden_venta, string sn)
+        public void sendNotification(string from, string to, string subject, string ejecutivo, string solicitud, string cuerpo, string orden_venta, string sn, string path)
         {
             var email = new MimeMessage();
             email.From.Add(new MailboxAddress("Notificaciones eTALENT", from));
@@ -42,7 +42,11 @@ namespace purchaseTracking.Services
             mytemplate = mytemplate.Replace("{solicitud}", solicitud);
             mytemplate = mytemplate.Replace("{cuerpo}", cuerpo);
             mensaje.HtmlBody = mytemplate;
-            // mensaje.Attachments.Add(path);
+            if (path != "")
+            {
+                mensaje.Attachments.Add(path);
+            }
+           
             email.Body = mensaje.ToMessageBody();
             email.Headers.Add("Disposition-Notification-To", "ticket@isertec.com");
             var smtp = new SmtpClient();

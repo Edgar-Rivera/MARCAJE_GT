@@ -46,5 +46,6 @@ namespace purchaseTracking.Models.Activities
         public int Refacturacion { get; set; }
         public string U_Concepto { get; set; }
         public string UnidadComercial { get; set; }
+        public string U_InternalKey { get; set; }
     }
 }

@@ -119,6 +119,34 @@ namespace purchaseTracking.Controllers
             }   
             return data;
         }
+
+        public List<Models.Images.Signs> GetListSigns(int codigo, int jefe_inmediato)
+        {
+            List<Models.Images.Signs> data = new List<Models.Images.Signs>();
+            Models.Images.ImageSign dataImage = new Models.Images.ImageSign();
+            dataImage = new Connection.Activities.DataActivities().GetSignTechnician(codigo);
+            if (dataImage.U_PathSign != "")
+            {
+                Models.Images.Signs imageData = new Models.Images.Signs();
+                imageData.nombre = "Empleado: " + dataImage.U_Nombre;
+                imageData.image = convertStringtoByte(dataImage.U_PathSign);
+                data.Add(imageData);
+            }
+
+            // OBTENCION FIRMA DIGITAL 
+            Models.Images.ImageSign dataImage_j = new Models.Images.ImageSign();
+            dataImage_j = new Connection.Activities.DataActivities().GetSignTechnician(jefe_inmediato);
+            if (dataImage_j.U_PathSign != "")
+            {
+                Models.Images.Signs imageData = new Models.Images.Signs();
+                imageData.nombre = "Jefe Inmediato: " + dataImage.U_Nombre;
+                imageData.image = convertStringtoByte(dataImage.U_PathSign);
+                data.Add(imageData);
+            }
+            return data;
+        }
+
+
         [HttpPost]
         public ActionResult newRequest(Models.Activities.RequestActivity requestActivity)
         {
@@ -366,7 +394,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "CANCELACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "CANCELACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("RequestInvoice", "Account", new { id = id });
             }
             else
@@ -386,7 +414,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaComentarios(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("detailsInvoice", "Account", new { id = id });
             }
             else
@@ -406,7 +434,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaNotas(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("detailsInvoice", "Account", new { id = id });
             }
             else
@@ -415,10 +443,6 @@ namespace purchaseTracking.Controllers
             }
 
         }
-
-
-
-
 
         [HttpPost]
         public ActionResult updateStatusAssign(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
@@ -432,19 +456,30 @@ namespace purchaseTracking.Controllers
                 SendNotification message = new SendNotification();
                 if (status == "-3")
                 {
+                    
+
                     Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+                    var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
                     involucrados = involucrados + ",nomina@isertec.com";
                     // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
+                    int dias = 1;
+                    if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.CntctDate)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
+                    {
+                        DateTime fecha1 = Convert.ToDateTime(requestActivity.CntctDate);
+                        DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
+                        TimeSpan diferencia = fecha2.Subtract(fecha1);
+                        dias = dias + diferencia.Days;
+                    }
                     string direct = string.Empty;
                     ReportDocument rpt = new ReportDocument();
                     rpt = new VACACIONES();
                     rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
                     rpt.Subreports[0].SetDataSource(tableSigns);
 
-                    rpt.SetParameterValue("@FECHA", requestActivity.StartDate);
+                    rpt.SetParameterValue("@FECHA", requestActivity.CntctDate);
                     rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
                     rpt.SetParameterValue("MotivoCambio", "");
-                    rpt.SetParameterValue("FechaFin", requestActivity.U_FechaActualizacion);
+                    rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
                     rpt.SetParameterValue("CantidadDiasVacaciones", dias);
                     rpt.SetParameterValue("Observaciones", requestActivity.Details);
 
@@ -459,11 +494,11 @@ namespace purchaseTracking.Controllers
                     myoptions.ExportDestinationOptions = path;
                     myoptions.ExportFormatOptions = pdf;
                     rpt.Export();
-                    message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                    message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, direct);
                 }
                 else
                 {
-                    message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                    message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 }
                 
                 return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
@@ -486,7 +521,7 @@ namespace purchaseTracking.Controllers
             {
                 SendNotification message = new SendNotification();
 
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
             }
             else
@@ -506,7 +541,7 @@ namespace purchaseTracking.Controllers
             if (new ServiceLayer.Activity.ActivityComponents().actualizaNotas(id, data))
             {
                 SendNotification message = new SendNotification();
-                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn);
+                message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
                 return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
             }
             else
