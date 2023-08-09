@@ -4,6 +4,10 @@
     ViewBag.Title = "Solicitud de Vacaciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@{
+    string ValorSolicitando = Session["nombre"].ToString();
+}
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type='text/javascript'>
     $(function () {
@@ -17,7 +21,7 @@
             <hr />
             @using (Html.BeginForm("newRequest", "Account", FormMethod.Post))
             {
-                <div class="form-group row" style="display:none">               
+                <div class="form-group row" style="display:none">
                     <div class="col-sm-3">
                         <div class="input-group mb-3">
                             @Html.EditorFor(model => model.Activity, new { htmlAttributes = new { @Value = "cn_Task", @class = "form-control", @maxlength = "100", @required = "required" } })
@@ -29,11 +33,11 @@
                         <strong><label class="control-label"> Tipo de Solicitud </label></strong>
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
-                               new SelectListItem{ Text="Solicitud eTALENT", Value = "86" },
+                               new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
                         }, new { @class = "form-control" })
                     </div>
                     <div class="col-sm-5">
-                        <strong><label class="control-label"> Asignado a: </label></strong>
+                        <strong><label class="control-label">Jefe Inmediato: </label></strong>
                         @{
                             // Code behind user handled
                             List<HandledUsers> handled = new List<HandledUsers>();
@@ -47,14 +51,7 @@
                 <div class="form-group row">
                     <div class="col-sm-5">
                         <strong><label class="control-label">Solicitante </label></strong>
-                        @{
-                            // Code behind user handled
-                            List<purchaseTracking.Models.Orders.Solicitante> solicitantes = new List<purchaseTracking.Models.Orders.Solicitante>();
-                            solicitantes = new purchaseTracking.Connection.Orders.BusinessSN().GetSolicitantes();
-
-                            @Html.DropDownListFor(model => Model.U_Solicitante, new SelectList(solicitantes, "nombre", "nombre"),
-                new { @class = "form-control chosen" })
-                        }
+                        @Html.EditorFor(model => model.U_Solicitante, new { htmlAttributes = new { @class = "form-control", @maxlength = "150", @required = "required", @Value = ValorSolicitando, @readonly = "readonly" } })
                     </div>
                     <div class="col-sm-5">
                         <strong><label class="control-label">Asunto</label></strong>
@@ -73,13 +70,13 @@
                     <div class="col-sm-5">
                         <strong><label class="control-label">Fecha de Inicio</label></strong>
                         <div class="input-group mb-3">
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new {  @class = "form-control", @required = "required" , @type = "date"} })
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "date" } })
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <strong><label class="control-label">Fecha de Fin</label></strong>
                         <div class="input-group mb-3">
-                            @Html.EditorFor(model => model.U_FechaActualizacion, new { htmlAttributes = new {  @class = "form-control", @required = "required", @type = "date" } })
+                            @Html.EditorFor(model => model.U_FechaActualizacion, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "date" } })
                         </div>
                     </div>
                 </div>

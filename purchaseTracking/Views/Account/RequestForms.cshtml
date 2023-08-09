@@ -75,6 +75,23 @@
     }
 </style>
 @{
+    string temp_body_j = string.Empty;
+    if (Session["code"].ToString() == "1" || Session["code"].ToString() == "4" || Session["code"].ToString() == "5" || Session["code"].ToString() == "36"  || Session["code"].ToString() == "40"
+        ||  Session["code"].ToString() == "95" || Session["code"].ToString() == "117" || Session["code"].ToString() == "167" || Session["code"].ToString() == "168" || Session["code"].ToString() == "182"
+        || Session["code"].ToString() == "222" || Session["code"].ToString() == "233" || Session["code"].ToString() == "300" || Session["code"].ToString() == "307" || Session["code"].ToString() == "311"
+        || Session["code"].ToString() == "340")
+    {
+        temp_body_j = "block";
+    }
+    else
+    {
+        temp_body_j = "none";
+    }
+}
+
+
+
+@{
     string temp_body = string.Empty;
     if (Session["code"].ToString() == "6" || Session["code"].ToString() == "4" || Session["code"].ToString() == "5" || Session["code"].ToString() == "1")
     {
@@ -241,26 +258,27 @@
                     </div>
                 </a>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-                <a href="@Url.Action("listInvoice", "Account")">
-                    <div class="col">
-                        <div class="card radius-10 border-start border-0 border-3 border-info">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <h5 class="mb-0">Solicitudes Asignadas</h5>
-                                        <p class="mb-0 font-13">Apruebe o desapruebe las solicitudes de sus empleados&nbsp;</p>
-                                    </div>
-                                    <div class="widgets-icons-2 rounded-circle bg-red text-white ms-auto">
-                                        <i class="fas fa-check-circle"></i>
+            <div style="display:@temp_body_j">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+                    <a href="@Url.Action("listInvoice", "Account")">
+                        <div class="col">
+                            <div class="card radius-10 border-start border-0 border-3 border-info">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <h5 class="mb-0">Solicitudes Asignadas</h5>
+                                            <p class="mb-0 font-13">Apruebe o desapruebe las solicitudes de sus empleados&nbsp;</p>
+                                        </div>
+                                        <div class="widgets-icons-2 rounded-circle bg-red text-white ms-auto">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
-
         </div>
     </div>
 </div>

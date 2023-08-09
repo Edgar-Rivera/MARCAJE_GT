@@ -35,7 +35,7 @@
                             <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
                         </div>
                     </div>
-                    @{ 
+                    @{
                         int cantidad = 1;
                         TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.CntctDate;
                         cantidad = cantidad + diferencia.Days;
@@ -187,7 +187,7 @@
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
                 </li>
             </ul>
-            <div class="tab-content mb-4" id="myTabContent">
+            <div class="tab-content" id="myTabContent">
                 <br />
                 <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
                     <fieldset disabled>
@@ -218,6 +218,16 @@
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalMail">
                         <i class="fas fa-envelope"></i> Modificar Correos a Notificar
                     </button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCheck">
+                        <i class="fas fa-download"></i> Descargar Solicitud
+                    </button>
+
+
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
                 </div>
 
@@ -242,7 +252,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateStatus", "Account"))
+                        @using (Html.BeginForm("updateStatusAssign", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             @Html.Hidden("ejecutivo", Model.E_Mail);
@@ -256,7 +266,8 @@
                                 @Html.DropDownList("status", new List<SelectListItem>
                              {
                             new SelectListItem{ Text="En Proceso", Value = "1" },
-                                 new SelectListItem{ Text="Eliminar Solicitud", Value = "-3" }
+                                 new SelectListItem{ Text="Aprobado", Value = "-3" },
+                                    new SelectListItem{ Text="Rechazado", Value = "4" },
                              }, new { @class = "form-control" })
                             </div>
                             <div class="form-group">
@@ -292,7 +303,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateComments", "Account"))
+                        @using (Html.BeginForm("updateCommentsAssign", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             @Html.Hidden("status", Model.status);
@@ -332,7 +343,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("updateMails", "Account"))
+                        @using (Html.BeginForm("updateMailsAssign", "Account"))
                         {
                             @Html.Hidden("id", Model.ClgCode);
                             <div class="form-group">
@@ -351,35 +362,7 @@
             </div>
         </div>
 
-        <!-- Modal para Ingreso de Comentarios Locales -->
-        <div class="modal fade bd-example-modal-lg" id="exampleModalCheck" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Última Fecha de Actualización</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        @using (Html.BeginForm("updateDate", "Account"))
-                        {
-                            @Html.Hidden("id", Model.ClgCode);
-                            @Html.Hidden("correo", Model.U_Correo);
-                            <div class="form-group">
-                                <strong>La actividad seleccionada se actualizara con fecha : @DateTime.Now.ToString("dd/MM/yyyy")</strong>
-                                <br />
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-
+     
 
     </div>
 </div>

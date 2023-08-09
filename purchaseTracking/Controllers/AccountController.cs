@@ -28,6 +28,25 @@ namespace purchaseTracking.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult EmpleadosUnidad(int? page, string findString)
+        {
+         
+            List<Models.eTALENT.VACACIONES_DISPONIBLES> vacaciones = new List<Models.eTALENT.VACACIONES_DISPONIBLES>();
+            vacaciones = new Connection.UserData.UserData().VacacionesUnidades(Convert.ToInt32(Session["internal_code"]));
+            ViewBag.findString = findString;
+            ViewBag.totalItem = vacaciones.Count();
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            if (!String.IsNullOrEmpty(findString))
+            {
+                var obj = vacaciones.Where(s => s.NOMBRE.ToString().Contains(findString) || s.CODIGO_EXTERNO.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.FECHA_INGRESO.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+
+                return View(obj.ToPagedList(pageNumber, pageSize));
+            }
+            return View(vacaciones.ToPagedList(pageNumber, pageSize));
+        }
+
 
         [HttpPost]
         public ActionResult createSignDigital(string SignatureDataUrl)
@@ -368,11 +387,12 @@ namespace purchaseTracking.Controllers
             {
 
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
-                data = (from t in data where t.Estado.ToString() == filterString select t).ToList();
+                data = (from t in data where t.status.ToString() == "-3" select t).ToList();
             }
             else
             {
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
+                data = (from t in data where t.status.ToString() == "-3" select t).ToList();
             }
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();

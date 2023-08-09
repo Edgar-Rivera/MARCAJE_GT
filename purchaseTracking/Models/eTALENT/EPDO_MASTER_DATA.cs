@@ -44,6 +44,7 @@ namespace purchaseTracking.Models.eTALENT
         public string UNIDAD { get; set; }
         public string JEFE_INMEDIATO { get; set; }
         public string PLAZA { get; set; }
+        public int CODIGO_JEFE { get; set; }
 
     }
 }

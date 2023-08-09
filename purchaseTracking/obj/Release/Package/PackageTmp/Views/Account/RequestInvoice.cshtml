@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Mis Solicitudes de Facturación";
+    ViewBag.Title = "Mis Solicitudes Digitales";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
@@ -21,7 +21,7 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <h4>Mis Solicitudes de Vacaciones Creadas <span class="badge badge-secondary">@ViewBag.totalItem</span></h4>
+            <h4>Mis Solicitudes Creadas <span class="badge badge-secondary">@ViewBag.totalItem</span></h4>
             <hr />
             @using (Html.BeginForm("RequestInvoice", "Activity", FormMethod.Get))
             {
@@ -42,10 +42,7 @@
                         @Html.DropDownList("filterString", new List<SelectListItem>
                            {
                           new SelectListItem{ Text="Todos los datos", Value = "" },
-                               new SelectListItem{ Text="No iniciado", Value = "No iniciado" },
-                                  new SelectListItem{ Text="En proceso", Value = "En proceso" },
-                                  new SelectListItem{ Text="Tarea en Espera", Value = "Tarea en espera" },
-                                  new SelectListItem{ Text="Concluido", Value = "Concluido" },
+                               new SelectListItem{ Text="Solicitud Vacaciones", Value = "Solicitud Vacaciones" }
                            }, new { @class = "form-control" })
                     </div>
                     <div class="col-sm-auto">
@@ -118,7 +115,7 @@
                                 <td>
                                     @if (item.status == "-2")
                                     {
-                                        <span class="badge badge-warning">No iniciado</span>
+                                    <span class="badge badge-success">En proceso</span>
                                     }
                                     else if (item.status == "1")
                                     {
@@ -126,12 +123,12 @@
                                     }
                                     else if (item.status == "4")
                                     {
-                                        <span class="badge badge-danger">Tarea en espera</span>
+                                        <span class="badge badge-danger">Rechazado</span>
 
                                     }
                                     else if (item.status == "-3")
                                     {
-                                        <span class="badge badge-success">Concluido</span>
+                                        <span class="badge badge-success">Aprobado</span>
 
                                     }
                                 </td>
@@ -180,7 +177,7 @@
                 else
                 {
                     <div class="alert alert-info" role="alert">
-                        Tu usuario actualmente no cuenta con solicitudes de facturación creadas
+                        Tu usuario actualmente no cuenta con solicitudes creadas
                     </div>
                 }
 

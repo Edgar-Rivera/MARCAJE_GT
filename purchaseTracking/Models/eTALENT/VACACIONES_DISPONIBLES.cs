@@ -14,5 +14,6 @@ namespace purchaseTracking.Models.eTALENT
         public double DIAS_TOMADOS { get; set; }
         public string CODIGO_EXTERNO { get; set; }
         public double DIAS_PENDIENTES { get; set; }
+        public int CODIGO_J { get; set; }
     }
 }

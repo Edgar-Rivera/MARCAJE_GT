@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Mis Solicitudes de Compra";
+    ViewBag.Title = "Solicitudes Asignadas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
@@ -22,7 +22,7 @@
     <div class="row justify-content-md-center">
         <div class="col-md-10">
             <h4>
-                Solicitudes de Vacaciones Asignadas
+                Solicitudes Digitales Asignadas
                 <span class="badge badge-secondary">@ViewBag.totalItem</span>
             </h4>
             <hr />
@@ -45,10 +45,9 @@
                         @Html.DropDownList("filterString", new List<SelectListItem>
                            {
                           new SelectListItem{ Text="Todos los datos", Value = "" },
-                               new SelectListItem{ Text="No iniciado", Value = "No iniciado" },
                                   new SelectListItem{ Text="En proceso", Value = "En proceso" },
-                                  new SelectListItem{ Text="Tarea en Espera", Value = "Tarea en espera" },
-                                  new SelectListItem{ Text="Concluido", Value = "Concluido" },
+                                  new SelectListItem{ Text="Aprobado", Value = "Aprobado" },
+                                  new SelectListItem{ Text="Rechazado", Value = "Rechazado" },
                            }, new { @class = "form-control" })
                     </div>
                     <div class="col-sm-auto">
@@ -99,7 +98,7 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsInvoice", "Account", new { id = item.ClgCode }))'">
+                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsInvoiceAssign", "Account", new { id = item.ClgCode }))'">
                                 <td>
                                     @item.ClgCode
                                 </td>
@@ -137,11 +136,7 @@
                                         <span class="badge badge-success">Aprobado</span>
 
                                     }
-                                    else if (item.status == "6")
-                                    {
-                                        <span class="badge badge-info">Licencia</span>
-
-                                    }
+                                    
                                 </td>
                             </tr>
                         }

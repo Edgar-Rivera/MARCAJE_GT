@@ -40,22 +40,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="col-sm-2">
-                        @Html.DropDownList("filterString", new List<SelectListItem>
-                           {
-                          new SelectListItem{ Text="Todos los datos", Value = "" },
-                               new SelectListItem{ Text="No iniciado", Value = "No iniciado" },
-                                  new SelectListItem{ Text="En proceso", Value = "En proceso" },
-                                  new SelectListItem{ Text="Tarea en Espera", Value = "Tarea en espera" },
-                                  new SelectListItem{ Text="Concluido", Value = "Concluido" },
-                           }, new { @class = "form-control" })
-                    </div>
-                    <div class="col-sm-auto">
-                        <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
-                    </div>
-                </div>
-
 
             }
             <br />

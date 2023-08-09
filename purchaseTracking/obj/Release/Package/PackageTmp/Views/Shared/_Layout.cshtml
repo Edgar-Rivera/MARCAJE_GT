@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <link href="~/Content/Chosen/component-chosen.min.css" rel="stylesheet" />
 </head>
+
+
 <body>
     <script>
         $(document).ready(function () {
@@ -25,7 +27,7 @@
                     <img src="~/Content/Images/iserlogo.png" width="150" height="40" alt="isericon" />
                 </a>
             </div>
-            @if (Session["code"].ToString() == "1" || Session["code"].ToString() == "6" || Session["code"].ToString() == "5" || Session["code"].ToString() == "4")
+            @if (Session["code"].ToString() == "1" || Session["code"].ToString() == "6" || Session["code"].ToString() == "5" || Session["code"].ToString() == "4" || Session["code"].ToString() == "261")
             {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -33,11 +35,20 @@
                             <a class="nav-link" href="@Url.Action("PersonalInformation", "Account")">Mi Información <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"href="@Url.Action("RequestForms", "Account")">Solicitudes / Formularios</a>
+                            <a class="nav-link" href="@Url.Action("RequestForms", "Account")">Solicitudes Digitales</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Empleados Unidad</a>
+                            <a class="nav-link" href="@Url.Action("RequestForms", "Account")">Políticas internas</a>
                         </li>
+                        @if (Session["code"].ToString() == "1" || Session["code"].ToString() == "4" || Session["code"].ToString() == "5" || Session["code"].ToString() == "36" || Session["code"].ToString() == "40"
+                        || Session["code"].ToString() == "95" || Session["code"].ToString() == "117" || Session["code"].ToString() == "167" || Session["code"].ToString() == "168" || Session["code"].ToString() == "182"
+                        || Session["code"].ToString() == "222" || Session["code"].ToString() == "233" || Session["code"].ToString() == "300" || Session["code"].ToString() == "307" || Session["code"].ToString() == "311"
+                        || Session["code"].ToString() == "340")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("EmpleadosUnidad", "Account")">Empleados Unidad</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             }

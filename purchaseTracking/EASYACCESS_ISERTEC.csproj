@@ -560,6 +560,7 @@
     <Content Include="Views\Account\createSignDigital.cshtml" />
     <Content Include="Views\Account\listNomina.cshtml" />
     <Content Include="Views\Account\detailsInvoiceAssign.cshtml" />
+    <Content Include="Views\Account\EmpleadosUnidad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
