@@ -172,6 +172,10 @@ namespace purchaseTracking.Controllers
             // VARIABLES DEL SERVICE LAYER ESTATICAS    
             requestActivity.DurationType = "du_Seconds";
             requestActivity.U_internalKey = Session["code"].ToString();
+            if(requestActivity.U_retrasoDias == "on")
+            {
+                requestActivity.U_retrasoDias = "1";
+            }
             // METODO QUE RECIBE EL MODULO Y HACE EL POST EN SAP   
             if (new ServiceLayer.Activity.ActivityComponents().addActivity(requestActivity))
             {
@@ -205,7 +209,7 @@ namespace purchaseTracking.Controllers
                     dias = dias + diferencia.Days;
                 }
                
-
+               
 
                 // DATOS DE FIRMAS
 

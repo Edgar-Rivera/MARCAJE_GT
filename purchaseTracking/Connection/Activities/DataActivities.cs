@@ -247,7 +247,7 @@ namespace purchaseTracking.Connection.Activities
                 "WHEN A.\"DocType\" = 69 THEN 'Precio de Entrega'" +
                 "END) \"ClaseDocumento\", A.\"DocType\", A.\"Notes\", A.\"Recontact\", A.\"endDate\",A.\"U_Comentarios\", A.\"U_Correo\", " +
                 "B.\"E_Mail\", A.\"U_FechaActualizacion\", A.\"U_DireccionFacturacion\", A.\"U_MontoFacturar\", A.\"U_OrdenCompra\", " +
-                "A.\"U_Entregas\", A.\"U_Contacto\", A.\"U_Observaciones\", A.\"U_TipoEnvio\", A.\"U_Moneda\", A.\"U_Refacturacion\",  A.\"U_Concepto\" , A.\"U_internalKey\"" +
+                "A.\"U_Entregas\", A.\"U_Contacto\", A.\"U_Observaciones\", A.\"U_TipoEnvio\", A.\"U_Moneda\", A.\"U_Refacturacion\",  A.\"U_Concepto\" , A.\"U_internalKey\", A.\"U_retrasoDias\"" + 
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
@@ -293,6 +293,7 @@ namespace purchaseTracking.Connection.Activities
                 data.Refacturacion = reader.IsDBNull(30) ? 0 : reader.GetInt32(30);
                 data.U_Concepto = reader.IsDBNull(31) ? "" : reader.GetString(31);
                 data.U_InternalKey = reader.IsDBNull(32) ? "" : reader.GetString(32);
+                data.U_retrasoDias = reader.IsDBNull(33) ? "" : reader.GetString(33);
 
             }
             conn.Close();

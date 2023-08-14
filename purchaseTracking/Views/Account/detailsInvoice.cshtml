@@ -40,12 +40,23 @@
                         TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.CntctDate;
                         cantidad = cantidad + diferencia.Days;
                     }
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                            <strong><label class="control-label">Días a Tomar</label></strong>
-                            <input class="form-control" type="text" value="@cantidad">
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Días a Tomar</label></strong>
+                        <input class="form-control" type="text" value="@cantidad">
                     </div>
+                    <div class="col-sm-4 form-check">
+                        <strong><label class="control-label">Aplica Medio Día</label></strong>
+                        @if (Model.U_retrasoDias == "1")
+                        {
+                            <input class="form-control" type="text" value="Si" readonly>
+                        }
+                        else
+                        {
+                            <input class="form-control" type="text" value="No" readonly>
+                        }
+                    </div>
+                </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4">
