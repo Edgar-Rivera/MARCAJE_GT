@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using Sap.Data.Hana;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Org.BouncyCastle.Ocsp;
 
 namespace purchaseTracking.Connection.UserData
 {
@@ -181,9 +183,9 @@ namespace purchaseTracking.Connection.UserData
             return data;
         }
         // FUNCION QUE OBTIENE DATOS DE USUARIOS EN EMPLEADOS - SAP//
-        public List<Models.UserData.OHEM> GetOHEMs(int user)
+        public Models.UserData.OHEM GetOHEMs(int user)
         {
-            var data = new List<Models.UserData.OHEM>();
+            var data = new Models.UserData.OHEM();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
             HanaCommand cmd = new HanaCommand("SELECT \"Code\", \"Active\" FROM OHEM WHERE \"userId\" = ?;", conn);
@@ -194,19 +196,16 @@ namespace purchaseTracking.Connection.UserData
             HanaDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                data.Add(new Models.UserData.OHEM()
-                {
-                    empID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
-                    Active = reader.IsDBNull(1) ? string.Empty : reader.GetString(1)
-                });
+                data.empID = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                data.Active = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
             }
             conn.Close();
             return data;
         }
         // FUNCION QUE OBTIENE CODIGOS DE EMPELADOS Y PROFESION -- SESION LOGIN ETALENT//
-        public List<Models.UserData.UserData> UserDatas(int external_code)
+        public Models.UserData.UserData UserDatas(int external_code)
         {
-            var data = new List<Models.UserData.UserData>();
+            var data = new Models.UserData.UserData();
             SqlConnection conn = new SqlConnection();
             conn = eTalentConnection.connectionResult();
             SqlCommand cmd;
@@ -217,12 +216,9 @@ namespace purchaseTracking.Connection.UserData
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                data.Add(new Models.UserData.UserData()
-                {
-                    EPDO_CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
-                    EPDO_CODIGO_EXTERNO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
-                    EDPO_EMPL_PROFESION = reader.IsDBNull(2) ? string.Empty : reader.GetString(2)
-                });
+                data.EPDO_CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                data.EPDO_CODIGO_EXTERNO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+                data.EDPO_EMPL_PROFESION = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
             }
             return data;
         }

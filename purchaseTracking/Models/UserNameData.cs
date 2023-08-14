@@ -10,5 +10,6 @@ namespace purchaseTracking.Models
         public string InternalKey { get; set; }
         public string UserName { get; set; }
         public string eMail { get; set; }
+        public string Path { get; set; }
     }
 }

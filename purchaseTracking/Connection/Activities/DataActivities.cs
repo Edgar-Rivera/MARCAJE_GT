@@ -8,6 +8,31 @@ namespace purchaseTracking.Connection.Activities
 {
     public class DataActivities
     {
+
+        // CAMBIO PARA OBTENCION DE DATOS DDE USUARIO POR MEDIO DE ODBC
+
+        public Models.UserNameData GetUsuarioEmpelado(string nombre_usuario)
+        {
+            var data = new Models.UserNameData();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT * FROM TR_USUARIO_EMPLEADO WHERE \"USER_CODE\" = ?", conn);
+            HanaParameter param = new HanaParameter();
+            param.HanaDbType = HanaDbType.NVarChar;
+            param.Value = nombre_usuario;
+            cmd.Parameters.Add(param);
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.InternalKey = reader.IsDBNull(0) ? string.Empty : reader.GetString(0);
+                data.UserName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+                data.eMail = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+            }
+            conn.Close();
+            return data;
+        }
+
+
         // obtiene firma de tecnicos / empleados
         public Models.Images.ImageSign GetSignTechnician(int codigo)
         {

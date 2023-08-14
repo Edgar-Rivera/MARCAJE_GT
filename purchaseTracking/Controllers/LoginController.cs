@@ -40,26 +40,26 @@ namespace purchaseTracking.Controllers
                         credentials.UserName = attemp.UserName;
                         credentials.Password = attemp.Password;
                         // obtiene varialbles de nombre de usuario y numero de tecnico para guardar en authorize
-                        List<UserNameData> tecnico = new List<UserNameData>();
-                        tecnico = await new ServiceLayer.getUserName().Obtener(attemp.UserName, LoginResponse);
-                        string fullName = tecnico[0].UserName;
-                        string internalKey = tecnico[0].InternalKey;
-                        string eMail = tecnico[0].eMail;
+                        UserNameData tecnico = new UserNameData();
+                        tecnico = new purchaseTracking.Connection.Activities.DataActivities().GetUsuarioEmpelado(attemp.UserName);
+                        string fullName = tecnico.UserName;
+                        string internalKey = tecnico.InternalKey;
+                        string eMail = tecnico.eMail;
                         // Se inicializa el MiddleWare para guardar los datos de los usuarios
                         Session.Add("nombre", fullName);
                         Session.Add("code", internalKey);
                         Session.Add("schema", "SBO_ISERTEC_GT");
                         Session.Add("user", attemp.UserName);
                         Session.Add("eMail", eMail);
-                        List<Models.UserData.OHEM> data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(internalKey));
-                        if (data_sap.Count() > 0)
+                        Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(internalKey));
+                        if (data_sap.Active != "")
                         {
-                            List<Models.UserData.UserData> data_etalent = new Connection.UserData.UserData().UserDatas(data_sap[0].empID);
-                            if (data_etalent.Count() > 0)
+                            Models.UserData.UserData data_etalent = new Connection.UserData.UserData().UserDatas(data_sap.empID);
+                            if (data_etalent.EPDO_CODIGO > 0)
                             {
-                                Session.Add("Profession", data_etalent[0].EDPO_EMPL_PROFESION);
-                                Session.Add("external_code", data_sap[0].empID);
-                                Session.Add("internal_code", data_etalent[0].EPDO_CODIGO);                                                         
+                                Session.Add("Profession", data_etalent.EDPO_EMPL_PROFESION);
+                                Session.Add("external_code", data_sap.empID);
+                                Session.Add("internal_code", data_etalent.EPDO_CODIGO);                                                         
                                 await LogoutSL(LoginResponse);
                                 return RedirectToAction("page", "Home");
                             }
