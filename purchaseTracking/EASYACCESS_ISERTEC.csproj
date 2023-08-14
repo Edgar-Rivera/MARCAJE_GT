@@ -561,6 +561,7 @@
     <Content Include="Views\Account\listNomina.cshtml" />
     <Content Include="Views\Account\detailsInvoiceAssign.cshtml" />
     <Content Include="Views\Account\EmpleadosUnidad.cshtml" />
+    <Content Include="Views\Account\DowloadFiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

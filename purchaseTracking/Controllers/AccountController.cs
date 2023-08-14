@@ -19,6 +19,11 @@ namespace purchaseTracking.Controllers
     public class AccountController : Controller
     {
         [HttpGet]
+        public ActionResult DowloadFiles()
+        {
+            return View();
+        }
+        [HttpGet]
         public ActionResult createSignDigital()
         {
             Models.Images.ImageSign temp = new Models.Images.ImageSign();
