@@ -93,6 +93,10 @@ namespace purchaseTracking.Controllers
         [HttpGet]
         public ActionResult RequestForms()
         {
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(Session["code"]));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
             return View();
         }
 

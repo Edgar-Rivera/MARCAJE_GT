@@ -105,6 +105,13 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-11">
+            @if (string.IsNullOrEmpty(ViewBag.source))
+            {
+                <div class="alert alert-danger" role="alert">
+                   <b> No se encuentra una firma registrada!, por favor cree su firma Digital en la opción "Firma Digital de Empleado" </b>
+                </div>
+            }
+
             <div style="display:@temp_body" class="mb-3">
                 <h4>Control y Gestión de Nómina</h4>
                 <hr />
