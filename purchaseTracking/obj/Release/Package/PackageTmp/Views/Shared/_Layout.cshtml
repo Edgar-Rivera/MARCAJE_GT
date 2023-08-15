@@ -27,8 +27,7 @@
                     <img src="~/Content/Images/iserlogo.png" width="150" height="40" alt="isericon" />
                 </a>
             </div>
-            @if (Session["code"].ToString() == "1" || Session["code"].ToString() == "6" || Session["code"].ToString() == "5" || Session["code"].ToString() == "4" || Session["code"].ToString() == "261")
-            {
+         
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
@@ -37,13 +36,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("RequestForms", "Account")">Solicitudes Digitales</a>
                         </li>
+                        <!--
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("RequestForms", "Account")">Políticas internas</a>
-                        </li>
-                        @if (Session["code"].ToString() == "1" || Session["code"].ToString() == "4" || Session["code"].ToString() == "5" || Session["code"].ToString() == "36" || Session["code"].ToString() == "40"
-                        || Session["code"].ToString() == "95" || Session["code"].ToString() == "117" || Session["code"].ToString() == "167" || Session["code"].ToString() == "168" || Session["code"].ToString() == "182"
-                        || Session["code"].ToString() == "222" || Session["code"].ToString() == "233" || Session["code"].ToString() == "300" || Session["code"].ToString() == "307" || Session["code"].ToString() == "311"
-                        || Session["code"].ToString() == "340")
+                                              <a class="nav-link" href="@Url.Action("DowloadFiles", "Account")">Políticas internas</a>
+                                          </li>
+                                  -->
+                        @if (Session["code"].ToString() == "36" || Session["code"].ToString() == "4" || Session["code"].ToString() == "233" || Session["code"].ToString() == "311"
+                                || Session["code"].ToString() == "167" || Session["code"].ToString() == "265" || Session["code"].ToString() == "117" || Session["code"].ToString() == "182" || Session["code"].ToString() == "95"
+                                || Session["code"].ToString() == "204" || Session["code"].ToString() == "40" || Session["code"].ToString() == "340" || Session["code"].ToString() == "8" || Session["code"].ToString() == "1"
+                                || Session["code"].ToString() == "300")
                         {
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("EmpleadosUnidad", "Account")">Empleados Unidad</a>
@@ -51,7 +52,7 @@
                         }
                     </ul>
                 </div>
-            }
+            
 
             <div class="ml-auto">
                 <a>@Html.ActionLink("Cerrar Sesión", "logoutSession", "Login", null, new { @class = "nav-link text-right" })</a>

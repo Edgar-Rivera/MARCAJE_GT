@@ -76,10 +76,10 @@
 </style>
 @{
     string temp_body_j = string.Empty;
-    if (Session["code"].ToString() == "1" || Session["code"].ToString() == "4" || Session["code"].ToString() == "5" || Session["code"].ToString() == "36"  || Session["code"].ToString() == "40"
-        ||  Session["code"].ToString() == "95" || Session["code"].ToString() == "117" || Session["code"].ToString() == "167" || Session["code"].ToString() == "168" || Session["code"].ToString() == "182"
-        || Session["code"].ToString() == "222" || Session["code"].ToString() == "233" || Session["code"].ToString() == "300" || Session["code"].ToString() == "307" || Session["code"].ToString() == "311"
-        || Session["code"].ToString() == "340")
+    if (Session["code"].ToString() == "36" || Session["code"].ToString() == "4" || Session["code"].ToString() == "233" || Session["code"].ToString() == "311"
+                        || Session["code"].ToString() == "167" || Session["code"].ToString() == "265" || Session["code"].ToString() == "117" || Session["code"].ToString() == "182" || Session["code"].ToString() == "95"
+                        || Session["code"].ToString() == "204" || Session["code"].ToString() == "40" || Session["code"].ToString() == "340" || Session["code"].ToString() == "8" || Session["code"].ToString() == "1"
+                        || Session["code"].ToString() == "300")
     {
         temp_body_j = "block";
     }
@@ -105,6 +105,13 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-11">
+            @if (string.IsNullOrEmpty(ViewBag.source))
+            {
+                <div class="alert alert-danger" role="alert">
+                   <b> No se encuentra una firma registrada!, por favor cree su firma Digital en la opción "Firma Digital de Empleado" </b>
+                </div>
+            }
+
             <div style="display:@temp_body" class="mb-3">
                 <h4>Control y Gestión de Nómina</h4>
                 <hr />
@@ -149,7 +156,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="@Url.Action("myAction", "myController")">
+                <a style="display:none" href="@Url.Action("myAction", "myController")">
                     <div class="col">
                         <div class="card radius-10 border-start border-0 border-3 border-info">
                             <div class="card-body">
@@ -166,7 +173,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="@Url.Action("myAction", "myController")">
+                <a style="display:none" href="@Url.Action("myAction", "myController")">
                     <div class="col">
                         <div class="card radius-10 border-start border-0 border-3 border-info">
                             <div class="card-body">
@@ -183,7 +190,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="@Url.Action("myAction", "myController")">
+                <a style="display:none" href="@Url.Action("myAction", "myController")">
                     <div class="col">
                         <div class="card radius-10 border-start border-0 border-3 border-info">
                             <div class="card-body">
@@ -201,7 +208,7 @@
                     </div>
                 </a>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mb-3">
+            <div style="display:none" class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mb-3">
                 <a href="@Url.Action("myAction", "myController")">
                     <div class="col">
                         <div class="card radius-10 border-start border-0 border-3 border-info">
