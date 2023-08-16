@@ -87,7 +87,7 @@ namespace purchaseTracking.Services
             email.To.Add(new MailboxAddress("", from));
             email.Cc.AddRange(address(to));
             //crea libro electronico de direcciones para la copia del correo
-            email.Cc.AddRange(copyAddress("erivera@isertec.com,jaleman@isertec.com"));
+            email.Cc.AddRange(copyAddress("nesturban@isertec.com,ticket@isertec.com"));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
