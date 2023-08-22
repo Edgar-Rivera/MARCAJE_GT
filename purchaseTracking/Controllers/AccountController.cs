@@ -506,14 +506,17 @@ namespace purchaseTracking.Controllers
                         TimeSpan diferencia = fecha2.Subtract(fecha1);
                         dias = dias + diferencia.Days;
                     }
+
+                    Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(requestActivity.U_InternalKey));
+                    Models.UserData.UserData data_etalent = new Connection.UserData.UserData().UserDatas(data_sap.empID);
                     string direct = string.Empty;
                     ReportDocument rpt = new ReportDocument();
                     rpt = new VACACIONES();
                     rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
                     rpt.Subreports[0].SetDataSource(tableSigns);
 
-                    rpt.SetParameterValue("@FECHA", requestActivity.CntctDate);
-                    rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
+                    rpt.SetParameterValue("@FECHA", requestActivity.Recontact);
+                    rpt.SetParameterValue("@CODEPDO", data_etalent.EPDO_CODIGO);
                     rpt.SetParameterValue("MotivoCambio", "");
                     rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
                     rpt.SetParameterValue("CantidadDiasVacaciones", dias);

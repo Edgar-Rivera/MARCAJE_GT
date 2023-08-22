@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Sap.Data.Hana;
 
 namespace purchaseTracking.Connection.Activities
@@ -247,7 +248,7 @@ namespace purchaseTracking.Connection.Activities
                 "WHEN A.\"DocType\" = 69 THEN 'Precio de Entrega'" +
                 "END) \"ClaseDocumento\", A.\"DocType\", A.\"Notes\", A.\"Recontact\", A.\"endDate\",A.\"U_Comentarios\", A.\"U_Correo\", " +
                 "B.\"E_Mail\", A.\"U_FechaActualizacion\", A.\"U_DireccionFacturacion\", A.\"U_MontoFacturar\", A.\"U_OrdenCompra\", " +
-                "A.\"U_Entregas\", A.\"U_Contacto\", A.\"U_Observaciones\", A.\"U_TipoEnvio\", A.\"U_Moneda\", A.\"U_Refacturacion\",  A.\"U_Concepto\" , A.\"U_internalKey\", A.\"U_retrasoDias\"" + 
+                "A.\"U_Entregas\", A.\"U_Contacto\", A.\"U_Observaciones\", A.\"U_TipoEnvio\", A.\"U_Moneda\", A.\"U_Refacturacion\",  A.\"U_Concepto\" , A.\"U_internalKey\", A.\"U_retrasoDias\" " + 
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +

@@ -401,6 +401,8 @@
     <Content Include="Scripts\Gruntfile.coffee" />
     <Content Include="Scripts\chosen.jquery.coffee" />
     <Content Include="CrystalReports\VACACIONES.rpt" />
+    <Content Include="Files\Politica Comercial.pdf" />
+    <Content Include="Files\Polìticas Admon.pdf" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

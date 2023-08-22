@@ -28,7 +28,7 @@
                     <div class="form-group row">
                         <div class="col-sm-4">
                             <strong><label class="control-label">Fecha Inicio Vacaciones </label></strong>
-                            <input class="form-control" type="text" value="@Model.CntctDate.ToString("dd/MM/yyyy")">
+                            <input class="form-control" type="text" value="@Model.Recontact.ToString("dd/MM/yyyy")">
                         </div>
                         <div class="col-sm-4">
                             <strong><label class="control-label">Fecha Fin Vacaciones</label></strong>
@@ -37,7 +37,7 @@
                     </div>
                     @{
                         int cantidad = 1;
-                        TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.CntctDate;
+                        TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Convert.ToDateTime(Model.Recontact);
                         cantidad = cantidad + diferencia.Days;
                     }
                 <div class="form-group row">
