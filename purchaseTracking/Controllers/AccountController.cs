@@ -214,7 +214,7 @@ namespace purchaseTracking.Controllers
                 {
                     DateTime fecha1 = Convert.ToDateTime(requestActivity.StartDate);
                     DateTime fecha2 = Convert.ToDateTime(requestActivity.U_FechaActualizacion);
-                    TimeSpan diferencia = fecha2.Subtract(fecha1);
+                    TimeSpan diferencia = fecha2 - fecha1;
                     dias = dias + diferencia.Days;
                 }
                
@@ -226,7 +226,7 @@ namespace purchaseTracking.Controllers
                 rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
                 rpt.SetParameterValue("MotivoCambio", "");
                 rpt.SetParameterValue("FechaFin", requestActivity.U_FechaActualizacion);
-                rpt.SetParameterValue("CantidadDiasVacaciones", dias);
+                rpt.SetParameterValue("CantidadDiasVacaciones", ""+dias);
                 rpt.SetParameterValue("Observaciones", requestActivity.Details);
           
                 ExportOptions myoptions;
@@ -499,11 +499,11 @@ namespace purchaseTracking.Controllers
                     involucrados = involucrados + ",nomina@isertec.com";
                     // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
                     int dias = 1;
-                    if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.CntctDate)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
+                    if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.Recontact)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
                     {
                         DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
                         DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
-                        TimeSpan diferencia = fecha2.Subtract(fecha1);
+                        TimeSpan diferencia = fecha2 - fecha1;
                         dias = dias + diferencia.Days;
                     }
 
@@ -519,7 +519,7 @@ namespace purchaseTracking.Controllers
                     rpt.SetParameterValue("@CODEPDO", data_etalent.EPDO_CODIGO);
                     rpt.SetParameterValue("MotivoCambio", "");
                     rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
-                    rpt.SetParameterValue("CantidadDiasVacaciones", dias);
+                    rpt.SetParameterValue("CantidadDiasVacaciones", ""+ dias);
                     rpt.SetParameterValue("Observaciones", requestActivity.Details);
 
                     ExportOptions myoptions;
