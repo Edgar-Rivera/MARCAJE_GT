@@ -501,7 +501,7 @@ namespace purchaseTracking.Controllers
                     int dias = 1;
                     if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.CntctDate)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
                     {
-                        DateTime fecha1 = Convert.ToDateTime(requestActivity.CntctDate);
+                        DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
                         DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
                         TimeSpan diferencia = fecha2.Subtract(fecha1);
                         dias = dias + diferencia.Days;
