@@ -357,6 +357,7 @@
     <Content Include="Content\CSS\style.css" />
     <Content Include="Content\CSS\StyleSideBar.css" />
     <Content Include="Content\Images\bg-2.jpg" />
+    <Content Include="Content\Images\bg-3-V02.jpg" />
     <Content Include="Content\Images\bg-3.jpg" />
     <Content Include="Content\Images\bg-4.jpg" />
     <Content Include="Content\Images\bg-5.jpg" />

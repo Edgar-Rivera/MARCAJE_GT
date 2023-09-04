@@ -18,11 +18,17 @@ namespace purchaseTracking.Controllers
     [SessionExpireFilter]
     public class AccountController : Controller
     {
-        [HttpGet]
+        
+        /*
         public ActionResult DowloadFiles()
         {
             return View();
         }
+        */
+
+
+
+
         [HttpGet]
         public ActionResult createSignDigital()
         {
@@ -232,7 +238,7 @@ namespace purchaseTracking.Controllers
                 ExportOptions myoptions;
                 DiskFileDestinationOptions path = new DiskFileDestinationOptions();
                 PdfRtfWordFormatOptions pdf = new PdfRtfWordFormatOptions();
-                path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante +  '_' + DateTime.Now.ToString("MM-dd-yyyy") + "a_.pdf";
+                path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante +  '_' + DateTime.Now.ToString("MM-dd-yyyy") + ".pdf";
                 direct = path.DiskFileName;
                 myoptions = rpt.ExportOptions;
                 myoptions.ExportDestinationType = ExportDestinationType.DiskFile;
@@ -537,7 +543,10 @@ namespace purchaseTracking.Controllers
                 }
                 else
                 {
-                    message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
+                    if (status == "4")
+                    {
+                       message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
+                    }
                 }
                 
                 return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });

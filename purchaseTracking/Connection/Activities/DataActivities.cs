@@ -17,7 +17,7 @@ namespace purchaseTracking.Connection.Activities
             var data = new Models.UserNameData();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT * FROM TR_USUARIO_EMPLEADO WHERE \"USER_CODE\" = ?", conn);
+            HanaCommand cmd = new HanaCommand("SELECT \"INTERNAL_K\", \"U_NAME\", \"E_Mail\" FROM OUSR WHERE \"USER_CODE\" = ?", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.NVarChar;
             param.Value = nombre_usuario;
@@ -100,7 +100,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"AttendUser\" IN(?) AND A.\"CntctType\" IN (86) AND A.\"CntctDate\" > '20230815'  ORDER BY 2 DESC", conn);
+                "WHERE A.\"AttendUser\" IN(?) AND A.\"CntctType\" IN (86) AND A.\"status\" <> 8 AND A.\"CntctDate\" > '20230815'  ORDER BY 2 DESC", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = idUser;
@@ -150,7 +150,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"CntctType\" IN (86) AND A.\"Recontact\" >= '20230815'  ORDER BY 2 DESC", conn);
+                "WHERE A.\"CntctType\" IN (86) AND A.\"Recontact\" >= '20230815' AND A.\"status\" <> 8  ORDER BY 2 DESC", conn);
             HanaDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -195,7 +195,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"AttendUser\" IN(?)  AND A.\"CntctType\" IN (86) AND A.\"Recontact\" >= '20230815'  ORDER BY 2 DESC", conn);
+                "WHERE A.\"AttendUser\" IN(?)  AND A.\"CntctType\" IN (86) AND A.\"status\" <> 8  AND A.\"Recontact\" >= '20230815'  ORDER BY 2 DESC", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = idUser;
@@ -319,7 +319,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"U_internalKey\" = ? AND A.\"CntctType\" IN (86) AND A.\"CntctDate\" > '20230815'   ORDER BY 2 DESC", conn);
+                "WHERE A.\"U_internalKey\" = ? AND A.\"CntctType\" IN (86) AND A.\"CntctDate\" > '20230815'  AND A.\"status\" <> 8  ORDER BY 2 DESC", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = idUser;
@@ -368,7 +368,7 @@ namespace purchaseTracking.Connection.Activities
                 "FROM OCLG A " +
                 "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
                 "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"U_internalKey\" = ?  AND A.\"CntctType\" IN (86) AND A.\"CntctDate\" > '20230815'  ORDER BY 2 DESC", conn);
+                "WHERE A.\"U_internalKey\" = ?  AND A.\"CntctType\" IN (86) AND A.\"CntctDate\" > '20230815'  AND A.\"status\" <> 8  ORDER BY 2 DESC", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
             param.Value = idUser;
