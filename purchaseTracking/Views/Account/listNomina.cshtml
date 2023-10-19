@@ -26,7 +26,7 @@
                 <span class="badge badge-secondary">@ViewBag.totalItem</span>
             </h4>
             <hr />
-            @using (Html.BeginForm("listNomina", "Activity", FormMethod.Get))
+            @using (Html.BeginForm("listNomina", "Account", FormMethod.Get))
             {
                 <div class="form-row">
                     <div class="col-sm-12">
@@ -35,7 +35,7 @@
                             <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <input type="submit" class="btn btn-success" value="Buscar" />
-                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("listNomina", "Activity")'"><i class="fas fa-redo"></i></button>
+                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("listNomina", "Account")'"><i class="fas fa-redo"></i></button>
                             </div>
                         </div>
                     </div>

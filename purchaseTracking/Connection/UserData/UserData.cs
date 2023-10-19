@@ -11,6 +11,42 @@ namespace purchaseTracking.Connection.UserData
 {
     public class UserData
     {
+
+        // CAMBIOS FINALES REPORTE DIAS VACACIONES
+        // RETORNA VACACIONES DISPONIBLES
+        public List<Models.eTALENT.VACACIONES> VacacionesDiaSP(int internal_code)
+        {
+            var data = new List<Models.eTALENT.VACACIONES>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "EXEC [dbo].[SP_ReporteEstandar_25_ReporteVacDia_Prod] @codepdo = @CODE;";
+            cmd = new SqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("@CODE", internal_code);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.VACACIONES()
+                {
+                    TEMP_CODCIA = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    GRL_DESC = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    EPDO_CODIGO = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
+                    EPDO_NOMBRE_COMPLETO = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    FECHA = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    UND = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                    UND_NOMBRE = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    UND_CODIGO = reader.IsDBNull(7) ? 0 : reader.GetInt32(7),
+                    UND_DESCRIPCION = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    PERIODOS = reader.IsDBNull(9) ? 0 : reader.GetInt32(9),
+                    DIAS = reader.IsDBNull(10) ? 0 : reader.GetDecimal(10),
+                    GOZADOS = reader.IsDBNull(11) ? 0 : reader.GetDecimal(11),
+                    JEFE = reader.IsDBNull(15) ? 0 : reader.GetInt32(15),
+                });
+            }
+            return data;
+        }
+
         // FUNCION QUE INGRESA LOS DATOS DE LAS MARCAS COMERCIALES
         public bool InsertWEA_CP(int CODIGO, string TIPO, string LATITUD, string LONGITUD, string PROJECT, string UUID, string CODIGO_EXTERNO, string ORDEN, string CLIENTE, string PROSPECTO, string PRES_V, string N_CLIENTE, string N_PROJECT)
         {

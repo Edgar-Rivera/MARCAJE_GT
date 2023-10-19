@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<purchaseTracking.Models.eTALENT.VACACIONES_DISPONIBLES>
+﻿@model PagedList.IPagedList<purchaseTracking.Models.eTALENT.VACACIONES>
 
 @using PagedList.Mvc;
 
@@ -56,24 +56,27 @@
 
                         @foreach (var item in Model)
                         {
+                            int temp_total = (int)Math.Round(item.DIAS);
+                            int temp_gozados = (int)Math.Round(item.GOZADOS);
+                            int temp_dias =  (int)Math.Round(item.DIAS - item.GOZADOS);
                             <tr style="cursor:pointer !important">
                                 <td class="text-center">
-                                    @item.CODIGO
+                                    @item.EPDO_CODIGO
                                 </td>
                                 <td>
-                                    @item.NOMBRE
+                                    @item.EPDO_NOMBRE_COMPLETO
                                 </td>
                                 <td class="text-center">
-                                    @item.FECHA_INGRESO
+                                    @item.FECHA
                                 </td>
                                 <td class="text-center">
-                                    @item.TOTAL_VACACIONES
+                                    @temp_total
                                 </td>
                                 <td class="text-center">
-                                    @item.DIAS_TOMADOS
+                                    @temp_gozados
                                 </td>
                                 <td class="text-center">
-                                    @item.DIAS_PENDIENTES
+                                    @temp_dias
                                 </td>
                             </tr>
                         }

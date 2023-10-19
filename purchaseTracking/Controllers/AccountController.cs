@@ -45,17 +45,29 @@ namespace purchaseTracking.Controllers
          
             List<Models.eTALENT.VACACIONES_DISPONIBLES> vacaciones = new List<Models.eTALENT.VACACIONES_DISPONIBLES>();
             vacaciones = new Connection.UserData.UserData().VacacionesUnidades(Convert.ToInt32(Session["internal_code"]));
+
+            List<Models.eTALENT.VACACIONES> vacaciones_periodo_empleados = new List<Models.eTALENT.VACACIONES>();
+            // LISTA GENERAL 
+            foreach(var vacacion in vacaciones)
+            {
+                List<Models.eTALENT.VACACIONES> vacaciones_periodo = new List<Models.eTALENT.VACACIONES>();
+                vacaciones_periodo = new Connection.UserData.UserData().VacacionesDiaSP(vacacion.CODIGO);
+                vacaciones_periodo_empleados.AddRange(vacaciones_periodo);
+            }
+            
+
+
             ViewBag.findString = findString;
-            ViewBag.totalItem = vacaciones.Count();
+            ViewBag.totalItem = vacaciones_periodo_empleados.Count();
             int pageSize = 15;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
-                var obj = vacaciones.Where(s => s.NOMBRE.ToString().Contains(findString) || s.CODIGO_EXTERNO.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.FECHA_INGRESO.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+                var obj = vacaciones_periodo_empleados.Where(s => s.EPDO_NOMBRE_COMPLETO.ToString().Contains(findString));
 
                 return View(obj.ToPagedList(pageNumber, pageSize));
             }
-            return View(vacaciones.ToPagedList(pageNumber, pageSize));
+            return View(vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize));
         }
 
 
@@ -84,8 +96,8 @@ namespace purchaseTracking.Controllers
             List<Models.eTALENT.EPDO_MASTER_DATA> datos = new List<Models.eTALENT.EPDO_MASTER_DATA>();
             datos = new Connection.UserData.UserData().DatosEmpleados(Convert.ToInt32(Session["external_code"]));
 
-            List<Models.eTALENT.VACACIONES_DISPONIBLES> vacaciones = new List<Models.eTALENT.VACACIONES_DISPONIBLES>();
-            vacaciones = new Connection.UserData.UserData().VacacionesDia(Convert.ToInt32(Session["external_code"]));
+            List<Models.eTALENT.VACACIONES> vacaciones = new List<Models.eTALENT.VACACIONES>();
+            vacaciones = new Connection.UserData.UserData().VacacionesDiaSP(Convert.ToInt32(Session["internal_code"]));
 
             List<Models.eTALENT.HISTORICO_VACACIONES> historico = new List<Models.eTALENT.HISTORICO_VACACIONES>();
             historico = new Connection.UserData.UserData().HistoricoEmpleado(Convert.ToInt32(Session["external_code"]));
