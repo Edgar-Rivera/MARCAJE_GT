@@ -12,6 +12,8 @@ using purchaseTracking.Connection;
 using PagedList.Mvc;
 using System.IO;
 using System.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Vml;
 
 namespace purchaseTracking.Controllers
 {
@@ -19,12 +21,43 @@ namespace purchaseTracking.Controllers
     public class AccountController : Controller
     {
         
-        /*
-        public ActionResult DowloadFiles()
+        
+        public ActionResult DowloadFiles(int id)
         {
-            return View();
+            Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+            var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
+            int dias = 1;
+            if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.Recontact)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
+            {
+                DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
+                DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
+                TimeSpan diferencia = fecha2 - fecha1;
+                dias = dias + diferencia.Days;
+            }
+
+            Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(requestActivity.U_InternalKey));
+            Models.UserData.UserData data_etalent = new Connection.UserData.UserData().UserDatas(data_sap.empID);
+
+            ReportDocument rpt = new ReportDocument();
+            rpt = new VACACIONES();
+            rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
+            rpt.Subreports[0].SetDataSource(tableSigns);
+
+            rpt.SetParameterValue("@FECHA", requestActivity.Recontact);
+            rpt.SetParameterValue("@CODEPDO", data_etalent.EPDO_CODIGO);
+            rpt.SetParameterValue("MotivoCambio", "");
+            rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
+            rpt.SetParameterValue("CantidadDiasVacaciones", "" + dias);
+            rpt.SetParameterValue("Observaciones", requestActivity.Details);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Stream stream = rpt.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream, "application/pdf", "Solicitud_" + requestActivity.ClgCode + "_.pdf");
+            
         }
-        */
+        
 
 
 
