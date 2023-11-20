@@ -42,9 +42,22 @@
                         </div>
                     </div>
                     @{ 
-                        int cantidad = 1;
+                        int cantidad = 0;
                         TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.Recontact;
-                        cantidad = cantidad + diferencia.Days;
+
+                        // Iterar sobre cada día entre las dos fechas
+                        for (int i = 0; i <= diferencia.Days; i++)
+                        {
+                            // Obtener el día actual en la iteración
+                            DateTime fechaActual = Model.Recontact.AddDays(i);
+
+                            // Verificar si el día actual es sábado o domingo
+                            if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                            {
+                                // Si no es sábado ni domingo, agregar 1 a la cantidad
+                                cantidad++;
+                            }
+                        }
                     }
                 <div class="form-group row">
                     <div class="col-sm-4">

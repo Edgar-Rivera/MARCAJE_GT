@@ -14,6 +14,7 @@ using System.IO;
 using System.Drawing;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Vml;
+using DocumentFormat.OpenXml.EMMA;
 
 namespace purchaseTracking.Controllers
 {
@@ -555,7 +556,22 @@ namespace purchaseTracking.Controllers
                         DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
                         DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
                         TimeSpan diferencia = fecha2 - fecha1;
-                        dias = dias + diferencia.Days;
+
+                        // Iterar sobre cada día entre las dos fechas
+                        for (int i = 0; i <= diferencia.Days; i++)
+                        {
+                            // Obtener el día actual en la iteración
+                            DateTime fechaActual = Convert.ToDateTime(requestActivity.Recontact).AddDays(i);
+
+                            // Verificar si el día actual es sábado o domingo
+                            if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                            {
+                                // Si no es sábado ni domingo, agregar 1 a la cantidad
+                                dias++;
+                            }
+                        }
+
+
                     }
 
                     Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(requestActivity.U_InternalKey));

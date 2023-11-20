@@ -40,9 +40,16 @@
                         </div>
                     </div>
                     @{
-                        int cantidad = 1;
-                        TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Convert.ToDateTime(Model.Recontact);
-                        cantidad = cantidad + diferencia.Days;
+                        int cantidad = 0;
+                        TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.Recontact;
+                        for (int i = 0; i <= diferencia.Days; i++)
+                        {
+                            DateTime fechaActual = Model.Recontact.AddDays(i);
+                            if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                            {
+                                cantidad++;
+                            }
+                        }
                     }
                 <div class="form-group row">
                     <div class="col-sm-4">
