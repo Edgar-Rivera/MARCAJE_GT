@@ -261,13 +261,23 @@ namespace purchaseTracking.Controllers
                 rpt.Subreports[0].SetDataSource(tableSigns);
 
                 // DATA SOURCE FIRMAS
-                int dias = 1;
+                int dias = 0;
                 if(!String.IsNullOrEmpty(requestActivity.StartDate) && !string.IsNullOrEmpty(requestActivity.U_FechaActualizacion))
                 {
                     DateTime fecha1 = Convert.ToDateTime(requestActivity.StartDate);
                     DateTime fecha2 = Convert.ToDateTime(requestActivity.U_FechaActualizacion);
                     TimeSpan diferencia = fecha2 - fecha1;
-                    dias = dias + diferencia.Days;
+                    for (int i = 0; i <= diferencia.Days; i++)
+                    {
+                        // Obtener el día actual en la iteración
+                        DateTime fechaActual = Convert.ToDateTime(requestActivity.StartDate).AddDays(i);
+
+                        // Verificar si el día actual es sábado o domingo
+                        if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                        {
+                            dias++;
+                        }
+                    }
                 }
                
                

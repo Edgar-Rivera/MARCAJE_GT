@@ -11,5 +11,6 @@ namespace purchaseTracking.Models.WEA
         public string Project { get; set; }
         public string Comments { get; set; }
         public string CardName { get; set; }
+        public string CardCode { get; set; }
     }
 }

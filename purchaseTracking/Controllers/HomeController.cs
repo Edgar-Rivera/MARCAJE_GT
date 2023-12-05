@@ -61,7 +61,7 @@ namespace purchaseTracking.Controllers
                         if (type_p == "INICIO" || type_p == "INICIO_TRASLADO" || type_p == "INICIO_COMIDA" || type_p == "SALIDA" || type_p == "FIN_TRASLADO" || type_p == "FIN_COMIDA")
                         {
 
-                            if (new Connection.UserData.UserData().InsertWEA(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt, lg, data.Project, uuid, Convert.ToString(Session["external_code"]), ORDR, CardName, "", TYPE_V, data.CardName, data.Comments))
+                            if (new Connection.UserData.UserData().InsertWEA(Convert.ToInt32(Session["internal_code"]), TYPE_M(type_p), lt, lg, data.Project, uuid, Convert.ToString(Session["external_code"]), ORDR, data.CardCode, "", TYPE_V, data.CardName, data.Comments))
                             {
                                 return RedirectToAction("page", "Home");
                             }
