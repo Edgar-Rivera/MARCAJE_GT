@@ -198,23 +198,23 @@ namespace purchaseTracking.Connection.UserData
             conn = eTalentConnection.connectionResult();
             SqlCommand cmd;
             SqlDataReader reader;
-            string commandText = "SELECT * FROM W_MARCASACCESO_LOC_PROY  WHERE  ID = (SELECT MAX(ID) FROM W_MARCASACCESO_LOC_PROY WHERE CODIGO_EXTERNO = @CODE AND TIPO <> '4') ;";
+            string commandText = "SELECT TOP 1 CODIGO, FECHA_MARCA, MARCA, CASE WHEN TIPO = '1' THEN 'ENTRADA' WHEN TIPO = '2' THEN 'INICIO COMIDA'  WHEN TIPO = '3' THEN 'FIN COMIDA' WHEN TIPO = '4' THEN 'SALIDA' WHEN TIPO = '10' THEN 'FIN TRASLADO' WHEN TIPO = '9' THEN 'INICIO TRASLADO' ELSE 'N/A' END \"TIPO\", PROJECT, ORDEN, NOM_CLIENTE, NOM_PROJECT, CLIENTE, PRES_O_VIRT, PROSPECTO FROM W_MARCASACCESO_LOC_PROY WHERE CODIGO_EXTERNO = @CODE ORDER BY ID DESC;";
             cmd = new SqlCommand(commandText, conn);
             cmd.Parameters.AddWithValue("@CODE", user);
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                data.CODIGO = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1);
-                data.FECHA_MARCA = reader.IsDBNull(2) ? DateTime.Now : reader.GetDateTime(2);
-                data.MARCA = reader.IsDBNull(3) ? DateTime.Now : reader.GetDateTime(3);
-                data.TIPO = reader.IsDBNull(4) ? string.Empty : reader.GetString(4);
-                data.PROJECT = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
-                data.ORDEN = reader.IsDBNull(6) ? string.Empty : reader.GetString(6);
-                data.NOM_CLIENTE = reader.IsDBNull(7) ? string.Empty : reader.GetString(7);
-                data.NOM_PROJECT = reader.IsDBNull(8) ? string.Empty : reader.GetString(8);
-                data.CLIENTE = reader.IsDBNull(9) ? string.Empty : reader.GetString(9);
-                data.TIPO_V = reader.IsDBNull(10) ? string.Empty : reader.GetString(10);
-                data.PROSPECTO = reader.IsDBNull(11) ? string.Empty : reader.GetString(11);
+                data.CODIGO = reader.IsDBNull(0) ? 0 : reader.GetDecimal(0);
+                data.FECHA_MARCA = reader.IsDBNull(1) ? DateTime.Now : reader.GetDateTime(1);
+                data.MARCA = reader.IsDBNull(2) ? DateTime.Now : reader.GetDateTime(2);
+                data.TIPO = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
+                data.PROJECT = reader.IsDBNull(4) ? string.Empty : reader.GetString(4);
+                data.ORDEN = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
+                data.NOM_CLIENTE = reader.IsDBNull(6) ? string.Empty : reader.GetString(6);
+                data.NOM_PROJECT = reader.IsDBNull(7) ? string.Empty : reader.GetString(7);
+                data.CLIENTE = reader.IsDBNull(8) ? string.Empty : reader.GetString(8);
+                data.TIPO_V = reader.IsDBNull(9) ? string.Empty : reader.GetString(9);
+                data.PROSPECTO = reader.IsDBNull(10) ? string.Empty : reader.GetString(10);
             }
             conn.Close();
             return data;

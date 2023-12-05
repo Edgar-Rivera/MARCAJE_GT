@@ -27,13 +27,24 @@ namespace purchaseTracking.Controllers
         {
             Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
             var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
-            int dias = 1;
+            int dias = 0;
             if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.Recontact)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
             {
                 DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
                 DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
                 TimeSpan diferencia = fecha2 - fecha1;
-                dias = dias + diferencia.Days;
+                for (int i = 0; i <= diferencia.Days; i++)
+                {
+                    // Obtener el día actual en la iteración
+                    DateTime fechaActual = requestActivity.Recontact.AddDays(i);
+
+                    // Verificar si el día actual es sábado o domingo
+                    if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                    {
+                        // Si no es sábado ni domingo, agregar 1 a la cantidad
+                        dias++;
+                    }
+                }
             }
 
             Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(requestActivity.U_InternalKey));
@@ -560,7 +571,7 @@ namespace purchaseTracking.Controllers
                     var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
                     involucrados = involucrados + ",nomina@isertec.com";
                     // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
-                    int dias = 1;
+                    int dias = 0;
                     if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.Recontact)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
                     {
                         DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
