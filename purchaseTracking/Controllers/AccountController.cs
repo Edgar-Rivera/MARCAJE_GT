@@ -8,7 +8,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System.Data.SqlClient;
 using purchaseTracking.Connection;
-  using PagedList;
+using PagedList;
 using PagedList.Mvc;
 using System.IO;
 using System.Drawing;
@@ -35,13 +35,9 @@ namespace purchaseTracking.Controllers
                 TimeSpan diferencia = fecha2 - fecha1;
                 for (int i = 0; i <= diferencia.Days; i++)
                 {
-                    // Obtener el día actual en la iteración
                     DateTime fechaActual = requestActivity.Recontact.AddDays(i);
-
-                    // Verificar si el día actual es sábado o domingo
                     if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
                     {
-                        // Si no es sábado ni domingo, agregar 1 a la cantidad
                         dias++;
                     }
                 }
@@ -323,8 +319,6 @@ namespace purchaseTracking.Controllers
 
         }
 
-
-        /* SOLICITUDES PUESTAS POR USUARIO */
         [HttpGet]
         public ActionResult RequestInvoice(int? page, string findString, string filterString)
         {
