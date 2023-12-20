@@ -45,16 +45,37 @@ namespace purchaseTracking.Connection.Orders
             conn.Close();
             return data;
         }
+
+
+        public int ObtieneNumeroHora()
+        {
+            string horaActual = DateTime.Now.ToString("HH:mm");
+            DateTime dateTime = DateTime.ParseExact(horaActual, "HH:mm", null);
+            int horas = dateTime.Hour;
+            int minutos = dateTime.Minute;
+            int numeroHora = horas * 100 + minutos;
+            return numeroHora;
+        }
+
+
+
         public List<Models.Orders.BusinessPartners> getListProgramacion(int codigo_usuario)
         {
             var data = new List<Models.Orders.BusinessPartners>();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT \"OV\", \"Comments\" FROM TR_VISTA_PROGRAMACION WHERE \"U_InternalID\" = ? AND CURRENT_DATE BETWEEN \"U_FechaAsignacion\" AND \"U_FechaFin\";", conn);
+            HanaCommand cmd = new HanaCommand("SELECT \"OV\", \"Comments\" FROM TR_VISTA_PROGRAMACION WHERE \"U_InternalID\" = ? AND CURRENT_DATE BETWEEN \"U_FechaAsignacion\" AND \"U_FechaFin\" AND ? BETWEEN \"U_HoraInicio\" AND \"U_HoraFin\";", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.Integer;
-            param.Value = codigo_usuario;
             cmd.Parameters.Add(param);
+
+            param = new HanaParameter();
+            param.HanaDbType = HanaDbType.Integer;
+            cmd.Parameters.Add(param);
+
+
+            cmd.Parameters[0].Value = codigo_usuario;
+            cmd.Parameters[1].Value = ObtieneNumeroHora();
             HanaDataReader reader = cmd.ExecuteReader();
             bool firstRow = true;
             while (reader.Read())

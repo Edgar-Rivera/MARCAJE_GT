@@ -100,7 +100,10 @@ namespace purchaseTracking.Services
             mytemplate = mytemplate.Replace("{link-confirm}", "https://marcaje.isertec.com/Account/listInvoice/" + actividad);
             
             mensaje.HtmlBody = mytemplate;
-            mensaje.Attachments.Add(path_file);
+            if (path_file != "")
+            {
+                mensaje.Attachments.Add(path_file);
+            }
             email.Body = mensaje.ToMessageBody();
             email.Headers.Add("Disposition-Notification-To", "ticket@isertec.com");
             var smtp = new SmtpClient();

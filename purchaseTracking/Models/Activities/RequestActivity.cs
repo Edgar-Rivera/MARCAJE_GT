@@ -28,5 +28,6 @@ namespace purchaseTracking.Models.Activities
         public int HandledBy { get; set; }
         public string U_Correo { get; set; }
         public string U_internalKey { get; set; }
+        public string U_Observaciones { get; set; }
     }
 }

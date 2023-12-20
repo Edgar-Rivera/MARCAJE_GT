@@ -22,7 +22,6 @@ namespace purchaseTracking.Controllers
     public class AccountController : Controller
     {
         
-        
         public ActionResult DowloadFiles(int id)
         {
             Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
@@ -261,7 +260,7 @@ namespace purchaseTracking.Controllers
 
              
                 // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
-                string direct = string.Empty;
+               /* string direct = string.Empty;
                 ReportDocument rpt = new ReportDocument();
                 rpt = new VACACIONES();             
                 rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
@@ -286,11 +285,11 @@ namespace purchaseTracking.Controllers
                         }
                     }
                 }
-               
+               */
                
 
                 // DATOS DE FIRMAS
-
+                /*
                 rpt.SetParameterValue("@FECHA",requestActivity.StartDate);
                 rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
                 rpt.SetParameterValue("MotivoCambio", "");
@@ -309,7 +308,8 @@ namespace purchaseTracking.Controllers
                 myoptions.ExportDestinationOptions = path;
                 myoptions.ExportFormatOptions = pdf;
                 rpt.Export();
-                message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", requestActivity.U_Solicitante, ViewBag.activity, direct);
+                */
+                message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", requestActivity.U_Solicitante, ViewBag.activity, "");
                 return View("Success");
             }
             else
