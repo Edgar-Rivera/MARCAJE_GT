@@ -16,7 +16,7 @@
     <div class="row justify-content-md-center">
         <div class="col-md-10">
             <span class="badge badge-success float-right">@Model.Name</span>
-            <h4>Solicitud Disfrute de Vacaciones</h4>
+            <h4>@Model.Name</h4>
             <hr />
             <fieldset disabled>
                 <div class="form-group row">
@@ -27,6 +27,17 @@
                                 <button class="btn btn-secondary" type="button"><i class="fas fa-chart-line"></i></button>
                             </div>
                             <input type="text" class="form-control" value="@Model.ClgCode">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Tipo de Solicitud</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-warning" type="button"><i class="fas fa-sticky-note"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@Model.observaciones">
                         </div>
                     </div>
                 </div>
@@ -41,7 +52,7 @@
                             <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
                         </div>
                     </div>
-                    @{ 
+                    @{
                         int cantidad = 0;
                         TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.Recontact;
 
@@ -59,23 +70,23 @@
                             }
                         }
                     }
-                <div class="form-group row">
-                    <div class="col-sm-4">
-                        <strong><label class="control-label">Días a Tomar</label></strong>
-                        <input class="form-control" type="text" value="@cantidad">
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <strong><label class="control-label">Días a Tomar</label></strong>
+                            <input class="form-control" type="text" value="@cantidad">
+                        </div>
+                        <div class="col-sm-4 form-check">
+                            <strong><label class="control-label">Aplica Medio Día</label></strong>
+                            @if (Model.U_retrasoDias == "1")
+                            {
+                                <input class="form-control" type="text" value="Si" readonly>
+                            }
+                            else
+                            {
+                                <input class="form-control" type="text" value="No" readonly>
+                            }
+                        </div>
                     </div>
-                    <div class="col-sm-4 form-check">
-                        <strong><label class="control-label">Aplica Medio Día</label></strong>
-                        @if (Model.U_retrasoDias == "1")
-                        {
-                            <input class="form-control" type="text" value="Si" readonly>
-                        }
-                        else
-                        {
-                            <input class="form-control" type="text" value="No" readonly>
-                        }
-                    </div>
-                </div>
 
                     <div class="form-group row">
                         <div class="col-sm-4">

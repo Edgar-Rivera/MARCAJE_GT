@@ -239,6 +239,10 @@ namespace purchaseTracking.Controllers
             // VARIABLES DEL SERVICE LAYER ESTATICAS    
             requestActivity.DurationType = "du_Seconds";
             requestActivity.U_internalKey = Session["code"].ToString();
+            if(requestActivity.ActivityType == 86)
+            {
+                requestActivity.U_Observaciones = "Solicitud de Vacaciones";
+            }
             if(requestActivity.U_retrasoDias == "on")
             {
                 requestActivity.U_retrasoDias = "1";

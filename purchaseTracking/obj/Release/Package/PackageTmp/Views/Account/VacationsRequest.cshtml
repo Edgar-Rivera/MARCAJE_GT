@@ -14,6 +14,14 @@
     $(function () {
         $(".chosen").chosen();
     });
+
+    function onchangeS(seleccion, desplegable) {
+        if (seleccion == "86") {
+            document.getElementById(desplegable).style.display = "none";
+        } else {
+            document.getElementById(desplegable).style.display = "block";
+        }
+    }
 </script>
 <div class="container-fluid">
     <div class="row justify-content-md-center">
@@ -35,8 +43,32 @@
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
                                new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
-                        }, new { @class = "form-control" })
+                               new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
+                        }, new { @class = "form-control" , @onchange = "onchangeS(this.value,'permiso')" })
                     </div>
+                    <div class="col-sm-5">
+                        <div id="permiso" style="display:none">
+                            <strong><label class="control-label">Permiso especial por: </label></strong>
+                            @Html.DropDownListFor(model => Model.U_Observaciones, new List<SelectListItem>
+
+                          {
+                                 new SelectListItem{ Text="Home Office", Value = "Home Office" },
+                                 new SelectListItem{ Text="Enfermedad", Value = "Enfermedad" },
+                                  new SelectListItem{ Text="Permiso con Goce de Salario", Value = "Permiso con Goce de Salario" },
+                                 new SelectListItem{ Text="Permiso sin Goce de Salario", Value = "Permiso sin Goce de Salario" },
+                               new SelectListItem{ Text="Goce por tiempo Remunerado", Value = "Goce por tiempo Remunerado" },
+                                 new SelectListItem{ Text="Matrimonio", Value = "Matrimonio" },
+                                 new SelectListItem{ Text="Nacimiento de Hijo", Value = "Nacimiento de Hijo" },
+                                 
+                                
+                                
+                                
+                                    new SelectListItem{ Text="Fallecimiento de Familiar", Value = "Fallecimiento de Familiar" },
+                          }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-sm-5">
                         <strong><label class="control-label">Jefe Inmediato: </label></strong>
                         @{
