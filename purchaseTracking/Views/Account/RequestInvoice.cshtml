@@ -23,7 +23,7 @@
         <div class="col-md-10">
             <h4>Mis Solicitudes Creadas <span class="badge badge-secondary">@ViewBag.totalItem</span></h4>
             <hr />
-            @using (Html.BeginForm("RequestInvoice", "Activity", FormMethod.Get))
+            @using (Html.BeginForm("RequestInvoice", "Account", FormMethod.Get))
             {
                 <div class="form-row">
                     <div class="col-sm-12">
@@ -32,7 +32,7 @@
                             <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <input type="submit" class="btn btn-success" value="Buscar" />
-                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("RequestInvoice", "Activity")'"><i class="fas fa-redo"></i></button>
+                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("RequestInvoice", "Account")'"><i class="fas fa-redo"></i></button>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,8 @@
                         @Html.DropDownList("filterString", new List<SelectListItem>
                            {
                           new SelectListItem{ Text="Todos los datos", Value = "" },
-                               new SelectListItem{ Text="Solicitud Vacaciones", Value = "Solicitud Vacaciones" }
+                               new SelectListItem{ Text="Solicitud Vacaciones", Value = "Solicitud Vacaciones" },
+                                new SelectListItem{ Text="Solicitud Permiso", Value = "Solicitud Permiso" }
                            }, new { @class = "form-control" })
                     </div>
                     <div class="col-sm-auto">

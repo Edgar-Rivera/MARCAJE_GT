@@ -13,11 +13,27 @@
 </head>
 
 
-<body style="zoom:90%!important">
+<body style="zoom:90%!important" onload="startTime()">
     <script>
         $(document).ready(function () {
             $(".dropdown-toggle").dropdown();
         });
+
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+            return i;
+        }
     </script>
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -65,7 +81,7 @@
     </main>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - Isertec - EasyAccess
+            &copy; @DateTime.Now.Year - Isertec - IserAccess
         </div>
     </footer>
     <script src="~/Scripts/jquery-3.6.0.js"></script>

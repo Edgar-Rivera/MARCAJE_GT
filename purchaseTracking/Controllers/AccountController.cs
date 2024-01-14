@@ -331,7 +331,7 @@ namespace purchaseTracking.Controllers
             if (!string.IsNullOrEmpty(filterString))
             {
                 data = new Connection.Activities.DataActivities().getListRequestInvoiceNonEstatus(Convert.ToInt32(Session["code"]));
-                data = (from t in data where t.Estado.ToString() == filterString select t).ToList();
+                data = (from t in data where t.Name.ToString() == filterString select t).ToList();
             }
 
             else
@@ -441,7 +441,7 @@ namespace purchaseTracking.Controllers
             {
                 
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_A(Convert.ToInt32(Session["code"]));
-                data = (from t in data where t.Estado.ToString() == filterString select t).ToList();
+                data = (from t in data where t.status.ToString() == filterString select t).ToList();
             }
             else
             {
