@@ -18,7 +18,6 @@ namespace purchaseTracking.Controllers
         [HttpGet]
         public ActionResult PurchaseList(int? page, string findString)
         {
-            // CAMBIOS PARA MOSTRAR RESULTADOS DE BUSQUEDAS
             List<Models.Activities.details> data = new DataActivities().getOpenActivities();
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
@@ -38,7 +37,6 @@ namespace purchaseTracking.Controllers
         [HttpGet]
         public ActionResult CompletedRequest(int? page, string findString)
         {
-            // CAMBIOS PARA MOSTRAR RESULTADOS DE BUSQUEDAS
             List<Models.Activities.details> data = new DataActivities().getCloseActivities();
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();

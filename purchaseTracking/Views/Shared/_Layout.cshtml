@@ -19,21 +19,7 @@
             $(".dropdown-toggle").dropdown();
         });
 
-        function startTime() {
-            const today = new Date();
-            let h = today.getHours();
-            let m = today.getMinutes();
-            let s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
-            setTimeout(startTime, 1000);
-        }
-
-        function checkTime(i) {
-            if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-            return i;
-        }
+        
     </script>
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -55,8 +41,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("RequestForms", "Account")">Solicitudes Digitales</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Policies", "Account")">Políticas Internas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("DigitalForms", "Account")">Formularios Digitales</a>
+                    </li>
 
-                   
                     @if (Session["code"].ToString() == "36" || Session["code"].ToString() == "4" || Session["code"].ToString() == "233" || Session["code"].ToString() == "311"
                             || Session["code"].ToString() == "167" || Session["code"].ToString() == "265" || Session["code"].ToString() == "281" || Session["code"].ToString() == "182" || Session["code"].ToString() == "95"
                             || Session["code"].ToString() == "204" || Session["code"].ToString() == "40" || Session["code"].ToString() == "340" || Session["code"].ToString() == "8" || Session["code"].ToString() == "1"

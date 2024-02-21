@@ -405,6 +405,15 @@
     <Content Include="CrystalReports\VACACIONES.rpt" />
     <Content Include="Files\Politica Comercial.pdf" />
     <Content Include="Files\Polìticas Admon.pdf" />
+    <Content Include="Files\Anticipo Bonificaciones.pdf" />
+    <Content Include="Files\Anticipo Salario.pdf" />
+    <Content Include="Files\Asignacion de Combustible.pdf" />
+    <Content Include="Files\Cambio de Horario.pdf" />
+    <Content Include="Files\Descuento.pdf" />
+    <Content Include="Files\Fondo de Caja Chica.pdf" />
+    <Content Include="Files\Prestamo Interno.pdf" />
+    <Content Include="Files\Solicitud de Anticipo Aguinaldo.pdf" />
+    <Content Include="Files\Solicitud de Anticipo Bono 14.pdf" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -566,6 +575,8 @@
     <Content Include="Views\Account\detailsInvoiceAssign.cshtml" />
     <Content Include="Views\Account\EmpleadosUnidad.cshtml" />
     <Content Include="Views\Account\DowloadFiles.cshtml" />
+    <Content Include="Views\Account\Policies.cshtml" />
+    <Content Include="Views\Account\DigitalForms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

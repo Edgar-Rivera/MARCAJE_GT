@@ -7,7 +7,7 @@
     data = new purchaseTracking.Connection.UserData.UserData().LASTWEA(Convert.ToInt32(Session["external_code"]));
 
     // LSITA CON VALORES ESTATICOS DE USUARIOS INFRAESTRUCTURA ** PV_27-01-2023
-    List<string> user_values = new List<string> {"541", "16", "463","165", "544", "589", "275", "151", "535", "36", "45", "534", "47", "41", "43", "536", "526", "531", "530", "540", "615", "605", "619", "515", "583" };
+    List<string> user_values = new List<string> {"541", "16","165", "544", "589", "275", "151", "535", "36", "45", "534", "47", "41", "43", "536", "526", "531", "530", "540", "615", "605", "619", "515", "583" ,"593","302","667" };
 
 }
 <style>
@@ -85,12 +85,24 @@
         });
     });
 
-   
+    function actualizarHora() {
+            // Obtener el elemento HTML donde se mostrará la hora
+            var horaElemento = document.getElementById("hora");
+
+            // Realizar una solicitud AJAX para obtener la hora actualizada del servidor
+            $.get("@Url.Action("ObtenerHora", "Home")", function (nuevaHora) {
+                // Actualizar el contenido del elemento con la nueva hora
+                horaElemento.innerHTML = nuevaHora;
+            });
+        }
+
+        // Actualizar la hora cada segundo
+        setInterval(actualizarHora, 1000);
 
 </script>
 <h4 class="text-center">Bienvenido @Session["nombre"]</h4>
 <h6 class="text-center text-muted">@Session["eMail"]</h6>
-<h4 class="text-center" id="txt"></h4>
+<h4 class="text-center"  id="hora"></h4>
 <br />
 @{
     string pidForm1 = "";

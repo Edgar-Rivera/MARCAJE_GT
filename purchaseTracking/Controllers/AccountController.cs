@@ -21,7 +21,14 @@ namespace purchaseTracking.Controllers
     [SessionExpireFilter]
     public class AccountController : Controller
     {
-        
+        public ActionResult DigitalForms()
+        {
+            return View();
+        }
+        public ActionResult Policies()
+        {
+            return View();
+        }
         public ActionResult DowloadFiles(int id)
         {
             Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);

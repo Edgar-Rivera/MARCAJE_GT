@@ -7,8 +7,18 @@ using System.Web.Mvc;
 namespace purchaseTracking.Controllers
 {
     [SessionExpireFilter]
+
+
     public class HomeController : Controller
     {
+        public ActionResult ObtenerHora()
+        {
+            // Obtener la hora del servidor
+            DateTime horaServidor = DateTime.Now;
+            string horaServidorStr = horaServidor.ToString("HH:mm:ss");
+
+            return Json(horaServidorStr, JsonRequestBehavior.AllowGet);
+        }
         private string TYPE_M(string temp)
         {
             if(temp == "INICIO")
