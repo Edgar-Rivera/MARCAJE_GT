@@ -414,6 +414,10 @@
     <Content Include="Files\Prestamo Interno.pdf" />
     <Content Include="Files\Solicitud de Anticipo Aguinaldo.pdf" />
     <Content Include="Files\Solicitud de Anticipo Bono 14.pdf" />
+    <Content Include="Files\Políticas de Horas Extras.pdf" />
+    <Content Include="Files\Politica Comercial 2024.docx.pdf" />
+    <Content Include="Files\Polìticas Admon - 2024.docx.pdf" />
+    <Content Include="Files\Polìticas Admon - 2024.pdf" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
