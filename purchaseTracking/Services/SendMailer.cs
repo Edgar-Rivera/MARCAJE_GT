@@ -31,6 +31,7 @@ namespace purchaseTracking.Services
             email.From.Add(new MailboxAddress("Notificaciones eTALENT", from));
             email.To.AddRange(address(to));
             email.Cc.AddRange(address(from));
+            email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com,earagon@isertec.com"));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
@@ -87,7 +88,7 @@ namespace purchaseTracking.Services
             email.To.Add(new MailboxAddress("", from));
             email.Cc.AddRange(address(to));
             //crea libro electronico de direcciones para la copia del correo
-            email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com"));
+            email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com,earagon@isertec.com"));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
