@@ -64,6 +64,7 @@ namespace purchaseTracking.Controllers
             rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
             rpt.SetParameterValue("CantidadDiasVacaciones", "" + dias);
             rpt.SetParameterValue("Observaciones", requestActivity.Details);
+            rpt.SetParameterValue("TipoSolicitud", requestActivity.Name);
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
@@ -616,6 +617,7 @@ namespace purchaseTracking.Controllers
                     rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
                     rpt.SetParameterValue("CantidadDiasVacaciones", ""+ dias);
                     rpt.SetParameterValue("Observaciones", requestActivity.Details);
+                    rpt.SetParameterValue("TipoSolicitud", requestActivity.Name);
 
                     ExportOptions myoptions;
                     DiskFileDestinationOptions path = new DiskFileDestinationOptions();
