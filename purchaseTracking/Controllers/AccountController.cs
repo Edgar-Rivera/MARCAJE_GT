@@ -42,7 +42,8 @@ namespace purchaseTracking.Controllers
                 for (int i = 0; i <= diferencia.Days; i++)
                 {
                     DateTime fechaActual = requestActivity.Recontact.AddDays(i);
-                    if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                    if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday && !(fechaActual.Month == 12 && fechaActual.Day == 25) &&
+        !(fechaActual.Month == 11 && fechaActual.Day == 1) && !(fechaActual.Month == 9 && fechaActual.Day == 15) && !(fechaActual.Month == 3 && fechaActual.Day == 28) && !(fechaActual.Month == 3 && fechaActual.Day == 29))
                     {
                         dias++;
                     }
@@ -590,7 +591,8 @@ namespace purchaseTracking.Controllers
                             DateTime fechaActual = Convert.ToDateTime(requestActivity.Recontact).AddDays(i);
 
                             // Verificar si el día actual es sábado o domingo
-                            if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
+                            if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday && !(fechaActual.Month == 12 && fechaActual.Day == 25) &&
+       !(fechaActual.Month == 11 && fechaActual.Day == 1) && !(fechaActual.Month == 9 && fechaActual.Day == 15) && !(fechaActual.Month == 3 && fechaActual.Day == 28) && !(fechaActual.Month == 3 && fechaActual.Day == 29))
                             {
                                 // Si no es sábado ni domingo, agregar 1 a la cantidad
                                 dias++;
