@@ -142,6 +142,8 @@
             <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4">
                 @if (!string.IsNullOrEmpty(ViewBag.source))
                 {
+                    if (Session["code"].ToString() != "265" && Session["code"].ToString() != "311" && Session["code"].ToString() != "182" )
+                    {
                     <a href="@Url.Action("VacationsRequest", "Account")">
                         <div class="col">
                             <div class="card radius-10 border-start border-0 border-3 border-info">
@@ -159,7 +161,8 @@
                             </div>
                         </div>
                     </a>
-                }      
+                    }
+                }
             </div>
             <div style="display:none" class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mb-3">
                 <a href="@Url.Action("myAction", "myController")">

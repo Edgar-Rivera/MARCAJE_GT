@@ -480,12 +480,12 @@ namespace purchaseTracking.Controllers
             {
 
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
-                data = (from t in data where t.status.ToString() == "-3" select t).ToList();
+               
             }
             else
             {
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
-                data = (from t in data where t.status.ToString() == "-3" select t).ToList();
+               
             }
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
