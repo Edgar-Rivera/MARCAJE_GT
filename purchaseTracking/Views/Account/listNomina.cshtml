@@ -5,6 +5,14 @@
     ViewBag.Title = "Mis Solicitudes de Compra";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<script type='text/javascript'>
+    $(function () {
+        $(".chosen").chosen();
+    });
+</script>
+
+
 <style>
     thead tr th {
         position: sticky;
@@ -41,8 +49,24 @@
                     </div>
                 </div>
 
+                <div class="form-row mb-3">
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterJefeInmediato", new SelectList(ViewBag.JefeInmediato), new { @class = "form-control chosen" })
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterSolicitante", new SelectList(ViewBag.Solicitantes), new { @class = "form-control chosen" })
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterTipoActividad", new SelectList(ViewBag.TipoActividad), new { @class = "form-control chosen" })
+                    </div>
+                    <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
+                    </div>
+                </div>
+
             }
-            <br />
+
+
             @if (ViewBag.findString != null && Model.Count() > 0 && ViewBag.findString != "")
             {
                 <div class="alert alert-success" role="alert">
@@ -176,7 +200,7 @@
             }
 
         </div>
-    </div>
+        </div>
 </div>
 
 

@@ -472,8 +472,17 @@ namespace purchaseTracking.Controllers
         }
 
         [HttpGet]
-        public ActionResult listNomina(int? page, string findString, string filterString)
+        public ActionResult listNomina(int? page, string findString, string filterString, string filterJefeInmediato, string filterSolicitante, string filterTipoActividad)
         {
+            List<string> JefeInmediato = new List<string>();
+            JefeInmediato.Add("Seleccione Jefe Inmediato");
+
+            List<string> Solicitantes = new List<string>();
+            Solicitantes.Add("Seleccione Solicitante");
+
+            List<string> TipoActividad = new List<string>();
+            TipoActividad.Add("Seleccione Tipo de Actividad"); 
+
 
             List<Models.Activities.List> data = new List<Models.Activities.List>();
             if (!string.IsNullOrEmpty(filterString))
@@ -487,6 +496,49 @@ namespace purchaseTracking.Controllers
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
                
             }
+
+            var temp_jefe_inmediato = data.Select(x => x.U_NAME).Distinct();
+            foreach (var item_fase in temp_jefe_inmediato)
+            {
+                JefeInmediato.Add(item_fase);
+            }
+
+            var temp_solicitante = data.Select(x => x.U_Solicitante).Distinct();
+            foreach (var item_fase in temp_solicitante)
+            {
+                Solicitantes.Add(item_fase);
+            }
+
+            var temp_actividad = data.Select(x => x.Name).Distinct();
+            foreach (var item_fase in temp_actividad)
+            {
+                TipoActividad.Add(item_fase);
+            }
+
+
+
+
+            if (!string.IsNullOrEmpty(filterJefeInmediato) && filterJefeInmediato != "0" && filterJefeInmediato != "Seleccione Jefe Inmediato")
+            {
+                data = data.Where(x => x.U_NAME == filterJefeInmediato).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filterSolicitante) && filterSolicitante != "0" && filterSolicitante != "Seleccione Solicitante")
+            {
+                data = data.Where(x => x.U_Solicitante == filterSolicitante).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filterTipoActividad) && filterTipoActividad != "0" && filterTipoActividad != "Seleccione Tipo de Actividad")
+            {
+                data = data.Where(x => x.Name == filterTipoActividad).ToList();
+            }
+
+            ViewBag.JefeInmediato = JefeInmediato;
+            ViewBag.Solicitantes = Solicitantes;
+            ViewBag.TipoActividad = TipoActividad;
+           
+
+
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
             ViewBag.filterString = filterString;
