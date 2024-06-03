@@ -418,6 +418,7 @@
     <Content Include="Files\Politica Comercial 2024.docx.pdf" />
     <Content Include="Files\Polìticas Admon - 2024.docx.pdf" />
     <Content Include="Files\Polìticas Admon - 2024.pdf" />
+    <Content Include="Files\REGLAMENTO INTERIOR DE TRABAJO ISERTEC.pdf" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
