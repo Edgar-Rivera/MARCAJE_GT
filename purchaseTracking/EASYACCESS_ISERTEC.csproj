@@ -279,6 +279,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="Models\Activities\Activities.cs" />
     <Compile Include="Models\Activities\details.cs" />
     <Compile Include="Models\Activities\Ejecutivo.cs" />
@@ -419,6 +420,7 @@
     <Content Include="Files\Polìticas Admon - 2024.docx.pdf" />
     <Content Include="Files\Polìticas Admon - 2024.pdf" />
     <Content Include="Files\REGLAMENTO INTERIOR DE TRABAJO ISERTEC.pdf" />
+    <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -582,6 +584,7 @@
     <Content Include="Views\Account\DowloadFiles.cshtml" />
     <Content Include="Views\Account\Policies.cshtml" />
     <Content Include="Views\Account\DigitalForms.cshtml" />
+    <Content Include="Views\Shared\ErrorActualizarVacaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

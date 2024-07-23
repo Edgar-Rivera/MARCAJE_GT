@@ -8,6 +8,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.IO;
+using log4net.Repository.Hierarchy;
 
 namespace purchaseTracking.ServiceLayer.Activity
 {
@@ -162,7 +163,7 @@ namespace purchaseTracking.ServiceLayer.Activity
                 httpWebRequest.ServicePoint.Expect100Continue = false;
                 httpWebRequest.AllowAutoRedirect = true;
                 httpWebRequest.Timeout = 10000000;
-
+                Logger.Log("Actualizacion de estado (Marcaje): " + Objecto);
                 foreach (Cookie cookieValue in session.Cookies)
                 {
                     Cookie cookie = new Cookie();
