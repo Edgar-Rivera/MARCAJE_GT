@@ -138,19 +138,7 @@ namespace purchaseTracking.Connection.Activities
             var data = new List<Models.Activities.List>();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT A.\"ClgCode\",A.\"CntctDate\"," +
-                "(CASE WHEN  A.\"Action\" = 'C' THEN 'Llamada Teléfonica'" +
-                "WHEN  A.\"Action\" = 'M' THEN 'Reunión'  " +
-                "WHEN  A.\"Action\" = 'T' THEN 'Tarea'	" +
-                "WHEN  A.\"Action\" = 'E' THEN 'Nota'	" +
-                "WHEN  A.\"Action\" = 'P' THEN 'Campaña'" +
-                "WHEN  A.\"Action\" = 'P' THEN 'Otros'	" +
-                "END)\"Actividad\", C.\"Name\", A.\"AttendUser\", B.\"U_NAME\", A.\"U_Solicitante\"," +
-                " A.\"DocNum\", A.\"Details\", A.\"Recontact\", A.\"endDate\" ,  A.\"U_retrasoDias\", A.\"status\" " +
-                "FROM OCLG A " +
-                "INNER JOIN OUSR B ON A.\"AttendUser\" = B.\"INTERNAL_K\"" +
-                "INNER JOIN OCLT C ON C.\"Code\" = A.\"CntctType\" " +
-                "WHERE A.\"CntctType\" IN (86,89) AND A.\"Recontact\" >= '20230815' AND A.\"status\" <> 8  ORDER BY 1 DESC", conn);
+            HanaCommand cmd = new HanaCommand("SELECT * FROM TR_ListAllNonStatusInvoice_N", conn);
             HanaDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -171,7 +159,7 @@ namespace purchaseTracking.Connection.Activities
                     endDate = reader.IsDBNull(10) ? "" : reader.GetDateTime(10).ToString("dd/MM/yyyy"),
                     U_retrasoDias = reader.IsDBNull(11) ? "0" : reader.GetString(11),
                     status = reader.IsDBNull(12) ? string.Empty : reader.GetString(12),
-                    Estado = getStatus(Convert.ToInt32(reader.GetString(12)))
+                    //Estado = getStatus(Convert.ToInt32(reader.GetString(12)))
                 });
             }
             conn.Close();

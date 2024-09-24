@@ -45,6 +45,7 @@ namespace purchaseTracking.ServiceLayer.Activity
                     httpWebRequest.CookieContainer = new CookieContainer();
                     httpWebRequest.ServicePoint.Expect100Continue = false;
                     httpWebRequest.Timeout = 600000;
+                    Logger.Log("Nueva actividad: " + Objecto);
                     foreach (Cookie cookieValue in session.Cookies)
                     {
                         Cookie cookie = new Cookie();

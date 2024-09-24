@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <link href="~/Content/Chosen/component-chosen.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 
@@ -53,14 +54,20 @@
                         <a class="nav-link" href="@Url.Action("DigitalForms", "Account")">Formularios Digitales</a>
                     </li>
 
-                    @if (Session["code"].ToString() == "36" || Session["code"].ToString() == "4" || Session["code"].ToString() == "233" || Session["code"].ToString() == "311"
+                    @if (Session["code"].ToString() == "36" ||  Session["code"].ToString() == "233" || Session["code"].ToString() == "311"
                             || Session["code"].ToString() == "167" || Session["code"].ToString() == "265" || Session["code"].ToString() == "281" || Session["code"].ToString() == "182" || Session["code"].ToString() == "95"
                             || Session["code"].ToString() == "204" || Session["code"].ToString() == "40" || Session["code"].ToString() == "340" || Session["code"].ToString() == "8" || Session["code"].ToString() == "1"
                             || Session["code"].ToString() == "300" || Session["code"].ToString() == "201" || Session["code"].ToString() == "13")
                     {
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("EmpleadosUnidad", "Account")">Empleados Unidad</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("EmpleadosUnidad", "Account")">Empleados Unidad</a>
+                    </li>
+                    }
+                    @if (Session["code"].ToString() == "4" || Session["code"].ToString() == "6" || Session["code"].ToString() == "1")
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("EmpleadosAll", "Account")">Empleados Resumen</a>
+                    </li>
                     }
                 </ul>
 

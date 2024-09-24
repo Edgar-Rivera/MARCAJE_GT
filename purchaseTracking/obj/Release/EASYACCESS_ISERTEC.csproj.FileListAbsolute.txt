@@ -336,3 +336,10 @@ C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Release\EASYACCESS_
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Release\EASYACCE.8E2B31BE.Up2Date
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Release\purchaseTracking.dll
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Release\purchaseTracking.pdb
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\EPPlus.dll
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\EPPlus.Interfaces.dll
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\EPPlus.System.Drawing.dll
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\System.ComponentModel.Annotations.dll
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\EPPlus.xml
+C:\Users\flopez\source\repos\MARCAJE_GT\purchaseTracking\bin\Microsoft.IO.RecyclableMemoryStream.xml

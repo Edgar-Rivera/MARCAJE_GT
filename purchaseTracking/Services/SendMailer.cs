@@ -1,4 +1,6 @@
-﻿using MailKit.Net.Smtp;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
+using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 using System;
@@ -88,8 +90,10 @@ namespace purchaseTracking.Services
             email.From.Add(new MailboxAddress("Solicitud eTALENT", from));
             email.To.Add(new MailboxAddress("", from));
             email.Cc.AddRange(address(to));
+            var anio = DateTime.Now.Year;
             //crea libro electronico de direcciones para la copia del correo
-            email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com,earagon@isertec.com"));
+            email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com"));
+            email.Bcc.AddRange(copyAddress("earagon@isertec.com"));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
@@ -100,6 +104,7 @@ namespace purchaseTracking.Services
             mytemplate = mytemplate.Replace("{empleado}", empleado);
             mytemplate = mytemplate.Replace("{actividad}", actividad);
             mytemplate = mytemplate.Replace("{link-confirm}", "https://marcaje.isertec.com/Account/listInvoice/" + actividad);
+            mytemplate = mytemplate.Replace("{anio}", anio.ToString());
             
             mensaje.HtmlBody = mytemplate;
             if (path_file != "")

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using Sap.Data.Hana;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Org.BouncyCastle.Ocsp;
+//using static ClosedXML.Excel.XLPredefinedFormat;
 
 namespace purchaseTracking.Connection.UserData
 {
@@ -47,6 +48,39 @@ namespace purchaseTracking.Connection.UserData
             return data;
         }
 
+
+        public List<Models.eTALENT.VACACIONES> VacacionesDiaSP_All()
+        {
+            var data = new List<Models.eTALENT.VACACIONES>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "EXEC [dbo].[SP_ReporteEstandar_25_ReporteVacDia_Prod_All];";
+            cmd = new SqlCommand(commandText, conn);
+            //cmd.Parameters.AddWithValue("@CODE", internal_code);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.VACACIONES()
+                {
+                    TEMP_CODCIA = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    GRL_DESC = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    EPDO_CODIGO = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
+                    EPDO_NOMBRE_COMPLETO = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                    FECHA = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                    UND = reader.IsDBNull(5) ? 0 : reader.GetInt32(5),
+                    UND_NOMBRE = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                    UND_CODIGO = reader.IsDBNull(7) ? 0 : reader.GetInt32(7),
+                    UND_DESCRIPCION = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                    PERIODOS = reader.IsDBNull(9) ? 0 : reader.GetInt32(9),
+                    DIAS = reader.IsDBNull(10) ? 0 : reader.GetDecimal(10),
+                    GOZADOS = reader.IsDBNull(11) ? 0 : reader.GetDecimal(11),
+                    JEFE = reader.IsDBNull(15) ? 0 : reader.GetInt32(15),
+                });
+            }
+            return data;
+        }
         // FUNCION QUE INGRESA LOS DATOS DE LAS MARCAS COMERCIALES
         public bool InsertWEA_CP(int CODIGO, string TIPO, string LATITUD, string LONGITUD, string PROJECT, string UUID, string CODIGO_EXTERNO, string ORDEN, string CLIENTE, string PROSPECTO, string PRES_V, string N_CLIENTE, string N_PROJECT)
         {
@@ -112,6 +146,33 @@ namespace purchaseTracking.Connection.UserData
                 return false;
             }
         }
+
+        public bool INS_CALC_VACS(int Codigo, int CodigoInterno, int CodigoExterno, string NombreCompleto, DateTime FechaIngreso, float Saldo, string Estado)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            string commandText = "INSERT INTO PROC_INS_CALC_VACS VALUES(@Codigo, @CodigoInterno, @CodigoExterno, @NombreCompleto, @FechaIngreso, @Saldo, @Estado;";
+            cmd = new SqlCommand(commandText, conn);
+            cmd.Parameters.AddWithValue("@Codigo", Codigo);
+            cmd.Parameters.AddWithValue("@CodigoInterno", CodigoInterno);
+            cmd.Parameters.AddWithValue("@CodigoExterno", CodigoExterno);
+            cmd.Parameters.AddWithValue("@NombreCompleto", NombreCompleto);
+            cmd.Parameters.AddWithValue("@FechaIngreso", FechaIngreso);
+            cmd.Parameters.AddWithValue("@Saldo", Saldo);
+            cmd.Parameters.AddWithValue("@Estado", Estado);            
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
+        }
+
         // FUNCION QUE INSERTA DATOS EN SQL 
         public bool InsertWEA(int CODIGO, string TIPO, string LATITUD, string LONGITUD, string PROJECT, string UUID, string CODIGO_EXTERNO, string ORDEN, string CLIENTE, string PROSPECTO, string PRES_V, string N_CLIENTE, string N_PROJECT)
         {
@@ -205,8 +266,8 @@ namespace purchaseTracking.Connection.UserData
             while (reader.Read())
             {
                 data.CODIGO = reader.IsDBNull(0) ? 0 : reader.GetDecimal(0);
-                data.FECHA_MARCA = reader.IsDBNull(1) ? DateTime.Now : reader.GetDateTime(1);
-                data.MARCA = reader.IsDBNull(2) ? DateTime.Now : reader.GetDateTime(2);
+                data.FECHA_MARCA = reader.IsDBNull(1) ? System.DateTime.Now : reader.GetDateTime(1);
+                data.MARCA = reader.IsDBNull(2) ? System.DateTime.Now : reader.GetDateTime(2);
                 data.TIPO = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
                 data.PROJECT = reader.IsDBNull(4) ? string.Empty : reader.GetString(4);
                 data.ORDEN = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
@@ -406,6 +467,36 @@ namespace purchaseTracking.Connection.UserData
                     DIAS_PENDIENTES = reader.IsDBNull(7) ? 0 : reader.GetDouble(7),
                 });
             }
+            conn.Close();
+            return data;
+        }
+
+        // RETORNA VACACIONES DISPONIBLES
+        public List<Models.eTALENT.VACACIONES_DISPONIBLES> VacacionesAll()
+        {
+            var data = new List<Models.eTALENT.VACACIONES_DISPONIBLES>();
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd;
+            SqlDataReader reader;
+            string commandText = "SELECT * FROM TR_VACACIONES_DISPONIBLES_ISERTEC;";
+            cmd = new SqlCommand(commandText, conn);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.VACACIONES_DISPONIBLES()
+                {
+                    CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                    NOMBRE = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                    FECHA_INGRESO = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                    TOTAL_VACACIONES = reader.IsDBNull(3) ? 0 : reader.GetInt32(3),
+                    DIAS_TOMADOS = reader.IsDBNull(4) ? 0 : reader.GetDouble(4),
+                    CODIGO_EXTERNO = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                    CODIGO_J = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
+                    DIAS_PENDIENTES = reader.IsDBNull(7) ? 0 : reader.GetDouble(7),
+                });
+            }
+            conn.Close();
             return data;
         }
 

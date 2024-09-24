@@ -26,6 +26,8 @@
         overflow: scroll;
     }
 </style>
+
+
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
@@ -58,6 +60,9 @@
                     </div>
                     <div class="col-sm-2">
                         @Html.DropDownList("filterTipoActividad", new SelectList(ViewBag.TipoActividad), new { @class = "form-control chosen" })
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterEstatus", new SelectList(ViewBag.Estatus), new { @class = "form-control chosen" })
                     </div>
                     <div class="col-sm-auto">
                         <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
@@ -127,25 +132,26 @@
                                     @item.Details
                                 </td>
                                 <td class="text-center">
-                                    @if (item.status == "-2")
+
+                                    @if (item.status == "En Proceso")
                                     {
                                         <span class="badge badge-warning">En proceso</span>
                                     }
-                                    else if (item.status == "1")
+                                    else if (item.status == "En Proceso")
                                     {
                                         <span class="badge badge-warning">En proceso</span>
                                     }
-                                    else if (item.status == "4")
+                                    else if (item.status == "Rechazado")
                                     {
                                         <span class="badge badge-danger">Rechazado</span>
 
                                     }
-                                    else if (item.status == "-3")
+                                    else if (item.status == "Aprobado")
                                     {
                                         <span class="badge badge-success">Aprobado</span>
 
                                     }
-                                    else if (item.status == "6")
+                                    else if (item.status == "Licencia")
                                     {
                                         <span class="badge badge-info">Licencia</span>
 

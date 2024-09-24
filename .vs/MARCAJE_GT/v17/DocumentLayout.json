@@ -1,7 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:purchaseTracking\\Controllers\\AccountController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:purchaseTracking\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\UserData\\UserData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:purchaseTracking\\Connection\\UserData\\UserData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEQAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T18:18:17.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmpleadosUnidad.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T18:18:04.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserData.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\UserData\\UserData.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Connection\\UserData\\UserData.cs",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\UserData\\UserData.cs",
+              "RelativeToolTip": "purchaseTracking\\Connection\\UserData\\UserData.cs",
+              "ViewState": "AQIAAHMBAAAAAAAAAAAYwIABAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T18:14:03.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAYwIEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T18:08:59.826Z",
+              "EditorCaption": ""
             }
           ]
         }

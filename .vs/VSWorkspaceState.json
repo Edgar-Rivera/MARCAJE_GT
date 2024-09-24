@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\purchaseTracking",
+    "\\purchaseTracking\\Controllers",
+    "\\purchaseTracking\\Views",
+    "\\purchaseTracking\\Views\\Account",
+    "\\purchaseTracking\\Views\\Shared"
   ],
-  "SelectedNode": "\\RRHH_ISERTEC.sln",
+  "SelectedNode": "\\purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
   "PreviewInSolutionExplorer": false
 }

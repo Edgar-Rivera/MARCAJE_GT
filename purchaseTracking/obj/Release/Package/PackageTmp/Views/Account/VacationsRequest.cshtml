@@ -7,21 +7,84 @@
 
 @{
     string ValorSolicitando = Session["nombre"].ToString();
-    string AsuntoStatic = "Solicitud_Vacaciones_" + Session["nombre"].ToString();
+
+
+
+
 }
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+@*<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>*@
+<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    
+
+
+    $(document).ready(function () {
+        $('#checkSolicitud').on('click', function () {
+            // Obtener el valor del DropDownList
+            var valorSeleccionado = $('#solicitudDropdown').val();
+            var valorSeleccionado2 = $('#solicitudDropdown2').val();
+
+            // Actualizar el valor del campo de texto basado en la selección
+            if (valorSeleccionado === "86") {
+                $('#resultado').val('Solicitud de Vacaciones');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Home Office") {
+                $('#resultado').val('Solicitud de Permiso - Home Office');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Enfermedad") {
+                $('#resultado').val('Solicitud de Permiso - Enfermedad');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Permiso con Goce de Salario") {
+                $('#resultado').val('Solicitud de Permiso - Permiso con Goce de Salario');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Permiso sin Goce de Salario") {
+                $('#resultado').val('Solicitud de Permiso - Permiso sin Goce de Salario');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Goce por tiempo Remunerado") {
+                $('#resultado').val('Solicitud de Permiso - Goce por tiempo Remunerado');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Matrimonio") {
+                $('#resultado').val('Solicitud de Permiso - Matrimonio');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Nacimiento de Hijo") {
+                $('#resultado').val('Solicitud de Permiso - Nacimiento de Hijo');
+            }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Fallecimiento de Familiar") {
+                $('#resultado').val('Solicitud de Permiso - Fallecimiento de Familiar');
+            }
+        });
+    });
+
+        
+        
+
+</script>
+
+
+
 <script type='text/javascript'>
     $(function () {
         $(".chosen").chosen();
     });
 
     function onchangeS(seleccion, desplegable) {
+
         if (seleccion == "86") {
             document.getElementById(desplegable).style.display = "none";
+
+
         } else {
             document.getElementById(desplegable).style.display = "block";
+
         }
     }
+
+
+
+
 </script>
 <div class="container-fluid">
     <div class="row justify-content-md-center">
@@ -42,9 +105,9 @@
                         <strong><label class="control-label"> Tipo de Solicitud </label></strong>
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
-                               new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
-                               new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
-                        }, new { @class = "form-control" , @onchange = "onchangeS(this.value,'permiso')" })
+                            new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
+                            new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
+                        }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeS(this.value,'permiso')" })
                     </div>
                     <div class="col-sm-5">
                         <div id="permiso" style="display:none">
@@ -59,12 +122,8 @@
                                new SelectListItem{ Text="Goce por tiempo Remunerado", Value = "Goce por tiempo Remunerado" },
                                  new SelectListItem{ Text="Matrimonio", Value = "Matrimonio" },
                                  new SelectListItem{ Text="Nacimiento de Hijo", Value = "Nacimiento de Hijo" },
-                                 
-                                
-                                
-                                
                                     new SelectListItem{ Text="Fallecimiento de Familiar", Value = "Fallecimiento de Familiar" },
-                          }, new { @class = "form-control" })
+                          }, new { @class = "form-control", @id = "solicitudDropdown2" })
                         </div>
                     </div>
                 </div>
@@ -89,9 +148,11 @@
                     <div class="col-sm-5">
                         <strong><label class="control-label">Asunto</label></strong>
                         <div class="input-group mb-3">
-                            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @id = "asunto", @class = "form-control", @maxlength = "100", @required = "required", @Value = AsuntoStatic } })
+
+                            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @id = "resultado", @class = "form-control", @maxlength = "100", @required = "required", @readonly = "y" } })
+
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" id="button-addon2"><i class="fas fa-comment"></i></button>
+                                <button class="btn btn-primary" type="button" id="checkSolicitud"><i class="fas fa-comment"></i></button>
                             </div>
                         </div>
                     </div>
@@ -143,7 +204,9 @@
                          }, new { @class = "form-control" })
                     </div>
                 </div>
-                <button style="float:right" type="submit" class="btn btn-second">Crear Solicitud</button>
+
+                <button id="crearSolicitudBtn" style="float:right" type="submit" class="btn btn-second">Crear Solicitud</button>
+
                 <br />
                 <br />
             }

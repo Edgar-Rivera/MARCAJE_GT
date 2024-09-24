@@ -15,6 +15,16 @@ using System.Drawing;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Vml;
 using DocumentFormat.OpenXml.EMMA;
+using System.Web.Razor.Parser.SyntaxTree;
+using purchaseTracking.Models.eTALENT;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.Drawing;
+using System.IO;
+using System.Web.Mvc;
+using purchaseTracking.Models.eTALENT;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using purchaseTracking.Models.Orders;
 
 namespace purchaseTracking.Controllers
 {
@@ -74,10 +84,6 @@ namespace purchaseTracking.Controllers
             
         }
         
-
-
-
-
         [HttpGet]
         public ActionResult createSignDigital()
         {
@@ -116,6 +122,129 @@ namespace purchaseTracking.Controllers
 
                 return View(obj.ToPagedList(pageNumber, pageSize));
             }
+            return View(vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize));
+        }
+
+        [HttpGet]
+        public ActionResult ExportarEmpleados(int? page, string findString)
+        {
+            List<Models.eTALENT.VACACIONES> vacaciones_periodo_empleados = new Connection.UserData.UserData().VacacionesDiaSP_All();
+
+            
+            if (!String.IsNullOrEmpty(findString))
+            {
+                vacaciones_periodo_empleados = vacaciones_periodo_empleados
+                    .Where(s => s.EPDO_NOMBRE_COMPLETO.Contains(findString))
+                    .ToList();
+            }
+
+            
+
+            int pageSize = 500;
+            int pageNumber = (page ?? 1);
+            var paginatedList = vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize);
+
+            
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (ExcelPackage package = new ExcelPackage())
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Resumen de Empleados");
+
+                
+                worksheet.Cells[1, 1].Value = "Código de Empleado";
+                worksheet.Cells[1, 2].Value = "Nombre Completo";
+                worksheet.Cells[1, 3].Value = "Fecha de Ingreso";
+                worksheet.Cells[1, 4].Value = "Total Días Vacaciones";
+                worksheet.Cells[1, 5].Value = "Días Gozados";
+                worksheet.Cells[1, 6].Value = "Días Disponibles";
+
+                int row = 2;
+                foreach (var item in paginatedList)
+                {
+                    int temp_total = (int)Math.Round(item.DIAS);
+                    int temp_gozados = (int)Math.Round(item.GOZADOS);
+                    int temp_dias = (int)Math.Round(item.DIAS - item.GOZADOS);
+
+                    worksheet.Cells[row, 1].Value = item.EPDO_CODIGO;
+                    worksheet.Cells[row, 2].Value = item.EPDO_NOMBRE_COMPLETO;
+                    worksheet.Cells[row, 3].Value = item.FECHA != null ? item.FECHA.ToString() : string.Empty;
+                    worksheet.Cells[row, 4].Value = temp_total;
+                    worksheet.Cells[row, 5].Value = temp_gozados;
+                    worksheet.Cells[row, 6].Value = temp_dias;
+
+                    row++;
+                }
+
+                
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                
+                var stream = new MemoryStream();
+                package.SaveAs(stream);
+                stream.Position = 0;
+
+                
+                string excelName = $"Resumen_Empleados_{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EmpleadosAll(int? page, string findString, string filterEmpleado, string filterUnidad)
+        {
+
+            List<string> Empleado = new List<string>();
+            Empleado.Add("Seleccione Empleado");
+
+            List<string> Unidad = new List<string>();
+            Unidad.Add("Seleccione Unidad");
+
+            List<Models.eTALENT.VACACIONES> vacaciones_periodo_empleados = new List<Models.eTALENT.VACACIONES>();
+            vacaciones_periodo_empleados = new Connection.UserData.UserData().VacacionesDiaSP_All();
+
+            var temp_jefe_inmediato = vacaciones_periodo_empleados.Select(x => x.EPDO_NOMBRE_COMPLETO).Distinct();
+            foreach (var item_fase in temp_jefe_inmediato)
+            {
+                Empleado.Add(item_fase);
+            }
+
+            var temp_solicitante = vacaciones_periodo_empleados.Select(x => x.UND_NOMBRE).Distinct();
+            foreach (var item_fase in temp_solicitante)
+            {
+                Unidad.Add(item_fase);
+            }
+
+            if (!string.IsNullOrEmpty(filterEmpleado) && filterEmpleado != "0" && filterEmpleado != "Seleccione Empleado")
+            {
+                vacaciones_periodo_empleados = vacaciones_periodo_empleados.Where(x => x.EPDO_NOMBRE_COMPLETO == filterEmpleado).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filterUnidad) && filterUnidad != "0" && filterUnidad != "Seleccione Unidad")
+            {
+                vacaciones_periodo_empleados = vacaciones_periodo_empleados.Where(x => x.UND_NOMBRE == filterUnidad).ToList();
+            }
+
+            ViewBag.Empleado = Empleado;
+            ViewBag.Unidad = Unidad;
+
+            ViewBag.findString = findString;
+            ViewBag.totalItem = vacaciones_periodo_empleados.Count();
+            int pageSize = 15;
+            int pageNumber = (page ?? 1);
+            
+
+
+            if (!String.IsNullOrEmpty(findString))
+            {
+                var obj = vacaciones_periodo_empleados.Where(s =>
+                s.EPDO_NOMBRE_COMPLETO.ToString().Contains(findString) ||
+                s.UND_NOMBRE.ToString().Contains(findString)                 
+                );
+                return View(obj.ToPagedList(pageNumber, pageSize));
+            }
+
+
             return View(vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize));
         }
 
@@ -472,7 +601,7 @@ namespace purchaseTracking.Controllers
         }
 
         [HttpGet]
-        public ActionResult listNomina(int? page, string findString, string filterString, string filterJefeInmediato, string filterSolicitante, string filterTipoActividad)
+        public ActionResult listNomina(int? page, string findString, string filterString, string filterJefeInmediato, string filterSolicitante, string filterTipoActividad, string filterEstatus)
         {
             List<string> JefeInmediato = new List<string>();
             JefeInmediato.Add("Seleccione Jefe Inmediato");
@@ -481,7 +610,10 @@ namespace purchaseTracking.Controllers
             Solicitantes.Add("Seleccione Solicitante");
 
             List<string> TipoActividad = new List<string>();
-            TipoActividad.Add("Seleccione Tipo de Actividad"); 
+            TipoActividad.Add("Seleccione Tipo de Actividad");
+
+            List<string> Estatus = new List<string>();
+            Estatus.Add("Seleccione Estatus");
 
 
             List<Models.Activities.List> data = new List<Models.Activities.List>();
@@ -496,6 +628,8 @@ namespace purchaseTracking.Controllers
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
                
             }
+
+
 
             var temp_jefe_inmediato = data.Select(x => x.U_NAME).Distinct();
             foreach (var item_fase in temp_jefe_inmediato)
@@ -515,6 +649,14 @@ namespace purchaseTracking.Controllers
                 TipoActividad.Add(item_fase);
             }
 
+            var temp_estatus = data.Select(x => x.status).Distinct();
+
+            foreach (var item_fase in temp_estatus)
+            {
+                Estatus.Add(item_fase);
+            }
+
+
 
 
 
@@ -533,9 +675,16 @@ namespace purchaseTracking.Controllers
                 data = data.Where(x => x.Name == filterTipoActividad).ToList();
             }
 
+            if (!string.IsNullOrEmpty(filterEstatus) && filterEstatus != "0" && filterEstatus != "Seleccione Estatus")
+            {
+                
+                data = data.Where(x => x.status == filterEstatus).ToList();
+            }
+
             ViewBag.JefeInmediato = JefeInmediato;
             ViewBag.Solicitantes = Solicitantes;
             ViewBag.TipoActividad = TipoActividad;
+            ViewBag.Estatus = Estatus;
            
 
 
@@ -546,13 +695,37 @@ namespace purchaseTracking.Controllers
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
-                var obj = data.Where(s => s.ClgCode.ToString().Contains(findString) || s.CntctDate.ToString().Contains(findString) || s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                s.AttendUser.ToString().Contains(findString) || s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.DocNum.ToString().Contains(findString)
-                || s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.Estado.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+                var obj = data.Where(s =>
+                s.ClgCode.ToString().Contains(findString) ||
+                s.CntctDate.ToString().Contains(findString) || 
+                s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.AttendUser.ToString().Contains(findString) || 
+                s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || 
+                s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.DocNum.ToString().Contains(findString) || 
+                s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || 
+                s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || 
+                
+                s.status.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0
+                );
                 return View(obj.ToPagedList(pageNumber, pageSize));
             }
             return View(data.ToPagedList(pageNumber, pageSize));
         }
+
+
+        [HttpGet]
+        public ActionResult addInf()
+        {            
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult newAddInf()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult updateStatus(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
         {
@@ -627,6 +800,7 @@ namespace purchaseTracking.Controllers
                     SendNotification message = new SendNotification();
                     if (status == "-3")
                     {
+
 
                         Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
                         var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
