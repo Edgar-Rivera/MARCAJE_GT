@@ -533,6 +533,6 @@ C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\bin\es\System.Web.WebPa
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.AssemblyReference.cache
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Debug\EASYACCESS_ISERTEC.csproj.CoreCompileInputs.cache
+C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Debug\EASYACCE.8E2B31BE.Up2Date
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Debug\purchaseTracking.dll
 C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Debug\purchaseTracking.pdb
-C:\Users\flopez\Source\Repos\MARCAJE_GT\purchaseTracking\obj\Debug\EASYACCE.8E2B31BE.Up2Date
