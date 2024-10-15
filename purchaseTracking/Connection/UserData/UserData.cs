@@ -76,6 +76,7 @@ namespace purchaseTracking.Connection.UserData
                     PERIODOS = reader.IsDBNull(9) ? 0 : reader.GetInt32(9),
                     DIAS = reader.IsDBNull(10) ? 0 : reader.GetDecimal(10),
                     GOZADOS = reader.IsDBNull(11) ? 0 : reader.GetDecimal(11),
+
                     JEFE = reader.IsDBNull(15) ? 0 : reader.GetInt32(15),
                 });
             }

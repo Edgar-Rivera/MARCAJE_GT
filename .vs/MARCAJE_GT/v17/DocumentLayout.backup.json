@@ -50,7 +50,8 @@
               "RelativeToolTip": "purchaseTracking\\Views\\Account\\EmpleadosUnidad.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-22T18:18:04.574Z"
+              "WhenOpened": "2024-08-22T18:18:04.574Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -74,7 +75,8 @@
               "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
               "ViewState": "AQIAAHkAAAAAAAAAAAAYwIEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T18:08:59.826Z"
+              "WhenOpened": "2024-08-22T18:08:59.826Z",
+              "EditorCaption": ""
             }
           ]
         }

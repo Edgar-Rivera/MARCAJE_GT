@@ -1,12 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\purchaseTracking",
-    "\\purchaseTracking\\Controllers",
-    "\\purchaseTracking\\Views",
-    "\\purchaseTracking\\Views\\Account",
-    "\\purchaseTracking\\Views\\Shared"
+    ""
   ],
-  "SelectedNode": "\\purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
   "PreviewInSolutionExplorer": false
 }
