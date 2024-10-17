@@ -118,10 +118,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2024 10:37:10</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>10/15/2024 11:09:30</publishTime>
+      <publishTime>10/15/2024 15:30:45</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>10/15/2024 11:09:30</publishTime>
+      <publishTime>10/15/2024 15:30:45</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>09/27/2024 10:37:11</publishTime>
@@ -392,6 +392,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Files/Politica Comercial.pdf">
       <publishTime>09/27/2024 10:37:10</publishTime>
+    </File>
+    <File Include="Files/Politicas Comerciales 2024.pdf">
+      <publishTime>10/15/2024 10:57:45</publishTime>
+    </File>
+    <File Include="Files/Politicas Corporativas 2024.pdf">
+      <publishTime>10/15/2024 10:57:38</publishTime>
+    </File>
+    <File Include="Files/Politicas Operativas 2024.pdf">
+      <publishTime>10/15/2024 10:57:30</publishTime>
     </File>
     <File Include="Files/Polìticas Admon - 2024.docx.pdf">
       <publishTime>09/27/2024 10:37:10</publishTime>
@@ -805,7 +814,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2024 10:37:10</publishTime>
     </File>
     <File Include="Views/Account/DigitalForms.cshtml">
-      <publishTime>10/15/2024 11:08:16</publishTime>
+      <publishTime>10/15/2024 15:29:45</publishTime>
     </File>
     <File Include="Views/Account/Documentos.cshtml">
       <publishTime>09/27/2024 10:37:10</publishTime>
@@ -829,7 +838,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/02/2024 09:03:23</publishTime>
     </File>
     <File Include="Views/Account/Policies.cshtml">
-      <publishTime>09/27/2024 10:37:10</publishTime>
+      <publishTime>10/15/2024 15:30:33</publishTime>
     </File>
     <File Include="Views/Account/RequestForms.cshtml">
       <publishTime>09/27/2024 10:37:10</publishTime>

@@ -436,6 +436,9 @@
     <Content Include="Files\Polìticas Admon - 2024.docx.pdf" />
     <Content Include="Files\Polìticas Admon - 2024.pdf" />
     <Content Include="Files\REGLAMENTO INTERIOR DE TRABAJO ISERTEC.pdf" />
+    <Content Include="Files\Politicas Comerciales 2024.pdf" />
+    <Content Include="Files\Politicas Corporativas 2024.pdf" />
+    <Content Include="Files\Politicas Operativas 2024.pdf" />
     <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
