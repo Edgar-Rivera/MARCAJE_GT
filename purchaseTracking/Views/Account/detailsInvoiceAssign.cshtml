@@ -1,7 +1,7 @@
 ﻿@model purchaseTracking.Models.Activities.details
 @using purchaseTracking.Models.Activities
 @{
-    ViewBag.Title = "Detalles Solicitud de Vacaciones";
+    ViewBag.Title = "Detalles Solicitud";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -42,11 +42,11 @@
                 <fieldset disabled>
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Fecha Inicio Vacaciones </label></strong>
+                            <strong><label class="control-label">Fecha Inicio @Model.observaciones </label></strong>
                             <input class="form-control" type="text" value="@Model.Recontact.ToString("dd/MM/yyyy")">
                         </div>
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Fecha Fin Vacaciones</label></strong>
+                            <strong><label class="control-label">Fecha Fin @Model.observaciones</label></strong>
                             <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
                         </div>
                     </div>
@@ -280,7 +280,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Actualización Estado Solicitud de Vacaciones</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Actualización Estado @Model.observaciones</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

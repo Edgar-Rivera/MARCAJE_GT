@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\flopez\Desktop\Marcaje</_PublishTargetUrl>
-    <History>True|2024-10-15T17:09:33.0821383Z||;True|2024-10-03T10:26:12.1292149-06:00||;True|2024-10-03T09:11:15.9636435-06:00||;True|2024-09-10T08:35:08.8332842-06:00||;True|2024-09-02T11:35:02.2501820-06:00||;True|2024-08-26T09:18:14.8592257-06:00||;True|2024-08-22T17:05:33.2203733-06:00||;True|2024-08-21T14:59:52.9441919-06:00||;True|2024-08-21T14:42:25.5400995-06:00||;True|2024-07-26T16:19:32.7438618-06:00||;</History>
+    <History>True|2024-10-22T14:14:55.7639583Z||;True|2024-10-15T11:09:33.0821383-06:00||;True|2024-10-03T10:26:12.1292149-06:00||;True|2024-10-03T09:11:15.9636435-06:00||;True|2024-09-10T08:35:08.8332842-06:00||;True|2024-09-02T11:35:02.2501820-06:00||;True|2024-08-26T09:18:14.8592257-06:00||;True|2024-08-22T17:05:33.2203733-06:00||;True|2024-08-21T14:59:52.9441919-06:00||;True|2024-08-21T14:42:25.5400995-06:00||;True|2024-07-26T16:19:32.7438618-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -118,10 +118,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2024 10:37:10</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>10/15/2024 15:30:45</publishTime>
+      <publishTime>10/22/2024 08:14:54</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>10/15/2024 15:30:45</publishTime>
+      <publishTime>10/22/2024 08:14:54</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>09/27/2024 10:37:11</publishTime>
@@ -808,10 +808,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2024 10:37:10</publishTime>
     </File>
     <File Include="Views/Account/detailsInvoice.cshtml">
-      <publishTime>09/27/2024 10:37:10</publishTime>
+      <publishTime>10/18/2024 10:46:52</publishTime>
     </File>
     <File Include="Views/Account/detailsInvoiceAssign.cshtml">
-      <publishTime>09/27/2024 10:37:10</publishTime>
+      <publishTime>10/18/2024 09:45:13</publishTime>
     </File>
     <File Include="Views/Account/DigitalForms.cshtml">
       <publishTime>10/15/2024 15:29:45</publishTime>
@@ -847,7 +847,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/27/2024 10:37:10</publishTime>
     </File>
     <File Include="Views/Account/VacationsRequest.cshtml">
-      <publishTime>09/27/2024 10:40:19</publishTime>
+      <publishTime>10/18/2024 09:43:34</publishTime>
     </File>
     <File Include="Views/Activity/details.cshtml">
       <publishTime>09/27/2024 10:37:10</publishTime>

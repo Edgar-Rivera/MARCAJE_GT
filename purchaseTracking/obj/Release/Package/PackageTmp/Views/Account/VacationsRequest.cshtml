@@ -86,6 +86,20 @@
 
 
 </script>
+
+<script>
+    function onchangeS(value) {
+        // Obtiene el texto seleccionado en el dropdown
+        var solicitudDropdown = document.getElementById("solicitudDropdown");
+        var selectedText = solicitudDropdown.options[solicitudDropdown.selectedIndex].text;
+
+        // Muestra el texto seleccionado junto al campo de "Fecha de Inicio"
+        document.getElementById("selectedSolicitud").innerText = ("Fecha de inicio " + selectedText);
+        document.getElementById("selectedSolicitud2").innerText = ("Fecha Fin " + selectedText);
+
+    }
+</script>
+
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-8">
@@ -105,9 +119,10 @@
                         <strong><label class="control-label"> Tipo de Solicitud </label></strong>
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
+                            new SelectListItem{ Text="", Value = "" },
                             new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
                             new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
-                        }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeS(this.value,'permiso')" })
+                        }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeS(this.value)" })
                     </div>
                     <div class="col-sm-5">
                         <div id="permiso" style="display:none">
@@ -143,13 +158,13 @@
                 <div class="form-group row">
                     <div class="col-sm-5">
                         <strong><label class="control-label">Solicitante </label></strong>
-                        @Html.EditorFor(model => model.U_Solicitante, new { htmlAttributes = new { @class = "form-control", @maxlength = "150", @required = "required", @Value = ValorSolicitando, @readonly = "readonly" } })
+                        @Html.EditorFor(model => model.U_Solicitante, new { htmlAttributes = new { @class = "form-control", @maxlength = "150", @Value = ValorSolicitando, @readonly = "readonly", @required = "required" } })
                     </div>
                     <div class="col-sm-5">
                         <strong><label class="control-label">Asunto</label></strong>
                         <div class="input-group mb-3">
 
-                            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @id = "resultado", @class = "form-control", @maxlength = "100", @required = "required", @readonly = "y" } })
+                            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @id = "resultado", @class = "form-control", @maxlength = "100", @required = "y", @readonly = "y" } })
 
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button" id="checkSolicitud"><i class="fas fa-comment"></i></button>
@@ -162,13 +177,14 @@
                 <hr>
                 <div class="form-group row">
                     <div class="col-sm-5">
-                        <strong><label class="control-label">Fecha de Inicio</label></strong>
+                        <strong><label id="selectedSolicitud" class="control-label">Fecha de Inicio</label></strong>
+                        
                         <div class="input-group mb-3">
                             @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "date" } })
                         </div>
                     </div>
                     <div class="col-sm-5">
-                        <strong><label class="control-label">Fecha de Fin</label></strong>
+                        <strong><label id ="selectedSolicitud2" class="control-label">Fecha de Fin </label></strong>
                         <div class="input-group mb-3">
                             @Html.EditorFor(model => model.U_FechaActualizacion, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "date" } })
                         </div>
