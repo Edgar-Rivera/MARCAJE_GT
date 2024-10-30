@@ -418,6 +418,9 @@
     <Content Include="Files\Politica Comercial 2024.docx.pdf" />
     <Content Include="Files\Polìticas Admon - 2024.docx.pdf" />
     <Content Include="Files\Polìticas Admon - 2024.pdf" />
+    <Content Include="Files\Politicas Comerciales 2024.pdf" />
+    <Content Include="Files\Politicas Corporativas 2024.pdf" />
+    <Content Include="Files\Politicas Operativas 2024.pdf" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />

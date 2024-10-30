@@ -1,0 +1,217 @@
+﻿@model PagedList.IPagedList<purchaseTracking.Models.Activities.details>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Solicitudes de Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            <h4 class="text-left"> Solicitudes de Compra <span class="badge badge-secondary">@ViewBag.totalItem</span> </h4><br />
+
+            @using (Html.BeginForm("PurchaseList", "Tracking", FormMethod.Get))
+            {
+                <div class="input-group mb-">
+                    <br />
+                    <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <input type="submit" class="btn btn-success" value="Buscar" />
+                        <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("PurchaseList", "Tracking")'"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+            }
+            <br />
+            @if (ViewBag.findString != null && Model.Count()>0)
+            {
+                <div class="alert alert-success" role="alert">
+                    @Model.TotalItemCount resultados para: <b> @ViewBag.findString</b>
+                </div>
+            }
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-responsive-sm table-hover table-border">
+                    <thead class="text-center thead-dark table-border">
+                        <tr>
+                            <th>
+                                No. Solicitud
+                            </th>
+                            <th>
+                                Fecha
+                            </th>
+                            <th>
+                                Solicitante
+                            </th>
+                            <th>
+                                Asignado a
+                            </th>
+                            <th>
+                                Tipo Actividad
+                            </th>
+                            <th>
+                                No. OV
+                            </th>
+                            <th>
+                                Socio de Negocios
+                            </th>
+                            <th class="col-sm-2">
+                                Orden de Compra
+                            </th>
+                            <th>
+                                Fecha Necesaria Proyecto
+                            </th>
+                            <th>
+                                Estado
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        string temp = string.Empty;
+                        temp = (item.Name == "Compras Locales") ? "purchase" : "international";
+                        int dias = Convert.ToInt32(item.U_retrasoDias);
+                        if (DateTime.Now.AddDays(dias) >= item.endDate)
+                        {
+                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action(temp, "Tracking", new { id = item.ClgCode }))'">
+                                <td>
+                                    @item.ClgCode
+                                </td>
+                                <td>
+                                    @item.Recontact.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-center">
+                                    @item.U_Solicitante
+                                </td>
+                                <td class="text-center">
+                                    @item.U_NAME
+                                </td>
+                                <td class="text-center">
+                                    @item.Name
+                                </td>
+                                <td class="text-center">
+                                    @item.DocNum
+                                </td>
+                                <td class="text-center">
+                                    @item.CardName
+                                </td>
+                                <td class="text-center">
+                                    @item.ODC
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge badge-danger">Fecha Necesaria Proxima</span>
+                                    @item.endDate.ToString("dd/MM/yyyy")
+
+                                </td>
+                                <td class="text-center">
+                                    @if (item.status == -2)
+                                    {
+                                        <span class="badge badge-warning">No iniciado</span>
+                                    }
+                                    else if (item.status == 1)
+                                    {
+                                        <span class="badge badge-success">En proceso</span>
+                                    }
+                                    else if (item.status == 4)
+                                    {
+                                        <span class="badge badge-info">Tarea en espera</span>
+
+                                    }
+                                    else if (item.status == 6)
+                                    {
+                                        <span class="badge badge-info">Licencia</span>
+
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action(temp, "Tracking", new { id = item.ClgCode }))'">
+                                <td>
+                                    @item.ClgCode
+                                </td>
+                                <td>
+                                    @item.CntctDate.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-center">
+                                    @item.U_Solicitante
+                                </td>
+                                <td class="text-center">
+                                    @item.U_NAME
+                                </td>
+                                <td class="text-center">
+                                    @item.Name
+                                </td>
+                                <td class="text-center">
+                                    @item.DocNum
+                                </td>
+                                <td class="text-center">
+                                    @item.CardName
+                                </td>
+                                <td class="text-center">
+                                    @item.ODC
+                                </td>
+                                <td class="text-center">
+                                    @item.endDate.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-center">
+                                    @if (item.status == -2)
+                                    {
+                                        <span class="badge badge-warning">No iniciado</span>
+                                    }
+                                    else if (item.status == 1)
+                                    {
+                                        <span class="badge badge-success">En proceso</span>
+                                    }
+                                    else if (item.status == 4)
+                                    {
+                                        <span class="badge badge-warning">Tarea en espera</span>
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+
+                    }
+                </table>
+                <hr />
+                <p class="text-center">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        @Html.PagedListPager(
+                    Model,
+                    page => Url.Action("PurchaseList",
+                    new
+                    {
+                        page,
+                        findString = ViewBag.findString
+                    }
+                    ),
+                    new PagedListRenderOptions()
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Anterior",
+                        LinkToNextPageFormat = "Siguiente",
+                        LinkToLastPageFormat = ">>",
+                        DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                        LiElementClasses = new List<string> { "page-item", "page-link" }
+                    })
+                    </ul>
+                </nav>
+            }
+            else
+            {
+                <div class="alert alert-warning" role="alert">
+                    No se encontraron resultados para <b>@ViewBag.findString</b>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<br />
+<br />

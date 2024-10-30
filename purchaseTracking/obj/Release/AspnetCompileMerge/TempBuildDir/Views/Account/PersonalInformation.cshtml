@@ -1,0 +1,186 @@
+﻿@model IEnumerable<purchaseTracking.Models.eTALENT.EPDO_MASTER_DATA>
+@{
+    ViewBag.Title = "Información Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{ 
+    decimal temp_dias = 0;
+    decimal temp_total = 0;
+    decimal temp_gozados = 0;
+
+    int edad = 0;
+}
+@using purchaseTracking.Models.eTALENT
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            <h4 class="text-left">Mi Información Personal </h4>
+            <hr />
+            @foreach (var item in Model)
+            {
+        <fieldset disabled>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Nombre de Empleado </label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-success" type="button"><i class="fas fa-user"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.NOMBRE_COMPLETO">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Fecha de Ingreso</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-calendar"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.FECHA_INGRESO">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Puesto</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-danger" type="button"><i class="fas fa-user-check"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.PLAZA">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Profesión Empleado</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-info" type="button"><i class="fas fa-graduation-cap"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.PROFESION">
+                    </div>
+                </div>
+
+                @{ 
+                    DateTime fechaActual = DateTime.Now;
+                    DateTime fechaNacimiento = Convert.ToDateTime(item.FECHA_NACIMIENTO);
+                    edad = fechaActual.Year - fechaNacimiento.Year;
+                    if (fechaNacimiento.Month > fechaActual.Month)
+                    {
+                        --edad;
+                    }
+                }
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Edad</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-warning" type="button"><i class="fas fa-chart-line"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@edad">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Correo Eléctronico</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-success" type="button"><i class="fas fa-envelope"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.MAIL_INTERNO">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Número de Celular</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-danger" type="button"><i class="fas fa-phone"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.CELULAR">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Jefe Inmediato</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary" type="button"><i class="fas fa-users"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.JEFE_INMEDIATO">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Unidad</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-project-diagram"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.UNIDAD">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Dirección de Empleado </label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-warning" type="button"><i class="fas fa-home"></i></button>
+                        </div>
+                        <input type="text" class="form-control" value="@item.DIRECCION">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <h5 class="text-left"> Vacaciones Disponibles </h5>
+            <hr />
+            @foreach (purchaseTracking.Models.eTALENT.VACACIONES itm in ViewBag.vacaciones)
+                        {
+                            temp_total = (int)Math.Round(itm.DIAS);
+                            temp_gozados = (int)Math.Round(itm.GOZADOS);
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Total Días Vacaciones</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button"><i class="fas fa-calendar"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@temp_total">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Días Tomados</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-secondary" type="button"><i class="fas fa-calendar-day"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@temp_gozados">
+                        </div>
+                    </div>
+                </div>
+                {
+                    temp_dias = (int)Math.Round(itm.DIAS - itm.GOZADOS);
+                }
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Total Días Disponibles</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-primary" type="button"><i class="fas fa-sticky-note"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@temp_dias">
+                        </div>
+                    </div>
+                </div>
+            }
+            <br />
+            
+        </fieldset>
+            }
+        </div>
+    </div>
+</div>
+

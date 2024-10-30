@@ -472,21 +472,93 @@ namespace purchaseTracking.Controllers
         }
 
         [HttpGet]
-        public ActionResult listNomina(int? page, string findString, string filterString)
+        public ActionResult listNomina(int? page, string findString, string filterString, string filterJefeInmediato, string filterSolicitante, string filterTipoActividad, string filterEstatus)
         {
+            List<string> JefeInmediato = new List<string>();
+            JefeInmediato.Add("Seleccione Jefe Inmediato");
+
+            List<string> Solicitantes = new List<string>();
+            Solicitantes.Add("Seleccione Solicitante");
+
+            List<string> TipoActividad = new List<string>();
+            TipoActividad.Add("Seleccione Tipo de Actividad");
+
+            List<string> Estatus = new List<string>();
+            Estatus.Add("Seleccione Estatus");
+
 
             List<Models.Activities.List> data = new List<Models.Activities.List>();
             if (!string.IsNullOrEmpty(filterString))
             {
 
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
-                data = (from t in data where t.status.ToString() == "-3" select t).ToList();
+
             }
             else
             {
                 data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_N();
-                data = (from t in data where t.status.ToString() == "-3" select t).ToList();
+
             }
+
+
+
+            var temp_jefe_inmediato = data.Select(x => x.U_NAME).Distinct();
+            foreach (var item_fase in temp_jefe_inmediato)
+            {
+                JefeInmediato.Add(item_fase);
+            }
+
+            var temp_solicitante = data.Select(x => x.U_Solicitante).Distinct();
+            foreach (var item_fase in temp_solicitante)
+            {
+                Solicitantes.Add(item_fase);
+            }
+
+            var temp_actividad = data.Select(x => x.Name).Distinct();
+            foreach (var item_fase in temp_actividad)
+            {
+                TipoActividad.Add(item_fase);
+            }
+
+            var temp_estatus = data.Select(x => x.status).Distinct();
+
+            foreach (var item_fase in temp_estatus)
+            {
+                Estatus.Add(item_fase);
+            }
+
+
+
+
+
+            if (!string.IsNullOrEmpty(filterJefeInmediato) && filterJefeInmediato != "0" && filterJefeInmediato != "Seleccione Jefe Inmediato")
+            {
+                data = data.Where(x => x.U_NAME == filterJefeInmediato).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filterSolicitante) && filterSolicitante != "0" && filterSolicitante != "Seleccione Solicitante")
+            {
+                data = data.Where(x => x.U_Solicitante == filterSolicitante).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filterTipoActividad) && filterTipoActividad != "0" && filterTipoActividad != "Seleccione Tipo de Actividad")
+            {
+                data = data.Where(x => x.Name == filterTipoActividad).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(filterEstatus) && filterEstatus != "0" && filterEstatus != "Seleccione Estatus")
+            {
+
+                data = data.Where(x => x.status == filterEstatus).ToList();
+            }
+
+            ViewBag.JefeInmediato = JefeInmediato;
+            ViewBag.Solicitantes = Solicitantes;
+            ViewBag.TipoActividad = TipoActividad;
+            ViewBag.Estatus = Estatus;
+
+
+
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
             ViewBag.filterString = filterString;
@@ -494,9 +566,19 @@ namespace purchaseTracking.Controllers
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
-                var obj = data.Where(s => s.ClgCode.ToString().Contains(findString) || s.CntctDate.ToString().Contains(findString) || s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                s.AttendUser.ToString().Contains(findString) || s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.DocNum.ToString().Contains(findString)
-                || s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.Estado.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+                var obj = data.Where(s =>
+                s.ClgCode.ToString().Contains(findString) ||
+                s.CntctDate.ToString().Contains(findString) ||
+                s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.AttendUser.ToString().Contains(findString) ||
+                s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.DocNum.ToString().Contains(findString) ||
+                s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+
+                s.status.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0
+                );
                 return View(obj.ToPagedList(pageNumber, pageSize));
             }
             return View(data.ToPagedList(pageNumber, pageSize));

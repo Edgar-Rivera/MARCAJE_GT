@@ -1,0 +1,344 @@
+﻿@model purchaseTracking.Models.Tracking.Details
+@using purchaseTracking.Models.Tracking
+@{
+    ViewBag.Title = "Detalles de la solicitud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type='text/javascript'>
+    function contractInformation() {
+        if ((document.getElementById('contract').value != "")) {
+            $('#ModalItem').modal('show');
+        }
+    }
+</script>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-10">
+            @if (Model.Series == 12)
+            {
+                <h6> <span class="badge badge-success float-right">Compra Local</span></h6>
+            }
+            else if (Model.Series == 31)
+            {
+                <h6> <span class="badge badge-success float-right">Compra Internacional</span></h6>
+            }
+            <h4>Orden de Compra</h4>
+            <hr />
+            <fieldset disabled>
+                <div class="form-group row justify-content-between">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Cliente </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+
+                            </div>
+                            <input type="text" class="form-control" value=" @Model.CardCode">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">No. Documento </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+
+                            </div>
+                            <input type="text" class="form-control" value=" @string.Concat("GT-",Model.DocNum)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-between">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Nombre </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" class="form-control" value=" @Model.CardName">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Fecha Documento </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" class="form-control" value=" @Model.DocDate.ToShortDateString()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        <strong><label class="control-label">Moneda del SN </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button">@Model.DocCur</button>
+                            </div>
+                            <input type="text" class="form-control text-lg-right" value=" @Model.DocRate">
+                        </div>
+                    </div>
+                </div>
+            </fieldset><br />
+            <div class="card">
+                <table class="table table-sm table-bordered table-responsive-md">
+                    <thead class="text-center table-dark  table-border">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Número de Artículo</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Proyecto</th>
+                            <th scope="col">Orden de Venta</th>
+                            <th scope="col">Fecha Ingreso CD</th>
+                            <th scope="col">#Línea OV</th>
+                            <th scope="col">Estatus Tracking</th>
+                            <th scope="col">Total(doc.)</th>
+                        </tr>
+                    </thead>
+                    @foreach (ItemList item in ViewBag.items)
+                    {
+                        if (item.U_FechaIngresoCD == ViewBag.paramDate )
+                        {
+                <tr class="table-info">
+
+                    <td>
+                        @item.LineNum
+                    </td>
+                    <td>
+                        @item.ItemCode
+                    </td>
+                    <td>
+                        @item.Dscription
+                    </td>
+                    <td class="text-center">
+                        @item.Quantity
+                    </td>
+                    <td class="text-center">
+                        @item.Project
+                    </td>
+                    <td class="text-center">
+                        @item.U_IsOV
+                    </td>
+                    <td class="text-right">
+                        @{
+                            if (item.DocEntryOPDN != "")
+                            {
+                                <span>@item.FechaIngreso</span>
+                            }
+                            else
+                            {
+                                <span>@item.U_FechaIngresoCD</span>
+                            }
+                        }
+                    </td>
+                    <td class="text-right">
+                        @item.U_LineaOV
+                    </td>
+                    <td class="text-center">
+                        @{
+                            string estado = item.U_Estado;
+                            if (item.DocEntryOPDN != "")
+                            {
+                                estado = "Ingreso al Centro de Distribución";
+                            }
+                            else
+                            {
+                                if (estado == "0")
+                                {
+                                    estado = "En proceso";
+                                }
+                                else if (estado == "1")
+                                {
+                                    estado = "Mercaderia Despachada por Fabricante";
+                                }
+                                else if (estado == "2")
+                                {
+                                    estado = "Ingreso a Embarcador";
+                                }
+                                else if (estado == "3")
+                                {
+                                    estado = "Arribo a Guatemala";
+                                }
+                                else if (estado == "4")
+                                {
+                                    estado = "Tramites Aduanales";
+                                }
+                                else if (estado == "5")
+                                {
+                                    estado = "Mercaderia Liberada";
+                                }
+                                else if (estado == "6")
+                                {
+                                    estado = "Ingresado a Centro de Distribución";
+                                }
+                                else
+                                {
+                                    estado = "En proceso";
+                                }
+                            }
+                            <span>@estado</span>
+                        }
+
+                    </td>
+                    <td class="text-right">
+                        @{ double temp = (Model.DocCur == "USD") ? item.TotalSumSy : item.LineTotal; }
+                        @temp
+                    </td>
+                </tr>
+                        }
+                        else
+                        {
+                <tr>
+
+                    <td>
+                        @item.LineNum
+                    </td>
+                    <td>
+                        @item.ItemCode
+                    </td>
+                    <td>
+                        @item.Dscription
+                    </td>
+                    <td class="text-center">
+                        @item.Quantity
+                    </td>
+                    <td class="text-center">
+                        @item.Project
+                    </td>
+                    <td class="text-center">
+                        @item.U_IsOV
+                    </td>
+                    <td class="text-right">
+                        @{
+                            if (item.DocEntryOPDN != "")
+                            {
+                                <span>@item.FechaIngreso</span>
+                            }
+                            else
+                            {
+                                <span>@item.U_FechaIngresoCD</span>
+                            }
+                        }
+                    </td>
+                    <td class="text-right">
+                        @item.U_LineaOV
+                    </td>
+                    <td class="text-center">
+                        @{
+                            string estado = item.U_Estado;
+                            if (item.DocEntryOPDN != "")
+                            {
+                                estado = "Ingreso al Centro de Distribución";
+                            }
+                            else
+                            {
+                                if (estado == "0")
+                                {
+                                    estado = "En proceso";
+                                }
+                                else if (estado == "1")
+                                {
+                                    estado = "Mercaderia Despachada por Fabricante";
+                                }
+                                else if (estado == "2")
+                                {
+                                    estado = "Ingreso a Embarcador";
+                                }
+                                else if (estado == "3")
+                                {
+                                    estado = "Arribo a Guatemala";
+                                }
+                                else if (estado == "4")
+                                {
+                                    estado = "Tramites Aduanales";
+                                }
+                                else if (estado == "5")
+                                {
+                                    estado = "Mercaderia Liberada";
+                                }
+                                else if (estado == "6")
+                                {
+                                    estado = "Ingresado a Centro de Distribución";
+                                }
+                                else
+                                {
+                                    estado = "En proceso";
+                                }
+                            }
+                            <span>@estado</span>
+                        }
+                    </td>
+                    <td class="text-right">
+                        @{ double temp = (Model.DocCur == "USD") ? item.TotalSumSy : item.LineTotal; }
+                        @temp
+                    </td>
+                </tr>
+                        }
+                    }
+                </table>
+            </div>
+            <br />
+            @{
+                double tempDoc = (Model.DocCur == "USD") ? Model.DocTotalSy - Model.VatSumSy : Model.DocTotal - Model.VatSum;
+                double taxes = (Model.DocCur == "USD") ? Model.VatSumSy : Model.VatSum;
+                double expenses = (Model.DocCur == "USD") ? Model.TotalExpSC : Model.TotalExpns;
+                double docTotal = (Model.DocCur == "USD") ? Model.DocTotalSy : Model.DocTotal;
+            }
+            <fieldset disabled>
+                <div class="form-group row justify-content-between">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Encargado de Compras </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button"><i class="fas fa-user"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value=" @Model.SlpName">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong><label class="control-label text-muted">Total antes del descuento </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+
+                            <input type="text" class="form-control text-right" value="@tempDoc" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row justify-content-end">
+                    <div class="col-sm-3">
+                        <strong><label class="control-label text-muted">Gastos adicionales </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button"><i class="fas fa-money-bill-wave"></i></button>
+                            </div>
+                            <input type="text" class="form-control text-right" value="@expenses" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-end">
+                    <div class="col-sm-3">
+                        <strong><label class="control-label text-muted">Impuestos </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            </div>
+                            <input type="text" class="form-control text-right" value="@taxes" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-end">
+                    <div class="col-sm-3">
+                        <strong><label class="control-label text-muted">Total del documento </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-second" type="button"><i class="fas fa-money-check"></i></button>
+                            </div>
+                            <input type="text" class="form-control text-right" value="@docTotal" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
