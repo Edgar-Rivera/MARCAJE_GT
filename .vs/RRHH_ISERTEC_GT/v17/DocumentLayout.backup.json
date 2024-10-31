@@ -11,16 +11,24 @@
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\desktop\\marcaje gt\\purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\desktop\\marcaje gt\\purchasetracking\\views\\account\\empleadosall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\empleadosall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchasetracking\\views\\account\\detailsinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchasetracking\\views\\account\\detailsinvoiceassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsinvoiceassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +38,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T21:15:12.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmpleadosAll.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-30T21:09:21.113Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,14 +78,14 @@
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
               "ToolTip": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Account\\RequestForms.cshtml",
               "RelativeToolTip": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-28T16:01:43.059Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "detailsInvoice.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Account\\detailsInvoice.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsInvoice.cshtml",
@@ -63,7 +97,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "detailsInvoiceAssign.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
@@ -81,9 +115,10 @@
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
               "ToolTip": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
               "RelativeToolTip": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAKUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAowHgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-18T15:07:24.014Z"
+              "WhenOpened": "2024-10-18T15:07:24.014Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -93,9 +128,10 @@
               "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\erivera\\Desktop\\MARCAJE GT\\purchaseTracking\\Controllers\\AccountController.cs",
               "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAABQBAAAAAAAAAAAmwCcBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABoBAAAAAAAAAAASwCcBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T15:07:15.259Z"
+              "WhenOpened": "2024-10-18T15:07:15.259Z",
+              "EditorCaption": ""
             }
           ]
         }

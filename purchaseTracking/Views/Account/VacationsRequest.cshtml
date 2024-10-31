@@ -70,14 +70,14 @@
         $(".chosen").chosen();
     });
 
-    function onchangeS(seleccion, desplegable) {
+    function onchangeP(seleccion) {
 
         if (seleccion == "86") {
-            document.getElementById(desplegable).style.display = "none";
+            document.getElementById('permiso').style.display = "none";
 
 
         } else {
-            document.getElementById(desplegable).style.display = "block";
+            document.getElementById('permiso').style.display = "block";
 
         }
     }
@@ -119,10 +119,9 @@
                         <strong><label class="control-label"> Tipo de Solicitud </label></strong>
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
-                            new SelectListItem{ Text="", Value = "" },
                             new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
                             new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
-                        }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeS(this.value)" })
+                        }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeP(this.value)" })
                     </div>
                     <div class="col-sm-5">
                         <div id="permiso" style="display:none">
