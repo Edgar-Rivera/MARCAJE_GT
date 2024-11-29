@@ -276,7 +276,7 @@ namespace purchaseTracking.Controllers
 
             List<Models.eTALENT.VACACIONES> vacaciones = new List<Models.eTALENT.VACACIONES>();
             vacaciones = new Connection.UserData.UserData().VacacionesDiaSP(Convert.ToInt32(Session["internal_code"]));
-
+             
             List<Models.eTALENT.HISTORICO_VACACIONES> historico = new List<Models.eTALENT.HISTORICO_VACACIONES>();
             historico = new Connection.UserData.UserData().HistoricoEmpleado(Convert.ToInt32(Session["external_code"]));
 
@@ -526,8 +526,6 @@ namespace purchaseTracking.Controllers
         public ActionResult detailsInvoice(int id)
         {
             
-
-
             Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
 
             Models.Images.ImageSign temp = new Models.Images.ImageSign();
