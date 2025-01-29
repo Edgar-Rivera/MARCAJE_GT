@@ -25,6 +25,7 @@ using System.Web.Mvc;
 using purchaseTracking.Models.eTALENT;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using purchaseTracking.Models.Orders;
+using purchaseTracking.Models.Activities;
 
 namespace purchaseTracking.Controllers
 {
@@ -124,6 +125,87 @@ namespace purchaseTracking.Controllers
             }
             return View(vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize));
         }
+
+
+        [HttpGet]
+        public ActionResult ExportarEmpleadosEstatus(int? page, string findString)
+        {
+            List<Models.Employees.StatusEmpleados> vacaciones_periodo_empleados = new Connection.UserData.UserData().GetStatusEmpleado();
+
+
+            if (!String.IsNullOrEmpty(findString))
+            {
+                vacaciones_periodo_empleados = vacaciones_periodo_empleados
+                    .Where(s => s.Name.Contains(findString))
+                    .ToList();
+            }
+
+
+
+            int pageSize = 500;
+            int pageNumber = (page ?? 1);
+            var paginatedList = vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize);
+
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (ExcelPackage package = new ExcelPackage())
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Resumen de Empleados");
+
+
+                worksheet.Cells[1, 1].Value = "Código";
+                worksheet.Cells[1, 2].Value = "Fecha";
+                worksheet.Cells[1, 3].Value = "Actividad";
+                worksheet.Cells[1, 4].Value = "Tipo";
+                worksheet.Cells[1, 5].Value = "Jefe Inmediato";
+                worksheet.Cells[1, 6].Value = "Solicitante";
+                worksheet.Cells[1, 9].Value = "Detalles";
+                worksheet.Cells[1, 7].Value = "Fecha de Inicio";
+                worksheet.Cells[1, 8].Value = "Fecha de Fin";
+                worksheet.Cells[1, 10].Value = "Medio Dia";
+                worksheet.Cells[1, 11].Value = "Status";
+                worksheet.Cells[1, 12].Value = "Comentarios Solicitante";
+                worksheet.Cells[1, 13].Value = "Comentarios Jefe";
+                worksheet.Cells[1, 14].Value = "Dias";
+
+                int row = 2;
+                foreach (var item in paginatedList)
+                {
+                    
+
+                    worksheet.Cells[row, 1].Value = item.ClgCode;
+                    worksheet.Cells[row, 2].Value = item.CntctDate;
+                    worksheet.Cells[row, 3].Value = item.Actividad;
+                    worksheet.Cells[row, 4].Value = item.Name;
+                    worksheet.Cells[row, 5].Value = item.JefeInmediato;
+                    worksheet.Cells[row, 6].Value = item.Solicitante;
+                    worksheet.Cells[row, 7].Value = item.Details;
+                    worksheet.Cells[row, 8].Value = item.FechaInicio;
+                    worksheet.Cells[row, 9].Value = item.FechaFin;
+                    worksheet.Cells[row, 10].Value = item.MedioDia;
+                    worksheet.Cells[row, 11].Value = item.Status;
+                    worksheet.Cells[row, 12].Value = item.ComentariosSolicitante;
+                    worksheet.Cells[row, 13].Value = item.ComentariosJefe;
+                    worksheet.Cells[row, 14].Value = item.Dias;
+
+                    row++;
+                }
+
+
+                worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+
+                var stream = new MemoryStream();
+                package.SaveAs(stream);
+                stream.Position = 0;
+
+
+                string excelName = $"Status_Empleados_{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+            }
+        }
+
 
         [HttpGet]
         public ActionResult ExportarEmpleados(int? page, string findString)
@@ -265,7 +347,6 @@ namespace purchaseTracking.Controllers
                 return View("Error");
             }
         }
-
 
         // GET: Account
         [HttpGet]
@@ -451,7 +532,7 @@ namespace purchaseTracking.Controllers
                 myoptions.ExportFormatOptions = pdf;
                 rpt.Export();
                 */
-                message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details, "", requestActivity.U_Solicitante, ViewBag.activity, "");
+                message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details + " - " + requestActivity.U_Solicitante , "", requestActivity.U_Solicitante, ViewBag.activity, "", requestActivity.ActivityType + "-" + requestActivity.U_Observaciones);
                 return View("Success");
             }
             else
@@ -785,7 +866,7 @@ namespace purchaseTracking.Controllers
         }
 
         [HttpPost]
-        public ActionResult updateStatusAssign(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
+        public ActionResult updateStatusAssign(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn, string Solicitante)
         {
             try
             {
@@ -857,13 +938,16 @@ namespace purchaseTracking.Controllers
                         myoptions.ExportDestinationOptions = path;
                         myoptions.ExportFormatOptions = pdf;
                         rpt.Export();
-                        message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, direct);
+                        
+                        message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "_" + Solicitante, Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, direct);
                     }
+                    
                     else
                     {
+                        
                         if (status == "4")
                         {
-                            message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, "");
+                            message.sendNotification(ejecutivo, involucrados, "RECHAZO_SOLICITUD_" + id + "_" + Solicitante, Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, "");
                         }
                     }
 

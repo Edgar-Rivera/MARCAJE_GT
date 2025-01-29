@@ -22,8 +22,8 @@
 
 
     $(document).ready(function () {
-        $('#checkSolicitud').on('click', function () {
-            // Obtener el valor del DropDownListAsunto
+        function actualizarSolicitud() {
+            // Obtener el valor de los dropdowns
             var valorSeleccionado = $('#solicitudDropdown').val();
             var valorSeleccionado2 = $('#solicitudDropdown2').val();
 
@@ -55,10 +55,17 @@
             else if (valorSeleccionado === "89" && valorSeleccionado2 === "Fallecimiento de Familiar") {
                 $('#resultado').val('Solicitud de Permiso - Fallecimiento de Familiar');
             }
+        }
+
+        // Agregar eventos para los elementos dropdown
+        $('#solicitudDropdown, #solicitudDropdown2').on('change', function () {
+            $('#checkSolicitud').prop('checked', true); // Cambia el estado de checkSolicitud si es necesario
+            actualizarSolicitud(); // Llama la función para actualizar el resultado
         });
     });
 
-        
+
+  
         
 
 </script>
@@ -119,6 +126,7 @@
                         <strong><label class="control-label"> Tipo de Solicitud </label></strong>
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
+                       new SelectListItem{ Text="Seleccione Solicitud", Value = "0" },
                             new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
                             new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
                         }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeP(this.value)" })
@@ -220,6 +228,7 @@
                     </div>
                 </div>
 
+                
                 <button id="crearSolicitudBtn" style="float:right" type="submit" class="btn btn-second">Crear Solicitud</button>
 
                 <br />
@@ -229,3 +238,4 @@
     </div>
 </div>
 
+ 

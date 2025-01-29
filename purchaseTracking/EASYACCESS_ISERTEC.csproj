@@ -313,6 +313,7 @@
     <Compile Include="Models\DataIntegration\DocumentLine.cs" />
     <Compile Include="Models\DataIntegration\PurchaseOrder.cs" />
     <Compile Include="Models\DataIntegration\PurchaseOrders.cs" />
+    <Compile Include="Models\Employees\StatusEmpleados.cs" />
     <Compile Include="Models\eTALENT\EPDO_MASTER_DATA.cs" />
     <Compile Include="Models\eTALENT\HISTORICO_VACACIONES.cs" />
     <Compile Include="Models\eTALENT\VACACIONES.cs" />
@@ -384,6 +385,7 @@
     <Content Include="Content\Images\etalent.png" />
     <Content Include="Content\Images\favicon.ico" />
     <Content Include="Content\Images\iserlogo.png" />
+    <Content Include="Content\Images\logo_verde.svg" />
     <Content Include="Content\Images\rrhh.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />

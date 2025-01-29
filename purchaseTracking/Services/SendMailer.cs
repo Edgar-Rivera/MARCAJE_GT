@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
+using purchaseTracking.Models.Orders;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +18,7 @@ namespace purchaseTracking.Services
     */
     public interface IsendMailer
     {
-        void sendMail(string from, string to, string subject, string path, string empleado, string actividad, string path_file);
+        void sendMail(string from, string to, string subject, string path, string empleado, string actividad, string path_file, string solicitud);
         
     }
     public interface IsendNotification
@@ -33,7 +34,7 @@ namespace purchaseTracking.Services
             email.From.Add(new MailboxAddress("Notificaciones eTALENT", from));
             email.To.AddRange(address(to));
             email.Cc.AddRange(address(from));
-            //email.Cc.AddRange(copyAddress("flopez@isertec.com"));
+            
             email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com,earagon@isertec.com"));
             email.Subject = subject;
             var mensaje = new BodyBuilder();
@@ -84,7 +85,7 @@ namespace purchaseTracking.Services
     public class SendMailer : IsendMailer
     {
         // path from controller
-        public void sendMail(string from, string to, string subject, string path, string empleado, string actividad, string path_file)
+        public void sendMail(string from, string to, string subject, string path, string empleado, string actividad, string path_file, string Solicitud)
         {
             var email = new MimeMessage();
             email.From.Add(new MailboxAddress("Solicitud eTALENT", from));
@@ -101,6 +102,7 @@ namespace purchaseTracking.Services
             {
                 mytemplate = reader.ReadToEnd();
             }
+            mytemplate = mytemplate.Replace("{solicitud}", Solicitud);
             mytemplate = mytemplate.Replace("{empleado}", empleado);
             mytemplate = mytemplate.Replace("{actividad}", actividad);
             mytemplate = mytemplate.Replace("{link-confirm}", "https://marcaje.isertec.com/Account/listInvoice/" + actividad);

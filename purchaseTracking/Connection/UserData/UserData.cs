@@ -48,6 +48,39 @@ namespace purchaseTracking.Connection.UserData
             return data;
         }
 
+        public List<Models.Employees.StatusEmpleados> GetStatusEmpleado()
+        {
+            var data = new List<Models.Employees.StatusEmpleados>();
+            HanaConnection conn = new HanaConnection();
+            conn = connectionHana.connectionResult();
+            HanaCommand cmd = new HanaCommand("SELECT * FROM \"TR_LISTALLNONSTATUSINVOICE_N_RPT\";", conn);
+            HanaParameter param = new HanaParameter();
+            
+            HanaDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.Employees.StatusEmpleados()
+                {
+                ClgCode = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                CntctDate = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                Actividad = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                Name = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                JefeInmediato = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                Solicitante = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                Details = reader.IsDBNull(6) ? string.Empty : reader.GetString(6),
+                FechaInicio = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                FechaFin = reader.IsDBNull(8) ? string.Empty : reader.GetString(8),
+                MedioDia = reader.IsDBNull(9) ? string.Empty : reader.GetString(9),
+                Status = reader.IsDBNull(10) ? string.Empty : reader.GetString(10),
+                ComentariosSolicitante = reader.IsDBNull(11) ? string.Empty : reader.GetString(11),
+                ComentariosJefe = reader.IsDBNull(12) ? string.Empty : reader.GetString(12),
+                Dias = reader.IsDBNull(13) ? 0 : reader.GetInt32(13),
+                });
+
+            }
+            conn.Close();
+            return data;
+        }
 
         public List<Models.eTALENT.VACACIONES> VacacionesDiaSP_All()
         {

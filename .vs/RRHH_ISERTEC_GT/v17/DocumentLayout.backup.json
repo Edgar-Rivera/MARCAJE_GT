@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\connection\\orders\\businesssn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\connection\\orders\\businesssn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\home\\page.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\home\\page.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\account\\detailsinvoiceassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsinvoiceassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\views\\account\\detailsinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\views\\account\\requestforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\requestforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,55 +62,139 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACUAAAAAAAAAAAAwwD4AAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T18:27:37.922Z",
+              "DocumentIndex": 0,
+              "Title": "BusinessSN.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Connection\\Orders\\BusinessSN.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Connection\\Orders\\BusinessSN.cs",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Connection\\Orders\\BusinessSN.cs",
+              "RelativeToolTip": "purchaseTracking\\Connection\\Orders\\BusinessSN.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAADwv4EAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T14:49:13.818Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "detailsInvoice.cshtml",
-              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsInvoice.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsInvoice.cshtml",
-              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsInvoice.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsInvoice.cshtml",
-              "ViewState": "AgIAAEcBAAAAAAAAAAAAAFYBAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T18:24:38.018Z",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswC8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T14:47:47.579Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "RequestForms.cshtml",
-              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\RequestForms.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
-              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\RequestForms.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
-              "ViewState": "AgIAANwAAAAAAAAAAAAuwOkAAAAuAAAAAAAAAA==",
+              "Title": "page.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Home\\page.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Home\\page.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Home\\page.cshtml*",
+              "RelativeToolTip": "purchaseTracking\\Views\\Home\\page.cshtml*",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAAKwAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T18:14:23.044Z",
+              "WhenOpened": "2025-01-15T23:40:20.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-15T23:40:18.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowBAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T16:40:44.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VacationsRequest.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAAACUAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T21:49:38.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T21:31:10.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T21:30:00.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SendMailer.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Services\\SendMailer.cs",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
+              "RelativeToolTip": "purchaseTracking\\Services\\SendMailer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T21:53:21.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
               "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAIwGUAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAALUBAAAAAAAAAAAnwM0BAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T15:07:15.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-18T15:07:15.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "detailsInvoiceAssign.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-19T22:12:10.56Z"
             }
           ]
         }
