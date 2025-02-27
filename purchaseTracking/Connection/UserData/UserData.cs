@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using Sap.Data.Hana;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Org.BouncyCastle.Ocsp;
+using purchaseTracking.ServiceLayer;
 //using static ClosedXML.Excel.XLPredefinedFormat;
 
 namespace purchaseTracking.Connection.UserData
@@ -47,6 +48,10 @@ namespace purchaseTracking.Connection.UserData
             }
             return data;
         }
+
+
+       
+
 
         public List<Models.Employees.StatusEmpleados> GetStatusEmpleado()
         {
@@ -148,6 +153,12 @@ namespace purchaseTracking.Connection.UserData
                 return false;
             }
         }
+
+
+       
+    
+
+
         public bool InsertWEA_C(int CODIGO, string TIPO, string LATITUD, string LONGITUD, string PROJECT, string UUID, string CODIGO_EXTERNO, string ORDEN, string CLIENTE, string PROSPECTO, string PRES_V, string N_CLIENTE, string N_PROJECT)
         {
             SqlConnection conn = new SqlConnection();
@@ -262,6 +273,15 @@ namespace purchaseTracking.Connection.UserData
             conn.Close();
             return data;
         }
+
+
+
+
+        
+
+
+
+
         // FUNCION QUE TOMA LOS DATOS DE LA ORDEN DE VENTA
         public Models.WEA.ORDR_DATA GetSAPData(int ordr)
         {

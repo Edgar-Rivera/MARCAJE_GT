@@ -72,7 +72,7 @@
                     <table class="table table-responsive-sm table-bordered shadow ">
                         <thead class="table-dark text-center">
                             <tr>
-                                <th>
+                                <th >
                                     Código de Empleado
                                 </th>
                                 <th>
@@ -101,8 +101,8 @@
                             int temp_total = (int)Math.Round(item.DIAS);
                             int temp_gozados = (int)Math.Round(item.GOZADOS);
                             int temp_dias = (int)Math.Round(item.DIAS - item.GOZADOS);
-                            <tr style="cursor:pointer !important">
-                                <td class="text-center">
+                            <tr >
+                                <td class="text-center" style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsHours", "Account", new { Codigo = item.EPDO_CODIGO }))'">
                                     @item.EPDO_CODIGO
                                 </td>
                                 <td>

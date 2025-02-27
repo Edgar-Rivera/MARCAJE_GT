@@ -280,6 +280,7 @@
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\TrackingController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
+    <Compile Include="Controllers\WikiController.cs" />
     <Compile Include="CrystalReports\EvidenciaFotografica1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -314,6 +315,7 @@
     <Compile Include="Models\DataIntegration\PurchaseOrder.cs" />
     <Compile Include="Models\DataIntegration\PurchaseOrders.cs" />
     <Compile Include="Models\Employees\StatusEmpleados.cs" />
+    <Compile Include="Models\eTALENT\EmpleadosHoras.cs" />
     <Compile Include="Models\eTALENT\EPDO_MASTER_DATA.cs" />
     <Compile Include="Models\eTALENT\HISTORICO_VACACIONES.cs" />
     <Compile Include="Models\eTALENT\VACACIONES.cs" />
@@ -381,6 +383,8 @@
     <Content Include="Content\Images\bg-4.jpg" />
     <Content Include="Content\Images\bg-5.jpg" />
     <Content Include="Content\Images\bg-6.jpg" />
+    <Content Include="Content\Images\Día del cariño %283%29.jpg" />
+    <Content Include="Content\Images\e671265f-458a-4665-a67d-0b99b38aa4de.jpg" />
     <Content Include="Content\Images\ep2.jpg" />
     <Content Include="Content\Images\etalent.png" />
     <Content Include="Content\Images\favicon.ico" />
@@ -441,6 +445,8 @@
     <Content Include="Files\Politicas Comerciales 2024.pdf" />
     <Content Include="Files\Politicas Corporativas 2024.pdf" />
     <Content Include="Files\Politicas Operativas 2024.pdf" />
+    <Content Include="Files\Política del EPP.pdf" />
+    <Content Include="Files\Política SSO ISERTEC.pdf" />
     <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -608,6 +614,10 @@
     <Content Include="Views\Shared\ErrorActualizarVacaciones.cshtml" />
     <Content Include="Views\Account\EmpleadosAll.cshtml" />
     <Content Include="Views\Account\addInf.cshtml" />
+    <Content Include="Views\Shared\_LayoutWiki.cshtml" />
+    <Content Include="Views\Wiki\Index.cshtml" />
+    <Content Include="Views\Account\detailsHours.cshtml" />
+    <Content Include="Views\Account\marcajeEmpleados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

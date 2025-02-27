@@ -1,10 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\",
+  "WorkspaceRootPath": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\documents\\github\\marcaje_gt\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\source\\repos\\marcaje_gt\\purchasetracking\\connection\\connectionhana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\connection\\connectionhana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\flopez\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\policies.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\policies.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\detailshours.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailshours.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchasetracking\\connection\\activities\\dataactivities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\connection\\activities\\dataactivities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\empleadosall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\empleadosall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchasetracking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\home\\page.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\home\\page.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,12 +42,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -27,15 +51,100 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\flopez\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAwwHYBAAARAAAAAAAAAA==",
+              "Title": "connectionHana.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\connectionHana.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Connection\\connectionHana.cs",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\connectionHana.cs",
+              "RelativeToolTip": "purchaseTracking\\Connection\\connectionHana.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T17:58:49.268Z",
+              "WhenOpened": "2025-02-27T13:53:21.691Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Policies.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\Policies.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\Policies.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\Policies.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\Policies.cshtml",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAUwDsAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-21T22:00:39.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataActivities.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\Activities\\DataActivities.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Connection\\Activities\\DataActivities.cs",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\Activities\\DataActivities.cs",
+              "RelativeToolTip": "purchaseTracking\\Connection\\Activities\\DataActivities.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAD4vy8AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T18:54:43.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmpleadosAll.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\EmpleadosAll.cshtml",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAgwK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-20T18:53:15.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "detailsHours.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsHours.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsHours.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsHours.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsHours.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-20T18:52:43.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAIQCAAAAAAAAAAAQwIUCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T18:28:08.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "page.cshtml",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Home\\page.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Home\\page.cshtml",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Home\\page.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Home\\page.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAABMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-20T17:52:55.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\flopez\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwLEAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T17:39:40.692Z"
             }
           ]
         }

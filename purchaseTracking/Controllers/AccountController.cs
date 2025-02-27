@@ -26,6 +26,8 @@ using purchaseTracking.Models.eTALENT;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using purchaseTracking.Models.Orders;
 using purchaseTracking.Models.Activities;
+using System.Data;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace purchaseTracking.Controllers
 {
@@ -630,6 +632,139 @@ namespace purchaseTracking.Controllers
 
             return View(data);
         }
+
+        [HttpGet]
+
+        public ActionResult detailsHours(int? page, string findString, string filterString, int? Codigo, DateTime? FechaInicio, DateTime? FechaFin, string filterOrden)
+        {
+
+            List<string> Orden = new List<string>();
+            Orden.Add("Seleccione Orden");
+
+            
+
+
+            if (Codigo == null)
+            {
+                return RedirectToAction("Index"); // O cualquier otra vista de error/mensaje
+            }
+
+            var data = new Connection.Activities.DataActivities().EmpleadosHoras(Codigo.Value);
+
+
+            var temp_orden = data.Select(x => x.ORDEN).Distinct();
+            foreach (var item_orden in temp_orden)
+            {
+                Orden.Add(item_orden);
+            }
+
+            ViewBag.Orden = Orden;
+            ViewBag.findString = findString;
+            ViewBag.filterString = filterString;
+            int pageSize = 125;
+            int pageNumber = (page ?? 1);
+
+
+            if (FechaInicio.HasValue && FechaFin.HasValue)
+            {
+                ViewBag.Inicio = FechaInicio.Value.ToString("yyyy-MM-dd");
+
+                ViewBag.Fin = FechaFin.Value.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+
+                ViewBag.Inicio = null;
+                ViewBag.Fin = null;
+            }
+
+
+            if (FechaInicio.HasValue && FechaFin.HasValue)
+            {
+
+
+                var dataFilter = new Connection.Activities.DataActivities().EmpleadosHorasFilter(FechaInicio, FechaFin, Codigo.Value);
+
+
+            }
+
+
+
+
+            if (!string.IsNullOrEmpty(filterOrden) && filterOrden != "0" && filterOrden != "Seleccione Orden")
+            {
+                data = data.Where(x => x.ORDEN == filterOrden).ToList();
+            }
+
+            if (!String.IsNullOrEmpty(findString))
+            {
+                var obj = data.Where(s => s.ORDEN.ToString().Contains(findString));
+                return View(obj.ToPagedList(pageNumber, pageSize));
+            }
+            return View(data.ToPagedList(pageNumber, pageSize));
+        }
+
+        [HttpPost]
+        public JsonResult UpdateEmpleadoHoras(int ID, Models.eTALENT.EmpleadosHoras empleadoHoras)
+        {
+            try
+            {
+                if (empleadoHoras == null || ID == 0)
+                {
+                    return Json(new { success = false, mensaje = "Datos inválidos." });
+                }
+
+                bool result = new Connection.Activities.DataActivities().UpdateEmpleadosHoras(ID, empleadoHoras);
+
+                if (result)
+                {
+                    return Json(new { success = true, mensaje = "Registro actualizado correctamente." });
+                }
+                else
+                {
+                    return Json(new { success = false, mensaje = "No se encontró el empleado o no se realizó la actualización." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, mensaje = "Error interno del servidor: " + ex.Message });
+            }
+        }
+
+
+
+
+        public ActionResult marcajeEmpleados()
+        {
+
+            // Crear el DataTable para almacenar los datos
+            System.Data.DataTable dtEmpleados = new System.Data.DataTable();
+
+            // Obtener la conexión a la base de datos desde eTalentConnection
+            using (SqlConnection sqlCon = eTalentConnection.connectionResult())
+            {
+                try
+                {
+                    // Comando SQL para ejecutar el procedimiento almacenado
+                    string query = "EXEC AllEmployeeHours2";
+
+                    // Usar SqlDataAdapter para obtener los datos
+                    using (SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon))
+                    {
+                        sqlDa.Fill(dtEmpleados);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.ErrorMessage = "Error en la base de datos: " + ex.Message;
+                }
+            }
+
+            // Retornar el DataTable a la vista
+            return View(dtEmpleados);
+
+        }
+
 
         [HttpPost]
         public ActionResult updateMails(int id, string comment)

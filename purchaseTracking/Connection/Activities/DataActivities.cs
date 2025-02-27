@@ -1,5 +1,7 @@
 ﻿using System;
+
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -11,6 +13,90 @@ namespace purchaseTracking.Connection.Activities
     {
 
         // CAMBIO PARA OBTENCION DE DATOS DDE USUARIO POR MEDIO DE ODBC
+
+
+        public List<Models.eTALENT.EmpleadosHoras> EmpleadosHorasFilter(DateTime? Inicio, DateTime? Fin, int internal_code)
+        {
+            var data = new List<Models.eTALENT.EmpleadosHoras>();
+
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd = new SqlCommand("SELECT ID, CODIGO, FECHA_MARCA, MARCA, ORDEN  FROM W_MARCASACCESO_LOC_PROY WHERE CODIGO = @CODE AND @FechaMarca BETWEEN @Inicio AND @FIN;", conn);
+            SqlParameter param = new SqlParameter();                        
+            cmd.Parameters.AddWithValue("@CODE", internal_code);
+            cmd.Parameters.AddWithValue("@Inicio", Inicio ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@Fin", Fin ?? (object)DBNull.Value);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.EmpleadosHoras()
+                {
+                    ID = reader.IsDBNull(0) ? 0 : reader.GetDecimal(0),  // GetInt64 para numeric(18,0)
+                    CODIGO = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1), // GetInt64 para numeric(18,0)
+                    FECHA_MARCA = reader.IsDBNull(2) ? (DateTime?)null : reader.GetDateTime(2), // GetDateTime para datetime
+                    MARCA = reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3), // GetDateTime para datetime
+                    ORDEN = reader.IsDBNull(4) ? string.Empty : reader.GetString(4) // GetString para varchar(50)
+                });
+            }
+            conn.Close();
+            
+            return data;
+        }
+
+        public List<Models.eTALENT.EmpleadosHoras> EmpleadosHoras(int internal_code)
+        {
+            var data = new List<Models.eTALENT.EmpleadosHoras>();
+
+            SqlConnection conn = new SqlConnection();
+            conn = eTalentConnection.connectionResult();
+            SqlCommand cmd = new SqlCommand("SELECT ID, CODIGO, FECHA_MARCA, MARCA, ORDEN  FROM W_MARCASACCESO_LOC_PROY WHERE CODIGO = @CODE;", conn);
+            SqlParameter param = new SqlParameter();
+            cmd.Parameters.AddWithValue("@CODE", internal_code);            
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                data.Add(new Models.eTALENT.EmpleadosHoras()
+                {
+                    ID = reader.IsDBNull(0) ? 0 : reader.GetDecimal(0),  // GetInt64 para numeric(18,0)
+                    CODIGO = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1), // GetInt64 para numeric(18,0)
+                    FECHA_MARCA = reader.IsDBNull(2) ? (DateTime?)null : reader.GetDateTime(2), // GetDateTime para datetime
+                    MARCA = reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3), // GetDateTime para datetime
+                    ORDEN = reader.IsDBNull(4) ? string.Empty : reader.GetString(4) // GetString para varchar(50)
+                });
+            }
+            conn.Close();
+
+            return data;
+        }
+
+
+        public bool UpdateEmpleadosHoras(int ID, Models.eTALENT.EmpleadosHoras empleadoHoras)
+        {
+            bool isUpdated = false;
+
+            using (SqlConnection conn = eTalentConnection.connectionResult())
+            {
+                conn.Close();
+                conn.Open(); // Asegurar que la conexión se abra antes de ejecutar el comando
+
+                string query = "UPDATE W_MARCASACCESO_LOC_PROY SET FECHA_MARCA = @FECHA_MARCA, MARCA = @MARCA, ORDEN = @ORDEN WHERE ID = @ID;";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@FECHA_MARCA", (object)empleadoHoras.FECHA_MARCA ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@MARCA", (object)empleadoHoras.MARCA ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ORDEN", (object)empleadoHoras.ORDEN ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@ID", (object)empleadoHoras.ID ?? DBNull.Value);                    
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    isUpdated = rowsAffected > 0;
+                }
+            } // Aquí la conexión se cierra automáticamente cuando sale del `using`
+
+            return isUpdated;
+        }
+
+
 
         public Models.UserNameData GetUsuarioEmpelado(string nombre_usuario)
         {

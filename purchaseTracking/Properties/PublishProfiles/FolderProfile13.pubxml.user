@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\flopez\Desktop\Marcaje</_PublishTargetUrl>
-    <History>True|2025-02-24T22:01:55.2964445Z||;True|2025-02-21T15:48:45.0904461-06:00||;True|2025-01-13T07:56:39.7017055-06:00||;True|2024-12-20T16:46:52.1726942-06:00||;True|2024-12-20T10:03:24.5178630-06:00||;True|2024-12-20T09:22:03.8184366-06:00||;True|2024-12-19T17:31:46.6143959-06:00||;True|2024-12-19T16:16:42.9547312-06:00||;True|2024-12-19T15:59:23.4485217-06:00||;True|2024-11-28T12:40:37.7105280-06:00||;True|2024-10-22T08:14:55.7639583-06:00||;True|2024-10-15T11:09:33.0821383-06:00||;True|2024-10-03T10:26:12.1292149-06:00||;True|2024-10-03T09:11:15.9636435-06:00||;True|2024-09-10T08:35:08.8332842-06:00||;True|2024-09-02T11:35:02.2501820-06:00||;True|2024-08-26T09:18:14.8592257-06:00||;True|2024-08-22T17:05:33.2203733-06:00||;True|2024-08-21T14:59:52.9441919-06:00||;True|2024-08-21T14:42:25.5400995-06:00||;True|2024-07-26T16:19:32.7438618-06:00||;</History>
+    <History>True|2025-02-13T16:08:52.3018758Z||;True|2025-02-13T10:06:52.2488987-06:00||;True|2025-02-13T09:52:01.9665234-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -118,10 +118,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/13/2025 09:27:50</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>02/24/2025 16:01:53</publishTime>
+      <publishTime>02/13/2025 12:51:43</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>02/24/2025 16:01:53</publishTime>
+      <publishTime>02/13/2025 12:51:43</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>02/13/2025 09:27:50</publishTime>
@@ -419,12 +419,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Files/Polìticas Admon.pdf">
       <publishTime>02/13/2025 09:27:51</publishTime>
-    </File>
-    <File Include="Files/Política del EPP.pdf">
-      <publishTime>02/24/2025 15:56:52</publishTime>
-    </File>
-    <File Include="Files/Política SSO ISERTEC.pdf">
-      <publishTime>02/24/2025 15:56:52</publishTime>
     </File>
     <File Include="Files/Políticas de Horas Extras.pdf">
       <publishTime>02/13/2025 09:27:51</publishTime>
@@ -822,11 +816,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Account/createSignDigital.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
-    <File Include="Views/Account/detailsHours.cshtml">
-      <publishTime>02/24/2025 15:51:40</publishTime>
-    </File>
     <File Include="Views/Account/detailsInvoice.cshtml">
-      <publishTime>02/20/2025 16:07:57</publishTime>
+      <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/detailsInvoiceAssign.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
@@ -841,7 +832,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/EmpleadosAll.cshtml">
-      <publishTime>02/20/2025 17:16:54</publishTime>
+      <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/EmpleadosUnidad.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
@@ -852,20 +843,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Account/listNomina.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
-    <File Include="Views/Account/marcajeEmpleados.cshtml">
-      <publishTime>02/21/2025 12:18:39</publishTime>
-    </File>
     <File Include="Views/Account/PersonalInformation.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/Policies.cshtml">
-      <publishTime>02/24/2025 16:01:24</publishTime>
+      <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/RequestForms.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/RequestInvoice.cshtml">
-      <publishTime>02/20/2025 12:53:00</publishTime>
+      <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Account/VacationsRequest.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
@@ -901,7 +889,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Home/page.cshtml">
-      <publishTime>02/20/2025 12:33:15</publishTime>
+      <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Invoice/BusinessPartnersSalesOrders.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
@@ -1000,13 +988,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Views/Wiki/Index.cshtml">
-      <publishTime>02/13/2025 14:28:47</publishTime>
+      <publishTime>02/13/2025 12:51:29</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>02/13/2025 09:27:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/21/2025 15:48:43</publishTime>
+      <publishTime>02/13/2025 09:51:57</publishTime>
     </File>
   </ItemGroup>
 </Project>
