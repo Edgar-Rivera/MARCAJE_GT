@@ -377,6 +377,7 @@
     <Content Include="Content\Chosen\component-chosen.min.css" />
     <Content Include="Content\CSS\style.css" />
     <Content Include="Content\CSS\StyleSideBar.css" />
+    <Content Include="Content\Images\Artboard 1.jpg" />
     <Content Include="Content\Images\bg-2.jpg" />
     <Content Include="Content\Images\bg-3-V02.jpg" />
     <Content Include="Content\Images\bg-3.jpg" />
@@ -389,6 +390,7 @@
     <Content Include="Content\Images\etalent.png" />
     <Content Include="Content\Images\favicon.ico" />
     <Content Include="Content\Images\iserlogo.png" />
+    <Content Include="Content\Images\logo_verde.png" />
     <Content Include="Content\Images\logo_verde.svg" />
     <Content Include="Content\Images\rrhh.jpg" />
     <Content Include="Content\PagedList.css" />
@@ -618,6 +620,8 @@
     <Content Include="Views\Wiki\Index.cshtml" />
     <Content Include="Views\Account\detailsHours.cshtml" />
     <Content Include="Views\Account\marcajeEmpleados.cshtml" />
+    <Content Include="Views\Account\MailSign.cshtml" />
+    <Content Include="Views\Account\FlujogramaIsertec.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewBag.Title = "Firma Digital de Correo Electrónico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    document.getElementById("unidad").addEventListener("change", function () {
+        var logo = document.getElementById("logo");
+        var seleccion = this.value;
+
+        if (seleccion === "CPG") {
+            logo.src = "https://static.wixstatic.com/media/7ac3b8_56c56c48b6714f5ca207611243f8b1d7~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_cpg.png";
+        } else if (seleccion === "BIOMA") {
+            logo.src = "https://static.wixstatic.com/media/7ac3b8_f9fd2cae5b3c4cfea72498c8fcb3ce79~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_bioma.png";
+        } else {
+            logo.src = "https://static.wixstatic.com/media/7ac3b8_732d36fed8eb49379daffc6b182b7fc5~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoisertec_1.png";
+        }
+    });
+
+
+    function displayResult() {
+        const name = document.getElementById('name').value;
+        const puesto = document.getElementById('puesto').value;
+        const especialidad = document.getElementById('especialidad').value;
+        const especialidad2 = document.getElementById('especialidad2').value;
+        const especialidad3 = document.getElementById('especialidad3').value;
+        const phone = document.getElementById('phone').value;
+        const mobile = document.getElementById('mobile').value;
+        const email = document.getElementById('email').value;
+        const country = document.getElementById('country').value;
+
+        const formattedPhone = phone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2');
+        const formattedMobile = mobile.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2');
+        const especialidades = [especialidad, especialidad2, especialidad3].filter(especialidad => especialidad && especialidad.trim() !== "");
+
+        const formattedPosition = especialidades.length > 0 ? especialidades.join(" | ") : "";
+        document.getElementById("nombre").innerText = name;
+        document.getElementById("puesto_e").innerText = puesto;
+        document.getElementById("especialidad_formatted").innerText = formattedPosition;
+        document.getElementById("ws").innerText = '(+' + country + ') ' + mobile;
+        document.getElementById("telefono").innerText = '(+' + country + ') ' + phone;
+        document.getElementById("correo").innerText = email;
+        document.getElementById('instructions').style.display = 'block';
+    }
+
+    function copiarAlPortapapeles() {
+        const contenido = document.getElementById("result");
+        const range = document.createRange();
+        range.selectNode(contenido);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        try {
+            document.execCommand("copy");
+            alert("¡Contenido copiado al portapapeles!");
+        } catch (err) {
+            console.error("Error al copiar: ", err);
+        }
+
+        // Limpiar la selección
+        selection.removeAllRanges();
+    }
+</script>
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4 mb-5">
+            <div>
+                <h2>Firma Correo Electrónico</h2>
+                <h4>Instrucciones</h4>
+                <ol>
+                    <li>Llena todos los campos TAL Y COMO INDICAN LOS EJEMPLOS.</li>
+                    <li>Haz click en "Generar Firma".</li>
+                </ol>
+                <br>
+            </div>
+            <hr>
+            <form id="userForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input class="form-control" type="text" id="name" placeholder="Nombre Empleado" required>
+                </div>
+                <div class="form-group">
+                    <label for="unidad">División:</label>
+                    <select class="form-control" id="unidad" required>
+                        <option value="">Selecciona División</option>
+                        <option value="ISERTEC">ISERTEC</option>
+                        <option value="BIOMA">BIOMA</option>
+                        <option value="CPG">CPG</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="puesto">Puesto:</label>
+                    <select class="form-control" id="puesto" required>
+                        <option value="">Selecciona un valor</option>
+                        <option value="Director General">Director General</option>
+                        <option value="Gerente Comercial Telco">Gerente Comercial Telco</option>
+                        <option value="Gerente Comercial CPG">Gerente Comercial CPG</option>
+                        <option value="Gerente Comercial Corporativo">Gerente Comercial Corporativo</option>
+                        <option value="Gerente Comercial Seguridad">Gerente Comercial Seguridad</option>
+                        <option value="Gerente Comercial Bioma">Gerente Comercial Bioma</option>
+                        <option value="Gerente Comercial Servicios">Gerente Comercial Servicios</option>
+                        <option value="Gerente Operativo CPG">Gerente Operativo CPG</option>
+                        <option value="Gerente Operativo BT & Networking">Gerente Operativo BT & Networking</option>
+                        <option value="Gerente Operativo Automatización">Gerente Operativo Automatización</option>
+                        <option value="Gerente Operativo Proyectos">Gerente Operativo Proyectos</option>
+                        <option value="Gerente Operativo Servicios">Gerente Operativo Servicios</option>
+                        <option value="Gerente Financiero">Gerente Financiero</option>
+                        <option value="Consultor">Consultor</option>
+                        <option value="Coordinador">Coordinador</option>
+                        <option value="Especialista">Especialista</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Auditor">Auditor</option>
+                        <option value="Business Development Manager">Business Development Manager</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Analista">Analista</option>
+                        <option value="Nomina">Nomina</option>
+                        <option value="Soporte">Soporte</option>
+                        <option value="Técnico">Técnico</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="especialidad">Especialidad:</label>
+                    <input class="form-control" type="text" id="especialidad" placeholder="" required maxlength="20">
+                </div>
+
+                <div class="form-group">
+                    <label for="especialidad2">Especialidad 2:</label>
+                    <input class="form-control" type="text" id="especialidad2" placeholder="" required maxlength="20">
+                </div>
+
+                <div class="form-group">
+                    <label for="especialidad3">Especialidad 3:</label>
+                    <input class="form-control" type="text" id="especialidad3" placeholder="" required maxlength="20">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Tel&eacute;fono:</label>
+                    <input class="form-control" type="tel" id="phone" placeholder="24272427" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Whatsapp:</label>
+                    <input class="form-control" type="tel" id="mobile" placeholder="43214321" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" id="email" placeholder="info@isertec.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Pa&iacute;s:</label>
+                    <select class="form-control" id="country" required>
+                        <option value="">Escoge tu oficina</option>
+                        <option value="502">Guatemala</option>
+                        <option value="504">Honduras</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-second" onclick="displayResult()">Generar Firma</button>
+                <button class="btn btn-second" onclick="copiarAlPortapapeles()">Copiar Contenido</button>
+            </form>
+            <br>
+            <br>
+            <div id="result" class="result" style="display: flex; align-items: center; width: 100%; border: 1px solid transparent;">
+                <div class="column left" style="flex: 1; padding: 5px; display: flex; justify-content: left;">
+                    <img id="logo" src="https://static.wixstatic.com/media/7ac3b8_732d36fed8eb49379daffc6b182b7fc5~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoisertec_1.png" style="width: 140px;">
+                </div>
+                <div id="resultContent" class="column right" style="flex: 4; padding: 5px; align-items:flex-start;">
+                    <h3 id="nombre" style="font-weight:bold; font-size: 18px; color:#313538; margin: 0;"></h3>
+                    <p id="puesto_e" style="font-weight:bold; color: #666; font-style: italic; margin: 5px 0;"></p>
+                    <p id="especialidad_formatted" style="color: black; margin: 5px 0; font-size: 12px;"></p>
+                    <p style="margin: 5px 0; font-size: small;">
+                        WhatsApp: <a id="ws" href="https://wa.me/+${country}${mobile}" style="color: #313538;"></a>
+                        <br>
+                        Tel&eacute;fono: <a id="telefono" href="tel:${country}${phone}" style="color: #313538;"></a>
+                        <br>
+                        Correo: <a id="correo" href="mailto:${email}" style="color: #313538;"></a>
+                    </p>
+                </div>
+            </div>
+            <div id="instructions" style="display:none;">
+                <h4>Instrucciones</h4>
+                <ol>
+                    <li>Selecciona <b>el contenido de la caja verde</b> y c&oacute;pialo (CTRL+C)</li>
+                    <li>
+                        Ve a la configuraci&oacute;n general de tu correo de Gmail <a href="https://mail.google.com/mail/u/0/#settings/general">aqu&iacute;.</a> Baja y busca la
+                        secci&oacute;n "Firma" o "Signature".
+                    </li>
+                    <li>
+                        Pega (CTRL+V) la firma <b>tal y como est&aacute;.</b> Los links han sido generados para hacer match
+                        as&iacute; que por favor NO HAGAS CAMBIOS.
+                    </li>
+                    <li>Guarda tu nueva configuraci&oacute;n en Gmail. Listo!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+

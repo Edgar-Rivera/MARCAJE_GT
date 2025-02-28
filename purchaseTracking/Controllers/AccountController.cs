@@ -375,6 +375,12 @@ namespace purchaseTracking.Controllers
         }
 
         [HttpGet]
+        public ActionResult MailSign()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult RequestForms()
         {
             Models.Images.ImageSign temp = new Models.Images.ImageSign();
@@ -389,6 +395,13 @@ namespace purchaseTracking.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult FlujogramaIsertec()
+        {
+            return View();
+        }
+
 
         public byte[] convertStringtoByte(string SignatureDataUrl)
         {
