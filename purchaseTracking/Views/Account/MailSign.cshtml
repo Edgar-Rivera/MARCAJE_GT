@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+@{
+    string puesto = Session["comments"].ToString();
+}
 
 
 <script type="text/javascript">
@@ -83,8 +85,8 @@
             <hr>
             <form id="userForm" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input class="form-control" type="text" id="name" placeholder="Nombre Empleado" required>
+                    <label for="name">Nombre y Apellido:</label>
+                    <input class="form-control" type="text" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="unidad">División:</label>
@@ -97,33 +99,7 @@
                 </div>
                 <div class="form-group">
                     <label for="puesto">Puesto:</label>
-                    <select class="form-control" id="puesto" required>
-                        <option value="">Selecciona un valor</option>
-                        <option value="Director General">Director General</option>
-                        <option value="Gerente Comercial Telco">Gerente Comercial Telco</option>
-                        <option value="Gerente Comercial CPG">Gerente Comercial CPG</option>
-                        <option value="Gerente Comercial Corporativo">Gerente Comercial Corporativo</option>
-                        <option value="Gerente Comercial Seguridad">Gerente Comercial Seguridad</option>
-                        <option value="Gerente Comercial Bioma">Gerente Comercial Bioma</option>
-                        <option value="Gerente Comercial Servicios">Gerente Comercial Servicios</option>
-                        <option value="Gerente Operativo CPG">Gerente Operativo CPG</option>
-                        <option value="Gerente Operativo BT & Networking">Gerente Operativo BT & Networking</option>
-                        <option value="Gerente Operativo Automatización">Gerente Operativo Automatización</option>
-                        <option value="Gerente Operativo Proyectos">Gerente Operativo Proyectos</option>
-                        <option value="Gerente Operativo Servicios">Gerente Operativo Servicios</option>
-                        <option value="Gerente Financiero">Gerente Financiero</option>
-                        <option value="Consultor">Consultor</option>
-                        <option value="Coordinador">Coordinador</option>
-                        <option value="Especialista">Especialista</option>
-                        <option value="Project Manager">Project Manager</option>
-                        <option value="Auditor">Auditor</option>
-                        <option value="Business Development Manager">Business Development Manager</option>
-                        <option value="Supervisor">Supervisor</option>
-                        <option value="Analista">Analista</option>
-                        <option value="Nomina">Nomina</option>
-                        <option value="Soporte">Soporte</option>
-                        <option value="Técnico">Técnico</option>
-                    </select>
+                    <input class="form-control" type="text" id="puesto" placeholder="Nombre Empleado" required value="@puesto" readonly>
                 </div>
 
                 <div class="form-group">

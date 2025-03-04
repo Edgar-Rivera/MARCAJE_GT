@@ -1,14 +1,11 @@
 ﻿using Newtonsoft.Json;
 using purchaseTracking.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -16,7 +13,7 @@ namespace purchaseTracking.Controllers
 {
     public class LoginController : Controller
     {
-       
+
         [SessionExpireFilter]
         public ActionResult logoutSession()
         {
@@ -59,7 +56,8 @@ namespace purchaseTracking.Controllers
                             {
                                 Session.Add("Profession", data_etalent.EDPO_EMPL_PROFESION);
                                 Session.Add("external_code", data_sap.empID);
-                                Session.Add("internal_code", data_etalent.EPDO_CODIGO);                                                         
+                                Session.Add("internal_code", data_etalent.EPDO_CODIGO);
+                                Session.Add("comments", data_etalent.COMENTARIOS);
                                 await LogoutSL(LoginResponse);
                                 return RedirectToAction("page", "Home");
                             }

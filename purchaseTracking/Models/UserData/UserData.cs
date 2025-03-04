@@ -10,5 +10,6 @@ namespace purchaseTracking.Models.UserData
         public Int32 EPDO_CODIGO { get; set; }
         public string EPDO_CODIGO_EXTERNO { get; set; }
         public string EDPO_EMPL_PROFESION { get; set; }
+        public string COMENTARIOS { get; set; }
     }
 }

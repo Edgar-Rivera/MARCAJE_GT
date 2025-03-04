@@ -362,7 +362,7 @@ namespace purchaseTracking.Connection.UserData
             conn = eTalentConnection.connectionResult();
             SqlCommand cmd;
             SqlDataReader reader;
-            string commandText = "SELECT EPDO_CODIGO, EPDO_CODIGO_EXTERNO,EDPO_EMPL_PROFESION FROM PAZ_EPDO_EMPLEADO WHERE EPDO_CODIGO_EXTERNO = @CODE;";
+            string commandText = "SELECT EPDO_CODIGO, EPDO_CODIGO_EXTERNO,EDPO_EMPL_PROFESION, COMENTARIO FROM PAZ_EPDO_EMPLEADO WHERE EPDO_CODIGO_EXTERNO = @CODE;";
             cmd = new SqlCommand(commandText, conn);
             cmd.Parameters.AddWithValue("@CODE", external_code);
             reader = cmd.ExecuteReader();
@@ -371,6 +371,7 @@ namespace purchaseTracking.Connection.UserData
                 data.EPDO_CODIGO = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
                 data.EPDO_CODIGO_EXTERNO = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
                 data.EDPO_EMPL_PROFESION = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+                data.COMENTARIOS = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
             }
             return data;
         }

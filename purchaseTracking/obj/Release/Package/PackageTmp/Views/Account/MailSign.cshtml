@@ -4,21 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{
+    string puesto = Session["comments"].ToString();
+}
 
-<script>
-    document.getElementById("unidad").addEventListener("change", function () {
-        var logo = document.getElementById("logo");
-        var seleccion = this.value;
 
-        if (seleccion === "CPG") {
-            logo.src = "https://static.wixstatic.com/media/7ac3b8_56c56c48b6714f5ca207611243f8b1d7~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_cpg.png";
-        } else if (seleccion === "BIOMA") {
-            logo.src = "https://static.wixstatic.com/media/7ac3b8_f9fd2cae5b3c4cfea72498c8fcb3ce79~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_bioma.png";
-        } else {
-            logo.src = "https://static.wixstatic.com/media/7ac3b8_732d36fed8eb49379daffc6b182b7fc5~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoisertec_1.png";
-        }
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("unidad").addEventListener("change", () => {
+            const logo = document.getElementById("logo");
+            const seleccion = document.getElementById("unidad").value;
+
+            const logos = {
+                "CPG": "https://static.wixstatic.com/media/7ac3b8_56c56c48b6714f5ca207611243f8b1d7~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_cpg.png",
+                "BIOMA": "https://static.wixstatic.com/media/7ac3b8_f9fd2cae5b3c4cfea72498c8fcb3ce79~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_bioma.png",
+                "default": "https://static.wixstatic.com/media/7ac3b8_732d36fed8eb49379daffc6b182b7fc5~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoisertec_1.png"
+            };
+
+            logo.src = logos[seleccion] || logos["default"];
+        });
     });
 
+   
 
     function displayResult() {
         const name = document.getElementById('name').value;
@@ -54,12 +61,11 @@
         selection.addRange(range);
         try {
             document.execCommand("copy");
-            alert("¡Contenido copiado al portapapeles!");
+            alert("!Contenido copiado al portapapeles!");
         } catch (err) {
             console.error("Error al copiar: ", err);
         }
 
-        // Limpiar la selección
         selection.removeAllRanges();
     }
 </script>
@@ -79,12 +85,12 @@
             <hr>
             <form id="userForm" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input class="form-control" type="text" id="name" placeholder="Nombre Empleado" required>
+                    <label for="name">Nombre y Apellido:</label>
+                    <input class="form-control" type="text" id="name" placeholder="Nombre y Apellido de Empleado" required>
                 </div>
                 <div class="form-group">
                     <label for="unidad">División:</label>
-                    <select class="form-control" id="unidad" required>
+                    <select   id="unidad" class="form-control" required>
                         <option value="">Selecciona División</option>
                         <option value="ISERTEC">ISERTEC</option>
                         <option value="BIOMA">BIOMA</option>
@@ -93,33 +99,7 @@
                 </div>
                 <div class="form-group">
                     <label for="puesto">Puesto:</label>
-                    <select class="form-control" id="puesto" required>
-                        <option value="">Selecciona un valor</option>
-                        <option value="Director General">Director General</option>
-                        <option value="Gerente Comercial Telco">Gerente Comercial Telco</option>
-                        <option value="Gerente Comercial CPG">Gerente Comercial CPG</option>
-                        <option value="Gerente Comercial Corporativo">Gerente Comercial Corporativo</option>
-                        <option value="Gerente Comercial Seguridad">Gerente Comercial Seguridad</option>
-                        <option value="Gerente Comercial Bioma">Gerente Comercial Bioma</option>
-                        <option value="Gerente Comercial Servicios">Gerente Comercial Servicios</option>
-                        <option value="Gerente Operativo CPG">Gerente Operativo CPG</option>
-                        <option value="Gerente Operativo BT & Networking">Gerente Operativo BT & Networking</option>
-                        <option value="Gerente Operativo Automatización">Gerente Operativo Automatización</option>
-                        <option value="Gerente Operativo Proyectos">Gerente Operativo Proyectos</option>
-                        <option value="Gerente Operativo Servicios">Gerente Operativo Servicios</option>
-                        <option value="Gerente Financiero">Gerente Financiero</option>
-                        <option value="Consultor">Consultor</option>
-                        <option value="Coordinador">Coordinador</option>
-                        <option value="Especialista">Especialista</option>
-                        <option value="Project Manager">Project Manager</option>
-                        <option value="Auditor">Auditor</option>
-                        <option value="Business Development Manager">Business Development Manager</option>
-                        <option value="Supervisor">Supervisor</option>
-                        <option value="Analista">Analista</option>
-                        <option value="Nomina">Nomina</option>
-                        <option value="Soporte">Soporte</option>
-                        <option value="Técnico">Técnico</option>
-                    </select>
+                    <input class="form-control" type="text" id="puesto" placeholder="Nombre Empleado" required value="@puesto" readonly>
                 </div>
 
                 <div class="form-group">
