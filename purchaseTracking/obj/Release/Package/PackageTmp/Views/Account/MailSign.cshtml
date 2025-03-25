@@ -50,6 +50,11 @@
         document.getElementById("telefono").innerText = '(+' + country + ') ' + phone;
         document.getElementById("correo").innerText = email;
         document.getElementById('instructions').style.display = 'block';
+
+        if (country && mobile) {
+            var url = "https://wa.me/" + country + mobile;
+            document.getElementById("ws").href = url;
+        }
     }
 
     function copiarAlPortapapeles() {
@@ -86,7 +91,7 @@
             <form id="userForm" onsubmit="return false;">
                 <div class="form-group">
                     <label for="name">Nombre y Apellido:</label>
-                    <input class="form-control" type="text" id="name" placeholder="Nombre y Apellido de Empleado" required>
+                    <input class="form-control" type="text" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="unidad">División:</label>
@@ -155,7 +160,7 @@
                     <p id="puesto_e" style="font-weight:bold; color: #666; font-style: italic; margin: 5px 0;"></p>
                     <p id="especialidad_formatted" style="color: black; margin: 5px 0; font-size: 12px;"></p>
                     <p style="margin: 5px 0; font-size: small;">
-                        WhatsApp: <a id="ws" href="https://wa.me/+${country}${mobile}" style="color: #313538;"></a>
+                        WhatsApp: <a id="ws" href="#" style="color: #313538;"></a>
                         <br>
                         Tel&eacute;fono: <a id="telefono" href="tel:${country}${phone}" style="color: #313538;"></a>
                         <br>
