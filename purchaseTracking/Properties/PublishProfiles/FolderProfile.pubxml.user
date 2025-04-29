@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\erivera\Desktop\tracking</_PublishTargetUrl>
-    <History>True|2025-03-25T00:11:19.9384768Z||;True|2025-03-24T18:11:06.5629750-06:00||;True|2025-03-03T12:42:40.5432824-06:00||;True|2025-03-03T12:41:18.0879702-06:00||;True|2025-03-03T11:37:30.4681829-06:00||;True|2025-03-03T11:36:31.9705898-06:00||;True|2025-02-27T16:52:54.8734962-06:00||;False|2024-11-28T12:36:56.5380736-06:00||;True|2024-11-22T14:46:25.0191478-06:00||;True|2024-10-28T10:04:18.8500720-06:00||;False|2024-07-23T12:02:40.3015902-06:00||;True|2021-12-02T09:21:22.6232439-06:00||;True|2021-11-29T13:59:38.4614505-06:00||;True|2021-11-09T11:46:38.1450109-06:00||;False|2021-11-09T11:44:47.2150777-06:00||;</History>
+    <History>True|2025-04-29T17:22:46.4472465Z||;True|2025-03-24T18:11:19.9384768-06:00||;True|2025-03-24T18:11:06.5629750-06:00||;True|2025-03-03T12:42:40.5432824-06:00||;True|2025-03-03T12:41:18.0879702-06:00||;True|2025-03-03T11:37:30.4681829-06:00||;True|2025-03-03T11:36:31.9705898-06:00||;True|2025-02-27T16:52:54.8734962-06:00||;False|2024-11-28T12:36:56.5380736-06:00||;True|2024-11-22T14:46:25.0191478-06:00||;True|2024-10-28T10:04:18.8500720-06:00||;False|2024-07-23T12:02:40.3015902-06:00||;True|2021-12-02T09:21:22.6232439-06:00||;True|2021-11-29T13:59:38.4614505-06:00||;True|2021-11-09T11:46:38.1450109-06:00||;False|2021-11-09T11:44:47.2150777-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -208,10 +208,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:26</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>03/24/2025 18:12:08</publishTime>
+      <publishTime>04/29/2025 11:22:45</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>03/24/2025 18:12:08</publishTime>
+      <publishTime>04/29/2025 11:22:45</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>02/27/2025 15:23:27</publishTime>

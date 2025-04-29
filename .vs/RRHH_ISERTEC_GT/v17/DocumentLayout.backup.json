@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\mailsign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\flujogramaisertec.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\flujogramaisertec.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\flujogramaisertec.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -55,12 +55,7 @@
               "ViewState": "AgIAACQAAAAAAAAAAAAAADgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-27T21:35:10.388Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -74,7 +69,7 @@
               "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
               "RelativeToolTip": "purchaseTracking\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAiwDsAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T23:21:56.269Z",
               "EditorCaption": ""
@@ -89,8 +84,7 @@
               "RelativeToolTip": "purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-06T18:35:21.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T18:35:21.72Z"
             },
             {
               "$type": "Document",

@@ -10,8 +10,8 @@ namespace purchaseTracking.Services
         public static string Server = "smtp.gmail.com";
         public static int Port = 587;
         public static string SenderName = "Tracking Isertec";
-        public static string SenderEmail = "ticket@isertec.com";
-        public static string Username = "ticket@isertec.com";
-        public static string Password = "manag3RS2019/";
+        public static string SenderEmail = "notificacionesisertec@gmail.com";
+        public static string Username = "notificacionesisertec@gmail.com";
+        public static string Password = "nlop mfbh voxh ctly";
     }
 }
