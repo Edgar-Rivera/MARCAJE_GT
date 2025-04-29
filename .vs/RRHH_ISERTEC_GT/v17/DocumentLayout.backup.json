@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -42,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MailSign.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\MailSign.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\MailSign.cshtml",
@@ -58,25 +62,38 @@
               "IsPinned": true
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Mailer.cs",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Services\\Mailer.cs",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
+              "RelativeToolTip": "purchaseTracking\\Services\\Mailer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T17:22:30.888Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
               "RelativeToolTip": "purchaseTracking\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T23:21:56.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FlujogramaIsertec.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
@@ -88,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
@@ -100,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
@@ -112,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "VacationsRequest.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
@@ -124,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "RequestForms.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\RequestForms.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
@@ -136,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "connectionHana.cs",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\connectionHana.cs",
               "RelativeDocumentMoniker": "purchaseTracking\\Connection\\connectionHana.cs",
