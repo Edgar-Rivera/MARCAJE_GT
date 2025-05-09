@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <h4>Mis Solicitudes de Compra <span class="badge badge-secondary">@ViewBag.totalItem</span></h4>
+            <h4>Mis Solicitudes de Compra <span class="badge bg-secondary">@ViewBag.totalItem</span></h4>
             <hr />
             @using (Html.BeginForm("RequestPurchase", "Activity", FormMethod.Get))
             {
@@ -89,20 +89,20 @@
                             <td>
                                 @if (item.status == "-2")
                                 {
-                                    <span class="badge badge-warning">No iniciado</span>
+                                    <span class="badge bg-warning">No iniciado</span>
                                 }
                                 else if (item.status == "1")
                                 {
-                                    <span class="badge badge-success">En proceso</span>
+                                    <span class="badge bg-success">En proceso</span>
                                 }
                                 else if (item.status == "4")
                                 {
-                                    <span class="badge badge-danger">Tarea en espera</span>
+                                    <span class="badge bg-danger">Tarea en espera</span>
 
                                 }
                                 else if (item.status == "-3")
                                 {
-                                    <span class="badge badge-success">Concluido</span>
+                                    <span class="badge bg-success">Concluido</span>
 
                                 }
                             </td>

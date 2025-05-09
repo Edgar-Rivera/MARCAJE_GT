@@ -3,48 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\mailsign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\mailsign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\personalinformation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\personalinformation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\flujogramaisertec.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\flujogramaisertec.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\requestforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\requestforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchasetracking\\connection\\connectionhana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\connection\\connectionhana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\detailsinvoiceassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsinvoiceassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\requestlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\requestlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\detailsrequestassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsrequestassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\detailsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\requestforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\requestforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\listinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\listinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\createsigndigital.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\createsigndigital.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\erivera\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\listnomina.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\listnomina.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,46 +54,90 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MailSign.cshtml",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\MailSign.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\MailSign.cshtml",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\MailSign.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\MailSign.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "listNomina.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\listNomina.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\listNomina.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\listNomina.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\listNomina.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T21:35:10.388Z",
+              "WhenOpened": "2025-05-09T19:38:35.681Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Mailer.cs",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Services\\Mailer.cs",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
-              "RelativeToolTip": "purchaseTracking\\Services\\Mailer.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAqwAUAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T17:03:13.119Z",
+              "DocumentIndex": 4,
+              "Title": "RequestList.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\RequestList.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\RequestList.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\RequestList.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\RequestList.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAE4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T20:43:34.559Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "detailsRequest.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsRequest.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsRequest.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsRequest.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsRequest.cshtml",
+              "ViewState": "AgIAADYBAAAAAAAAAAApwDsBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T20:54:27.222Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SendMailer.cs",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Services\\SendMailer.cs",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
-              "RelativeToolTip": "purchaseTracking\\Services\\SendMailer.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAcwBMAAAAFAAAAAAAAAA==",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAJACAAAAAAAAAAAqwKECAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T17:03:10.463Z",
+              "WhenOpened": "2025-05-09T20:58:42.465Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "detailsRequestAssign.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T21:37:11.096Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "detailsInvoiceAssign.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsInvoiceAssign.cshtml",
+              "ViewState": "AgIAAMkAAAAAAAAAAADwv9sAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T21:37:17.25Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -106,75 +150,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PersonalInformation.cshtml",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\PersonalInformation.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\PersonalInformation.cshtml",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\PersonalInformation.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\PersonalInformation.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-08T17:43:35.717Z"
+              "WhenOpened": "2025-05-09T22:05:52.785Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "purchaseTracking\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T17:42:19.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "purchaseTracking\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCoAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:21:56.269Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "FlujogramaIsertec.cshtml",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\FlujogramaIsertec.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-06T18:35:21.72Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "purchaseTracking\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwCcAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T22:49:41.262Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "VacationsRequest.cshtml",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T21:43:32.791Z"
+              "WhenOpened": "2025-05-09T21:51:46.295Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -184,21 +182,36 @@
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
               "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\RequestForms.cshtml",
               "RelativeToolTip": "purchaseTracking\\Views\\Account\\RequestForms.cshtml",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAAAMsAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAANcAAAAAAAAAAAApwOAAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T21:24:56.43Z"
+              "WhenOpened": "2025-05-09T21:27:31.829Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "connectionHana.cs",
-              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\connectionHana.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Connection\\connectionHana.cs",
-              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Connection\\connectionHana.cs",
-              "RelativeToolTip": "purchaseTracking\\Connection\\connectionHana.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T13:53:21.691Z"
+              "DocumentIndex": 8,
+              "Title": "listInvoice.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\listInvoice.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\listInvoice.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\listInvoice.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\listInvoice.cshtml",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAIwMUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T21:08:40.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "createSignDigital.cshtml",
+              "DocumentMoniker": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\createSignDigital.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\createSignDigital.cshtml",
+              "ToolTip": "C:\\Users\\erivera\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\createSignDigital.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\createSignDigital.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAgwBUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-09T21:02:40.286Z",
+              "EditorCaption": ""
             }
           ]
         }

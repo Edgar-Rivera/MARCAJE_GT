@@ -12,44 +12,46 @@
 </style>
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col-md-10">
-            <span class="badge badge-success float-right">@Model.Name</span>
+        <div class="col-md-11 mt-2">
             <h4>@Model.Name</h4>
             <hr />
             <fieldset disabled>
-                <div class="form-group row">
+                <div class="row mb-3">
                     <div class="col-sm-8">
-                        <strong><label class="control-label">Número de Actividad </label></strong>
+                        <label class="form-label fw-bold">Número de Actividad</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-secondary" type="button"><i class="fas fa-chart-line"></i></button>
-                            </div>
-                            <input type="text" class="form-control" value="@Model.ClgCode">
+                            <span class="input-group-text bg-secondary text-white">
+                                <i class="fas fa-chart-line"></i>
+                            </span>
+                            <input type="text" class="form-control" value="@Model.ClgCode" readonly>
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
+
+                <div class="row mb-3">
                     <div class="col-sm-4">
-                        <strong><label class="control-label">Tipo de Solicitud</label></strong>
+                        <label class="form-label fw-bold">Tipo de Solicitud</label>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-warning" type="button"><i class="fas fa-sticky-note"></i></button>
-                            </div>
-                            <input type="text" class="form-control" value="@Model.observaciones">
+                            <span class="input-group-text bg-warning text-white">
+                                <i class="fas fa-sticky-note"></i>
+                            </span>
+                            <input type="text" class="form-control" value="@Model.observaciones" readonly>
                         </div>
                     </div>
                 </div>
+
                 <fieldset disabled>
-                    <div class="form-group row">
+                    <div class="row mb-3">
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Fecha Inicio @Model.observaciones </label></strong>
-                            <input class="form-control" type="text" value="@Model.Recontact.ToString("dd/MM/yyyy")">
+                            <label class="form-label fw-bold">Fecha Inicio @Model.observaciones</label>
+                            <input class="form-control" type="text" value="@Model.Recontact.ToString("dd/MM/yyyy")" readonly>
                         </div>
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Fecha Fin @Model.observaciones</label></strong>
-                            <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
+                            <label class="form-label fw-bold">Fecha Fin @Model.observaciones</label>
+                            <input class="form-control" type="text" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")" readonly>
                         </div>
                     </div>
+
                     @{
                         int cantidad = 0;
                         TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.Recontact;
@@ -57,122 +59,78 @@
                         {
                             DateTime fechaActual = Model.Recontact.AddDays(i);
                             if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday && !(fechaActual.Month == 12 && fechaActual.Day == 25) &&
-            !(fechaActual.Month == 11 && fechaActual.Day == 1) && !(fechaActual.Month == 9 && fechaActual.Day == 15) && !(fechaActual.Month == 3 && fechaActual.Day == 28) && !(fechaActual.Month == 3 && fechaActual.Day == 29))
+!(fechaActual.Month == 11 && fechaActual.Day == 1) && !(fechaActual.Month == 9 && fechaActual.Day == 15) && !(fechaActual.Month == 3 && fechaActual.Day == 28) && !(fechaActual.Month == 3 && fechaActual.Day == 29))
                             {
                                 cantidad++;
                             }
                         }
                     }
-                    <div class="form-group row">
+                    <div class="row mb-3">
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Días a Tomar</label></strong>
-                            <input class="form-control" type="text" value="@cantidad">
+                            <label class="form-label fw-bold">Días a Tomar</label>
+                            <input type="text" class="form-control" value="@cantidad" readonly>
                         </div>
-                        <div class="col-sm-4 form-check">
-                            <strong><label class="control-label">Aplica Medio Día</label></strong>
-                            @if (Model.U_retrasoDias == "1")
-                            {
-                                <input class="form-control" type="text" value="Si" readonly>
-                            }
-                            else
-                            {
-                                <input class="form-control" type="text" value="No" readonly>
-                            }
+                        <div class="col-sm-4">
+                            <label class="form-label fw-bold">Aplica Medio Día</label>
+                            <input type="text" class="form-control" value="@(Model.U_retrasoDias == "1" ? "Si" : "No")" readonly>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+
+                    <div class="row mb-3">
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Estado </label></strong>
+                            <label class="form-label fw-bold">Estado</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-dark" type="button"><i class="fas fa-flag"></i></button>
-                                </div>
-                                @if (Model.status == -3)
-                                {
-                                    <input type="text" class="form-control" value="Aprobado">
-                                }
-                                else if (Model.status == 1)
-                                {
-                                    <input type="text" class="form-control" value="En proceso">
-                                }
-                                else if (Model.status == -2)
-                                {
-                                    <input type="text" class="form-control" value="En proceso">
-                                }
-                                else if (Model.status == 4)
-                                {
-                                    <input type="text" class="form-control" value="Rechazado">
-                                }
-                                else if (Model.status == 6)
-                                {
-                                    <input type="text" class="form-control" value="N/A">
-                                }
-                                else
-                                {
-                                    <input type="text" class="form-control" value="N/A">
-                                }
+                                <span class="input-group-text bg-dark text-white"><i class="fas fa-flag"></i></span>
+                                <input type="text" class="form-control" readonly
+                                       value="@(
+                        Model.status == -3 ? "Aprobado" :
+                        Model.status == 1 || Model.status == -2 ? "En proceso" :
+                        Model.status == 4 ? "Rechazado" :
+                        Model.status == 6 ? "N/A" : "N/A")">
                             </div>
                         </div>
+
                         <div class="col-sm-4">
-                            <strong><label class="control-label">Prioridad </label></strong>
+                            <label class="form-label fw-bold">Prioridad</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-danger" type="button"><i class="fas fa-exclamation"></i></button>
-                                </div>
-                                @if (Model.Priority == 1)
-                                {
-                                    <input type="text" class="form-control" value="Normal">
-                                }
-                                else if (Model.Priority == 0)
-                                {
-                                    <input type="text" class="form-control" value="Bajo">
-                                }
-                                else
-                                {
-                                    <input type="text" class="form-control" value="Alta">
-                                }
+                                <span class="input-group-text bg-danger text-white"><i class="fas fa-exclamation"></i></span>
+                                <input type="text" class="form-control" readonly
+                                       value="@(Model.Priority == 1 ? "Normal" : Model.Priority == 0 ? "Bajo" : "Alta")">
                             </div>
                         </div>
                     </div>
-
 
                 </fieldset>
-                <div class="form-group row">
+                <div class="row mb-3">
                     <div class="col-sm-4">
-                        <strong><label class="control-label"> Asignado a </label></strong>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-primary" type="button"><i class="fas fa-user-check"></i></button>
-                            </div>
-                            <input type="text" class="form-control" value="@Model.U_NAME">
+                        <label class="form-label fw-bold">Asignado a</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white"><i class="fas fa-user-check"></i></span>
+                            <input type="text" class="form-control" value="@Model.U_NAME" readonly>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <strong><label class="control-label"> Solicitante </label></strong>
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-success" type="button"><i class="fas fa-share"></i></button>
-                            </div>
-                            <input type="text" class="form-control" value="@Model.U_Solicitante" id="contract">
+                    <div class="col-sm-4">
+                        <label class="form-label fw-bold">Solicitante</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-success text-white"><i class="fas fa-share"></i></span>
+                            <input type="text" class="form-control" value="@Model.U_Solicitante" id="contract" readonly>
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
+
+                <div class="row mb-3">
                     <div class="col-sm-8">
-                        <strong><label class="control-label">Asunto </label></strong>
-                        <textarea type="text" class="form-control" rows="2">@Model.Details</textarea>
+                        <label class="form-label fw-bold">Asunto</label>
+                        <textarea class="form-control" rows="2" readonly>@Model.Details</textarea>
                     </div>
                 </div>
-                <div class="form-group row">
+
+                <div class="row mb-3">
                     <div class="col-sm-8">
-                        <strong><label class="control-label">Correo(s) electrónico a notificar </label></strong>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                            </div>
-                            <textarea type="text" class="form-control" rows="5">@Model.U_Correo</textarea>
-                        </div>
+                        <label class="form-label fw-bold">Correo(s) electrónico a notificar</label>
+                        <textarea class="form-control" rows="5" readonly>@Model.U_Correo</textarea>
                     </div>
                 </div>
 
@@ -180,143 +138,114 @@
                 {
                     <h4>Firma Resgistradas en Solicitud</h4>
                     <hr />
-                    <br />
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <p>
-                                <img width="250" height="200" src="@ViewBag.source"
-                                     style="border:1px solid"><br>
-                            </p>
-                            <h7 class="font-weight-bold">Firma de Empleado: </h7>
-                            <h7> <br /> @Model.U_Solicitante</h7>
+                    <div class="row g-3">
+                        <div class="col-auto">
+                            <img src="@ViewBag.source" class="img-fluid border" width="250" height="200" alt="Firma de Empleado" />
+                            <p class="fw-bold mt-2 mb-0">Firma de Empleado:</p>
+                            <p>@Model.U_Solicitante</p>
                         </div>
+
                         @if (Model.status == -3)
                         {
-                            <div class="col-sm-2">
-                                <p>
-                                    <img width="250" height="200" src="@ViewBag.source_j"
-                                         style="border:1px solid"><br>
-                                </p>
-                                <h7 class="font-weight-bold">Firma Jefe Inmediato: </h7>
-                                <h7> <br /> @ViewBag.nombre_j</h7>
+                            <div class="col-auto">
+                                <img src="@ViewBag.source_j" class="img-fluid border" width="250" height="200" alt="Firma Jefe Inmediato" />
+                                <p class="fw-bold mt-2 mb-0">Firma Jefe Inmediato:</p>
+                                <p>@ViewBag.nombre_j</p>
                             </div>
-                            <div class="col-sm-2">
-                                <p>
-                                    <img width="250" height="200" src="@ViewBag.source_n"
-                                         style="border:1px solid"><br>
-                                </p>
-                                <h7 class="font-weight-bold">Firma Nomina: </h7>
-                                <h7> <br /> @ViewBag.nombre_n</h7>
+
+                            <div class="col-auto">
+                                <img src="@ViewBag.source_n" class="img-fluid border" width="250" height="200" alt="Firma Nómina" />
+                                <p class="fw-bold mt-2 mb-0">Firma Nómina:</p>
+                                <p>@ViewBag.nombre_n</p>
                             </div>
                         }
-
                     </div>
+
                 }
 
             </fieldset>
-
-            <br />
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <br />
                 <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
                     <fieldset disabled>
-                        <div class="form-group row">
+                        <div class="row mb-3">
                             <div class="col-sm-8">
-                                <strong>
-                                    <label class="control-label">
-                                        Detalles de Solicitud
-                                    </label>
-                                </strong>
-                                <textarea type="text" class="form-control" rows="7">@Model.Notes</textarea>
+                                <label class="form-label fw-bold">Detalles de Solicitud</label>
+                                <textarea class="form-control" rows="7">@Model.Notes</textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="row mb-3">
                             <div class="col-sm-8">
-                                <strong><label class="control-label">Comentarios Jefe Inmediato </label></strong>
-                                <textarea type="text" class="form-control" rows="7">@Model.U_Comentarios</textarea>
+                                <label class="form-label fw-bold">Comentarios Jefe Inmediato</label>
+                                <textarea class="form-control" rows="7">@Model.U_Comentarios</textarea>
                             </div>
                         </div>
                     </fieldset>
 
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalEstado">
-                        Cambiar Estado
-                    </button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLocalC">
-                        <i class="fas fa-comment"></i> Ingresar Comentarios
-                    </button>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalMail">
-                        <i class="fas fa-envelope"></i> Modificar Correos a Notificar
-                    </button>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCheck">
-                        <i class="fas fa-download"></i> Descargar Solicitud
-                    </button>
-
-
-
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <div class="d-flex flex-wrap justify-content-start gap-2 mt-2 mb-3">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalEstado">
+                            Cambiar Estado
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLocalC">
+                            <i class="fas fa-comment me-1"></i> Ingresar Comentarios
+                        </button>
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalMail">
+                            <i class="fas fa-envelope me-1"></i> Modificar Correos
+                        </button>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalCheck">
+                            <i class="fas fa-download me-1"></i> Descargar Solicitud
+                        </button>
+                    </div>
 
                 </div>
-
-
             </div>
 
         </div>
-        <br />
-        <br />
-        <br />
 
 
 
-        <!-- Modal para Ingreso de actualizacion de Status -->
-        <div class="modal fade bd-example-modal-lg" id="exampleModalEstado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal fade" id="exampleModalEstado" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Actualización Estado @Model.observaciones</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("updateStatusAssign", "Account"))
                         {
-                            @Html.Hidden("id", Model.ClgCode);
-                            @Html.Hidden("ejecutivo", Model.E_Mail);
-                            @Html.Hidden("involucrados", Model.U_Correo);
-                            @Html.Hidden("orden_venta", Model.DocNum);
-                            @Html.Hidden("sn", Model.CardName);
-                            @Html.Hidden("Solicitante", Model.U_Solicitante);
-                            <div class="form-group">
-                                <strong>Seleccione estado de solictud</strong>
-                                <br />
-                                <br />
+                            @Html.Hidden("id", Model.ClgCode)
+                            @Html.Hidden("ejecutivo", Model.E_Mail)
+                            @Html.Hidden("involucrados", Model.U_Correo)
+                            @Html.Hidden("orden_venta", Model.DocNum)
+                            @Html.Hidden("sn", Model.CardName)
+                            @Html.Hidden("Solicitante", Model.U_Solicitante)
+
+                            <div class="mb-3">
+                                <label for="status" class="form-label"><strong>Seleccione estado de solicitud</strong></label>
                                 @Html.DropDownList("status", new List<SelectListItem>
-                             {
-                            new SelectListItem{ Text="En Proceso", Value = "1" },
-                                 new SelectListItem{ Text="Aprobado", Value = "-3" },
-                                    new SelectListItem{ Text="Rechazado", Value = "4" },
-                             }, new { @class = "form-control" })
+                                {
+                                    new SelectListItem{ Text = "En Proceso", Value = "1" },
+                                    new SelectListItem{ Text = "Aprobado", Value = "-3" },
+                                    new SelectListItem{ Text = "Rechazado", Value = "4" }
+                                }, new { @class = "form-select", @id = "status" })
                             </div>
-                            <div class="form-group">
-                                <strong>Ingrese comentarios:</strong>
-                                <br />
-                                <br />
+
+                            <div class="mb-3">
+                                <label for="comment" class="form-label"><strong>Ingrese comentarios:</strong></label>
                                 <textarea rows="5" class="form-control" id="comment" name="comment" required>@Model.U_Comentarios</textarea>
                             </div>
-                            <div class="alert alert-warning" role="alert">
-                                La actualización de comentarios y estado se enviara a todos los correos involucrados en esta actividad!
+
+                            <div class="alert alert-warning">
+                                La actualización de comentarios y estado se enviará a todos los correos involucrados en esta actividad.
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                             </div>
                         }
@@ -327,38 +256,35 @@
 
 
 
-        <!-- Modal para Ingreso de Comentarios Locales -->
-        <div class="modal fade bd-example-modal-lg" id="exampleModalLocalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal fade" id="exampleModalLocalC" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Ingrese Comentarios en Solicitud</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("updateCommentsAssign", "Account"))
                         {
-                            @Html.Hidden("id", Model.ClgCode);
-                            @Html.Hidden("status", Model.status);
-                            @Html.Hidden("ejecutivo", Model.E_Mail);
-                            @Html.Hidden("involucrados", Model.U_Correo);
-                            @Html.Hidden("orden_venta", Model.DocNum);
-                            @Html.Hidden("sn", Model.CardName);
-                            @Html.Hidden("Solicitante", Model.U_Solicitante);
-                            <div class="form-group">
-                                <strong>Ingrese comentarios:</strong>
-                                <br />
-                                <br />
+                            @Html.Hidden("id", Model.ClgCode)
+                            @Html.Hidden("status", Model.status)
+                            @Html.Hidden("ejecutivo", Model.E_Mail)
+                            @Html.Hidden("involucrados", Model.U_Correo)
+                            @Html.Hidden("orden_venta", Model.DocNum)
+                            @Html.Hidden("sn", Model.CardName)
+                            @Html.Hidden("Solicitante", Model.U_Solicitante)
+
+                            <div class="mb-3">
+                                <label for="comment" class="form-label"><strong>Ingrese comentarios:</strong></label>
                                 <textarea rows="5" class="form-control" id="comment" name="comment" required></textarea>
                             </div>
+
                             <div class="alert alert-warning" role="alert">
-                                La actualización de comentarios se enviara a todos los correos involucrados en esta actividad!
+                                La actualización de comentarios se enviará a todos los correos involucrados en esta actividad.
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                             </div>
                         }
@@ -367,29 +293,26 @@
             </div>
         </div>
 
-        <!-- Modal para Ingreso de Comentarios Locales -->
-        <!-- Modal para Ingreso de Comentarios Locales -->
-        <div class="modal fade bd-example-modal-lg" id="exampleModalMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+        <div class="modal fade" id="exampleModalMail" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Correo(s) electrónico a notificar</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         @using (Html.BeginForm("updateMailsAssign", "Account"))
                         {
-                            @Html.Hidden("id", Model.ClgCode);
-                            <div class="form-group">
-                                <strong>Ingrese correo(s) electrónico:</strong>
-                                <br />
-                                <br />
+                            @Html.Hidden("id", Model.ClgCode)
+
+                            <div class="mb-3">
+                                <label for="comment" class="form-label"><strong>Ingrese correo(s) electrónico:</strong></label>
                                 <input class="form-control" type="email" id="comment" name="comment" multiple required>
                             </div>
+
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                             </div>
                         }
@@ -398,7 +321,7 @@
             </div>
         </div>
 
-     
+
 
     </div>
 </div>

@@ -14,15 +14,14 @@
 
 
 <style>
-    thead tr th {
+    thead th {
         position: sticky;
         top: 0;
-        z-index: 10;
-        background-color: #292b2c;
+        z-index: 100;
     }
 
     .table-responsive {
-        height: 200px;
+        height: auto;
         overflow: scroll;
     }
 </style>
@@ -30,28 +29,26 @@
 
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col-md-10">
+        <div class="col-md-11 mt-3">
             <h4>
                 Solicitudes de Vacaciones
-                <span class="badge badge-secondary">@ViewBag.totalItem</span>
+                <span class="badge bg-secondary">@ViewBag.totalItem</span>
             </h4>
             <hr />
             @using (Html.BeginForm("listNomina", "Account", FormMethod.Get))
             {
                 <div class="form-row">
-                    <div class="col-sm-12">
-                        <div class="input-group mb-3">
-                            <br />
-                            <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <input type="submit" class="btn btn-success" value="Buscar" />
-                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("listNomina", "Account")'"><i class="fas fa-redo"></i></button>
-                            </div>
+                    <div class="input-group mb-3">
+                        <br />
+                        <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <input type="submit" class="btn btn-success" value="Buscar" />
+                            <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("listNomina", "Account")'"><i class="fas fa-redo"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-row mb-3">
+                <div class="row g-2 align-items-end">
                     <div class="col-sm-2">
                         @Html.DropDownList("filterJefeInmediato", new SelectList(ViewBag.JefeInmediato), new { @class = "form-control chosen" })
                     </div>
@@ -81,8 +78,8 @@
             }
             @if (Model.Count() > 0)
             {
-                <div class="overflow-auto" style="height:650px!important">
-                    <table class="table table-responsive-sm table-hover">
+                <div class="overflow-auto mt-2" style="height:68vh!important">
+                    <table class="table table-responsive-sm table-hover table-striped">
                         <thead class="text-center table-dark">
                             <tr>
                                 <th>
@@ -112,7 +109,7 @@
 
                         @foreach (var item in Model)
                         {
-                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsInvoice", "Account", new { id = item.ClgCode }))'">
+                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsRequest", "Account", new { id = item.ClgCode }))'">
                                 <td>
                                     @item.ClgCode
                                 </td>
@@ -135,25 +132,25 @@
 
                                     @if (item.status == "En Proceso")
                                     {
-                                        <span class="badge badge-warning">En proceso</span>
+                                        <span class="badge bg-warning">En proceso</span>
                                     }
                                     else if (item.status == "En Proceso")
                                     {
-                                        <span class="badge badge-warning">En proceso</span>
+                                        <span class="badge bg-warning">En proceso</span>
                                     }
                                     else if (item.status == "Rechazado")
                                     {
-                                        <span class="badge badge-danger">Rechazado</span>
+                                        <span class="badge bg-danger">Rechazado</span>
 
                                     }
                                     else if (item.status == "Aprobado")
                                     {
-                                        <span class="badge badge-success">Aprobado</span>
+                                        <span class="badge bg-success">Aprobado</span>
 
                                     }
                                     else if (item.status == "Licencia")
                                     {
-                                        <span class="badge badge-info">Licencia</span>
+                                        <span class="badge bg-info">Licencia</span>
 
                                     }
                                 </td>
@@ -161,8 +158,7 @@
                         }
                     </table>
                 </div>
-                <hr />
-                <p class="text-center">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+                <p class="text-center mt-2">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
                 <nav>
                     <ul class="pagination justify-content-center">
                         @Html.PagedListPager(
@@ -206,7 +202,7 @@
             }
 
         </div>
-        </div>
+    </div>
 </div>
 
 

@@ -35,7 +35,7 @@ namespace purchaseTracking.Controllers
             ViewBag.totalItem = data.Count();
             ViewBag.Inicio = Inicio.ToString("dd/MM/yyyy");
             ViewBag.Fin = Fin.ToString("dd/MM/yyyy"); 
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -70,7 +70,7 @@ namespace purchaseTracking.Controllers
             ViewBag.totalItem = integracion_date.Count();
             ViewBag.Inicio = Inicio.ToString("dd/MM/yyyy");
             ViewBag.Fin = Fin.ToString("dd/MM/yyyy"); ;
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -98,7 +98,7 @@ namespace purchaseTracking.Controllers
             ViewBag.findString = findString;
             ViewBag.filterString = filterString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -283,7 +283,7 @@ namespace purchaseTracking.Controllers
             ViewBag.findString = findString;
             ViewBag.filterString = filterString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -314,7 +314,7 @@ namespace purchaseTracking.Controllers
             ViewBag.findString = findString;
             ViewBag.filterString = filterString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {

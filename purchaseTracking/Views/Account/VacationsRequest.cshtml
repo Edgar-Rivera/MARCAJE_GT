@@ -7,27 +7,24 @@
 
 @{
     string ValorSolicitando = Session["nombre"].ToString();
-
-
-
-
 }
 
-
-@*<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>*@
-<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
-    
+    function onchangeP(seleccion) {
+        alert(seleccion);
+        if (seleccion == "86") {
+            document.getElementById('permiso').style.display = "none";
+        } else {
+            document.getElementById('permiso').style.display = "block";
 
-
+        }
+    }
+</script>
+<script>
     $(document).ready(function () {
         function actualizarSolicitud() {
-            // Obtener el valor de los dropdowns
             var valorSeleccionado = $('#solicitudDropdown').val();
             var valorSeleccionado2 = $('#solicitudDropdown2').val();
-
-            // Actualizar el valor del campo de texto basado en la selección
             if (valorSeleccionado === "86") {
                 $('#resultado').val('Solicitud de Vacaciones');
             }
@@ -56,186 +53,187 @@
                 $('#resultado').val('Solicitud de Permiso - Fallecimiento de Familiar');
             }
         }
-
-        // Agregar eventos para los elementos dropdown
         $('#solicitudDropdown, #solicitudDropdown2').on('change', function () {
-            $('#checkSolicitud').prop('checked', true); // Cambia el estado de checkSolicitud si es necesario
-            actualizarSolicitud(); // Llama la función para actualizar el resultado
+            $('#checkSolicitud').prop('checked', true);
+            actualizarSolicitud();
         });
     });
-
-
-  
-        
-
 </script>
-
-
-
 <script type='text/javascript'>
     $(function () {
         $(".chosen").chosen();
     });
-
-    function onchangeP(seleccion) {
-
-        if (seleccion == "86") {
-            document.getElementById('permiso').style.display = "none";
-
-
-        } else {
-            document.getElementById('permiso').style.display = "block";
-
-        }
-    }
-
-
-
-
 </script>
-
 <script>
     function onchangeS(value) {
-        // Obtiene el texto seleccionado en el dropdown
         var solicitudDropdown = document.getElementById("solicitudDropdown");
         var selectedText = solicitudDropdown.options[solicitudDropdown.selectedIndex].text;
 
-        // Muestra el texto seleccionado junto al campo de "Fecha de Inicio"
         document.getElementById("selectedSolicitud").innerText = ("Fecha de inicio " + selectedText);
         document.getElementById("selectedSolicitud2").innerText = ("Fecha Fin " + selectedText);
 
     }
 </script>
-
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col-md-8">
+        <div class="col-md-8 mt-3">
             <h4>Solicitud Disfrute de Vacaciones / Permisos</h4>
             <hr />
             @using (Html.BeginForm("newRequest", "Account", FormMethod.Post))
             {
-                <div class="form-group row" style="display:none">
-                    <div class="col-sm-3">
-                        <div class="input-group mb-3">
+                <div class="row d-none">
+                    <div class="col-md-3">
+                        <div class="mb-3 input-group">
                             @Html.EditorFor(model => model.Activity, new { htmlAttributes = new { @Value = "cn_Task", @class = "form-control", @maxlength = "100", @required = "required" } })
                         </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-5">
-                        <strong><label class="control-label"> Tipo de Solicitud </label></strong>
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <label for="solicitudDropdown" class="form-label fw-bold">Tipo de Solicitud</label>
                         @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
                         {
-                       new SelectListItem{ Text="Seleccione Solicitud", Value = "0" },
-                            new SelectListItem{ Text="Solicitud Vacaciones", Value = "86" },
-                            new SelectListItem{ Text="Solicitud Permiso", Value = "89" },
-                        }, new { @class = "form-control", @id = "solicitudDropdown", @onchange = "onchangeP(this.value)" })
+                            new SelectListItem{ Text = "Seleccione Solicitud", Value = "0" },
+                            new SelectListItem{ Text = "Solicitud Vacaciones", Value = "86" },
+                            new SelectListItem{ Text = "Solicitud Permiso", Value = "89" },
+                        }, new { @class = "form-select ", @id = "solicitudDropdown", @onchange = "onchangeP(this.value)" })
                     </div>
-                    <div class="col-sm-5">
-                        <div id="permiso" style="display:none">
-                            <strong><label class="control-label">Permiso especial por: </label></strong>
-                            @Html.DropDownListFor(model => Model.U_Observaciones, new List<SelectListItem>
 
-                          {
-                                 new SelectListItem{ Text="Home Office", Value = "Home Office" },
-                                 new SelectListItem{ Text="Enfermedad", Value = "Enfermedad" },
-                                  new SelectListItem{ Text="Permiso con Goce de Salario", Value = "Permiso con Goce de Salario" },
-                                 new SelectListItem{ Text="Permiso sin Goce de Salario", Value = "Permiso sin Goce de Salario" },
-                               new SelectListItem{ Text="Goce por tiempo Remunerado", Value = "Goce por tiempo Remunerado" },
-                                 new SelectListItem{ Text="Matrimonio", Value = "Matrimonio" },
-                                 new SelectListItem{ Text="Nacimiento de Hijo", Value = "Nacimiento de Hijo" },
-                                    new SelectListItem{ Text="Fallecimiento de Familiar", Value = "Fallecimiento de Familiar" },
-                          }, new { @class = "form-control", @id = "solicitudDropdown2" })
-                        </div>
+                    <div class="col-md-5" style="display:none" id="permiso" >
+                            <label for="solicitudDropdown2" class="form-label fw-bold">Permiso especial por:</label>
+                            @Html.DropDownListFor(model => Model.U_Observaciones, new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text = "Home Office", Value = "Home Office" },
+                                new SelectListItem{ Text = "Enfermedad", Value = "Enfermedad" },
+                                new SelectListItem{ Text = "Permiso con Goce de Salario", Value = "Permiso con Goce de Salario" },
+                                new SelectListItem{ Text = "Permiso sin Goce de Salario", Value = "Permiso sin Goce de Salario" },
+                                new SelectListItem{ Text = "Goce por tiempo Remunerado", Value = "Goce por tiempo Remunerado" },
+                                new SelectListItem{ Text = "Matrimonio", Value = "Matrimonio" },
+                                new SelectListItem{ Text = "Nacimiento de Hijo", Value = "Nacimiento de Hijo" },
+                                new SelectListItem{ Text = "Fallecimiento de Familiar", Value = "Fallecimiento de Familiar" },
+                            }, new { @class = "form-select chosen", @id = "solicitudDropdown2" })
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-5">
-                        <strong><label class="control-label">Jefe Inmediato: </label></strong>
+
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <label for="HandledBy" class="form-label fw-bold">Jefe Inmediato:</label>
                         @{
-                            // Code behind user handled
                             List<HandledUsers> handled = new List<HandledUsers>();
                             handled = new purchaseTracking.Connection.Activities.DataActivities().getUsers();
 
                             @Html.DropDownListFor(model => Model.HandledBy, new SelectList(handled, "USERID", "U_NAME"),
-                new { @class = "form-control chosen" })
+                                new { @class = "form-select chosen", @id = "HandledBy" })
                         }
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-5">
-                        <strong><label class="control-label">Solicitante </label></strong>
-                        @Html.EditorFor(model => model.U_Solicitante, new { htmlAttributes = new { @class = "form-control", @maxlength = "150", @Value = ValorSolicitando, @readonly = "readonly", @required = "required" } })
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <label for="U_Solicitante" class="form-label fw-bold">Solicitante</label>
+                        @Html.EditorFor(model => model.U_Solicitante, new
+                        {
+                            htmlAttributes = new
+                            {
+                                @class = "form-control",
+                                @maxlength = "150",
+                                @Value = ValorSolicitando,
+                                @readonly = "readonly",
+                                @required = "required"
+                            }
+                        })
                     </div>
-                    <div class="col-sm-5">
-                        <strong><label class="control-label">Asunto</label></strong>
-                        <div class="input-group mb-3">
-
-                            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @id = "resultado", @class = "form-control", @maxlength = "100", @required = "y", @readonly = "y" } })
-
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button" id="checkSolicitud"><i class="fas fa-comment"></i></button>
-                            </div>
+                    <div class="col-md-5">
+                        <label for="Details" class="form-label fw-bold">Asunto</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.Details, new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @id = "resultado",
+                                    @class = "form-control",
+                                    @maxlength = "100",
+                                    @required = "required",
+                                    @readonly = "readonly"
+                                }
+                            })
+                            <button class="btn btn-primary" type="button" id="checkSolicitud">
+                                <i class="fas fa-comment"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <br />
                 <h5>Detalles de la Solicitud</h5>
                 <hr>
-                <div class="form-group row">
-                    <div class="col-sm-5">
-                        <strong><label id="selectedSolicitud" class="control-label">Fecha de Inicio</label></strong>
-                        
-                        <div class="input-group mb-3">
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "date" } })
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <label id="selectedSolicitud" class="form-label fw-bold">Fecha de Inicio</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.StartDate, new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @class = "form-control",
+                                    @type = "date",
+                                    @required = "required"
+                                }
+                            })
                         </div>
                     </div>
-                    <div class="col-sm-5">
-                        <strong><label id ="selectedSolicitud2" class="control-label">Fecha de Fin </label></strong>
-                        <div class="input-group mb-3">
-                            @Html.EditorFor(model => model.U_FechaActualizacion, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "date" } })
+                    <div class="col-md-5">
+                        <label id="selectedSolicitud2" class="form-label fw-bold">Fecha de Fin</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.U_FechaActualizacion, new
+                            {
+                                htmlAttributes = new
+                                {
+                                    @class = "form-control",
+                                    @type = "date",
+                                    @required = "required"
+                                }
+                            })
                         </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-5">
-                        <strong><label class="control-label">Medio Día</label></strong>
-                        <div class="input-group mb-3 form-check">
-                            <input name="U_retrasoDias" class="form-check-input" type="checkbox">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <strong><label class="control-label"> Comentarios </label></strong>
-                        @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", @rows = 5, @maxlength = 1500 })
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-5">
-                        <strong><label class="control-label">Envio email </label></strong>
-                        @Html.EditorFor(model => model.U_Correo, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "email", @multiple = "multiple" } })
-                    </div>
-                    <div class="col-sm-5">
-                        <strong><label class="control-label">Prioridad </label></strong>
-                        @Html.DropDownListFor(model => Model.Priority, new List<SelectListItem>
-                         {
-                       new SelectListItem{ Text="Seleccione prioridad", Value = "pr_Normal" },
-                        new SelectListItem{ Text="Alta", Value = "pr_Normal" },
-                             new SelectListItem{ Text="Baja", Value = "pr_Low" },
-                                new SelectListItem{ Text="Normal", Value = "pr_High" },
-                         }, new { @class = "form-control" })
                     </div>
                 </div>
 
-                
-                <button id="crearSolicitudBtn" style="float:right" type="submit" class="btn btn-second">Crear Solicitud</button>
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="U_retrasoDias" id="medioDia">
+                            <label class="form-check-label fw-bold" for="medioDia">Medio Día</label>
+                        </div>
+                    </div>
+                </div>
 
-                <br />
-                <br />
+                <div class="row mb-3">
+                    <div class="col-md-10">
+                        <label class="form-label fw-bold" for="Notes">Comentarios</label>
+                        @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", @rows = 5, @maxlength = 1500, @id = "Notes" })
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-5">
+                        <label class="form-label fw-bold" for="U_Correo">Envío email</label>
+                        @Html.EditorFor(model => model.U_Correo, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "email", @multiple = "multiple", @id = "U_Correo" } })
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label fw-bold" for="Priority">Prioridad</label>
+                        @Html.DropDownListFor(model => model.Priority, new List<SelectListItem>
+                        {
+                            new SelectListItem{ Text="Seleccione prioridad", Value = "pr_Normal" },
+                            new SelectListItem{ Text="Alta", Value = "pr_High" },
+                            new SelectListItem{ Text="Baja", Value = "pr_Low" },
+                            new SelectListItem{ Text="Normal", Value = "pr_Normal" }
+                        }, new { @class = "form-control", @id = "Priority" })
+                    </div>
+                </div>
+
+                <button id="crearSolicitudBtn" type="submit" class="btn btn-success float-end">
+                    Crear Solicitud
+                </button>
+
             }
         </div>
     </div>
 </div>
 
- 

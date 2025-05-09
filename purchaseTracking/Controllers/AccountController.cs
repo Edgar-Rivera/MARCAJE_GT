@@ -113,7 +113,7 @@ namespace purchaseTracking.Controllers
 
             ViewBag.findString = findString;
             ViewBag.totalItem = vacaciones_periodo_empleados.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -310,7 +310,7 @@ namespace purchaseTracking.Controllers
 
             ViewBag.findString = findString;
             ViewBag.totalItem = vacaciones_periodo_empleados.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             
 
@@ -571,7 +571,39 @@ namespace purchaseTracking.Controllers
             ViewBag.filterString = filterString;
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
+            int pageNumber = (page ?? 1);
+            if (!String.IsNullOrEmpty(findString))
+            {
+                var obj = data.Where(s => s.ClgCode.ToString().Contains(findString) || s.CntctDate.ToString().Contains(findString) || s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.AttendUser.ToString().Contains(findString) || s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.DocNum.ToString().Contains(findString)
+                || s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.Estado.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+                return View(obj.ToPagedList(pageNumber, pageSize));
+            }
+            return View(data.ToPagedList(pageNumber, pageSize));
+        }
+
+
+
+        [HttpGet]
+        public ActionResult RequestList(int? page, string findString, string filterString)
+        {
+            List<Models.Activities.List> data = new List<Models.Activities.List>();
+
+            if (!string.IsNullOrEmpty(filterString))
+            {
+                data = new Connection.Activities.DataActivities().getListRequestInvoiceNonEstatus(Convert.ToInt32(Session["code"]));
+                data = (from t in data where t.Name.ToString() == filterString select t).ToList();
+            }
+
+            else
+            {
+                data = new Connection.Activities.DataActivities().getListRequestInvoice(Convert.ToInt32(Session["code"]));
+            }
+            ViewBag.filterString = filterString;
+            ViewBag.findString = findString;
+            ViewBag.totalItem = data.Count();
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -585,13 +617,10 @@ namespace purchaseTracking.Controllers
 
 
         [HttpGet]
-        public ActionResult detailsInvoiceAssign(int id)
+        public ActionResult detailsRequestAssign(int id)
         {
-           
-
 
             Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
-
 
             Models.Images.ImageSign temp = new Models.Images.ImageSign();
             temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(data.U_InternalKey));
@@ -614,6 +643,9 @@ namespace purchaseTracking.Controllers
             return View(data);
         }
 
+
+       
+
         [HttpGet]
         public ActionResult detailsInvoice(int id)
         {
@@ -622,6 +654,34 @@ namespace purchaseTracking.Controllers
 
             Models.Images.ImageSign temp = new Models.Images.ImageSign();
             temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32 (data.U_InternalKey));
+            ViewBag.source = temp.U_PathSign;
+            ViewBag.nombre = temp.U_Nombre;
+
+
+            // SE OBTEIEN FIRMA DE JEFE INMEDIATO
+            Models.Images.ImageSign temp_j = new Models.Images.ImageSign();
+            temp_j = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(data.AttendUser));
+            ViewBag.source_j = temp_j.U_PathSign;
+            ViewBag.nombre_j = temp_j.U_Nombre;
+
+
+            // SE OBTEIEN FIRMA NOMINA
+            Models.Images.ImageSign temp_n = new Models.Images.ImageSign();
+            temp_n = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(6);
+            ViewBag.source_n = temp_n.U_PathSign;
+            ViewBag.nombre_n = temp_n.U_Nombre;
+
+            return View(data);
+        }
+
+
+        [HttpGet]
+        public ActionResult detailsRequest(int id)
+        {
+            Models.Activities.details data = new Connection.Activities.DataActivities().getDetailsInvoice(id);
+
+            Models.Images.ImageSign temp = new Models.Images.ImageSign();
+            temp = new purchaseTracking.Connection.Activities.DataActivities().GetSignTechnician(Convert.ToInt32(data.U_InternalKey));
             ViewBag.source = temp.U_PathSign;
             ViewBag.nombre = temp.U_Nombre;
 
@@ -784,13 +844,42 @@ namespace purchaseTracking.Controllers
 
             if (new ServiceLayer.Activity.ActivityComponents().actualizaEmail(id, data))
             {
-                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+                return RedirectToAction("detailsRequest", "Account", new { id = id });
             }
             else
             {
                 return View("Error");
             }
 
+        }
+
+        [HttpGet]
+        public ActionResult listRequest(int? page, string findString, string filterString)
+        {
+            List<Models.Activities.List> data = new List<Models.Activities.List>();
+            if (!string.IsNullOrEmpty(filterString))
+            {
+
+                data = new Connection.Activities.DataActivities().getListAllNonStatusInvoice_A(Convert.ToInt32(Session["code"]));
+                data = (from t in data where t.status.ToString() == filterString select t).ToList();
+            }
+            else
+            {
+                data = new Connection.Activities.DataActivities().getListAllInvoice_A(Convert.ToInt32(Session["code"]));
+            }
+            ViewBag.findString = findString;
+            ViewBag.totalItem = data.Count();
+            ViewBag.filterString = filterString;
+            int pageSize = 45;
+            int pageNumber = (page ?? 1);
+            if (!String.IsNullOrEmpty(findString))
+            {
+                var obj = data.Where(s => s.ClgCode.ToString().Contains(findString) || s.CntctDate.ToString().Contains(findString) || s.Name.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                s.AttendUser.ToString().Contains(findString) || s.U_NAME.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.U_Solicitante.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.DocNum.ToString().Contains(findString)
+                || s.Details.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.ODC.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0 || s.Estado.IndexOf(findString, StringComparison.OrdinalIgnoreCase) >= 0);
+                return View(obj.ToPagedList(pageNumber, pageSize));
+            }
+            return View(data.ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]
@@ -811,7 +900,7 @@ namespace purchaseTracking.Controllers
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
             ViewBag.filterString = filterString;
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -914,7 +1003,7 @@ namespace purchaseTracking.Controllers
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
             ViewBag.filterString = filterString;
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -952,7 +1041,6 @@ namespace purchaseTracking.Controllers
         [HttpPost]
         public ActionResult updateStatus(int id, string comment, string status, string ejecutivo, string involucrados, string orden_venta, string sn)
         {
-            // METODO PARA ACTULIZAR LOS COMENTARIOS
             var data = new purchaseTracking.Models.Activities.Activities();
             data.U_Comentarios = comment;
             data.Status = status;
@@ -960,7 +1048,7 @@ namespace purchaseTracking.Controllers
             {
                 SendNotification message = new SendNotification();
                 message.sendNotification(ejecutivo, involucrados, "CANCELACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
-                return RedirectToAction("RequestInvoice", "Account", new { id = id });
+                return RedirectToAction("detailsRequest", "Account", new { id = id });
             }
             else
             {
@@ -980,7 +1068,7 @@ namespace purchaseTracking.Controllers
             {
                 SendNotification message = new SendNotification();
                 message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
-                return RedirectToAction("detailsInvoice", "Account", new { id = id });
+                return RedirectToAction("detailsRequest", "Account", new { id = id });
             }
             else
             {
@@ -1095,7 +1183,7 @@ namespace purchaseTracking.Controllers
                         }
                     }
 
-                    return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
+                    return RedirectToAction("detailsRequestAssign", "Account", new { id = id });
                 }
                 else
                 {
@@ -1123,7 +1211,7 @@ namespace purchaseTracking.Controllers
                 SendNotification message = new SendNotification();
 
                 message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
-                return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
+                return RedirectToAction("detailsRequestAssign", "Account", new { id = id });
             }
             else
             {
@@ -1143,7 +1231,7 @@ namespace purchaseTracking.Controllers
             {
                 SendNotification message = new SendNotification();
                 message.sendNotification(ejecutivo, involucrados, "ACTUALIZACION_SOLICITUD_" + id + "", Session["nombre"].ToString(), "" + id, comment, orden_venta, sn,"");
-                return RedirectToAction("detailsInvoiceAssign", "Account", new { id = id });
+                return RedirectToAction("detailsRequestAssign", "Account", new { id = id });
             }
             else
             {

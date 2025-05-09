@@ -21,7 +21,7 @@ namespace purchaseTracking.Controllers
             List<Models.Activities.details> data = new DataActivities().getOpenActivities();
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -40,7 +40,7 @@ namespace purchaseTracking.Controllers
             List<Models.Activities.details> data = new DataActivities().getCloseActivities();
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {

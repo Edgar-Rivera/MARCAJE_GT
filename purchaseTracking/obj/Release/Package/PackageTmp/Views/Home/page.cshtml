@@ -106,10 +106,7 @@
 
 
 
-<h4 class="text-center">Bienvenido @Session["nombre"]</h4>
-<h6 class="text-center text-muted">@Session["eMail"]</h6>
-<h4 class="text-center"  id="hora"></h4>
-<br />
+
 @{
     string pidForm1 = "";
     string pidForm2 = "";
@@ -122,36 +119,37 @@
 
 
 }
-<div class="container-fluid">
+<div class="container-fluid mt-2">
     <div class="row justify-content-md-center">
-        <div class="col-md-8">
+        <div class="col-md-8 mt-2">
+            <h4 class="text-center">Bienvenido @Session["nombre"]</h4>
+            <h6 class="text-center text-muted">@Session["eMail"]</h6>
+            <h4 class="text-center" id="hora"></h4>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link @pidForm1" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">Marcas Proyectos</a>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link  @pidForm1" id="home-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">
+                        Marcas Proyectos
+                    </button>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link @pidForm2" id="profile-tab" data-toggle="tab" href="#contenido" role="tab" aria-controls="contenido" aria-selected="false">Marcas Comercial</a>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link @pidForm2" id="profile-tab" data-bs-toggle="tab" data-bs-target="#contenido" type="button" role="tab" aria-controls="contenido" aria-selected="false">
+                        Marcas Comercial
+                    </button>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade @pidFormD" id="general" role="tabpanel" aria-labelledby="home-tab">
-                    <br />
-
-
-                    <p id="setflag" class="btn btn-success btn-sm"></p>
-
-                    <h3 class="float-right">
-                        <a target="_blank" id="enlace" href="#" class="badge badge-primary"><i class="fas fa-map-marked-alt"></i> </a>
+                    <p id="setflag" class="btn btn-success mt-2"></p>
+                    <h3 class="float-end mt-2">
+                        <a target="_blank" id="enlace" href="#" class="badge text-bg-primary">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </a>
                     </h3>
-
-
                     <div style="display:none">
                         <strong>Latitud: </strong>
                         <p id="latitud"></p>
-                        <br>
                         <strong>Longitud: </strong>
                         <p id="longitud"></p>
-                        <br>
                     </div>
                     @using (Html.BeginForm("page", "Home", FormMethod.Post, new { id = "0" }))
                     {
@@ -179,7 +177,7 @@
                                  new { @id = "carcode", @class = "form-control chosen", @onchange = "onchangeC(this.value,'card',this.options[this.selectedIndex].innerHTML)" })
                                 }
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-2">
                                 <label class="control-label">Socio de Negocios</label>
                                 @Html.DropDownList("CardName", new List<SelectListItem>
                                {
@@ -213,19 +211,18 @@
                         }
                         if ((data.CODIGO == 0 || data.TIPO == "SALIDA" || data.TIPO == "FIN TRASLADO") || (!string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA"))
                         {
-                            <div class="form-row">
-                                <br />
+                            <div class="row mb-3 mt-2">
                                 <div class="col-md-10">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary btn-sm active">
-                                            <input type="radio" name="TYPE_V" id="option1" value="P" autocomplete="off" checked> VISITA PRESENCIAL
-                                        </label>
-                                        <label class="btn btn-secondary btn-sm">
-                                            <input type="radio" name="TYPE_V" id="option2" value="V" autocomplete="off"> VISITA VIRTUAL
-                                        </label>
+                                    <div class="btn-group" role="group" aria-label="Tipo de visita">
+                                        <input type="radio" class="btn-check" name="TYPE_V" id="option1" value="P" autocomplete="off" checked>
+                                        <label class="btn btn-secondary btn-sm" for="option1">VISITA PRESENCIAL</label>
+
+                                        <input type="radio" class="btn-check" name="TYPE_V" id="option2" value="V" autocomplete="off">
+                                        <label class="btn btn-secondary btn-sm" for="option2">VISITA VIRTUAL</label>
                                     </div>
                                 </div>
-                            </div><br />
+                            </div>
+
                         }
                         else
                         {
@@ -236,47 +233,43 @@
                                 if ((data.TIPO_V == "P"))
                                 {
                                     <fieldset disabled>
-                                        <div class="form-row">
+                                        <div class="row mb-3">
                                             <div class="col-md-10">
-                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                    <label class="btn btn-info btn-sm active">
-                                                        <input type="radio" name="TYPE_V" id="option1" value="P" autocomplete="off" checked> PRESENCIAL
-                                                    </label>
-                                                    <label class="btn btn-info btn-sm">
-                                                        <input type="radio" name="TYPE_V" id="option2" value="V" autocomplete="off"> VIRTUAL
-                                                    </label>
+                                                <div class="btn-group" role="group" aria-label="Tipo de visita">
+                                                    <input type="radio" class="btn-check" name="TYPE_V" id="option1" value="P" autocomplete="off" checked>
+                                                    <label class="btn btn-info btn-sm" for="option1">PRESENCIAL</label>
+
+                                                    <input type="radio" class="btn-check" name="TYPE_V" id="option2" value="V" autocomplete="off">
+                                                    <label class="btn btn-info btn-sm" for="option2">VIRTUAL</label>
                                                 </div>
                                             </div>
-                                        </div><br />
+                                        </div>
                                     </fieldset>
                                 }
                                 else
                                 {
                                     <fieldset disabled>
-                                        <div class="form-row">
+                                        <div class="row mb-3">
                                             <div class="col-md-10">
-                                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                    <label class="btn btn-info btn-sm active">
-                                                        <input type="radio" name="TYPE_V" id="option1" value="P" autocomplete="off"> PRESENCIAL
-                                                    </label>
-                                                    <label class="btn btn-info btn-sm">
-                                                        <input type="radio" name="TYPE_V" id="option2" value="V" autocomplete="off" checked> VIRTUAL
-                                                    </label>
+                                                <div class="btn-group" role="group" aria-label="Tipo de visita">
+                                                    <input type="radio" class="btn-check" name="TYPE_V" id="option1" value="P" autocomplete="off">
+                                                    <label class="btn btn-info btn-sm" for="option1">PRESENCIAL</label>
+
+                                                    <input type="radio" class="btn-check" name="TYPE_V" id="option2" value="V" autocomplete="off" checked>
+                                                    <label class="btn btn-info btn-sm" for="option2">VIRTUAL</label>
                                                 </div>
                                             </div>
-                                        </div><br />
+                                        </div>
                                     </fieldset>
+
                                 }
                             }
                         }
-                        <div class="form-group row" style="display:none">
+                        <div class="row d-none">
                             <div class="col-md-10">
-                                <input class="form-control" name="lt" id="lt">
-                                <br>
-                                <input class="form-control" name="lg" id="lg">
-                                <br>
-                                <input class="form-control" name="uuid" id="uuid">
-                                <br>
+                                <input type="text" class="form-control mb-3" name="lt" id="lt" placeholder="Latitud">
+                                <input type="text" class="form-control mb-3" name="lg" id="lg" placeholder="Longitud">
+                                <input type="text" class="form-control" name="uuid" id="uuid" placeholder="UUID">
                             </div>
                         </div>
                         if ((!string.IsNullOrEmpty(data.ORDEN)))
@@ -289,110 +282,95 @@
                         }
                         if ((data.CODIGO == 0 || data.TIPO == "SALIDA" || data.TIPO == "FIN TRASLADO") || (!string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA"))
                         {
-                            <button type="submit" name="type_p" value="INICIO" class="btn btn-primary">ENTRADA</button>
-                            <button type="submit" name="type_p" value="INICIO_TRASLADO" class="btn btn-success">INICIO TRASLADO</button>
-                            <br />
-                            <br />
+                            <div class="mt-2">
+                                <button type="submit" name="type_p" value="INICIO" class="btn btn-primary">ENTRADA</button>
+                                <button type="submit" name="type_p" value="INICIO_TRASLADO" class="btn btn-success">INICIO TRASLADO</button>
+                            </div>
                         }
                         else if ((data.TIPO == "ENTRADA") && (!string.IsNullOrEmpty(data.ORDEN)))
                         {
-                            <button type="submit" name="type_p" value="INICIO_COMIDA" class="btn btn-success">INICIO COMIDA</button>
-                            <button type="submit" name="type_p" value="SALIDA" class="btn btn-danger">SALIDA</button>
-                            <br />
-                            <br />
+                            <div class="mt-2">
+                                <button type="submit" name="type_p" value="INICIO_COMIDA" class="btn btn-success">INICIO COMIDA</button>
+                                <button type="submit" name="type_p" value="SALIDA" class="btn btn-danger">SALIDA</button>
+                            </div>
                         }
                         else if ((data.TIPO == "INICIO TRASLADO") || (!string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA"))
                         {
-                            <button type="submit" name="type_p" value="FIN_TRASLADO" class="btn btn-danger">FIN TRASLADO</button>
-                            <br />
-                            <br />
+                            <div class="mt-2">
+                                <button type="submit" name="type_p" value="FIN_TRASLADO" class="btn btn-danger">FIN TRASLADO</button>
+                            </div>
                         }
                         else if ((data.TIPO == "INICIO COMIDA") || (!string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA"))
                         {
-                            <button type="submit" name="type_p" value="FIN_COMIDA" class="btn btn-danger">FIN COMIDA</button>
-                            <br />
-                            <br />
+                            <div class="mt-2">
+                                <button type="submit" name="type_p" value="FIN_COMIDA" class="btn btn-danger">FIN COMIDA</button>
+                            </div>
                         }
                         else if ((data.TIPO == "FIN COMIDA") || (!string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA"))
                         {
-                            <button type="submit" name="type_p" value="INICIO_COMIDA" class="btn btn-success">INICIO COMIDA</button>
-                            <button type="submit" name="type_p" value="SALIDA" class="btn btn-danger">SALIDA</button>
-                            <br />
-                            <br />
+                            <div class="mt-2">
+                                <button type="submit" name="type_p" value="INICIO_COMIDA" class="btn btn-success">INICIO COMIDA</button>
+                                <button type="submit" name="type_p" value="SALIDA" class="btn btn-danger">SALIDA</button>
+                            </div>
                         }
                     }
                 </div>
                 <div class="tab-pane fade @pidFormD1" id="contenido" role="tabpanel" aria-labelledby="profile-tab">
-                    <br />
-                    <p id="setflag_c" class="btn btn-success btn-sm"></p>
-                    <h3 class="float-right">
-                        <a target="_blank" id="enlace_c" href="#" class="badge badge-primary"><i class="fas fa-map-marked-alt"></i> </a>
-                    </h3>
-                    <br />
-                    <br />
+                    <div class="mt-3">
+                        <p id="setflag_c" class="btn btn-success"></p>
+                        <h3 class="float-end">
+                            <a target="_blank" id="enlace_c" href="#" class="badge text-bg-primary">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </a>
+                        </h3>
+                    </div>
 
-                    <div style="display:none">
+                    <div class="d-none">
                         <strong>Latitud: </strong>
                         <p id="latitud_c"></p>
-                        <br>
                         <strong>Longitud: </strong>
                         <p id="longitud_c"></p>
-                        <br>
                     </div>
+
                     @using (Html.BeginForm("page_c", "Home", FormMethod.Post, new { id = "setterForm" }))
                     {
-                        <div class="form-group row" style="display:none">
+                        <div class="row d-none">
                             <div class="col-md-10">
-                                <input class="form-control" name="lt_c" id="lt_c">
-                                <br>
-                                <input class="form-control" name="lg_c" id="lg_c">
-                                <br>
+                                <input class="form-control mb-2" name="lt_c" id="lt_c">
+                                <input class="form-control mb-2" name="lg_c" id="lg_c">
                                 <input class="form-control" name="uuid_c" id="uuid_c">
-                                <br>
                             </div>
                         </div>
+
                         if ((data.CODIGO == 0 || data.TIPO == "SALIDA") || (string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA" || data.TIPO == "FIN TRASLADO"))
                         {
-                            <div id="customer" class="form-group" style="display:block">
-                                <label>Nombre Cliente</label>
+                            <div id="customer" class="mb-3">
+                                <label class="form-label">Nombre Cliente</label>
                                 @{
-                                    // Code behind user handled
-                                    List<purchaseTracking.Models.Orders.BusinessPartners> sn = new List<purchaseTracking.Models.Orders.BusinessPartners>();
-                                    sn = new purchaseTracking.Connection.Orders.BusinessSN().getListNames();
-
-                                    @Html.DropDownList("CardCode", new SelectList(sn, "CardCode", "CardName"),
-                                          new { @class = "form-control chosen" })
-
-
+                                    List<purchaseTracking.Models.Orders.BusinessPartners> sn = new purchaseTracking.Connection.Orders.BusinessSN().getListNames();
+                                    @Html.DropDownList("CardCode", new SelectList(sn, "CardCode", "CardName"), new { @class = "form-select chosen" })
                                 }
                             </div>
 
-
-                            <div class="form-row">
-                                <br />
+                            <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn btn-secondary btn-sm active">
-                                            <input type="radio" name="TYPE_V" id="option1" value="P" autocomplete="off" checked> VISITA PRESENCIAL
-                                        </label>
-                                        <label class="btn btn-secondary btn-sm">
-                                            <input type="radio" name="TYPE_V" id="option2" value="V" autocomplete="off"> VISITA VIRTUAL
-                                        </label>
+                                    <div class="btn-group" role="group" aria-label="Tipo de visita">
+                                        <input type="radio" class="btn-check" name="TYPE_V" id="option1" value="P" autocomplete="off" checked>
+                                        <label class="btn btn-secondary btn-sm" for="option1">VISITA PRESENCIAL</label>
+                                        <input type="radio" class="btn-check" name="TYPE_V" id="option2" value="V" autocomplete="off">
+                                        <label class="btn btn-secondary btn-sm" for="option2">VISITA VIRTUAL</label>
                                     </div>
                                 </div>
-                            </div><br />
+                            </div>
 
-
-                            <div class="form-row">
-                                <br />
+                            <div class="row mb-3">
                                 <div class="col-md-4">
                                     <button type="button" class="btn btn-info" onclick="elementInspect()">Cliente Nuevo Prospecto</button>
                                 </div>
-                            </div><br />
+                            </div>
 
-
-                            <div id="customer_n" class="form-group" style="display:none">
-                                <label>Nombre Cliente Prospecto</label>
+                            <div id="customer_n" class="mb-3 d-none">
+                                <label class="form-label">Nombre Cliente Prospecto</label>
                                 <input class="form-control" name="prospect" id="prospect">
                             </div>
                         }
@@ -401,60 +379,56 @@
                             if (string.IsNullOrEmpty(data.ORDEN))
                             {
                                 <div class="alert alert-primary" role="alert">
-                                    Última marca Registrada: <b>@string.Concat(data.TIPO, " - ", data.MARCA) </b>
+                                    Última marca Registrada: <b>@string.Concat(data.TIPO, " - ", data.MARCA)</b>
                                 </div>
                             }
                             else
                             {
                                 <div class="alert alert-primary" role="alert">
-                                    Última marca Registrada en Proyectos: <b>@string.Concat(data.TIPO, " - ", data.MARCA) </b>
+                                    Última marca Registrada en Proyectos: <b>@string.Concat(data.TIPO, " - ", data.MARCA)</b>
                                 </div>
                             }
 
                             @Html.Hidden("TYPE_V", data.TIPO_V);
+
                             if (!string.IsNullOrEmpty(data.PROSPECTO))
                             {
                                 @Html.Hidden("CardCode", "S")
                                 if ((string.IsNullOrEmpty(data.ORDEN)))
                                 {
-                                    <div class="form-group">
-                                        <label class="control-label">Nombre Cliente Prospecto</label>
+                                    <div class="mb-2">
+                                        <label class="form-label">Nombre Cliente Prospecto</label>
                                         @Html.Hidden("prospect", data.PROSPECTO)
                                         <input class="form-control" value="@data.PROSPECTO" readonly />
                                     </div>
                                 }
-
-
                             }
                             else
                             {
                                 if ((string.IsNullOrEmpty(data.ORDEN)))
                                 {
-                                    <div class="form-group">
-                                        <label class="control-label">Socio de Negocios</label>
+                                    <div class="mb-2">
+                                        <label class="form-label">Socio de Negocios</label>
                                         @Html.Hidden("CardCode", data.CLIENTE)
                                         <input class="form-control" value="@data.NOM_CLIENTE" readonly />
                                     </div>
                                 }
                             }
-
                         }
+
                         <div class="row justify-content-center">
                             <div class="col-md-6">
                                 @Html.ValidationSummary(true, "", new { @class = "alert alert-danger text-center" })
                             </div>
                         </div>
+
                         if ((data.CODIGO == 0 || data.TIPO == "SALIDA") || (string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA" || data.TIPO == "FIN TRASLADO"))
                         {
                             <button type="submit" name="type_p" value="INICIO" class="btn btn-primary">ENTRADA</button>
-                            <br />
-                            <br />
                         }
                         else if ((data.TIPO == "ENTRADA") && (string.IsNullOrEmpty(data.ORDEN)))
                         {
                             <button type="submit" name="type_p" value="SALIDA" class="btn btn-danger">SALIDA</button>
-                            <br />
-                            <br />
                         }
                     }
                 </div>

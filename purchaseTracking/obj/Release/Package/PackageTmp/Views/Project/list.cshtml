@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-11">
-            <h4 class="text-left">Proyectos Financieros - SAP <span class="badge badge-secondary">@ViewBag.totalItem</span> </h4>
+            <h4 class="text-left">Proyectos Financieros - SAP <span class="badge bg-secondary">@ViewBag.totalItem</span> </h4>
             <hr />
             @using (Html.BeginForm("list", "Project", FormMethod.Get))
             {
@@ -118,19 +118,19 @@
                                 @{
                                     if (item.EstatusProyecto == "Abierto")
                                     {
-                                        <span class="badge badge-success"> @item.EstatusProyecto</span>
+                                        <span class="badge bg-success"> @item.EstatusProyecto</span>
                                     }
                                     else if (item.EstatusProyecto == "Cerrado")
                                     {
-                                        <span class="badge badge-danger"> @item.EstatusProyecto</span>
+                                        <span class="badge bg-danger"> @item.EstatusProyecto</span>
                                     }
                                     else if (item.EstatusProyecto == "Facturado")
                                     {
-                                        <span class="badge badge-info"> @item.EstatusProyecto</span>
+                                        <span class="badge bg-info"> @item.EstatusProyecto</span>
                                     }
                                     else
                                     {
-                                        <span class="badge badge-warning"> @item.EstatusProyecto</span>
+                                        <span class="badge bg-warning"> @item.EstatusProyecto</span>
                                     }
                                 }
 

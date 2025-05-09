@@ -21,7 +21,7 @@ namespace purchaseTracking.Controllers
             List<Models.Invoice.SalesOrders> data = new Connection.Invoice.SalesOrders().getSalesOrders();
             ViewBag.findString = findString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {
@@ -58,7 +58,7 @@ namespace purchaseTracking.Controllers
             ViewBag.findString = findString;
             ViewBag.filterString = filterString;
             ViewBag.totalItem = data.Count();
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             if (!String.IsNullOrEmpty(findString))
             {

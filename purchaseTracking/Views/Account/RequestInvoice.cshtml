@@ -21,7 +21,7 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
-            <h4>Mis Solicitudes Creadas <span class="badge badge-secondary">@ViewBag.totalItem</span></h4>
+            <h4>Mis Solicitudes Creadas <span class="badge bg-secondary">@ViewBag.totalItem</span></h4>
             <hr />
             @using (Html.BeginForm("RequestInvoice", "Account", FormMethod.Get))
             {
@@ -116,20 +116,20 @@
                                 <td>
                                     @if (item.status == "-2")
                                     {
-                                    <span class="badge badge-success">En proceso</span>
+                                    <span class="badge bg-success">En proceso</span>
                                     }
                                     else if (item.status == "1")
                                     {
-                                        <span class="badge badge-success">En proceso</span>
+                                        <span class="badge bg-success">En proceso</span>
                                     }
                                     else if (item.status == "4")
                                     {
-                                        <span class="badge badge-danger">Rechazado</span>
+                                        <span class="badge bg-danger">Rechazado</span>
 
                                     }
                                     else if (item.status == "-3")
                                     {
-                                        <span class="badge badge-success">Aprobado</span>
+                                        <span class="badge bg-success">Aprobado</span>
 
                                     }
                                 </td>

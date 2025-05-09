@@ -3,69 +3,127 @@
     ViewBag.Title = "Isertec - Iniciar Sesión";
     Layout = "~/Views/Shared/partialLogin.cshtml";
 }
-<style>
-    .image-logon {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 4px;
-    }
 
-    .bg-image-vertical {
-        position: relative;
-        overflow: hidden;
-        background-repeat: no-repeat;
-        background-position: right center;
-        background-size: auto 100%;
-    }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Isertec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    @@media (min-width: 1025px) {
-        .h-custom-2 {
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        .login-container {
+            height: 100vh;
+        }
+
+        .login-left {
+            background-color: #2f353a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
             height: 100%;
         }
-    }
 
-    html {
-        font-size: 14px !important;
-    }
-</style>
-<section class="vh-100" style="background-image: url(/Content/Images/bg-3-V02.jpg);justify-content: center;background-position:center;background-size:cover">
-    <div class="container  h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-6">
-                <div class="card" style="border-radius: 1rem;">
-                    <div class="row g-0">
-                        <div class="col-md-10 col-lg-12 d-flex align-items-center">
-                            <div class="card-body p-4 p-lg-5 text-black">
+            .login-left h1 {
+                font-weight: 600;
+            }
 
-                                @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "container" }))
-                                {
-                                    string temp = ViewBag.ReturnUrl;
-                                    @Html.Hidden("returnUrl", temp);
-                                    <div class="d-flex align-items-center mb-3 pb-1">
-                                        <img src="~/Content/Images/logo_verde.svg" width="200" height="55" alt="isericon" class="image-logon">
-                                    </div>
-                                    <h5 class="fw-normal text-center font-weight-bold">Inicie sesión en su cuenta</h5>
-                                    <div class="form-outline mb-4">
-                                        <label class="form-label font-weight-bold" for="form2Example17">Usuario</label>
-                                        @Html.TextBoxFor(model => Model.UserName, new { @class = "form-control form-control", @required = true })
-                                    </div>
-                                    <div class="form-outline mb-4">
-                                        <label class="form-label font-weight-bold" for="form2Example27">Contraseña</label>
-                                        @Html.TextBoxFor(model => Model.Password, new { @class = "form-control form-control", @required = true, @type = "password" })
-                                    </div>
-                                    <div class="form-row">
-                                        @Html.ValidationSummary(true, "")
-                                    </div>
-                                    <div class="pt-1 mb-4">
-                                        <button class="btn btn-block" type="submit" style="background:#197352;important;color:white;">Iniciar Sesión</button>
-                                    </div>
-                                }
-                            </div>
-                        </div>
+        .login-form .form-control {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+        }
+
+            .login-form .form-control::placeholder {
+                color: #dcdcdc;
+            }
+
+        .login-right {
+            background-image: url('../../content/images/imagenmarcaje.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .form-check-label, .form-check-input {
+            cursor: pointer;
+        }
+
+        .sigra-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            margin-top: 4rem;
+        }
+
+        .btn-login {
+            background-color: #198754;
+            color: white;
+        }
+
+            .btn-login:hover {
+                background-color: #157347;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid login-container px-0">
+        <div class="row g-0 h-100">
+            <!-- Panel izquierdo (login) -->
+            <div class="col-12 col-md-5 login-left">
+                <div class="text-center">
+                    <img src="~/Content/Images/Logo_Marcaje.svg" width="70" />
+                    <h1 class="sigra-logo">IserAccess</h1>
+                </div>
+
+                <form class="login-form mt-4" method="post">
+                    <div class="mb-3">
+                        <label for="UserName" class="form-label">Usuario</label>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @id = "UserName", required = "required", placeholder = "Username" })
                     </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Contraseña</label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "Password", required = "required", placeholder = "Password" })
+                    </div>
+                    <div class="text-danger mb-2">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Recordar</label>
+                        </div>
+                        <a href="#" class="text-white text-decoration-none fw-bold">Olvide mi contraseña</a>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-login">Log In</button>
+                    </div>
+                </form>
+
+                <div class="footer-logo text-center">
+                    <small>By</small><br>
+                    <img src="~/Content/Images/Logo_Isertec.svg" width="200" />
                 </div>
             </div>
+
+            <!-- Panel derecho con imagen -->
+            <div class="col-7 d-none d-md-block login-right"></div>
         </div>
     </div>
-</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

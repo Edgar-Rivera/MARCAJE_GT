@@ -9,7 +9,7 @@
 
     <div class="row justify-content-md-center">
         <div class="col-md-11">
-            <h4 class="text-left"> Solicitudes de Compra Concluidas <span class="badge badge-secondary">@ViewBag.totalItem</span> </h4><br />
+            <h4 class="text-left"> Solicitudes de Compra Concluidas <span class="badge bg-secondary">@ViewBag.totalItem</span> </h4><br />
             @using (Html.BeginForm("CompletedRequest", "Tracking", FormMethod.Get))
             {
                 <div class="input-group mb-">
@@ -102,19 +102,19 @@
                             <td class="text-center">
                                 @if (item.status == -2)
                                 {
-                                    <span class="badge badge-warning">No iniciado</span>
+                                    <span class="badge bg-warning">No iniciado</span>
                                 }
                                 else if (item.status == 1)
                                 {
-                                    <span class="badge badge-success">En proceso</span>
+                                    <span class="badge bg-success">En proceso</span>
                                 }
                                 else if (item.status == 4)
                                 {
-                                    <span class="badge badge-warning">Tarea en espera</span>
+                                    <span class="badge bg-warning">Tarea en espera</span>
                                 }
                                 else if (item.status == -3)
                                 {
-                                    <span class="badge badge-success">Concluida</span>
+                                    <span class="badge bg-success">Concluida</span>
                                 }
                             </td>
 

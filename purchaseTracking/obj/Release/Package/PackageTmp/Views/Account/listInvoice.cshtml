@@ -23,7 +23,7 @@
         <div class="col-md-10">
             <h4>
                 Solicitudes Digitales Asignadas
-                <span class="badge badge-secondary">@ViewBag.totalItem</span>
+                <span class="badge bg-secondary">@ViewBag.totalItem</span>
             </h4>
             <hr />
             @using (Html.BeginForm("listInvoice", "Account", FormMethod.Get))
@@ -126,20 +126,20 @@
                                 <td class="text-center">
                                     @if (item.status == "-2")
                                     {
-                                        <span class="badge badge-warning">En proceso</span>
+                                        <span class="badge bg-warning">En proceso</span>
                                     }
                                     else if (item.status == "1")
                                     {
-                                        <span class="badge badge-warning">En proceso</span>
+                                        <span class="badge bg-warning">En proceso</span>
                                     }
                                     else if (item.status == "4")
                                     {
-                                        <span class="badge badge-danger">Rechazado</span>
+                                        <span class="badge bg-danger">Rechazado</span>
 
                                     }
                                     else if (item.status == "-3")
                                     {
-                                        <span class="badge badge-success">Aprobado</span>
+                                        <span class="badge bg-success">Aprobado</span>
 
                                     }
 

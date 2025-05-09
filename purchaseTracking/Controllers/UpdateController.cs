@@ -30,7 +30,7 @@ namespace purchaseTracking.Controllers
         {
             ViewBag.Status = "Datos Obtenidos desde archivo";
             ViewBag.findString = findString;
-            int pageSize = 15;
+            int pageSize = 45;
             int pageNumber = (page ?? 1);
             string path = @"C:\Importaciones\DataIntegration.csv";
             var data = new List<purchaseTracking.Models.DataIntegration.PurchaseOrders>();

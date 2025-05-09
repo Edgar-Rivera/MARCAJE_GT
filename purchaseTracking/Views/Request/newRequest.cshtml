@@ -10,15 +10,15 @@
     function onchangeS(seleccion, desplegable) {
         if (seleccion == "56") {
             document.getElementById(desplegable).textContent = "Compra Local";
-            document.getElementById(desplegable).className = "badge badge-success float-right";
+            document.getElementById(desplegable).className = "badge bg-success float-right";
             document.getElementById('atype').value = "56";
         } else if (seleccion = "1") {
             document.getElementById(desplegable).textContent = "Compra Internacional";
-            document.getElementById(desplegable).className = "badge badge-primary float-right";
+            document.getElementById(desplegable).className = "badge bg-primary float-right";
             document.getElementById('atype').value = "1";
         } else {
             document.getElementById(desplegable).textContent = "Solicitud de Compra";
-            document.getElementById(desplegable).className = "badge badge-info float-right";
+            document.getElementById(desplegable).className = "badge bg-info float-right";
         }
     }
     function onchangeC(seleccion, desplegable,texto) {
@@ -73,7 +73,7 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col-md-8">
-            <span id="bg-solicitud" class="badge badge-secondary float-right">Solicitud de Compra</span>
+            <span id="bg-solicitud" class="badge bg-secondary float-right">Solicitud de Compra</span>
             <h4>Crear Nueva Solicitud</h4>
             <hr>
             @using (Html.BeginForm("newRequest", "Request", FormMethod.Post))
