@@ -1,0 +1,562 @@
+﻿@model IEnumerable<purchaseTracking.Models.Tracking.InternationalPurchase>
+@using purchaseTracking.Models.Activities
+@{
+    ViewBag.Title = "Compras Internacionales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    int estado_solicitud = 0;
+}
+<script type="text/javascript">
+    function refreshPage() { location.reload(true); }
+    setInterval("refreshPage()", 50000);
+</script>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-11">
+            <h4>Detalles de Solicitud de Compra</h4>
+            <hr />
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#contenido" role="tab" aria-controls="contenido" aria-selected="false">Ordenes de Compra</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
+                    <br />
+                    @foreach (OrderDetails detalle in ViewBag.header)
+                    {
+                        
+                            estado_solicitud = detalle.Status;
+                        
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Número de Solicitud </label></strong>
+                                <input type="text" class="form-control" value="@detalle.ClgCode" disabled>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Número de Orden de Venta </label></strong>
+                                <input type="text" class="form-control" value="@detalle.DocNum" disabled>
+                            </div>
+                        </div><div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Socio de Negocios </label></strong>
+                                <input type="text" class="form-control" value="@detalle.CardName" disabled>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Fecha Necesaria Proyecto </label></strong>
+                                <input type="text" class="form-control" value="@detalle.endDate" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Detalles Solicitud </label></strong>
+                                <textarea rows="5" class="form-control" readonly>@detalle.Notes</textarea>
+                            </div>
+                            <div class="col-sm-6">
+                                <strong><label class="control-label"> Comentarios Ejecutivo(a) Compras</label></strong>
+                                <textarea rows="5" class="form-control" readonly>@detalle.U_Comentarios</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+
+                                <strong><label class="control-label"> Correo(s) electrónico a notificar </label></strong>
+                                <textarea rows="2" class="form-control" readonly>@detalle.U_Correo</textarea>
+                            </div>
+                            <div class="col-sm-6">
+
+                                <strong><label class="control-label">Última Fecha Actualización </label></strong>
+                                @if (detalle.FechaActualizacion != "")
+                                {
+                                    <input type="text" class="form-control" value="@Convert.ToDateTime(detalle.FechaActualizacion).ToString("dd/MM/yyyy")" disabled>
+                                }
+                                else
+                                {
+                                    <input type="text" class="form-control" value="@detalle.FechaActualizacion" disabled>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="tab-pane fade" id="contenido" role="tabpanel" aria-labelledby="profile-tab">
+                    <br />
+                    <h5>Ordenes de Compra en Solicitud</h5>
+                    <hr />
+                    @if (Enumerable.Count(ViewBag.orders) > 0)
+                    {
+                        <table class="table table-responsive-sm table-hover table-bordered table-sm">
+                            <thead class="text-center thead-dark table-border">
+                                <tr>
+                                    <th>
+                                        No. Orden de Compra
+                                    </th>
+                                    <th>
+                                        Proveedor
+                                    </th>
+                                    <th>
+                                        Fecha Orden Compra
+                                    </th>
+                                </tr>
+                            </thead>
+                            @foreach (OrderListPurchase purchase in ViewBag.orders)
+                            {
+                                <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("details", "Tracking", new { id = purchase.DocNum }))'">
+                                    <td>
+                                        @string.Concat("GT-", purchase.DocNum)
+                                    </td>
+                                    <td>
+                                        @purchase.CardName
+                                    </td>
+                                    <td class="text-center">
+                                        @purchase.DocDate
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            No existen ordenes de compra en esta solicitud!
+                        </div>
+                    }
+                </div>
+            </div>
+            <br />
+            <br />
+            <h4>Seguimiento Ordenes de Compra</h4>
+            <hr />
+            <article class="card card-purchase-border">
+                <h5 class="card-header text-center card-purchase">
+                    <b>Número de Solicitud: @ViewBag.activity </b>
+                </h5>
+                @foreach (var item in Model)
+                {
+                    string oc_temp = item.OC > 0 ? "" + item.OC : "";
+            <div class="card-body">
+                <h5 class="card-header card-purchase-order text text-center">Orden de Compra: <strong>@string.Concat("GT-", oc_temp) </strong></h5>
+                <h5 class="card-header card-purchase-order-cant"> <button type="button" class="btn btn-primary">Artículos en Tracking: @item.cantidad</button></h5>
+                <article class="card">
+                    <div class="card-body row text-center">
+                        <div class="col">
+                            <strong>Solicitud de Compra Generada</strong>
+                            <br>@item.CntctDate.ToShortDateString()
+                        </div>
+                        <div class="col">
+                            @if (item.OC > 0)
+                            {
+                                <strong>Orden de Compra</strong>
+                                <br>@item.FechaOC
+                            }
+                            else
+                            {
+                                <strong>Orden de Compra</strong>
+                                <br>@item.FechaOC
+                            }
+                        </div>
+                        <div class="col">
+                            @if (item.U_Estado >= 1 || (item.PE > 0))
+                            {
+                                <strong>Mercaderia Despachada por Proveedor</strong>
+                                <br>@item.U_FechaDespacho
+
+                            }
+                            else
+                            {
+                                <strong>Fecha Estimada Despacho Proveedor</strong>
+                                <br>@item.U_FechaDespacho
+                            }
+                        </div>
+
+
+                        <div class="col">
+                            @if (item.U_Estado >= 3 || (item.PE > 0))
+                            {
+                                <strong>Despachado por Embarcador </strong>
+                                <br>@item.U_FechaEmbarcador
+                            }
+                            else
+                            {
+                                <strong>Fecha Estimada Embarcador </strong>
+                                <br>@item.U_FechaEmbarcador
+                            }
+                        </div>
+                        <div class="col">
+                            @if (item.U_Estado >= 4 || (item.PE > 0))
+                            {
+                                <strong>Arribo Guatemala </strong>
+                                <br>@item.U_FechaArribo
+                            }
+                            else
+                            {
+                                <strong>Fecha Estimada Arribo Guatemala </strong>
+                                <br>@item.U_FechaArribo
+                            }
+                        </div>
+                        <div class="col">
+                            <strong>Tramites Aduanales </strong>
+                            <br>
+                        </div>
+
+                        <div class="col">
+                            @if (item.U_Estado >= 6 || (item.PE > 0))
+                            {
+                                <strong>Ingreso Centro de Distribución </strong>
+                                <br>@item.U_FechaIngresoCD
+                            }
+                            else
+                            {
+                                <strong>Fecha Estimada Ingreso Centro de Distribución</strong>
+                                <br>@item.U_FechaIngresoCD
+                            }
+
+                            <br>
+                        </div>
+                        @if (item.PE > 0)
+                        {
+                            <div class="col">
+                                <strong>Gastos de Importación</strong>
+                                <br>@item.FechaPE
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col">
+                                <strong>Gastos de Importación</strong>
+                                <br>
+                            </div>
+                        }
+
+                    </div>
+                </article>
+
+
+
+                <div class="card-body row">
+                    <div class="track">
+                        <div class="step active">
+                            <span class="icon"> <i class="fa fa-check"></i> </span>
+                            <span class="text">Solicitud Recibida</span>
+                        </div>
+                        @if (item.OC > 0)
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-shopping-cart"></i> </span>
+                                <span class="text"> Orden de Compra <br /><b class="text-muted">@item.CardName</b></span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-shopping-cart"></i> </span>
+                                <span class="text"> Orden de Compra <br /><b class="text-muted">@item.CardName</b></span>
+                            </div>
+                        }
+                        @if (item.U_Estado >= 1 || (item.PE > 0))
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-truck-loading"></i> </span>
+                                <span class="text">Despachado Proveedor</span>
+                            </div>
+                        }
+                        else if (item.U_Estado < 1 && item.U_FechaDespacho != " ")
+                        {
+                            <div class="step">
+                                <span class="icon">  <i class="fas fa-truck-loading"></i>  </span>
+                                <span class="text">Despacho Proveedor</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon">  <i class="fas fa-truck-loading"></i>  </span>
+                                <span class="text">Despacho Proveedor</span>
+                            </div>
+                        }
+
+
+                        @if (item.U_Estado == 2)
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-warehouse"></i> </span>
+                                <span class="text">Almacen Embarcador <br /><b class="text-muted"></b></span>
+                            </div>
+                        }
+                        else if (item.U_Estado > 2 || item.U_Estado == 3 || (item.PE > 0))
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-boxes"></i> </span>
+                                <span class="text">Despacho Embarcador <br /><b class="text-muted"></b></span>
+
+                            </div>
+
+                        }
+                        else if (item.U_Estado < 2 && item.U_FechaDespacho != " " && item.U_Estado > 1)
+                        {
+
+
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-boxes"></i> </span>
+                                <span class="text">Transito Interno<br /><b class="text-muted"></b></span>
+                            </div>
+                        }
+                        else if (item.U_Estado == 1 && item.U_FechaEmbarcador != " ")
+                        {
+
+
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-boxes"></i> </span>
+                                <span class="text">Transito Interno <br /><b class="text-muted"></b></span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-boxes"></i> </span>
+                                <span class="text">Despacho Embarcador <br /><b class="text-muted"></b></span>
+                            </div>
+                        }
+
+
+
+
+
+
+
+
+                        @if (item.U_Estado >= 4 || (item.PE > 0))
+                        {
+                            <div class="step active">
+                                @if (item.U_MedioImportacion == "A")
+                                {
+                                    <span class="icon"> <i class="fas fa-plane"></i> </span>
+                                    <span class="text">Arribo Guatemala <br /><b class="text-muted">Aéreo</b></span>
+                                }
+                                else if (item.U_MedioImportacion == "M")
+                                {
+                                    <span class="icon"> <i class="fas fa-ship"></i> </span>
+                                    <span class="text">Arribo Guatemala <br /><b class="text-muted">Maritimo</b></span>
+                                }
+                                else
+                                {
+                                    <span class="icon"> <i class="fas fa-truck"></i> </span>
+                                    <span class="text">Arribo Guatemala <br /><b class="text-muted">Terrestre</b></span>
+                                }
+
+                            </div>
+                        }
+                        else if (item.U_Estado == 3 && item.U_FechaArribo != " ")
+                        {
+                            <div class="step active">
+                                @if (item.U_MedioImportacion == "A")
+                                {
+                                    <span class="icon"> <i class="fas fa-plane"></i> </span>
+                                    <span class="text">Arribo Guatemala <br /><b class="text-muted">Transito Aéreo</b></span>
+                                }
+                                else if (item.U_MedioImportacion == "M")
+                                {
+                                    <span class="icon"> <i class="fas fa-ship"></i> </span>
+                                    <span class="text">Arribo Guatemala <br /><b class="text-muted">Transito Maritimo</b></span>
+                                }
+                                else
+                                {
+                                    <span class="icon"> <i class="fas fa-truck"></i> </span>
+                                    <span class="text">Arribo Guatemala <br /><b class="text-muted">Transito Terrestre</b></span>
+                                }
+
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-truck"></i> </span>
+                                <span class="text">Arribo Guatemala <br /><b class="text-muted"></b></span>
+                            </div>
+                        }
+
+
+
+
+
+                        @if (item.U_Estado >= 4 || (item.PE > 0))
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-money-check-alt"></i></span>
+                                <span class="text">Trámites Aduanales </span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-money-check-alt"></i></span>
+                                <span class="text">Trámites Aduanales </span>
+                            </div>
+                        }
+
+                        @if (item.U_Estado >= 6 || (item.PE > 0))
+                        {
+                            <div class="step active">
+                                <span class="icon"> <i class="fas fa-warehouse"></i> </span>
+                                <span class="text">Ingreso Centro de Distribución </span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"> <i class="fas fa-warehouse"></i> </span>
+                                <span class="text">Ingreso Centro de Distribución </span>
+                            </div>
+                        }
+                        @if (item.PE > 0)
+                        {
+                            <div class="step active">
+                                <span class="icon"><i class="fa fa-check"></i> </span>
+                                <span class="text"> Prorrateo Realizado <br /><b class="text-muted">Número Documento: @item.PE</b> </span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <span class="icon"><i class="fa fa-check"></i> </span>
+                                <span class="text"> Prorrateo Realizado </span>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <br />
+                <hr>
+                <div class="card-body row">
+                    <div class="col">
+                        <b>Solicitante</b>
+                        <p>@item.U_Solicitante</p>
+                        <b>Asignado a</b>
+                        <p>@item.U_NAME</p>
+                    </div>
+
+                    <div class="col">
+                        @if (item.OC > 0)
+                        {
+                            <b>No. Orden de Compra</b>
+                            <p>@string.Concat("GT-", item.OC)</p>
+                            <b>Fecha Orden de Compra</b>
+                            <p>@item.FechaOC</p>
+                            <div class="text-left">
+                                <b>Fecha Envío Orden de Compra Proveedor</b>
+                                <p>@item.U_FechaEnvioProveedor</p>
+                            </div>
+                        }
+
+
+                    </div>
+                    <div class="col">
+                        @if (item.U_commentsDespacho != "")
+                        {
+                            <div class="text-center">
+                                <span class="badge bg-warning">Notas Despacho</span>
+                                <div class="alert alert-warning" role="alert">
+                                    @item.U_commentsDespacho
+                                </div>
+                            </div>
+
+                        }
+
+
+                    </div>
+                    <div class="col">
+                        @if (item.U_commentsEmbarcador != "")
+                        {
+                            <div class="text-center">
+                                <span class="badge bg-secondary">Notas Embarcador</span>
+                                <div class="alert alert-secondary" role="alert">
+                                    @item.U_commentsEmbarcador
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+                        @if (item.U_commentsAduanales != "")
+                        {
+                            <div class="text-center">
+                                <span class="badge bg-success">Notas Tramites Aduanles</span>
+                                <div class="alert alert-success" role="alert">
+                                    @item.U_commentsAduanales
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col">
+
+                    </div>
+                    <div class="col">
+                        @if (item.PE > 0)
+                        {
+                            <div class="text-center">
+                                <span class="badge bg-primary">Precio de Entrega</span>
+                                <div class="alert alert-primary" role="alert">
+                                    Mercaderia disponible para la generacion de entregas
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+                <hr>
+              
+                @if (item.U_FechaCliente != "" && item.U_FechaProveedor != "")
+                {
+                    <div class="text-left">
+                        <h6><span class="badge bg-success text-center">Control Tiempo de Entrega</span></h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>Fecha Ofrecida al Cliente</b>
+                            <p>@item.U_FechaCliente</p><br />
+
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <b>Fecha del Proveedor</b>
+                            <p>@item.U_FechaProveedor</p>
+                        </div>
+                        <div class="col-md-3">
+                            @if (item.Dias != "")
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    <b>Dias para entrega al Cliente: </b>
+                                    @item.Dias
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-secondary" role="alert">
+                                    <b>Dias para entrega al Cliente: </b>
+                                    @item.Dias
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                }
+                @if (item.OC > 0)
+                {
+                    <a href="@Url.Action("detailsInternational", "Tracking", new { id = item.OC, paramDate = item.U_FechaDespacho, paramDate_1 = item.U_FechaEmbarcador, paramDate_2 = item.U_FechaArribo, paramDate_3 = item.U_FechaIngresoCD, paramActivity = item.ClgCode, status = estado_solicitud})" class="btn btn-details float-lg-right" data-abc="true">  Ver detalles &nbsp; <i class="fas fa-chevron-right"></i></a>
+                }
+            </div>
+                }
+            </article>
+            <br />
+        </div>
+    </div>
+</div>
+

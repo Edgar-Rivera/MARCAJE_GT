@@ -1,0 +1,376 @@
+﻿@model purchaseTracking.Models.Activities.details
+@using purchaseTracking.Models.Activities
+@{
+    ViewBag.Title = "Detalles Solicitud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .modal-backdrop.fade.show {
+        display: none;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-10">
+            <h4 class="mt-3">@Model.Name</h4>
+            <hr />
+            <fieldset disabled>
+                <div class="row mb-3">
+                    <div class="col-sm-8">
+                        <label class="form-label fw-bold">Número de Actividad</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-secondary text-white">
+                                <i class="fas fa-chart-line"></i>
+                            </span>
+                            <input type="text" class="form-control" value="@Model.ClgCode" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4">
+                        <label class="form-label fw-bold">Tipo de Solicitud</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-warning text-white">
+                                <i class="fas fa-sticky-note"></i>
+                            </span>
+                            <input type="text" class="form-control" value="@Model.observaciones" readonly>
+                        </div>
+                    </div>
+                </div>
+                <fieldset disabled>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <label class="form-label fw-bold">Fecha Inicio @Model.observaciones</label>
+                            <input type="text" class="form-control" value="@Model.Recontact.ToString("dd/MM/yyyy")" readonly>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label fw-bold">Fecha Fin @Model.observaciones</label>
+                            <input type="text" class="form-control" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")" readonly>
+                        </div>
+                    </div>
+
+                    @{
+                        int cantidad = 0;
+                        TimeSpan diferencia = Convert.ToDateTime(Model.FechaActualizacion) - Model.Recontact;
+
+                        // Iterar sobre cada día entre las dos fechas
+                        for (int i = 0; i <= diferencia.Days; i++)
+                        {
+                            // Obtener el día actual en la iteración
+                            DateTime fechaActual = Model.Recontact.AddDays(i);
+
+                            // Verificar si el día actual es sábado o domingo
+                            if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday && !(fechaActual.Month == 12 && fechaActual.Day == 25) &&
+!(fechaActual.Month == 11 && fechaActual.Day == 1) && !(fechaActual.Month == 9 && fechaActual.Day == 15) && !(fechaActual.Month == 3 && fechaActual.Day == 28) && !(fechaActual.Month == 3 && fechaActual.Day == 29))
+                            {
+                                // Si no es sábado ni domingo, agregar 1 a la cantidad
+                                cantidad++;
+                            }
+                        }
+                    }
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <label class="form-label fw-bold">Días a Tomar</label>
+                            <input type="text" class="form-control" value="@cantidad" readonly>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="form-label fw-bold">Aplica Medio Día</label>
+                            <input type="text" class="form-control" value="@(Model.U_retrasoDias == "1" ? "Si" : "No")" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <label class="form-label fw-bold">Estado</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-dark text-white">
+                                        <i class="fas fa-flag"></i>
+                                    </span>
+                                    @{
+                                        var estado = Model.status switch
+                                        {
+                                            -3 => "Aprobado",
+                                            1 or -2 => "En proceso",
+                                            4 => "Rechazado",
+                                            6 => "N/A",
+                                            _ => "N/A"
+                                        };
+                                    }
+                                    <input type="text" class="form-control" value="@estado" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="form-label fw-bold">Prioridad</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-danger text-white">
+                                    <i class="fas fa-exclamation"></i>
+                                </span>
+                                @{
+                                    var prioridad = Model.Priority == 1 ? "Normal"
+                                                  : Model.Priority == 0 ? "Bajo"
+                                                  : "Alta";
+                                }
+                                <input type="text" class="form-control" value="@prioridad" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row mb-3">
+                    <div class="col-sm-4">
+                        <label class="form-label fw-bold">Asignado a</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-primary text-white">
+                                <i class="fas fa-user-check"></i>
+                            </span>
+                            <input type="text" class="form-control" value="@Model.U_NAME" readonly>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="form-label fw-bold">Solicitante</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-success text-white">
+                                <i class="fas fa-share"></i>
+                            </span>
+                            <input type="text" class="form-control" value="@Model.U_Solicitante" id="contract" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-8">
+                        <label class="form-label fw-bold">Asunto</label>
+                        <textarea class="form-control" rows="2" readonly>@Model.Details</textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-8">
+                        <label class="form-label fw-bold">Correo(s) electrónico a notificar</label>
+                        <textarea class="form-control" rows="5" readonly>@Model.U_Correo</textarea>
+                    </div>
+                </div>
+
+
+                @if (!string.IsNullOrEmpty(ViewBag.source))
+                {
+                    <h4>Firma Resgistradas en Solicitud</h4>
+                    <hr />
+                    <div class="row mb-2">
+                        <div class="col-auto  text-center">
+                            <img src="@ViewBag.source" alt="Firma Empleado" class="img-fluid border mb-2" style="max-width: 250px; height: 200px;">
+                            <p class="fw-bold mb-1">Firma de Empleado:</p>
+                            <p>@Model.U_Solicitante</p>
+                        </div>
+
+                        @if (Model.status == -3)
+                        {
+                            <div class="col-auto  text-center">
+                                <img src="@ViewBag.source_j" alt="Firma Jefe Inmediato" class="img-fluid border mb-2" style="max-width: 250px; height: 200px;">
+                                <p class="fw-bold mb-1">Firma Jefe Inmediato:</p>
+                                <p>@ViewBag.nombre_j</p>
+                            </div>
+
+                            <div class="col-auto  text-center">
+                                <img src="@ViewBag.source_n" alt="Firma Nómina" class="img-fluid border mb-2" style="max-width: 250px; height: 200px;">
+                                <p class="fw-bold mb-1">Firma Nómina:</p>
+                                <p>@ViewBag.nombre_n</p>
+                            </div>
+                        }
+                    </div>
+
+                }
+
+            </fieldset>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">
+                        General
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content mb-4" id="myTabContent">
+                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
+                    <fieldset disabled>
+                        <div class="row mb-3">
+                            <div class="col-sm-8">
+                                <label class="form-label fw-bold">Detalles de Solicitud</label>
+                                <textarea class="form-control" rows="7" readonly>@Model.Notes</textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-8">
+                                <label class="form-label fw-bold">Comentarios Jefe Inmediato</label>
+                                <textarea class="form-control" rows="7" readonly>@Model.U_Comentarios</textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalEstado">
+                            Cambiar Estado
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLocalC">
+                            <i class="fas fa-comment"></i> Ingresar Comentarios
+                        </button>
+                        <button type="button" class="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModalMail">
+                            <i class="fas fa-envelope"></i> Modificar Correos a Notificar
+                        </button>
+                        @if (Model.status == -3)
+                        {
+                            @Html.ActionLink("Descargar", "DowloadFiles", "Account", new { id = Model.ClgCode }, new { @class = "btn btn-outline-secondary ms-auto" })
+                        }
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div class="modal fade" id="exampleModalEstado" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Actualización Estado Solicitud de @Model.observaciones</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("updateStatus", "Account"))
+                        {
+                            @Html.Hidden("id", Model.ClgCode)
+                            @Html.Hidden("ejecutivo", Model.E_Mail)
+                            @Html.Hidden("involucrados", Model.U_Correo)
+                            @Html.Hidden("orden_venta", Model.DocNum)
+                            @Html.Hidden("sn", Model.CardName)
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Seleccione estado de solicitud</label>
+                                @Html.DropDownList("status", new List<SelectListItem>
+                                {
+                                    new SelectListItem { Text = "En Proceso", Value = "1" },
+                                    new SelectListItem { Text = "Eliminar Solicitud", Value = "8" }
+                                }, new { @class = "form-select" })
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="comment" class="form-label fw-bold">Ingrese comentarios</label>
+                                <textarea id="comment" name="comment" rows="5" class="form-control" required>@Model.U_Comentarios</textarea>
+                            </div>
+
+                            <div class="alert alert-warning">
+                                La actualización de comentarios y estado se enviará a todos los correos involucrados en esta actividad.
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalLocalC" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ingrese Comentarios en Solicitud</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("updateComments", "Account"))
+                        {
+                            @Html.Hidden("id", Model.ClgCode)
+                            @Html.Hidden("status", Model.status)
+                            @Html.Hidden("ejecutivo", Model.E_Mail)
+                            @Html.Hidden("involucrados", Model.U_Correo)
+                            @Html.Hidden("orden_venta", Model.DocNum)
+                            @Html.Hidden("sn", Model.CardName)
+                            @Html.Hidden("sn", Model.U_Solicitante)
+
+                            <div class="mb-3">
+                                <label for="comment" class="form-label fw-bold">Ingrese comentarios</label>
+                                <textarea rows="5" class="form-control" id="comment" name="comment" required></textarea>
+                            </div>
+
+                            <div class="alert alert-warning" role="alert">
+                                La actualización de comentarios se enviará a todos los correos involucrados en esta actividad.
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="exampleModalMail" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Correo(s) electrónico a notificar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("updateMails", "Account"))
+                        {
+                            @Html.Hidden("id", Model.ClgCode)
+
+                            <div class="mb-3">
+                                <label for="comment" class="form-label fw-bold">Ingrese correo(s) electrónico:</label>
+                                <input class="form-control" type="email" id="comment" name="comment" multiple required />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCheck" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Última Fecha de Actualización</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("updateDate", "Account"))
+                        {
+                            @Html.Hidden("id", Model.ClgCode)
+                            @Html.Hidden("correo", Model.U_Correo)
+
+                            <div class="mb-3">
+                                <label class="fw-bold">La actividad seleccionada se actualizará con fecha:</label>
+                                <p class="form-control-plaintext">@DateTime.Now.ToString("dd/MM/yyyy")</p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

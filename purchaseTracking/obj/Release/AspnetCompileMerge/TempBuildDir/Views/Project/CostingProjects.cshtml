@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "Costeo de Proyectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using purchaseTracking.Models.Project
+
+@{ 
+    // GLOBAL VARIABLES FOR VISUAL CONCEPTS
+    double total_ordr_ml = 0;
+    double total_ordr_me = 0;
+    string prjCode = string.Empty;
+
+}
+<script>
+    function ordr_cur() {
+        var x = document.getElementById("ordr_me");
+        var y = document.getElementById("ordr_ml");
+        x.style.display = "none";
+        y.style.display = "block";  
+    }
+    function ordr_cur_me() {
+        var x = document.getElementById("ordr_me");
+        var y = document.getElementById("ordr_ml");
+        x.style.display = "block";
+        y.style.display = "none";
+    }
+</script>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            @foreach (FinancialProject detalle in ViewBag.headerProject)
+            {
+                prjCode = detalle.PrjCode;
+                <h3><b>Costeo Proyecto -  @detalle.PrjCode </b><span class="badge bg-secondary">@ViewBag.totalItem</span></h3>
+                <hr />
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Nombre Consultor </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-primary" type="button"><i class="fas fa-user"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.SlpName">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Fecha Autorización Proyecto </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button"><i class="fas fa-calendar"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.FechaAutorizacion">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Orden de Venta </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-warning" type="button"><i class="fas fa-project-diagram"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.DocNum">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label"> Tipo de Proyecto</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-danger" type="button"><i class="fas fa-tasks"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.TipoProyecto">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label"> Estatus Proyecto </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-secondary" type="button"><i class="fas fa-sliders-h"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.EstatusProyecto">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8">
+                        <strong><label class="control-label">Descripción Proyecto</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button"><i class="fas fa-comment"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.Comments">
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="btn-group float-lg-right" role="group" aria-label="Basic example">
+                <button type="button" onclick="ordr_cur()" class="btn btn-success">QTZ</button>
+                <button type="button" onclick="ordr_cur_me()" class="btn btn-primary">USD</button>
+            </div>
+            <br />
+            <div class="row">
+                <h4>Órdenes de Venta</h4>
+            </div>
+            @foreach (SalesOrders item in ViewBag.ordr)
+            {
+                total_ordr_me = total_ordr_me + item.USD;
+                total_ordr_ml = total_ordr_ml + item.QTZ;
+            }
+            <hr />
+            <div id="ordr_ml" class="form-group row">
+                <div class="col-sm-8">
+                    <strong><label class="control-label">Total Órdenes de Venta</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-info" type="button"><i class="fas fa-list-alt"></i></button>
+                        </div>
+                        <input type="text" class="form-control text-right" value="@string.Format("Q {0:#,##0.#0}", total_ordr_ml)">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-success" onclick='window.location = "@Url.Action("SalesOrderDetails", "Project", new { PrjCode = prjCode })";'><i class="fas fa-arrow-circle-right"></i></button>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ordr_me" style="display:none" class="form-group row" >
+                <div class="col-sm-8">
+                    <strong><label class="control-label">Total Órdenes de Venta</label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-info" type="button"><i class="fas fa-list-alt"></i></button>
+                        </div>
+                        <input type="text" class="form-control text-right" value="@string.Format("$ {0:#,##0.#0}", total_ordr_me)">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-success" onclick='window.location = "@Url.Action("SalesOrderDetails", "Project", new {PrjCode = prjCode })";'><i class="fas fa-arrow-circle-right"></i></button>
+                        </div>
+
+                    </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

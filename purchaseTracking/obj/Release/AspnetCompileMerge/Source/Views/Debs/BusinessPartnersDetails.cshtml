@@ -1,0 +1,220 @@
+﻿@model IEnumerable<purchaseTracking.Models.CuentaPorPagar.CuentaPorPagar>
+@{
+    ViewBag.Title = "Cuenta por Pagar - Detales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    string CardCode = ViewBag.CardCode;
+    string CardName = ViewBag.CardName;
+    double SAP = 0;
+    double TRACKING = 0;
+}
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            <h4>@ViewBag.CardCode - @ViewBag.CardName <span class="badge bg-secondary">@ViewBag.totalItem</span></h4>
+            <hr />
+            <div class="alert alert-info" role="alert">
+                Documentos Pendientes
+            </div>
+
+            @using (Html.BeginForm("BusinessPartnersDetails", "Debs", FormMethod.Get))
+            {
+                @Html.Hidden("CardCode", CardCode);
+                @Html.Hidden("CardName", CardName);
+                <div class="form-row">
+                    <div class="col-sm-auto">
+                        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("ToPayBusinessPartners", "Debs")'"><i class="fas fa-arrow-left">  </i>  Regresar</button>
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterString", new List<SelectListItem>
+                           {
+                          new SelectListItem{ Text="Seleccione Valor", Value = "0" },
+                           new SelectListItem{ Text="Datos SAP", Value = "SAP" },
+                               new SelectListItem{ Text="Datos Tracking", Value = "TRACKING" },
+                                  new SelectListItem{ Text="Datos Todos", Value = "Todos" },
+                           }, new { @class = "form-control" })
+
+                    </div>
+                    <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
+                    </div>
+                    <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-redo-alt"></i> Cargar Datos</button>
+                    </div>
+                </div>
+            }
+            <br />
+            @if (Convert.ToInt32(ViewBag.totalItem) > 0)
+            {
+                <table class="table table-bordered table-responsive-sm">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>
+                                Proveedor
+                            </th>
+                            <th>
+                                Fecha Vencimiento
+                            </th>
+                            <th>
+                                OC
+                            </th>
+                            <th>
+                                Valor Factura USD
+                            </th>
+                            <th>
+                                Factura No.
+                            </th>
+                            <th>
+                                Estatus Importación
+                            </th>
+                            <th>
+                                Estatus Pago
+                            </th>
+                            <th>
+                                Comentarios Importaciones
+                            </th>
+                            <th>
+                                Origen
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.NombreSN
+                            </td>
+                            <td class="text-center">
+                                @item.FechaVencimiento.ToString("dd/MM/yyyy")
+                            </td>
+                            <td class="text-center">
+                                @item.OC
+                            </td>
+                            <td class="text-right">
+                                @{
+                                    if (item.origen == "SAP")
+                                    {
+                                        SAP = SAP + item.saldoUSD;
+                                    }
+                                    else
+                                    {
+                                        if (item.TT > 0)
+                                        {
+                                            if (item.EP != "PP")
+                                            {
+                                                TRACKING = TRACKING + item.saldoUSD;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            TRACKING = TRACKING + item.saldoUSD;
+                                        }
+
+
+                                    }
+                                }
+                                @string.Format("${0:#,##0.#0}", item.saldoUSD)
+
+                            </td>
+                            <td class="text-center">
+                                @item.DocNum
+                            </td>
+                            <td class="text-center">
+
+                                @item.Estatus
+
+                            </td>
+                            <td class="text-center">
+
+                                @if (item.TT > 0)
+                                {
+                                    if (item.EP == "PP")
+                                    {
+                                        <label> Pendiente de Liquidar</label>
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.origen == "TRACKING")
+                                    {
+                                        <label> Pendiente Registro Factura SAP</label>
+                                    }
+                                    else
+                                    {
+                                        @item.Estatus_Pago
+                                    }
+
+                                }
+                            </td>
+                            <td class="text-center col-3">
+                                @if (item.TT > 0)
+                                {
+                                    if (item.EP == "PP")
+                                    {
+                                        <div class="alert alert-primary" role="alert">
+                                            Existe una factura en SAP pendiente de liquidar<br />
+                                            <strong>@item.TT</strong>
+                                        </div>
+                                    }
+                                }
+                            </td>
+                            <td class="text-center">
+                                @item.origen
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <a href="@Url.Action("ExportExcelRequestDetails", "Debs", new {  CardCode = CardCode })" class="float-left">
+                    <span>
+                        Exportar a Excel
+                    </span>
+                </a>
+                <br />
+                <br />
+            }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    No se encontrarón resultados para el Socio de Negocios para el filtro: <b>@ViewBag.filterString</b>
+                </div>
+            }
+            <br />
+            <div class="form-row">
+                <div class="col-sm-12">
+                    <h5><b> Resumen Total Documentos</b></h5>
+                    <hr />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <strong><label class="control-label"> Total Documentos SAP </label></strong>
+                    <input class="form-control" disabled value="@string.Format("${0:#,##0.#0}",SAP)" />
+                </div>
+            </div>
+            <br />
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <strong><label class="control-label"> Total Documentos Tracking </label></strong>
+                    <input class="form-control" disabled value="@string.Format("${0:#,##0.#0}", TRACKING)" />
+                </div>
+            </div>
+            <br />
+            @{
+                double temp = TRACKING + SAP;
+            }
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <strong><label class="control-label"> Total Documentos </label></strong>
+                    <input class="form-control" disabled value="@string.Format("${0:#,##0.#0}", temp)" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <br />
+</div>
+

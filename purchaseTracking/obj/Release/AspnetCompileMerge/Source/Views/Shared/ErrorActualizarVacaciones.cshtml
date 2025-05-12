@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Solicitud Creada Con Exito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="our-skills">
+        <div class="card" style="border:none !important">
+            <div class="box-shadow">
+                <h5 class="text-center">La Contrasenia <strong> @ViewBag.Contrassenia </strong> se ha creado con éxito!</h5>
+                <hr />
+                <br />
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        
+                        <p> <label>Error en actualizar solicitud de vacaciones: </label> <br /></p>
+                        <p> @ViewBag.ErrorMessage</p>
+                        @Html.ActionLink("Ir a mis Contrasenias", "InvoiceContrasenia", "Debs", new { @class = "btn btn-second" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

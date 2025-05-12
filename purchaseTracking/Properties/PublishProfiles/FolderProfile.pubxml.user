@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\erivera\Desktop\tracking</_PublishTargetUrl>
-    <History>True|2025-05-09T22:41:15.5008330Z||;True|2025-05-09T16:36:49.6411181-06:00||;True|2025-04-29T11:22:46.4472465-06:00||;True|2025-03-24T18:11:19.9384768-06:00||;True|2025-03-24T18:11:06.5629750-06:00||;True|2025-03-03T12:42:40.5432824-06:00||;True|2025-03-03T12:41:18.0879702-06:00||;True|2025-03-03T11:37:30.4681829-06:00||;True|2025-03-03T11:36:31.9705898-06:00||;True|2025-02-27T16:52:54.8734962-06:00||;False|2024-11-28T12:36:56.5380736-06:00||;True|2024-11-22T14:46:25.0191478-06:00||;True|2024-10-28T10:04:18.8500720-06:00||;False|2024-07-23T12:02:40.3015902-06:00||;True|2021-12-02T09:21:22.6232439-06:00||;True|2021-11-29T13:59:38.4614505-06:00||;True|2021-11-09T11:46:38.1450109-06:00||;False|2021-11-09T11:44:47.2150777-06:00||;</History>
+    <History>True|2025-05-12T16:18:07.9289438Z||;True|2025-05-12T10:05:40.4452035-06:00||;True|2025-05-09T16:41:15.5008330-06:00||;True|2025-05-09T16:36:49.6411181-06:00||;True|2025-04-29T11:22:46.4472465-06:00||;True|2025-03-24T18:11:19.9384768-06:00||;True|2025-03-24T18:11:06.5629750-06:00||;True|2025-03-03T12:42:40.5432824-06:00||;True|2025-03-03T12:41:18.0879702-06:00||;True|2025-03-03T11:37:30.4681829-06:00||;True|2025-03-03T11:36:31.9705898-06:00||;True|2025-02-27T16:52:54.8734962-06:00||;False|2024-11-28T12:36:56.5380736-06:00||;True|2024-11-22T14:46:25.0191478-06:00||;True|2024-10-28T10:04:18.8500720-06:00||;False|2024-07-23T12:02:40.3015902-06:00||;True|2021-12-02T09:21:22.6232439-06:00||;True|2021-11-29T13:59:38.4614505-06:00||;True|2021-11-09T11:46:38.1450109-06:00||;False|2021-11-09T11:44:47.2150777-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -14,6 +14,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>02/27/2025 15:23:25</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>05/12/2025 11:23:21</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>05/12/2025 11:23:21</publishTime>
     </File>
     <File Include="bin/BouncyCastle.Crypto.dll">
       <publishTime>10/19/2021 05:53:32</publishTime>
@@ -97,7 +103,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/20/2023 14:35:08</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/11/2014 09:28:40</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
       <publishTime>10/20/2023 14:35:08</publishTime>
@@ -121,7 +127,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:26</publishTime>
     </File>
     <File Include="bin/FileHelpers.dll">
-      <publishTime>02/27/2025 15:23:26</publishTime>
+      <publishTime>08/22/2022 13:37:52</publishTime>
     </File>
     <File Include="bin/fr/CrystalDecisions.CrystalReports.Engine.resources.dll">
       <publishTime>02/27/2025 15:23:25</publishTime>
@@ -226,10 +232,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:26</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>05/09/2025 16:36:47</publishTime>
+      <publishTime>05/12/2025 11:23:16</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>05/09/2025 16:36:47</publishTime>
+      <publishTime>05/12/2025 11:23:16</publishTime>
     </File>
     <File Include="bin/RBush.dll">
       <publishTime>11/14/2024 07:43:18</publishTime>
@@ -238,19 +244,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/14/2022 23:38:32</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe.config">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:38:32</publishTime>
     </File>
     <File Include="bin/roslyn/csc.rsp">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:21:10</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe">
       <publishTime>02/14/2022 23:38:42</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe.config">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:38:42</publishTime>
     </File>
     <File Include="bin/roslyn/csi.rsp">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:21:14</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
       <publishTime>02/14/2022 23:33:12</publishTime>
@@ -307,7 +313,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/19/2020 12:46:30</publishTime>
     </File>
     <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>11/29/2018 09:39:18</publishTime>
     </File>
     <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
       <publishTime>02/19/2020 04:05:18</publishTime>
@@ -316,16 +322,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/14/2022 23:34:58</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe.config">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:34:56</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.rsp">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:21:12</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
       <publishTime>02/14/2022 23:38:42</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>02/27/2025 15:23:27</publishTime>
+      <publishTime>02/14/2022 23:38:42</publishTime>
     </File>
     <File Include="bin/ru/CrystalDecisions.CrystalReports.Engine.resources.dll">
       <publishTime>02/27/2025 15:23:25</publishTime>
@@ -639,11 +645,26 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Files/Cambio de Horario.pdf">
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
+    <File Include="Files/CartaMembretada.docx">
+      <publishTime>05/12/2025 10:59:04</publishTime>
+    </File>
     <File Include="Files/Descuento.pdf">
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
     <File Include="Files/Fondo de Caja Chica.pdf">
       <publishTime>02/27/2025 15:23:29</publishTime>
+    </File>
+    <File Include="Files/HojaMembratada.docx">
+      <publishTime>05/12/2025 10:59:04</publishTime>
+    </File>
+    <File Include="Files/HojaMembratadaNumerada.docx">
+      <publishTime>05/12/2025 10:59:04</publishTime>
+    </File>
+    <File Include="Files/Lexend-VariableFont_wght.ttf">
+      <publishTime>05/12/2025 10:59:04</publishTime>
+    </File>
+    <File Include="Files/PlantillaGeneral.docx">
+      <publishTime>05/12/2025 10:59:04</publishTime>
     </File>
     <File Include="Files/Politica Comercial 2024.docx.pdf">
       <publishTime>02/27/2025 15:23:29</publishTime>
@@ -692,6 +713,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Global.asax">
       <publishTime>02/27/2025 15:23:29</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>05/12/2025 11:23:18</publishTime>
     </File>
     <File Include="Scripts/.travis.yml">
       <publishTime>02/27/2025 15:23:29</publishTime>
@@ -1098,6 +1122,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Account/addInf.cshtml">
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
+    <File Include="Views/Account/CorporateTemplate.cshtml">
+      <publishTime>05/12/2025 11:03:44</publishTime>
+    </File>
     <File Include="Views/Account/createSignDigital.cshtml">
       <publishTime>05/09/2025 15:04:22</publishTime>
     </File>
@@ -1138,7 +1165,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2025 14:49:05</publishTime>
     </File>
     <File Include="Views/Account/listNomina.cshtml">
-      <publishTime>05/09/2025 14:57:38</publishTime>
+      <publishTime>05/12/2025 10:24:14</publishTime>
     </File>
     <File Include="Views/Account/listRequest.cshtml">
       <publishTime>05/09/2025 15:33:59</publishTime>
@@ -1213,7 +1240,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2025 14:49:05</publishTime>
     </File>
     <File Include="Views/Login/Login.cshtml">
-      <publishTime>05/09/2025 16:35:22</publishTime>
+      <publishTime>05/12/2025 11:21:30</publishTime>
     </File>
     <File Include="Views/PaymentReceived/PaymentIntegration.cshtml">
       <publishTime>05/09/2025 14:49:05</publishTime>
@@ -1261,7 +1288,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/09/2025 16:05:38</publishTime>
+      <publishTime>05/12/2025 10:25:17</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutWiki.cshtml">
       <publishTime>02/27/2025 15:23:29</publishTime>
@@ -1303,7 +1330,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/09/2025 16:36:48</publishTime>
+      <publishTime>05/12/2025 10:18:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,0 +1,288 @@
+﻿@model IEnumerable<purchaseTracking.Models.Bonificaciones.CobrosFecha>
+@using purchaseTracking.Models.Orders
+@{
+    ViewBag.Title = "Detalle de Facturación Recurrente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    double totalFacturado = 0;
+    double SaldoPendiente = 0;
+    double valorOrden = 0;
+    double valorFacturas = 0;
+    double SaldoPendienteFacturar = 0;
+    int Orden = 0;
+}
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11">
+            @foreach (SalesOrder detalle in ViewBag.header)
+            {
+                Orden = detalle.DocNum;
+                <br />
+                <h4>@detalle.DocNum - @detalle.Cliente <span class="badge bg-secondary">@ViewBag.totalItem</span></h4>
+                <hr />
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Nombre Consultor </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-primary" type="button"><i class="fas fa-user"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.SlpName">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Fecha Emisión Orden de Venta </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button"><i class="fas fa-calendar"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.DocDate">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Unidad Comercial </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-warning" type="button"><i class="fas fa-project-diagram"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.UnidadComercial">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label"> Gerente Comercial</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-danger" type="button"><i class="fas fa-users"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.GerenteComercial">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <strong><label class="control-label"> Tipo de Venta </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-secondary" type="button"><i class="fas fa-money-bill-wave"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.Tipo_Venta">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-8">
+                        <strong><label class="control-label">Detalles</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button"><i class="fas fa-comment"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.Comments">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <strong><label class="control-label">Monto Orden de Venta </label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button"><i class="fas fa-user"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@string.Format("Q {0:#,##0.#0}", detalle.TotalQ)">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <strong><label class="control-label">Moneda</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button"><i class="fas fa-coins"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.Cur">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <strong><label class="control-label">Tipo de Cambio</label></strong>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-info" type="button"><i class="fas fa-hand-holding-usd"></i></button>
+                            </div>
+                            <input type="text" class="form-control" value="@detalle.Rate">
+                        </div>
+                    </div>
+                </div>
+                if (ViewBag.totalItem > 0)
+                {
+                    <div class="alert alert-success" role="alert">
+                        Pagos Efectuados
+                    </div>
+                    if (Convert.ToInt32(ViewBag.totalItem) > 0)
+                    {
+        <table class="table table-hover table-border">
+            <thead class="text-center thead-dark table-border">
+                <tr>
+                    <th>
+                        OV
+                    </th>
+                    <th class="col-sm-1">
+                        Fecha Orden Venta
+                    </th>
+                    <th class="col-sm-1">
+                        Nombre Cliente
+                    </th>
+                    <th class="col-md-1">
+                        Consultor Comercial
+                    </th>
+                    <th>
+                        Total Orden Venta
+                    </th>
+                    <th>
+                        # de Factura
+                    </th>
+                    <th>
+                        Fecha Factura
+                    </th>
+                    <th>
+                        Valor Factura
+                    </th>
+                    <th>
+                        # Pago Aplicado
+                    </th>
+                    <th>
+                        Fecha Pago
+                    </th>
+                    <th class="col-sm-1">
+                        Días Recuperación
+                    </th>
+                    <th>
+                        Valor Pago Aplicado
+                    </th>
+                    <th>
+                        Medio Pago
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr style="cursor:pointer !important">
+                    <td>
+                        @item.OV
+                    </td>
+                    <td>
+                        @item.FechaOrden
+                    </td>
+                    <td>
+                        @item.Cliente
+                    </td>
+                    <td>
+                        @item.Vendedor
+                    </td>
+                    <td class="text-right">
+                        @string.Format("Q {0:#,##0.#0}", item.ValorOrden)
+                        @{ 
+                            valorOrden = item.ValorOrden;
+                        }
+                    </td>
+                    <td class="text-center">
+                        @item.No_Factura
+                    </td>
+                    <td class="text-center">
+                        @item.FechaFactura
+                    </td>
+                    <td class="text-right col-sm-1">
+                        @string.Format("Q {0:#,##0.#0}", item.ValorFactura)
+                        @{
+                            valorFacturas = item.ValorFactura;
+                        }
+                    </td>
+                    <td class="text-center">
+                        @item.NumeroPago
+                    </td>
+                    <td class="text-center">
+                        @item.FechaPago
+                    </td>
+                    <td class="text-center">
+                        @{
+                            if (item.FechaPago != "" && item.FechaFactura != "")
+                            {
+                                TimeSpan ts = Convert.ToDateTime(item.FechaPago) - Convert.ToDateTime(item.FechaFactura);
+                                int dias = ts.Days;
+                                <span>@dias</span>
+                            }
+                            else
+                            {
+                                <span></span>
+                            }
+
+                        }
+                    </td>
+                    <td class="text-right col-sm-1">
+                        @string.Format("Q {0:#,##0.#0}", item.ValorCobro)
+                        @{ 
+                            totalFacturado = totalFacturado + item.ValorCobro;
+                        }
+                    </td>
+
+                    <td class="text-center">
+                        @item.Medio
+                    </td>
+                </tr>
+
+
+            }
+        </table>
+                        <a href="@Url.Action("ExportExcelPayment", "PaymentReceived", new {  OV = Orden })" class="float-left">
+                            <span>
+                                Exportar a Excel
+                            </span>
+                        </a>
+                        <br />
+                        <br />
+                        <div class="form-row">
+                            <div class="col-sm-8">
+                                <h5><b> Resumen Total Documentos</b></h5>
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-3">
+                                <strong><label class="control-label"> Total Pagado </label></strong>
+                                <input class="form-control" disabled value="@string.Format("Q {0:#,##0.#0}",totalFacturado)" />
+                            </div>
+                            <div class="col-sm-3">
+                                @{
+                                    SaldoPendienteFacturar = valorOrden - valorFacturas;
+                                }
+                                <strong><label class="control-label"> Saldo Pendiente Facturar </label></strong>
+                                <input class="form-control" disabled value="@string.Format("Q {0:#,##0.#0}",SaldoPendienteFacturar)" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-row">
+                            <div class="col-sm-3">
+                                <strong><label class="control-label"> Saldo Pendinete </label></strong>
+                                @{ 
+                                    SaldoPendiente = valorFacturas - totalFacturado;
+                                }
+                                <input class="form-control" disabled value="@string.Format("Q {0:#,##0.#0}",SaldoPendiente)" />
+                            </div>
+                        </div>
+                        <br />
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning" role="alert">
+                        No existen Facturas Emitidas!
+                    </div>
+                }
+            }
+            <br />
+
+        </div>
+    </div>
+</div>
+
+
+
+
