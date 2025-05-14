@@ -102,7 +102,7 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsInvoiceAssign", "Account", new { id = item.ClgCode }))'">
+                                <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsRequestAssign", "Account", new { id = item.ClgCode }))'">
                                     <td>
                                         @item.ClgCode
                                     </td>

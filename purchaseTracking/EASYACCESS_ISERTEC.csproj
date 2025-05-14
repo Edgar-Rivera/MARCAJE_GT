@@ -423,6 +423,7 @@
     <Content Include="Content\Images\iserlogo.png" />
     <Content Include="Content\Images\Logo_Isertec.svg" />
     <Content Include="Content\Images\Logo_Marcaje.svg" />
+    <Content Include="Content\Images\Logo_Marcaje_V2.svg" />
     <Content Include="Content\Images\logo_verde.png" />
     <Content Include="Content\Images\logo_verde.svg" />
     <Content Include="Content\Images\rrhh.jpg" />
@@ -495,6 +496,15 @@
     <Content Include="Files\HojaMembratadaNumerada.docx" />
     <Content Include="Files\Lexend-VariableFont_wght.ttf" />
     <Content Include="Files\PlantillaGeneral.docx" />
+    <Content Include="Files\Formularios_Logo_25\Anticipo de Aguinaldo.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Anticipo de Bonificaciones.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Anticipo de Bono 14.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Anticipo de Salario.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Asignación de Caja Chica.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Asignación de Combustible.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Autorización de Descuentos.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Préstamo Interno.pdf" />
+    <Content Include="Files\Formularios_Logo_25\Solicitud de Cambio de Horario.pdf" />
     <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />

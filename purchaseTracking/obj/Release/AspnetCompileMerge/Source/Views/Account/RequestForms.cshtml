@@ -138,93 +138,93 @@
                         </a>
                     </div>
                 </div>
-                <h4>Formularios de Solicitud</h4>
-                <hr />
-                <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 mb-3">
-                    @if (!string.IsNullOrEmpty(ViewBag.source))
+            </div>
+            <h4>Formularios de Solicitud</h4>
+            <hr />
+            <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 mb-3">
+                @if (!string.IsNullOrEmpty(ViewBag.source))
+                {
+                    if (Session["code"].ToString() != "265" && Session["code"].ToString() != "311" && Session["code"].ToString() != "182")
                     {
-                        if (Session["code"].ToString() != "265" && Session["code"].ToString() != "311" && Session["code"].ToString() != "182")
-                        {
-                            <div class="col">
-                                <a href="@Url.Action("VacationsRequest", "Account")" class="text-decoration-none">
-                                    <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                                <div class="me-2">
-                                                    <h5 class="mb-1 text-dark">Crear Solicitud de Vacaciones / Permiso</h5>
-                                                    <p class="mb-0 text-muted small">Nueva Solicitud digital</p>
-                                                </div>
-                                                <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center"
-                                                     style="min-width: 60px; height: 60px;">
-                                                    <i class="fas fa-calendar fa-2x"></i>
-                                                </div>
+                        <div class="col">
+                            <a href="@Url.Action("VacationsRequest", "Account")" class="text-decoration-none">
+                                <div class="card radius-10 border-start border-0 border-3 border-info h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between flex-nowrap">
+                                            <div class="me-2">
+                                                <h5 class="mb-1 text-dark">Crear Solicitud de Vacaciones / Permiso</h5>
+                                                <p class="mb-0 text-muted small">Nueva Solicitud digital</p>
+                                            </div>
+                                            <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center"
+                                                 style="min-width: 60px; height: 60px;">
+                                                <i class="fas fa-calendar fa-2x"></i>
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
-                        }
+                                </div>
+                            </a>
+                        </div>
                     }
+                }
+            </div>
+            <h4>Mis Solicitudes / Firma Digital</h4>
+            <hr />
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
+                <div class="col">
+                    <a href="@Url.Action("RequestList", "Account")" class="text-decoration-none">
+                        <div class="card radius-10 border-start border-0 border-3 border-info h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between flex-nowrap">
+                                    <div class="me-2">
+                                        <h5 class="mb-1 text-dark">Mis solicitudes Creadas</h5>
+                                        <p class="mb-0 text-muted small">Gestione y controle el estado de sus solicitudes realizadas</p>
+                                    </div>
+                                    <div class="rounded-circle bg-warning text-white d-flex justify-content-center align-items-center"
+                                         style="min-width: 60px; height: 60px;">
+                                        <i class="fas fa-share fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <h4>Mis Solicitudes / Firma Digital</h4>
-                <hr />
-                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
-                    <div class="col">
-                        <a href="@Url.Action("RequestList", "Account")" class="text-decoration-none">
-                            <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                        <div class="me-2">
-                                            <h5 class="mb-1 text-dark">Mis solicitudes Creadas</h5>
-                                            <p class="mb-0 text-muted small">Gestione y controle el estado de sus solicitudes realizadas</p>
-                                        </div>
-                                        <div class="rounded-circle bg-warning text-white d-flex justify-content-center align-items-center"
-                                             style="min-width: 60px; height: 60px;">
-                                            <i class="fas fa-share fa-2x"></i>
-                                        </div>
+                <div class="col">
+                    <a href="@Url.Action("createSignDigital", "Account")" class="text-decoration-none">
+                        <div class="card radius-10 border-start border-0 border-3 border-info h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between flex-nowrap">
+                                    <div class="me-2">
+                                        <h5 class="mb-1 text-dark">Firma Digital de Empleado</h5>
+                                        <p class="mb-0 text-muted small">Creación de Firma digital para solicitudes</p>
+                                    </div>
+                                    <div class="rounded-circle bg-info text-white d-flex justify-content-center align-items-center"
+                                         style="min-width: 60px; height: 60px;">
+                                        <i class="fas fa-signature fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="@Url.Action("createSignDigital", "Account")" class="text-decoration-none">
-                            <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                        <div class="me-2">
-                                            <h5 class="mb-1 text-dark">Firma Digital de Empleado</h5>
-                                            <p class="mb-0 text-muted small">Creación de Firma digital para solicitudes</p>
-                                        </div>
-                                        <div class="rounded-circle bg-info text-white d-flex justify-content-center align-items-center"
-                                             style="min-width: 60px; height: 60px;">
-                                            <i class="fas fa-signature fa-2x"></i>
-                                        </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="@Url.Action("MailSign", "Account")" class="text-decoration-none">
+                        <div class="card radius-10 border-start border-0 border-3 border-info h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between flex-nowrap">
+                                    <div class="me-2">
+                                        <h5 class="mb-1 text-dark">Firma de Correo Electrónico</h5>
+                                        <p class="mb-0 text-muted small">Creación de Firma de tu correo electrónico</p>
+                                    </div>
+                                    <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center"
+                                         style="min-width: 60px; height: 60px;">
+                                        <i class="fas fa-envelope fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="@Url.Action("MailSign", "Account")" class="text-decoration-none">
-                            <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                        <div class="me-2">
-                                            <h5 class="mb-1 text-dark">Firma de Correo Electrónico</h5>
-                                            <p class="mb-0 text-muted small">Creación de Firma de tu correo electrónico</p>
-                                        </div>
-                                        <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center"
-                                             style="min-width: 60px; height: 60px;">
-                                            <i class="fas fa-envelope fa-2x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
+                </div>
 
-                </div>
             </div>
             <div style="display:@temp_body_j">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
@@ -249,6 +249,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 

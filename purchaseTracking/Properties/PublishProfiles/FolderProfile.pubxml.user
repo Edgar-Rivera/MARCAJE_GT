@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\erivera\Desktop\tracking</_PublishTargetUrl>
-    <History>True|2025-05-12T21:49:19.0050012Z||;True|2025-05-12T15:46:50.1989308-06:00||;True|2025-05-12T15:46:29.0367212-06:00||;True|2025-05-12T10:18:07.9289438-06:00||;True|2025-05-12T10:05:40.4452035-06:00||;True|2025-05-09T16:41:15.5008330-06:00||;True|2025-05-09T16:36:49.6411181-06:00||;True|2025-04-29T11:22:46.4472465-06:00||;True|2025-03-24T18:11:19.9384768-06:00||;True|2025-03-24T18:11:06.5629750-06:00||;True|2025-03-03T12:42:40.5432824-06:00||;True|2025-03-03T12:41:18.0879702-06:00||;True|2025-03-03T11:37:30.4681829-06:00||;True|2025-03-03T11:36:31.9705898-06:00||;True|2025-02-27T16:52:54.8734962-06:00||;False|2024-11-28T12:36:56.5380736-06:00||;True|2024-11-22T14:46:25.0191478-06:00||;True|2024-10-28T10:04:18.8500720-06:00||;False|2024-07-23T12:02:40.3015902-06:00||;True|2021-12-02T09:21:22.6232439-06:00||;True|2021-11-29T13:59:38.4614505-06:00||;True|2021-11-09T11:46:38.1450109-06:00||;False|2021-11-09T11:44:47.2150777-06:00||;</History>
+    <History>True|2025-05-14T20:35:53.5678308Z||;True|2025-05-12T15:49:19.0050012-06:00||;True|2025-05-12T15:46:50.1989308-06:00||;True|2025-05-12T15:46:29.0367212-06:00||;True|2025-05-12T10:18:07.9289438-06:00||;True|2025-05-12T10:05:40.4452035-06:00||;True|2025-05-09T16:41:15.5008330-06:00||;True|2025-05-09T16:36:49.6411181-06:00||;True|2025-04-29T11:22:46.4472465-06:00||;True|2025-03-24T18:11:19.9384768-06:00||;True|2025-03-24T18:11:06.5629750-06:00||;True|2025-03-03T12:42:40.5432824-06:00||;True|2025-03-03T12:41:18.0879702-06:00||;True|2025-03-03T11:37:30.4681829-06:00||;True|2025-03-03T11:36:31.9705898-06:00||;True|2025-02-27T16:52:54.8734962-06:00||;False|2024-11-28T12:36:56.5380736-06:00||;True|2024-11-22T14:46:25.0191478-06:00||;True|2024-10-28T10:04:18.8500720-06:00||;False|2024-07-23T12:02:40.3015902-06:00||;True|2021-12-02T09:21:22.6232439-06:00||;True|2021-11-29T13:59:38.4614505-06:00||;True|2021-11-09T11:46:38.1450109-06:00||;False|2021-11-09T11:44:47.2150777-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -16,10 +16,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:25</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/12/2025 15:46:48</publishTime>
+      <publishTime>05/14/2025 14:35:49</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/12/2025 15:46:48</publishTime>
+      <publishTime>05/14/2025 14:35:49</publishTime>
     </File>
     <File Include="bin/BouncyCastle.Crypto.dll">
       <publishTime>10/19/2021 05:53:32</publishTime>
@@ -232,10 +232,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:26</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>05/12/2025 15:46:42</publishTime>
+      <publishTime>05/14/2025 14:35:43</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>05/12/2025 15:46:42</publishTime>
+      <publishTime>05/14/2025 14:35:43</publishTime>
     </File>
     <File Include="bin/RBush.dll">
       <publishTime>11/14/2024 07:43:18</publishTime>
@@ -612,6 +612,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Images/Logo_Marcaje.svg">
       <publishTime>05/09/2025 16:05:36</publishTime>
     </File>
+    <File Include="Content/Images/Logo_Marcaje_V2.svg">
+      <publishTime>05/13/2025 13:32:34</publishTime>
+    </File>
     <File Include="Content/Images/logo_verde.png">
       <publishTime>02/27/2025 15:39:25</publishTime>
     </File>
@@ -653,6 +656,33 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Files/Fondo de Caja Chica.pdf">
       <publishTime>02/27/2025 15:23:29</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Anticipo de Aguinaldo.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Anticipo de Bonificaciones.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Anticipo de Bono 14.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Anticipo de Salario.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Asignación de Caja Chica.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Asignación de Combustible.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Autorización de Descuentos.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Préstamo Interno.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
+    </File>
+    <File Include="Files/Formularios_Logo_25/Solicitud de Cambio de Horario.pdf">
+      <publishTime>05/13/2025 17:17:27</publishTime>
     </File>
     <File Include="Files/HojaMembratada.docx">
       <publishTime>05/12/2025 10:59:04</publishTime>
@@ -715,7 +745,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/12/2025 15:46:43</publishTime>
+      <publishTime>05/14/2025 14:35:44</publishTime>
     </File>
     <File Include="Scripts/.travis.yml">
       <publishTime>02/27/2025 15:23:29</publishTime>
@@ -1141,10 +1171,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2025 15:35:53</publishTime>
     </File>
     <File Include="Views/Account/detailsRequestAssign.cshtml">
-      <publishTime>05/09/2025 15:37:27</publishTime>
+      <publishTime>05/14/2025 14:35:33</publishTime>
     </File>
     <File Include="Views/Account/DigitalForms.cshtml">
-      <publishTime>05/09/2025 13:28:12</publishTime>
+      <publishTime>05/14/2025 13:58:20</publishTime>
     </File>
     <File Include="Views/Account/Documentos.cshtml">
       <publishTime>02/27/2025 15:23:29</publishTime>
@@ -1168,7 +1198,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/12/2025 10:24:14</publishTime>
     </File>
     <File Include="Views/Account/listRequest.cshtml">
-      <publishTime>05/09/2025 15:33:59</publishTime>
+      <publishTime>05/14/2025 14:02:08</publishTime>
     </File>
     <File Include="Views/Account/MailSign.cshtml">
       <publishTime>05/09/2025 11:08:19</publishTime>
@@ -1183,7 +1213,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2025 13:02:22</publishTime>
     </File>
     <File Include="Views/Account/RequestForms.cshtml">
-      <publishTime>05/09/2025 15:28:07</publishTime>
+      <publishTime>05/13/2025 17:05:42</publishTime>
     </File>
     <File Include="Views/Account/RequestInvoice.cshtml">
       <publishTime>05/09/2025 14:49:05</publishTime>
@@ -1240,7 +1270,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/09/2025 14:49:05</publishTime>
     </File>
     <File Include="Views/Login/Login.cshtml">
-      <publishTime>05/12/2025 14:36:43</publishTime>
+      <publishTime>05/13/2025 16:03:50</publishTime>
     </File>
     <File Include="Views/PaymentReceived/PaymentIntegration.cshtml">
       <publishTime>05/09/2025 14:49:05</publishTime>
@@ -1288,7 +1318,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2025 15:23:29</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/12/2025 15:46:08</publishTime>
+      <publishTime>05/13/2025 11:20:38</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutWiki.cshtml">
       <publishTime>02/27/2025 15:23:29</publishTime>
