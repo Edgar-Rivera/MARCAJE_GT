@@ -350,7 +350,7 @@
 
                         if ((data.CODIGO == 0 || data.TIPO == "SALIDA") || (string.IsNullOrEmpty(data.ORDEN) && data.TIPO == "SALIDA" || data.TIPO == "FIN TRASLADO"))
                         {
-                            <div id="customer" class="mb-3">
+                            <div id="customer" class="mb-3" style="display:block">
                                 <label class="form-label">Nombre Cliente</label>
                                 @{
                                     List<purchaseTracking.Models.Orders.BusinessPartners> sn = new purchaseTracking.Connection.Orders.BusinessSN().getListNames();
@@ -371,11 +371,11 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <button type="button" class="btn btn-info" onclick="elementInspect()">Cliente Nuevo Prospecto</button>
+                                    <button type="button" class="btn btn-info text-white" onclick="elementInspect()">Cliente Nuevo Prospecto</button>
                                 </div>
                             </div>
 
-                            <div id="customer_n" class="mb-3 d-none">
+                            <div id="customer_n" class="mb-3" style="display:none">
                                 <label class="form-label">Nombre Cliente Prospecto</label>
                                 <input class="form-control" name="prospect" id="prospect">
                             </div>
