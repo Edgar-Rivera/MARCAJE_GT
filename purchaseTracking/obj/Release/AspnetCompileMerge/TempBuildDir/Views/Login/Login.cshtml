@@ -1,0 +1,123 @@
+﻿@model purchaseTracking.Models.SiteUser
+@{
+    ViewBag.Title = "Isertec - Iniciar Sesión";
+    Layout = "~/Views/Shared/partialLogin.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Isertec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        .login-container {
+            height: 100vh;
+        }
+
+        .login-left {
+            background-color: #2f353a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            height: 100%;
+        }
+
+        @@media (min-width: 992px) {
+        .login-left {
+            padding: 9rem;
+            }
+        }
+
+            .login-left h1 {
+                font-weight: 600;
+            }
+
+        .login-form .form-control {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+        }
+
+            .login-form .form-control::placeholder {
+                color: #dcdcdc;
+            }
+
+        .login-right {
+            background-image: url('../../content/images/imagenmarcaje.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .form-check-label, .form-check-input {
+            cursor: pointer;
+        }
+
+        .sigra-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            margin-top: 4rem;
+        }
+
+        .btn-login {
+            background-color: #198754;
+            color: white;
+        }
+
+            .btn-login:hover {
+                background-color: #157347;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid login-container px-0">
+        <div class="row g-0 h-100">
+            <div class="col-12 col-md-5 login-left">
+                <div class="text-center">
+                    <img src="~/Content/Images/Logo_Marcaje_V2.svg" width="70" />
+                    <h1 class="sigra-logo">IserAccess</h1>
+                </div>
+
+                <form class="login-form mt-4" method="post">
+                    <div class="mb-3">
+                        <label for="UserName" class="form-label">Usuario</label>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @id = "UserName", required = "required", placeholder = "Username" })
+                    </div>
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Contraseña</label>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "Password", required = "required", placeholder = "Password" })
+                    </div>
+                    <div class="text-danger mb-2">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-login">LOGIN</button>
+                    </div>
+                </form>
+
+                <div class="footer-logo text-center">
+                    <small>By</small><br>
+                    <img src="~/Content/Images/Logo_Isertec.svg" width="200" />
+                </div>
+            </div>
+            <div class="col-7 d-none d-md-block login-right"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

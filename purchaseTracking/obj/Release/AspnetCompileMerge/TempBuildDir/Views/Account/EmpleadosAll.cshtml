@@ -1,0 +1,169 @@
+﻿@model PagedList.IPagedList<purchaseTracking.Models.eTALENT.VACACIONES>
+
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Resumen de empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    thead th {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .table-responsive {
+        height: auto;
+        overflow: scroll;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-11 mt-3">
+            <h4>
+                Resumen de Empleados
+                <span class="badge bg-secondary">@ViewBag.totalItem</span>
+            </h4>
+            <hr />
+
+            @using (Html.BeginForm("EmpleadosAll", "Account", FormMethod.Get))
+            {
+
+                <div class="row mb-3">
+                    <form method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar..." name="findString" aria-label="Buscar">
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                            <a href="@Url.Action("EmpleadosAll", "Account")" class="btn btn-primary">
+                                <i class="fas fa-redo"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <div class="row g-2 align-items-end">
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterEmpleado", new SelectList(ViewBag.Empleado), new { @class = "form-control chosen" })
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterUnidad", new SelectList(ViewBag.Unidad), new { @class = "form-control chosen" })
+                    </div>
+                    <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
+                    </div>
+                </div>
+
+
+            }
+            <hr />
+            @if (Model.Count() > 0)
+            {
+               <div class="overflow-auto mt-2" style="height:60vh!important">
+                   <table class="table table-responsive-sm table-hover table-striped">
+                       <thead class="text-center table-dark">
+                           <tr>
+                               <th>
+                                   Código de Empleado
+                               </th>
+                               <th>
+                                   Nombre Completo
+                               </th>
+                               <th>
+                                   Unidad
+                               </th>
+                               <th>
+                                   Fecha de Ingreso
+                               </th>
+                               <th>
+                                   Total Días Vacaciones
+                               </th>
+                               <th>
+                                   Dias Gozados
+                               </th>
+                               <th>
+                                   Días Disponibles
+                               </th>
+                           </tr>
+                       </thead>
+
+                       @foreach (var item in Model)
+                       {
+                           int temp_total = (int)Math.Round(item.DIAS);
+                           int temp_gozados = (int)Math.Round(item.GOZADOS);
+                           int temp_dias = (int)Math.Round(item.DIAS - item.GOZADOS);
+                           <tr>
+                               <td class="text-center" style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsHours", "Account", new { Codigo = item.EPDO_CODIGO }))'">
+                                   @item.EPDO_CODIGO
+                               </td>
+                               <td>
+                                   @item.EPDO_NOMBRE_COMPLETO
+                               </td>
+                               <td>
+                                   @item.UND_NOMBRE
+                               </td>
+                               <td class="text-center">
+                                   @item.FECHA
+                               </td>
+                               <td class="text-center">
+                                   @temp_total
+                               </td>
+                               <td class="text-center">
+                                   @temp_gozados
+                               </td>
+                               <td class="text-center">
+                                   @temp_dias
+                               </td>
+                           </tr>
+                       }
+                   </table>
+               </div><br />
+
+                <div class="text-right">
+                    <a href="@Url.Action("ExportarEmpleados")" class="btn btn-success">Exportar a Excel</a>
+                    <a href="@Url.Action("ExportarEmpleadosEstatus")" class="btn btn-success">Exportar Estatus Empleados</a>
+                </div>
+
+                <br />
+
+                <p class="text-center">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        @Html.PagedListPager(
+                    Model,
+                    page => Url.Action("EmpleadosAll",
+                    new
+                    {
+                        page,
+                        findString = ViewBag.findString
+                    }
+                    ),
+                    new PagedListRenderOptions()
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Anterior",
+                        LinkToNextPageFormat = "Siguiente",
+                        LinkToLastPageFormat = ">>",
+                        DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                        LiElementClasses = new List<string> { "page-item", "page-link" }
+                    })
+                    </ul>
+                </nav>
+            }
+            else
+            {
+                if (ViewBag.findString != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        No se encontraron resultados para <b>@ViewBag.findString</b>
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</div>

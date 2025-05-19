@@ -1,0 +1,249 @@
+﻿@model purchaseTracking.Models.Activities.RequestActivity
+@using purchaseTracking.Models.Activities
+@{
+    ViewBag.Title = "Nueva Solicitud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type='text/javascript'>
+
+    function onchangeS(seleccion, desplegable) {
+        if (seleccion == "56") {
+            document.getElementById(desplegable).textContent = "Compra Local";
+            document.getElementById(desplegable).className = "badge bg-success float-right";
+            document.getElementById('atype').value = "56";
+        } else if (seleccion = "1") {
+            document.getElementById(desplegable).textContent = "Compra Internacional";
+            document.getElementById(desplegable).className = "badge bg-primary float-right";
+            document.getElementById('atype').value = "1";
+        } else {
+            document.getElementById(desplegable).textContent = "Solicitud de Compra";
+            document.getElementById(desplegable).className = "badge bg-info float-right";
+        }
+    }
+    function onchangeC(seleccion, desplegable,texto) {
+        if (seleccion != "") {
+            document.getElementById(desplegable).value = seleccion;
+            document.getElementById('CardName').value = texto;
+        } else {
+            document.getElementById(desplegable).value = "";
+        }
+    }
+
+    function onchangeE(seleccion, desplegable) {
+        if (seleccion != "") {
+            var docselect = document.getElementById('DocNumForm');
+            var selectedText = docselect.options[docselect.selectedIndex].text;
+            document.getElementById(desplegable).value = selectedText;
+
+        } else {
+            document.getElementById(desplegable).value = "";
+        }
+    }
+
+
+    function getAsunto() {
+        if (document.getElementById('DocNumForm').value != "0") {
+            var docselect = document.getElementById('DocNumForm');
+            var selectedText = docselect.options[docselect.selectedIndex].text;
+
+            var cardselect = document.getElementById('carcode');
+            var selectedTextCard = cardselect.options[cardselect.selectedIndex].text;
+            document.getElementById('asunto').value = selectedText + "_" + selectedTextCard;
+        } else {
+            $('#modalOrder').modal('show');
+        }
+    }
+    $(function () {
+        $(".chosen").chosen();
+    });
+    $(function () {
+        $("#carcode").change(function () {
+            var val = $(this).val();
+            var subItems="";
+            $.getJSON("@Url.Action("GetSub","Request")", {cardCode:val} ,function (data) {
+              $.each(data,function(index,item){
+                subItems+="<option value='"+item.Value+"'>"+item.Text+"</option>"
+              });
+                $("#DocNumForm").html(subItems)
+            });
+        });
+    });
+</script>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <span id="bg-solicitud" class="badge bg-secondary float-right">Solicitud de Compra</span>
+            <h4>Crear Nueva Solicitud</h4>
+            <hr>
+            @using (Html.BeginForm("newRequest", "Request", FormMethod.Post))
+            {
+                
+                @Html.Hidden("CardName", "Test");
+                <div class="form-group row" style="display:none">
+                    <div class="col-sm-3">
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.ActivityDate, new { htmlAttributes = new { @Value = DateTime.Now.ToString("yyyy-MM-dd"), @class = "form-control", @maxlength = "100", @required = "required" } })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.DocType, new { htmlAttributes = new { @Value = "17", @class = "form-control", @required = "required" } })
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.Activity, new { htmlAttributes = new { @Value = "cn_Task", @class = "form-control", @maxlength = "100", @required = "required" } })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <strong><label class="control-label"> Tipo de Compra </label></strong>
+                        @Html.DropDownListFor(model => Model.ActivityType, new List<SelectListItem>
+                        {
+                       new SelectListItem{ Text="Seleccione valor", Value = "0" },
+                            new SelectListItem{ Text="Compra Local", Value = "56" },
+                               new SelectListItem{ Text="Compra Internacional", Value = "1" },
+                               new SelectListItem{ Text="RMA", Value = "64" },
+                        }, new { @class = "form-control", @onchange = "onchangeS(this.value,'bg-solicitud')" })
+                    </div>
+                    <div class="col-sm-5">
+                        <strong><label class="control-label"> Ejecutivo de Compras </label></strong>
+                        @{
+                            // Code behind user handled
+                            List<HandledUsers> handled = new List<HandledUsers>();
+                            handled = new purchaseTracking.Connection.Activities.DataActivities().getUsers();
+
+                            @Html.DropDownListFor(model => Model.HandledBy, new SelectList(handled, "USERID", "U_NAME"),
+                new { @class = "form-control" })
+                        }
+                    </div>
+                </div>
+                <div class="form-group row" style="display:none">
+                    <div class="col-sm-5">
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.CardCode, new { htmlAttributes = new { @id = "card", @class = "form-control", @maxlength = "100", @required = "required" } })
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.DocNum, new { htmlAttributes = new { @id = "entry", @class = "form-control", @maxlength = "100", @required = "required" } })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Socio de Negocios </label></strong>
+                        @{
+                            // Code behind user handled
+                            List<purchaseTracking.Models.Orders.BusinessPartners> sn = new List<purchaseTracking.Models.Orders.BusinessPartners>();
+                            sn = new purchaseTracking.Connection.Orders.BusinessSN().getList();
+
+                            @Html.DropDownListFor(model => Model.CardCode, new SelectList(sn, "CardCode", "CardName"),
+                new { @id = "carcode", @class = "form-control chosen", @onchange = "onchangeC(this.value,'card',this.options[this.selectedIndex].innerHTML)" })
+                        }
+                    </div>
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Documento Vinculado </label></strong>
+                        @Html.DropDownListFor(x => x.DocEntry, new List<SelectListItem>
+                       {
+                      new SelectListItem{ Text="Seleccione Número de Orden de Venta", Value = "0" } }, new { @id = "DocNumForm", @class = "form-control", @onclick = "onchangeE(this.value,'entry')" })
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Solicitante </label></strong>
+                        @{
+                            // Code behind user handled
+                            List<purchaseTracking.Models.Orders.Solicitante> solicitantes = new List<purchaseTracking.Models.Orders.Solicitante>();
+                            solicitantes = new purchaseTracking.Connection.Orders.BusinessSN().GetSolicitantes();
+
+                            @Html.DropDownListFor(model => Model.U_Solicitante, new SelectList(solicitantes, "nombre", "nombre"),
+                new { @class = "form-control chosen" })
+                        }
+                    </div>
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Asunto</label></strong>
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @id = "asunto", @class = "form-control", @maxlength = "100", @required = "required" } })
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="button-addon2" onclick="getAsunto()"><i class="fas fa-comment"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Fecha Necesario Proyecto </label></strong>
+                        @Html.EditorFor(model => model.EndDueDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    </div>
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Establecer alerta antes de (días) </label></strong>
+                        @Html.DropDownListFor(model => Model.U_retrasoDias, new List<SelectListItem>
+                         {
+                       new SelectListItem{ Text="Seleccione prioridad", Value = "0" },
+                        new SelectListItem{ Text="15 días", Value = "15" },
+                             new SelectListItem{ Text="30 días", Value = "30" },
+                                new SelectListItem{ Text="45 días", Value = "45" },
+                         }, new { @class = "form-control" })
+                    </div>
+                </div>
+                    *@
+                <br />
+                <h5>Detalles de la Solicitud</h5>
+                <hr>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <strong><label class="control-label"> Comentarios </label></strong>
+                        @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", @rows = 5, @maxlength = 1500 })
+                    </div>
+                    
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Envio email </label></strong>
+                        @Html.EditorFor(model => model.U_Correo, new { htmlAttributes = new { @class = "form-control", @required = "required", @type = "email", @multiple = "multiple" } })
+                    </div>
+                    <div class="col-sm-5">
+                        <strong><label class="control-label">Prioridad </label></strong>
+                        @Html.DropDownListFor(model => Model.Priority, new List<SelectListItem>
+                         {
+                       new SelectListItem{ Text="Seleccione prioridad", Value = "pr_Normal" },
+                        new SelectListItem{ Text="Alta", Value = "pr_Normal" },
+                             new SelectListItem{ Text="Baja", Value = "pr_Low" },
+                                new SelectListItem{ Text="Normal", Value = "pr_High" },
+                         }, new { @class = "form-control" })
+                    </div>
+                </div>
+                <button style="float:right" type="submit" class="btn btn-second">Crear Solicitud</button>
+                <br />
+                <br />
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Mensaje de Error</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                No ha seleccionado un número de orden de venta válido!
+                <br />
+                <br />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

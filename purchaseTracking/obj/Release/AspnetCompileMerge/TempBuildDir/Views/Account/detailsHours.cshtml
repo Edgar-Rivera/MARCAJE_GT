@@ -1,0 +1,185 @@
+﻿
+@model PagedList.IPagedList<purchaseTracking.Models.eTALENT.EmpleadosHoras>
+@using PagedList.Mvc;
+@using purchaseTracking.Models.Activities
+
+@{
+    ViewBag.Title = "Detalle de Horas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- SweetAlert2 (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- DataTables CSS & JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+<div class="container mt-4">
+    <h2>Detalle de Horas</h2>
+
+    <table id="empleadosTable" class="display table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Fecha</th>
+                <th>Marca</th>
+                <th>Orden</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.CODIGO</td>
+                    <td>
+                        <input type="hidden" class="id" value="@item.ID">
+                        <input type="text" class="form-control fecha-marca" value="@item.FECHA_MARCA">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control marca" value="@item.MARCA">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control orden" value="@item.ORDEN">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm actualizar">Actualizar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @
+
+        <p class="text-center mt-2">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+        <nav>
+            <ul class="pagination justify-content-center">
+                @Html.PagedListPager(
+            Model,
+            page => Url.Action("detailsHours",
+            new
+            {
+                page,
+                findString = ViewBag.findString,
+                filterString = ViewBag.filterString,
+                filterSolucion = ViewBag.filterSolucion,
+                filterVendedor = ViewBag.filterVendedor,
+                filterUnidad = ViewBag.filterUnidad,
+                filterManager = ViewBag.filterManager
+            }
+            ),
+            new PagedListRenderOptions()
+            {
+                LinkToFirstPageFormat = "<<",
+                LinkToPreviousPageFormat = "Anterior",
+                LinkToNextPageFormat = "Siguiente",
+                LinkToLastPageFormat = ">>",
+                DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                LiElementClasses = new List<string> { "page-item", "page-link" }
+            })
+            </ul>
+        </nav>
+
+    }
+    else
+    {
+    if (ViewBag.findString != null && ViewBag.findString != "")
+    {
+    <div class="alert alert-warning" role="alert">
+        No se encontraron resultados para: <b>@ViewBag.findString</b>
+    </div>
+    }
+    else
+    {
+    <div class="alert alert-info" role="alert">
+        No se encontrarón resultados para la búsqueda aplicada
+    </div>
+    }
+
+    }
+    }
+
+    
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#empleadosTable').DataTable({
+            "paging": true,
+            "lengthMenu": [10, 25, 50, 100],
+            "ordering": true,
+            "info": true,
+            "searching": true,
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "No se encontraron registros",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    });
+
+    // Manejo de actualización con AJAX y SweetAlert
+    $(document).on("click", ".actualizar", function () {
+        var row = $(this).closest("tr"); // Seleccionar la fila
+        var id = row.find(".id").val();
+        var fechaMarca = row.find(".fecha-marca").val();
+        var marca = row.find(".marca").val();
+        var orden = row.find(".orden").val();
+
+        if (!id || id === "0") {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "El ID del empleado no es válido."
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "/Account/UpdateEmpleadoHoras",
+            type: "POST",
+            data: {
+                ID: id,
+                FECHA_MARCA: fechaMarca,
+                MARCA: marca,
+                ORDEN: orden
+            },
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡Éxito!",
+                        text: response.mensaje,
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: response.mensaje
+                    });
+                }
+            },
+            error: function () {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Ocurrió un problema al actualizar."
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,165 @@
+﻿@model PagedList.IPagedList<purchaseTracking.Models.Activities.List>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Mis Solicitudes de Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-10">
+            <h4>Mis Solicitudes de Compra <span class="badge bg-secondary">@ViewBag.totalItem</span></h4>
+            <hr />
+            @using (Html.BeginForm("RequestPurchase", "Activity", FormMethod.Get))
+            {
+                <div class="input-group mb-3">
+                    <br />
+                    <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <input type="submit" class="btn btn-success" value="Buscar" />
+                        <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("RequestPurchase", "Activity")'"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.findString != null && Model.Count() > 0)
+            {
+                <div class="alert alert-success" role="alert">
+                    @Model.TotalItemCount resultados para: <b> @ViewBag.findString</b>
+                </div>
+            }
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-responsive-sm table-hover">
+                    <thead class="text-center table-dark">
+                        <tr>
+                            <th>
+                                Actividad
+                            </th>
+                            <th>
+                                Fecha Actividad
+                            </th>
+                            <th>
+                                Solicitante
+                            </th>
+
+                            <th>
+                                Tipo Actividad
+                            </th>
+                            <th class="col-sm-2">
+                                Asunto de la Actividad
+                            </th>
+                            <th class="col-sm-2">
+                                Ordenes de Compra
+                            </th>
+                            <th>
+                                Fecha Necesario Proyecto
+                            </th>
+                            <th>
+                                Estatus
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("details", "Activity", new { id = item.ClgCode }))'">
+                            <td>
+                                @item.ClgCode
+                            </td>
+                            <td>
+                                @item.Recontact
+                            </td>
+                            <td>
+                                @item.U_Solicitante
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.Details
+                            </td>
+                            <td>
+                                @item.ODC
+                            </td>
+                            <td class="text-center">
+
+                                @item.endDate
+                            </td>
+                            <td>
+                                @if (item.status == "-2")
+                                {
+                                    <span class="badge bg-warning">No iniciado</span>
+                                }
+                                else if (item.status == "1")
+                                {
+                                    <span class="badge bg-success">En proceso</span>
+                                }
+                                else if (item.status == "4")
+                                {
+                                    <span class="badge bg-danger">Tarea en espera</span>
+
+                                }
+                                else if (item.status == "-3")
+                                {
+                                    <span class="badge bg-success">Concluido</span>
+
+                                }
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <a href="@Url.Action("ExportExcel", "Activity")" class="float-left">
+                    <span>
+                        Exportar a Excel
+                    </span>
+                </a>
+                <br />
+                <br />
+                <hr />
+                <p class="text-center">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        @Html.PagedListPager(
+                    Model,
+                    page => Url.Action("RequestPurchase",
+                    new
+                    {
+                        page,
+                        findString = ViewBag.findString
+                    }
+                    ),
+                    new PagedListRenderOptions()
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Anterior",
+                        LinkToNextPageFormat = "Siguiente",
+                        LinkToLastPageFormat = ">>",
+                        DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                        LiElementClasses = new List<string> { "page-item", "page-link" }
+                    })
+                    </ul>
+                </nav>
+                <br />
+                <br />
+            }
+            else
+            {
+                if (ViewBag.findString != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        No se encontraron resultados para <b>@ViewBag.findString</b>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info" role="alert">
+                        Tu usuario actualmente no cuenta con solicitudes de compra creadas
+                    </div>
+                }
+
+            }
+
+        </div>
+    </div>
+</div>

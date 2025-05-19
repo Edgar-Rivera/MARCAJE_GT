@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Firma Digital";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script src="~/Scripts/signature_pad.min.js"></script>
+    <script>
+        $(function () {
+            var canvas = document.querySelector('#signature');
+            var pad = new SignaturePad(canvas);
+
+            $('#save').click(function () {
+                var data = pad.toDataURL();
+                $('#savetarget').attr('src', data).show();
+                $('#SignatureDataUrl').val(data);
+                pad.off();
+            });
+
+            $('#accept').click(function () {
+                pad.clear();
+                pad.on();
+            });
+        });
+    </script>
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            @if (!string.IsNullOrEmpty(ViewBag.source))
+            {
+                <h4 class="mb-3">Firma Registrada por Empleado</h4>
+                <div class="alert alert-success" role="alert">
+                    Su firma se ha registrado exitosamente!
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="@ViewBag.source" class="img-fluid border" style="max-width: 100%; height: auto;" alt="Firma registrada">
+                    </div>
+                </div>
+            }
+            else
+            {
+                using (Html.BeginForm("createSignDigital", "Account", FormMethod.Post))
+                {
+                    <h4 class="mb-3">Creación de Firma Digital</h4>
+                    <div class="mb-3">
+                        <canvas id="signature" width="350" height="300" class="border border-dark w-100"></canvas>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" id="accept" class="btn btn-outline-secondary">Limpiar Firma</button>
+                        <button type="submit" id="save" class="btn btn-success ms-auto">Guardar Firma</button>
+                    </div>
+                    <input type="hidden" name="SignatureDataUrl" id="SignatureDataUrl" required />
+                    <img id="savetarget" class="img-fluid border mt-3 d-none" style="max-width: 100%; height: auto;">
+                }
+            }
+        </div>
+    </div>
+</div>

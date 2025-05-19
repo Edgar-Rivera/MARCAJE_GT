@@ -131,6 +131,7 @@ namespace purchaseTracking.Controllers
 
 
         [HttpGet]
+        [Obsolete]
         public ActionResult ExportarEmpleadosEstatus(int? page, string findString)
         {
             List<Models.Employees.StatusEmpleados> vacaciones_periodo_empleados = new Connection.UserData.UserData().GetStatusEmpleado();
@@ -211,6 +212,7 @@ namespace purchaseTracking.Controllers
 
 
         [HttpGet]
+        [Obsolete]
         public ActionResult ExportarEmpleados(int? page, string findString)
         {
             List<Models.eTALENT.VACACIONES> vacaciones_periodo_empleados = new Connection.UserData.UserData().VacacionesDiaSP_All();

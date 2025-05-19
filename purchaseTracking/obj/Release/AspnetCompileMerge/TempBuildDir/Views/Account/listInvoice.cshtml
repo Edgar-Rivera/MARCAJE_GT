@@ -1,0 +1,197 @@
+﻿@model PagedList.IPagedList<purchaseTracking.Models.Activities.List>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Solicitudes Asignadas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    thead tr th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #292b2c;
+    }
+
+    .table-responsive {
+        height: 200px;
+        overflow: scroll;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-10">
+            <h4>
+                Solicitudes Digitales Asignadas
+                <span class="badge bg-secondary">@ViewBag.totalItem</span>
+            </h4>
+            <hr />
+            @using (Html.BeginForm("listInvoice", "Account", FormMethod.Get))
+            {
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="input-group mb-3">
+                            <br />
+                            <input type="text" class="form-control" placeholder="Buscar...." name="findString" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <input type="submit" class="btn btn-success" value="Buscar" />
+                                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("listInvoice", "Account")'"><i class="fas fa-redo"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-2">
+                        @Html.DropDownList("filterString", new List<SelectListItem>
+                           {
+                          new SelectListItem{ Text="Todos los datos", Value = "" },
+                                  new SelectListItem{ Text="En proceso", Value = "-2" },
+                                  new SelectListItem{ Text="Aprobado", Value = "-3" },
+                                  new SelectListItem{ Text="Rechazado", Value = "4" },
+                           }, new { @class = "form-control" })
+                    </div>
+                    <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-success"><i class="fas fa-filter"></i> Aplicar Filtro</button>
+                    </div>
+                </div>
+
+
+            }
+            <br />
+            @if (ViewBag.findString != null && Model.Count() > 0 && ViewBag.findString != "")
+            {
+                <div class="alert alert-success" role="alert">
+                    @Model.TotalItemCount resultados para:
+                    <b> @ViewBag.findString</b>
+                </div>
+            }
+            @if (ViewBag.filterString != null && Model.Count() > 0 && ViewBag.filterString != "")
+            {
+                <div class="alert alert-success" role="alert">
+                    @Model.TotalItemCount resultados
+                </div>
+            }
+            @if (Model.Count() > 0)
+            {
+                <div class="overflow-auto" style="height:500px!important">
+                    <table class="table table-responsive-sm table-hover">
+                        <thead class="text-center table-dark">
+                            <tr>
+                                <th>
+                                    No. Actividad
+                                </th>
+                                <th>
+                                    Fecha Solicitud
+                                </th>
+                                <th>
+                                    Jefe Inmediato Asignado
+                                </th>
+                                <th>
+                                    Solicitante
+                                </th>
+
+                                <th>
+                                    Tipo Actividad
+                                </th>
+                                <th>
+                                    Asunto de la Actividad
+                                </th>
+                                <th>
+                                    Estatus
+                                </th>
+                            </tr>
+                        </thead>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("detailsInvoiceAssign", "Account", new { id = item.ClgCode }))'">
+                                <td>
+                                    @item.ClgCode
+                                </td>
+                                <td>
+                                    @item.Recontact
+                                </td>
+                                <td class="text-center">
+                                    @item.U_NAME
+                                </td>
+                                <td class="text-center">
+                                    @item.U_Solicitante
+                                </td>
+                                <td class="text-center">
+                                    @item.Name
+                                </td>
+                                <td class="text-center">
+                                    @item.Details
+                                </td>
+                                <td class="text-center">
+                                    @if (item.status == "-2")
+                                    {
+                                        <span class="badge bg-warning">En proceso</span>
+                                    }
+                                    else if (item.status == "1")
+                                    {
+                                        <span class="badge bg-warning">En proceso</span>
+                                    }
+                                    else if (item.status == "4")
+                                    {
+                                        <span class="badge bg-danger">Rechazado</span>
+
+                                    }
+                                    else if (item.status == "-3")
+                                    {
+                                        <span class="badge bg-success">Aprobado</span>
+
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <hr />
+                <p class="text-center">Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount</p>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        @Html.PagedListPager(
+                    Model,
+                    page => Url.Action("listInvoice",
+                    new
+                    {
+                        page,
+                        findString = ViewBag.findString,
+                        filterString = ViewBag.filterString,
+
+                    }
+                    ),
+                    new PagedListRenderOptions()
+                    {
+                        LinkToFirstPageFormat = "<<",
+                        LinkToPreviousPageFormat = "Anterior",
+                        LinkToNextPageFormat = "Siguiente",
+                        LinkToLastPageFormat = ">>",
+                        DisplayEllipsesWhenNotShowingAllPageNumbers = false,
+                        LiElementClasses = new List<string> { "page-item", "page-link" }
+                    })
+                    </ul>
+                </nav>
+                <br />
+            }
+            else
+            {
+                if (ViewBag.findString != null && ViewBag.findString != "")
+                {
+                    <div class="alert alert-warning" role="alert">
+                        No se encontraron resultados para <b>@ViewBag.findString</b>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info" role="alert">
+                        Tu usuario actualmente no cuenta con solicitudes asignadas
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>

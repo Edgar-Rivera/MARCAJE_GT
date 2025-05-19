@@ -222,7 +222,9 @@
                         </button>
                         @if (Model.status == -3)
                         {
-                            @Html.ActionLink("Descargar", "DowloadFiles", "Account", new { id = Model.ClgCode }, new { @class = "btn btn-outline-secondary ms-auto" })
+                            <a href="@Url.Action("DowloadFiles", "Account", new { id = Model.ClgCode })" class="btn btn-outline-secondary ms-auto">
+                                <i class="fas fa-download"></i> Descargar Archivos
+                            </a>
                         }
                     </div>
                 </div>
@@ -232,9 +234,6 @@
             </div>
 
         </div>
-        <br />
-        <br />
-        <br />
 
         <div class="modal fade" id="exampleModalEstado" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">

@@ -1,0 +1,584 @@
+﻿@model purchaseTracking.Models.Activities.details
+@using purchaseTracking.Models.Activities
+@{
+    ViewBag.Title = "Detalles Actividad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <span class="badge bg-success float-right">@Model.Name</span>
+    <h4>Solcitud de Compra - Detalles</h4>
+    <hr />
+    <fieldset disabled>
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <strong><label class="control-label">Número de Actividad </label></strong>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-secondary" type="button"><i class="fas fa-chart-line"></i></button>
+                    </div>
+                    <input type="text" class="form-control" value="@Model.ClgCode">
+                </div>
+            </div>
+        </div>
+        <fieldset disabled>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Fecha Actividad </label></strong>
+                    <input class="form-control" type="text" value="@Model.Recontact.ToString("dd/MM/yyyy")">
+                </div>
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Fecha Necesario Proyecto </label></strong>
+                    <input class="form-control" type="text" value="@Model.endDate.ToString("dd/MM/yyyy")">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Estado </label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-dark" type="button"><i class="fas fa-flag"></i></button>
+                        </div>
+                        @if (Model.status == -3)
+                        {
+                            <input type="text" class="form-control" value="Concluido">
+                        }
+                        else if (Model.status == 1)
+                        {
+                            <input type="text" class="form-control" value="En proceso">
+                        }
+                        else if (Model.status == -2)
+                        {
+                            <input type="text" class="form-control" value="No iniciado">
+                        }
+                        else if (Model.status == 4)
+                        {
+                            <input type="text" class="form-control" value="Tarea en espera">
+                        }
+                        else if (Model.status == 6)
+                        {
+                            <input type="text" class="form-control" value="Licencia">
+                        }
+                        else
+                        {
+                            <input type="text" class="form-control" value="N/A">
+                        }
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Prioridad </label></strong>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-danger" type="button"><i class="fas fa-exclamation"></i></button>
+                        </div>
+                        @if (Model.Priority == 1)
+                        {
+                            <input type="text" class="form-control" value="Normal">
+                        }
+                        else if (Model.Priority == 0)
+                        {
+                            <input type="text" class="form-control" value="Bajo">
+                        }
+                        else
+                        {
+                            <input type="text" class="form-control" value="Alta">
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+        </fieldset>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <strong><label class="control-label"> Asignado a </label></strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-user-check"></i></button>
+                    </div>
+                    <input type="text" class="form-control" value="@Model.U_NAME">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <strong><label class="control-label"> Solicitante </label></strong>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-success" type="button"><i class="fas fa-share"></i></button>
+                    </div>
+                    <input type="text" class="form-control" value="@Model.U_Solicitante" id="contract">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <strong><label class="control-label">Código SN </label></strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" class="form-control" value="@Model.CardCode">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <strong><label class="control-label">Nombre SN </label></strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" class="form-control" value="@Model.CardName">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <strong><label class="control-label">Última Fecha de Actualización</label></strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    @if(Model.FechaActualizacion != "")
+            {
+                <input type="text" class="form-control" value="@Convert.ToDateTime(Model.FechaActualizacion).ToString("dd/MM/yyyy")">
+            }
+            else
+            {
+                <input type="text" class="form-control" value="@Model.FechaActualizacion">
+            }
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <strong><label class="control-label">Correo(s) electrónico a notificar </label></strong>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <textarea type="text" class="form-control" rows="5">@Model.U_Correo</textarea>
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <h4><label class="control-label">Ordenes de Compra en esta Solicitud </label></h4>
+            <hr />
+            @if (Enumerable.Count(ViewBag.orders) > 0)
+            {
+                <table class="table table-responsive-sm table-hover table-bordered table-sm">
+                    <thead class="text-center thead-dark table-border">
+                        <tr>
+                            <th>
+                                No. Orden de Compra
+                            </th>
+                            <th>
+                                Proveedor
+                            </th>
+                            <th>
+                                Fecha Orden Compra
+                            </th>
+                        </tr>
+                    </thead>
+                    @foreach (OrderListPurchase purchase in ViewBag.orders)
+                    {
+                        <tr style="cursor:pointer !important" onclick="location.href = '@(Url.Action("details", "Tracking", new { id = purchase.DocNum }))'">
+                            <td>
+                                @string.Concat("GT-", purchase.DocNum)
+                            </td>
+                            <td>
+                                @purchase.CardName
+                            </td>
+                            <td class="text-center">
+                                @purchase.DocDate
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    No existen ordenes de compra en esta solicitud!
+                </div>
+            }
+        </div>
+
+    </div>
+    <br />
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#contenido" role="tab" aria-controls="contenido" aria-selected="false">Contenido</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <br />
+        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="home-tab">
+            <fieldset disabled>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <strong><label class="control-label">Notas </label></strong>
+                        <textarea type="text" class="form-control" rows="7">@Model.Notes</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <strong><label class="control-label">Comentarios Compras </label></strong>
+                        <textarea type="text" class="form-control" rows="7">@Model.U_Comentarios</textarea>
+                    </div>
+
+                </div>
+            </fieldset>
+            @if (Session["code"].ToString() == "13" || Session["code"].ToString() == "70" || Session["code"].ToString() == "89")
+            {
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalEstado">
+                    Cambiar Estado
+                </button>
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLocalC">
+                    Ingresar Comentarios
+                </button>
+
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalEntrega">
+                    Notificar Entrega
+                </button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalMail">
+                    Modificar Correos a Notificar
+                </button>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCheck">
+                    Marcar Revisado
+                </button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalClose">
+                    Cerrar Solicitud
+                </button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalNotas">
+                    Modificar Notas
+                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalMail">
+                    Modificar Correos a Notificar
+                </button>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCheck">
+                    Marcar Revisado
+                </button>
+            }
+
+            <br />
+            <br />
+
+        </div>
+        <div class="tab-pane fade" id="contenido" role="tabpanel" aria-labelledby="profile-tab">
+
+            <fieldset disabled>
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <strong><label class="control-label">Asunto </label></strong>
+                        <textarea type="text" class="form-control" rows="2">@Model.Details</textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <strong><label class="control-label"> Clase de Documento</label></strong>
+
+                    <input type="text" class="form-control" value="@Model.ClaseDocumento" readonly>
+                </div>
+                <div class="col-sm-4">
+                    <strong><label class="control-label">Documento vinculado </label></strong>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="@Model.DocNum" readonly>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<br />
+<br />
+<br />
+
+<!-- Modal para Ingreso de actualizacion de Status -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalEntrega" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Notificación Disponible Entrega</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateEntrega", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+                    @Html.Hidden("ejecutivo", Model.E_Mail);
+                    @Html.Hidden("involucrados", Model.U_Correo);
+                    @Html.Hidden("status", Model.status);
+                    @Html.Hidden("orden_venta", Model.DocNum);
+                    @Html.Hidden("sn", Model.CardName);
+                    <div class="form-group">
+                        <strong>Seleccione tipo de Entrega</strong>
+                        <br />
+                        <br />
+                        @Html.DropDownList("tipoEntrega", new List<SelectListItem>
+                     {
+                    new SelectListItem{ Text="Entrega Completa", Value = "_" },
+                         new SelectListItem{ Text="Entrega Parcial", Value = "_PARCIAL_" },
+                     }, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <strong>Ingrese comentarios de compras</strong>
+                        <br />
+                        <br />
+                        <textarea rows="5" class="form-control" id="comment" name="comment" required>@Model.U_Comentarios</textarea>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        La actualización de comentarios y estado se enviara a todos los correos involucrados en esta actividad!
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingreso de actualizacion de Status -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalEstado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Actualización Estado Solicitud de Compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateStatus", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+                    @Html.Hidden("ejecutivo", Model.E_Mail);
+                    @Html.Hidden("involucrados", Model.U_Correo);
+                    @Html.Hidden("orden_venta", Model.DocNum);
+                    @Html.Hidden("sn", Model.CardName);
+                    <div class="form-group">
+                        <strong>Seleccione estado de solictud</strong>
+                        <br />
+                        <br />
+                        @Html.DropDownList("status", new List<SelectListItem>
+                     {
+                    new SelectListItem{ Text="En Proceso", Value = "1" },
+                         new SelectListItem{ Text="Concluido", Value = "-3" },
+                            new SelectListItem{ Text="No iniciado", Value = "-2" },
+                            new SelectListItem{ Text="Licencia", Value = "6" },
+                            new SelectListItem{ Text="Tarea en espera", Value = "4" },
+                     }, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <strong>Ingrese comentarios de compras</strong>
+                        <br />
+                        <br />
+                        <textarea rows="5" class="form-control" id="comment" name="comment" required>@Model.U_Comentarios</textarea>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        La actualización de comentarios y estado se enviara a todos los correos involucrados en esta actividad!
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para Ingreso de Comentarios Locales -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalLocalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Comentarios Solicitud de Compras</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateComments", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+                    @Html.Hidden("status", Model.status);
+                    @Html.Hidden("ejecutivo", Model.E_Mail);
+                    @Html.Hidden("involucrados", Model.U_Correo);
+                    @Html.Hidden("orden_venta", Model.DocNum);
+                    @Html.Hidden("sn", Model.CardName);
+                    <div class="form-group">
+                        <strong>Ingrese comentarios de compras</strong>
+                        <br />
+                        <br />
+                        <textarea rows="5" class="form-control" id="comment" name="comment" required></textarea>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        La actualización de comentarios se enviara a todos los correos involucrados en esta actividad!
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingreso de Comentarios Locales -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalNotas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Comentarios Solicitud de Compras</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateNotes", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+
+                    @Html.Hidden("ejecutivo", Model.E_Mail);
+                    @Html.Hidden("involucrados", Model.U_Correo);
+                    @Html.Hidden("orden_venta", Model.DocNum);
+                    @Html.Hidden("sn", Model.CardName);
+                    <div class="form-group">
+                        <strong>Ingrese comentarios de compras</strong>
+                        <br />
+                        <br />
+                        <textarea rows="5" class="form-control" id="comment" name="comment" required>@Model.Notes</textarea>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        La actualización de comentarios se enviara a todos los correos involucrados en esta actividad!
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingreso de Comentarios Locales -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Correo(s) electrónico a notificar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateMails", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+                    <div class="form-group">
+                        <strong>Ingrese correo(s) electrónico</strong>
+                        <br />
+                        <br />
+                        <input class="form-control" type="email" id="comment" name="comment" multiple required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingreso de Comentarios Locales -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCheck" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modificar Última Fecha de Actualización</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateDate", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+                    @Html.Hidden("correo", Model.U_Correo);
+                    <div class="form-group">
+                        <strong>La actividad seleccionada se actualizara con fecha : @DateTime.Now.ToString("dd/MM/yyyy")</strong>
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Ingreso de Comentarios Locales -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalClose" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Cerrar Solicitud de Compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("updateClose", "Activity"))
+                {
+                    @Html.Hidden("id", Model.ClgCode);
+                    @Html.Hidden("status", "-3");
+                    @Html.Hidden("ejecutivo", Model.E_Mail);
+                    @Html.Hidden("involucrados", Model.U_Correo);
+                    @Html.Hidden("comment", Model.U_Comentarios);
+                    @Html.Hidden("orden_venta", Model.DocNum);
+                    @Html.Hidden("sn", Model.CardName);
+                    <div class="alert alert-danger" role="alert">
+                        La actividad <b>@Model.ClgCode</b> se cerrara, al cerrar esta solictud no se podrá realizar el seguimiento de los estatus de compra<br />
+                        <b>¿Desa continuar?</b>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Continuar</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
