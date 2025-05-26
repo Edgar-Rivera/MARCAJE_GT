@@ -492,6 +492,11 @@
     <Content Include="Files\Formularios PDF\Autorización de Descuentos.pdf" />
     <Content Include="Files\Formularios PDF\Cambio de Horario.pdf" />
     <Content Include="Files\Formularios PDF\Préstamo Interno.pdf" />
+    <Content Include="Files\Plantillas 2025\CartaMembretada.docx" />
+    <Content Include="Files\Plantillas 2025\HojaMembratada.docx" />
+    <Content Include="Files\Plantillas 2025\HojaMembratadaNumerada.docx" />
+    <Content Include="Files\Plantillas 2025\Lexend-VariableFont_wght.ttf" />
+    <Content Include="Files\Plantillas 2025\PlantillaGeneral.docx" />
     <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
