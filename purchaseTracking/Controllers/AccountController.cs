@@ -48,6 +48,7 @@ namespace purchaseTracking.Controllers
             Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
             var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
             int dias = 0;
+            string MedioDia = string.Empty;
             if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.Recontact)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
             {
                 DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
@@ -63,22 +64,28 @@ namespace purchaseTracking.Controllers
                     }
                 }
             }
+            MedioDia = (requestActivity.U_retrasoDias == "1" ? "Si" : "No"); // Si el usuario selecciona medio día, se asigna 0.5 días de vacaciones
 
             Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(requestActivity.U_InternalKey));
             Models.UserData.UserData data_etalent = new Connection.UserData.UserData().UserDatas(data_sap.empID);
+
+            string TipoSolicitud = requestActivity.Name + " - " + requestActivity.ClgCode;
 
             ReportDocument rpt = new ReportDocument();
             rpt = new VACACIONES();
             rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
             rpt.Subreports[0].SetDataSource(tableSigns);
 
-            rpt.SetParameterValue("@FECHA", requestActivity.CntctDate);
+            rpt.SetParameterValue("@FECHA", requestActivity.Recontact);
             rpt.SetParameterValue("@CODEPDO", data_etalent.EPDO_CODIGO);
             rpt.SetParameterValue("MotivoCambio", "");
             rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
             rpt.SetParameterValue("CantidadDiasVacaciones", "" + dias);
-            rpt.SetParameterValue("Observaciones", requestActivity.Details);
-            rpt.SetParameterValue("TipoSolicitud", requestActivity.Name);
+            rpt.SetParameterValue("Observaciones", requestActivity.Notes);
+            rpt.SetParameterValue("TipoSolicitud", TipoSolicitud);
+            rpt.SetParameterValue("FechaSolicitud", requestActivity.CntctDate.ToString("dd/MM/yyyy"));
+            rpt.SetParameterValue("MedioDia", MedioDia);
+            rpt.SetParameterValue("ComentariosJefe", requestActivity.U_Comentarios);
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
