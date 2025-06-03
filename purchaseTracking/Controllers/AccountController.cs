@@ -72,7 +72,7 @@ namespace purchaseTracking.Controllers
             rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
             rpt.Subreports[0].SetDataSource(tableSigns);
 
-            rpt.SetParameterValue("@FECHA", requestActivity.Recontact);
+            rpt.SetParameterValue("@FECHA", requestActivity.CntctDate);
             rpt.SetParameterValue("@CODEPDO", data_etalent.EPDO_CODIGO);
             rpt.SetParameterValue("MotivoCambio", "");
             rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
