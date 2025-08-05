@@ -12,7 +12,7 @@ namespace purchaseTracking.ServiceLayer
 {
     public class Conexion
     {
-        private static string Server = "https://10.93.110.52:50000/b1s/v1/";
+        private static string Server = "https://10.110.240.104:50000/b1s/v1/";
         public HttpWebResponse SesionLogin()
         {
             HttpWebResponse LoginResponse = null;
@@ -74,7 +74,7 @@ namespace purchaseTracking.ServiceLayer
         {
             #region Sesion
             HttpWebResponse LoginResponse = null;
-            Uri UrlConecction = new Uri("https://10.93.110.52:50000/b1s/v1/");
+            Uri UrlConecction = new Uri("https://10.110.240.104:50000/b1s/v1/");
             ServicePointManager.ServerCertificateValidationCallback += RemoteSSLTLSCertificateValidate;
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(Server + "/Logout");
             httpWebRequest.ContentType = "application/json; charset=utf-8";

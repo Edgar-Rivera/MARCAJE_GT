@@ -1162,7 +1162,7 @@ namespace purchaseTracking.Controllers
                         string direct = string.Empty;
                         ReportDocument rpt = new ReportDocument();
                         rpt = new VACACIONES();
-                        rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
+                        rpt.SetDatabaseLogon("sa", "IS3rAdm2025@:??DB_S$$%%");
                         rpt.Subreports[0].SetDataSource(tableSigns);
 
                         rpt.SetParameterValue("@FECHA", requestActivity.Recontact);

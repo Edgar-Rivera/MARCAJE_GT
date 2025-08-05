@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\lopez.francisco\Desktop\Desarrollos</_PublishTargetUrl>
+    <History>True|2025-07-31T17:15:48.7201462Z||;True|2025-07-28T11:02:56.3593964-06:00||;True|2025-07-28T11:02:37.2267842-06:00||;False|2025-07-17T09:11:27.7026499-06:00||;False|2025-07-17T09:11:23.6315493-06:00||;True|2025-07-03T14:44:34.0213884-06:00||;True|2025-07-01T14:57:31.3554866-06:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>07/01/2025 10:06:31</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>07/01/2025 10:06:31</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Cryptography.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.Parser.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.pdb">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/cs/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/cs/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/CsvHelper.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/da/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/da/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/de/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/de/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>07/01/2025 10:06:33</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.Framework.dll">
+      <publishTime>07/01/2025 10:06:33</publishTime>
+    </File>
+    <File Include="bin/en/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/en/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>07/01/2025 10:06:33</publishTime>
+    </File>
+    <File Include="bin/EPPlus.Interfaces.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/EPPlus.System.Drawing.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/es/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Helpers.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Mvc.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Optimization.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Razor.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.WebPages.resources.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/ExcelNumberFormat.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/fi/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/fi/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/FileHelpers.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/fr/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/fr/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/hu/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/hu/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/it/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/it/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ja/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ja/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ko/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ko/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/log4net.pdb">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/MailKit.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/MailKit.dll.config">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/MailKit.pdb">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.Cryptography.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.HashCode.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IO.RecyclableMemoryStream.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/MimeKit.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/MimeKit.pdb">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/nb-NO/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/nb-NO/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/nl/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/nl/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/pl/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/pl/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/pt/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/pt/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/purchaseTracking.dll">
+      <publishTime>07/31/2025 11:15:46</publishTime>
+    </File>
+    <File Include="bin/purchaseTracking.pdb">
+      <publishTime>07/31/2025 11:15:46</publishTime>
+    </File>
+    <File Include="bin/RBush.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.CurrentVersions.targets">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Buffers.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Memory.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Numerics.Vectors.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>07/01/2025 10:06:35</publishTime>
+    </File>
+    <File Include="bin/ru/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/ru/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/Sap.Data.Hana.v4.5.dll">
+      <publishTime>03/12/2021 16:41:27</publishTime>
+    </File>
+    <File Include="bin/Sap.Data.Hana.v4.5.dll.config">
+      <publishTime>03/12/2021 16:41:09</publishTime>
+    </File>
+    <File Include="bin/Sap.Data.Hana.v4.5.pdb">
+      <publishTime>03/12/2021 16:41:28</publishTime>
+    </File>
+    <File Include="bin/SixLabors.Fonts.dll">
+      <publishTime>07/01/2025 10:06:36</publishTime>
+    </File>
+    <File Include="bin/sk/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/sk/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/sv/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/sv/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.Annotations.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.Common.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.Common.pdb">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Formats.Asn1.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.IO.Packaging.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Security.Cryptography.Xml.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>06/21/2025 09:18:09</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/01/2025 10:06:34</publishTime>
+    </File>
+    <File Include="bin/th/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/th/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/tr/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/tr/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/01/2025 10:06:37</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/CrystalDecisions.CrystalReports.Engine.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/CrystalDecisions.Shared.resources.dll">
+      <publishTime>07/01/2025 10:06:32</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-grid.rtl.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-reboot.rtl.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-utilities.rtl.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap.rtl.min.css.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Chosen/chosen-sprite.png">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Chosen/chosen.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Chosen/chosen.jquery.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Chosen/chosen.jquery.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Chosen/component-chosen.min.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/CSS/style.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/CSS/StyleSideBar.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/Artboard 1.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/bg-2.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/bg-3-V02.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/bg-3.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/bg-4.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/bg-5.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/bg-6.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/Día del cariño %283%29.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/e671265f-458a-4665-a67d-0b99b38aa4de.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/ep2.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/etalent.png">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/favicon.ico">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/ImagenMarcaje.png">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/iserlogo.png">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/Logo_Isertec.svg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/Logo_Marcaje.svg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/Logo_Marcaje_V2.svg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/logo_verde.png">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/logo_verde.svg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Images/rrhh.jpg">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="CrystalReports/VACACIONES.rpt">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>07/01/2025 10:06:40</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Anticipo de Aguinaldo.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Anticipo de Bonificaciones.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Anticipo de Bono 14.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Anticipo de Salario.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Asignación de Caja Chica.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Asignación de Combustible.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Autorización de Descuentos.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Cambio de Horario.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Formularios PDF/Préstamo Interno.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Lexend-VariableFont_wght.ttf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Plantillas 2025/CartaMembretada.docx">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Plantillas 2025/HojaMembratada.docx">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Plantillas 2025/HojaMembratadaNumerada.docx">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Plantillas 2025/Lexend-VariableFont_wght.ttf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Plantillas 2025/PlantillaGeneral.docx">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Politica Comercial 2024.docx.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Politica Comercial.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Politicas Comerciales 2024.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Politicas Corporativas 2024.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Politicas Operativas 2024.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Polìticas Admon - 2024.docx.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Polìticas Admon - 2024.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Polìticas Admon.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Política del EPP.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Política SSO ISERTEC.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/Políticas de Horas Extras.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Files/REGLAMENTO INTERIOR DE TRABAJO ISERTEC.pdf">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/.travis.yml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.esm.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/chosen.jquery.coffee">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/chosen.jquery.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/composer.json">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/contributing.md">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/device-uuid.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper-utils.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/esm/popper.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/GetDataGeo.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/Gruntfile.coffee">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/index.js.flow">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.min.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.7.1.slim.min.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/LICENSE.md">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/package-lock.json">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/package-travis.yml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/package.json">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper-utils.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/popper.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/publish-package.sh">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/README.md">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/signature_pad.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/signature_pad.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/index.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/methods/defaults.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/methods/destroy.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/methods/disableEventListeners.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/methods/enableEventListeners.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/methods/placements.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/methods/update.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/applyStyle.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/arrow.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/computeStyle.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/flip.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/hide.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/index.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/inner.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/keepTogether.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/offset.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/preventOverflow.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/modifiers/shift.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/clockwise.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/computeAutoPlacement.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/debounce.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/find.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/findCommonOffsetParent.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/findIndex.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getBordersSize.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getBoundaries.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getBoundingClientRect.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getClientRect.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getFixedPositionOffsetParent.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getOffsetParent.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getOffsetRect.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getOffsetRectRelativeToArbitraryNode.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getOppositePlacement.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getOppositeVariation.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getOuterSizes.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getParentNode.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getPopperOffsets.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getReferenceNode.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getReferenceOffsets.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getRoot.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getRoundedOffsets.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getScroll.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getScrollParent.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getStyleComputedProperty.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getSupportedPropertyName.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getViewportOffsetRectRelativeToArtbitraryNode.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getWindow.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/getWindowSizes.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/includeScroll.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/index.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isBrowser.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isFixed.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isFunction.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isIE.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isModifierEnabled.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isModifierRequired.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isNumeric.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/isOffsetContainer.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/removeEventListeners.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/runModifiers.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/setAttributes.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/setStyles.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/src/utils/setupEventListeners.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper-utils.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.js.flow">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.min.js">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Scripts/umd/popper.min.js.map">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/addInf.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/CorporateTemplate.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/createSignDigital.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/detailsHours.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/detailsInvoice.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/detailsInvoiceAssign.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/detailsRequest.cshtml">
+      <publishTime>07/07/2025 15:27:07</publishTime>
+    </File>
+    <File Include="Views/Account/detailsRequestAssign.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/DigitalForms.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/Documentos.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/DowloadFiles.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/EmpleadosAll.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/EmpleadosUnidad.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/FlujogramaIsertec.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/listInvoice.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/listNomina.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/listRequest.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/MailSign.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/marcajeEmpleados.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/PersonalInformation.cshtml">
+      <publishTime>07/28/2025 10:58:05</publishTime>
+    </File>
+    <File Include="Views/Account/Policies.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/RequestForms.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/RequestInvoice.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/RequestList.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Account/VacationsRequest.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Activity/details.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Activity/ExportExcel.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Activity/list.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Activity/RequestPurchase.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Debs/BusinessPartnersDetails.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Debs/ToPay.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Debs/ToPayBusinessPartners.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Home/page.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Invoice/BusinessPartnersSalesOrders.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Invoice/InvoiceDetails.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Invoice/RecurrentDatails.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Invoice/RecurrentList.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Login/Login.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/PaymentReceived/PaymentIntegration.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/PaymentReceived/PaymentInvoiceDetails.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/PaymentReceived/PaymentList.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/PaymentReceived/PaymentsDetails.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/PaymentReceived/PaymentsDetailsBMA.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/PaymentReceived/PaymentsDetailsUnit.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Project/CostingProjects.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Project/list.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Project/SalesOrderDetails.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Request/newRequest.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/dashdata.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/ErrorActualizarVacaciones.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/partialLogin.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/Success.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutWiki.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/CompletedRequest.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/details.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/detailsInternational.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/international.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/list.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/purchase.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Tracking/PurchaseList.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Update/TransferData.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Update/updateTracking.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/Wiki/Index.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>07/01/2025 10:06:38</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/17/2025 10:07:13</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

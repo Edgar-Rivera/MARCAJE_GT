@@ -94,7 +94,7 @@ namespace purchaseTracking.Controllers
 
         public async Task<HttpWebResponse> loginSL(SiteUser attempSession)
         {
-            string Server = "https://10.93.110.52:50000/b1s/v1/";
+            string Server = "https://10.110.240.104:50000/b1s/v1/";
             HttpWebResponse LoginResponse = null;
             ServicePointManager.ServerCertificateValidationCallback += delegate (object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors ssl) { return true; };
             ServicePointManager.Expect100Continue = false;
@@ -128,7 +128,7 @@ namespace purchaseTracking.Controllers
         public async Task<HttpWebResponse> LogoutSL(HttpWebResponse session)
         {
             #region Sesion
-            string Server = "https://10.93.110.52:50000/b1s/v1/";
+            string Server = "https://10.110.240.104:50000/b1s/v1/";
             HttpWebResponse LoginResponse;
             Uri UrlConecction = new Uri(Server);
             //ServicePointManager.ServerCertificateValidationCallback += RemoteSSLTLSCertificateValidate;

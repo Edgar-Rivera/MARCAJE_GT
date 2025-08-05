@@ -47,9 +47,23 @@
 
                         @{
                             DateTime fechaActual = DateTime.Now;
-                            DateTime fechaNacimiento = Convert.ToDateTime(item.FECHA_NACIMIENTO);
-                            edad = fechaActual.Year - fechaNacimiento.Year;
-                            if (fechaNacimiento.Month > fechaActual.Month) { --edad; }
+                            DateTime fechaNacimiento;
+
+                            // Validar que el string no esté vacío o sea null
+                            if (!string.IsNullOrEmpty(item.FECHA_NACIMIENTO) &&
+                                DateTime.TryParse(item.FECHA_NACIMIENTO, out fechaNacimiento))
+                            {
+                                edad = fechaActual.Year - fechaNacimiento.Year;
+                                if (fechaNacimiento.Month > fechaActual.Month ||
+                                    (fechaNacimiento.Month == fechaActual.Month && fechaNacimiento.Day > fechaActual.Day))
+                                {
+                                    --edad;
+                                }
+                            }
+                            else
+                            {
+                                edad = 0; // o algún valor por defecto
+                            }
                         }
 
                         <div class="col-sm-4">
