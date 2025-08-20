@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\lopez.francisco\\documents\\github\\marcaje_gt\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\lopez.francisco\\documents\\github\\marcaje_gt\\purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\lopez.francisco\\documents\\github\\marcaje_gt\\purchasetracking\\views\\shared\\erroractualizarvacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchasetracking\\views\\shared\\erroractualizarvacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\shared\\erroractualizarvacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,7 +42,45 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VacationsRequest.cshtml",
+              "DocumentMoniker": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "ToolTip": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-06T15:13:48.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SendMailer.cs",
+              "DocumentMoniker": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Services\\SendMailer.cs",
+              "ToolTip": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
+              "RelativeToolTip": "purchaseTracking\\Services\\SendMailer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T15:06:41.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Mailer.cs",
+              "DocumentMoniker": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Services\\Mailer.cs",
+              "ToolTip": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
+              "RelativeToolTip": "purchaseTracking\\Services\\Mailer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T15:00:28.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ErrorActualizarVacaciones.cshtml",
               "DocumentMoniker": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
               "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
@@ -38,18 +88,17 @@
               "RelativeToolTip": "purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-31T17:32:50.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-31T17:32:50.188Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\lopez.francisco\\Documents\\GitHub\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
               "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAADoEAAAAAAAAAAAlwFIEAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAA0CAAAAAAAAAAAtwC8CAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-31T17:12:06.05Z",
               "EditorCaption": ""

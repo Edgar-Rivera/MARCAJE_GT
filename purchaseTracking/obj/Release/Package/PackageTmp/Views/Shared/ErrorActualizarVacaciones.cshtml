@@ -15,7 +15,8 @@
                         
                         <p> <label>Error en actualizar solicitud de vacaciones: </label> <br /></p>
                         <p> @ViewBag.ErrorMessage</p>
-                        @Html.ActionLink("Ir a mis Contrasenias", "InvoiceContrasenia", "Debs", new { @class = "btn btn-second" })
+                        
+                        @Html.ActionLink("Solicitudes Digitales Asignadas", "listRequest", "Account", new { @class = "btn btn-second" })
                     </div>
                 </div>
             </div>

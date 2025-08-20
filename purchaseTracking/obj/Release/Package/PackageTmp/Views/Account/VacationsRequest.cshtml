@@ -51,7 +51,11 @@
             else if (valorSeleccionado === "89" && valorSeleccionado2 === "Fallecimiento de Familiar") {
                 $('#resultado').val('Solicitud de Permiso - Fallecimiento de Familiar');
             }
+            else if (valorSeleccionado === "89" && valorSeleccionado2 === "Cita IGSS") {
+                $('#resultado').val('Solicitud de Permiso - Cita IGSS');
+}
         }
+
         $('#solicitudDropdown, #solicitudDropdown2').on('change', function () {
             $('#checkSolicitud').prop('checked', true);
             actualizarSolicitud();
@@ -110,6 +114,8 @@
                                 new SelectListItem{ Text = "Matrimonio", Value = "Matrimonio" },
                                 new SelectListItem{ Text = "Nacimiento de Hijo", Value = "Nacimiento de Hijo" },
                                 new SelectListItem{ Text = "Fallecimiento de Familiar", Value = "Fallecimiento de Familiar" },
+                                new SelectListItem{ Text = "Cita IGSS", Value = "Cita IGSS" },
+
                             }, new { @class = "form-select chosen", @id = "solicitudDropdown2" })
                     </div>
                 </div>
