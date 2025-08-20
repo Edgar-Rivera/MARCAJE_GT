@@ -497,6 +497,7 @@
     <Content Include="Files\Plantillas 2025\HojaMembratadaNumerada.docx" />
     <Content Include="Files\Plantillas 2025\Lexend-VariableFont_wght.ttf" />
     <Content Include="Files\Plantillas 2025\PlantillaGeneral.docx" />
+    <None Include="Properties\PublishProfiles\Edgar Rivera - Marcaje Publish.pubxml" />
     <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
