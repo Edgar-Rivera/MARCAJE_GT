@@ -148,7 +148,7 @@ namespace purchaseTracking.Controllers
             {
                 vacaciones_periodo_empleados = vacaciones_periodo_empleados
                     .Where(s => s.Name.Contains(findString))
-                    .ToList();
+                    .ToList(); 
             }
 
 
@@ -158,7 +158,8 @@ namespace purchaseTracking.Controllers
             var paginatedList = vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize);
 
 
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            OfficeOpenXml.ExcelPackage.License.SetNonCommercialOrganization("Isertec");
+
 
             using (ExcelPackage package = new ExcelPackage())
             {
@@ -232,14 +233,11 @@ namespace purchaseTracking.Controllers
                     .ToList();
             }
 
-            
-
             int pageSize = 500;
             int pageNumber = (page ?? 1);
             var paginatedList = vacaciones_periodo_empleados.ToPagedList(pageNumber, pageSize);
 
-            
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            OfficeOpenXml.ExcelPackage.License.SetNonCommercialOrganization("Isertec");
 
             using (ExcelPackage package = new ExcelPackage())
             {
@@ -252,6 +250,7 @@ namespace purchaseTracking.Controllers
                 worksheet.Cells[1, 4].Value = "Total Días Vacaciones";
                 worksheet.Cells[1, 5].Value = "Días Gozados";
                 worksheet.Cells[1, 6].Value = "Días Disponibles";
+                worksheet.Cells[1, 7].Value = "Unidad";
 
                 int row = 2;
                 foreach (var item in paginatedList)
@@ -266,6 +265,7 @@ namespace purchaseTracking.Controllers
                     worksheet.Cells[row, 4].Value = temp_total;
                     worksheet.Cells[row, 5].Value = temp_gozados;
                     worksheet.Cells[row, 6].Value = temp_dias;
+                    worksheet.Cells[row, 7].Value = item.UNIDAD_SAP;
 
                     row++;
                 }
@@ -1125,67 +1125,8 @@ namespace purchaseTracking.Controllers
                     SendNotification message = new SendNotification();
                     if (status == "-3")
                     {
-
-
-                        Models.Activities.details requestActivity = new Connection.Activities.DataActivities().getDetailsInvoice(id);
-                        var tableSigns = GetListSigns(Convert.ToInt32(requestActivity.U_InternalKey), Convert.ToInt32(requestActivity.AttendUser));
-                        involucrados = involucrados + ",nomina@isertec.com";
-                        // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
-                        int dias = 0;
-                        if (!String.IsNullOrEmpty(Convert.ToString(requestActivity.Recontact)) && !string.IsNullOrEmpty(requestActivity.FechaActualizacion))
-                        {
-                            DateTime fecha1 = Convert.ToDateTime(requestActivity.Recontact);
-                            DateTime fecha2 = Convert.ToDateTime(requestActivity.FechaActualizacion);
-                            TimeSpan diferencia = fecha2 - fecha1;
-
-                            // Iterar sobre cada día entre las dos fechas
-                            for (int i = 0; i <= diferencia.Days; i++)
-                            {
-                                // Obtener el día actual en la iteración
-                                DateTime fechaActual = Convert.ToDateTime(requestActivity.Recontact).AddDays(i);
-
-                                // Verificar si el día actual es sábado o domingo
-                                if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday && !(fechaActual.Month == 12 && fechaActual.Day == 25) &&
-                                   !(fechaActual.Month == 11 && fechaActual.Day == 1) && !(fechaActual.Month == 9 && fechaActual.Day == 15) && !(fechaActual.Month == 3 && fechaActual.Day == 28) &&
-                                   !(fechaActual.Month == 3 && fechaActual.Day == 29))
-                                {
-                                    // Si no es sábado ni domingo, agregar 1 a la cantidad
-                                    dias++;
-                                }
-                            }
-
-
-                        }
-
-                        Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(requestActivity.U_InternalKey));
-                        Models.UserData.UserData data_etalent = new Connection.UserData.UserData().UserDatas(data_sap.empID);
-                        string direct = string.Empty;
-                        ReportDocument rpt = new ReportDocument();
-                        rpt = new VACACIONES();
-                        rpt.SetDatabaseLogon("sa", "IS3rAdm2025@:??DB_S$$%%");
-                        rpt.Subreports[0].SetDataSource(tableSigns);
-
-                        rpt.SetParameterValue("@FECHA", requestActivity.Recontact);
-                        rpt.SetParameterValue("@CODEPDO", data_etalent.EPDO_CODIGO);
-                        rpt.SetParameterValue("MotivoCambio", "");
-                        rpt.SetParameterValue("FechaFin", requestActivity.FechaActualizacion);
-                        rpt.SetParameterValue("CantidadDiasVacaciones", "" + dias);
-                        rpt.SetParameterValue("Observaciones", requestActivity.Details);
-                        rpt.SetParameterValue("TipoSolicitud", requestActivity.Name);
-
-                        ExportOptions myoptions;
-                        DiskFileDestinationOptions path = new DiskFileDestinationOptions();
-                        PdfRtfWordFormatOptions pdf = new PdfRtfWordFormatOptions();
-                        path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante + '_' + DateTime.Now.ToString("MM-dd-yyyy") + "a_.pdf";
-                        direct = path.DiskFileName;
-                        myoptions = rpt.ExportOptions;
-                        myoptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                        myoptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                        myoptions.ExportDestinationOptions = path;
-                        myoptions.ExportFormatOptions = pdf;
-                        rpt.Export();
                         
-                        message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "_" + Solicitante, Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, direct);
+                        message.sendNotification(ejecutivo, involucrados, "SOLICITUD_APROBADA_" + id + "_" + Solicitante, Session["nombre"].ToString(), "" + id, comment, orden_venta, sn, "");
                     }
                     
                     else

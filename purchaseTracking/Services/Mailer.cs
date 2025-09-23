@@ -9,7 +9,7 @@ namespace purchaseTracking.Services
     {
         public static string Server = "smtp.gmail.com";
         public static int Port = 587;
-        public static string SenderName = "Tracking Isertec";
+        public static string SenderName = "eTALENT Isertec";
         public static string SenderEmail = "notificaciones@isertec.com";
         public static string Username = "notificaciones@isertec.com";
         public static string Password = "tgin untv xbkt qfgt";

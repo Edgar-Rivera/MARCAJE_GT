@@ -24,6 +24,7 @@ namespace purchaseTracking.Models.eTALENT
         public decimal GOZADOS { get; set; }    
         public decimal PENDIENTE { get; set; }
         public int JEFE { get; set; }
+        public string UNIDAD_SAP { get; set; }
     }
 
 }

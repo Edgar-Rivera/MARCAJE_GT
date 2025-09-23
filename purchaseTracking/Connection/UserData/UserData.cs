@@ -116,6 +116,7 @@ namespace purchaseTracking.Connection.UserData
                     GOZADOS = reader.IsDBNull(11) ? 0 : reader.GetDecimal(11),
 
                     JEFE = reader.IsDBNull(15) ? 0 : reader.GetInt32(15),
+                    UNIDAD_SAP = reader.IsDBNull(16) ? "" : reader.GetString(16),
                 });
             }
             return data;

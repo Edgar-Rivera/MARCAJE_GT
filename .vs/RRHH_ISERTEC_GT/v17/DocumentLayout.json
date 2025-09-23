@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\soporte\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\digitalforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\digitalforms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\soporte\\source\\repos\\marcaje_gt\\purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\sendmailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\services\\mailer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\soporte\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\detailsrequestassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\detailsrequestassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|c:\\users\\soporte\\source\\repos\\marcaje_gt\\purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\account\\vacationsrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchasetracking\\views\\shared\\erroractualizarvacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{28BE807D-9478-4051-824B-150D3AFA8CF7}|purchaseTracking\\EASYACCESS_ISERTEC.csproj|solutionrelative:purchasetracking\\views\\shared\\erroractualizarvacaciones.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAvwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T17:12:06.05Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -46,79 +40,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "detailsRequestAssign.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
-              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\detailsRequestAssign.cshtml",
-              "ViewState": "AgIAAM8AAAAAAAAAAAAiwNUAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-20T19:56:29.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VacationsRequest.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Account\\VacationsRequest.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-06T15:13:48.477Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SendMailer.cs",
-              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Services\\SendMailer.cs",
-              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\SendMailer.cs",
-              "RelativeToolTip": "purchaseTracking\\Services\\SendMailer.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAEwB4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T15:06:41.066Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Mailer.cs",
-              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Services\\Mailer.cs",
-              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Services\\Mailer.cs",
-              "RelativeToolTip": "purchaseTracking\\Services\\Mailer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T15:00:28.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ErrorActualizarVacaciones.cshtml",
-              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
-              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
-              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
-              "RelativeToolTip": "purchaseTracking\\Views\\Shared\\ErrorActualizarVacaciones.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-31T17:32:50.188Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "purchaseTracking\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAIUEAAAAAAAAAAAewI4EAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-31T17:12:06.05Z",
+              "Title": "DigitalForms.cshtml",
+              "DocumentMoniker": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\DigitalForms.cshtml",
+              "RelativeDocumentMoniker": "purchaseTracking\\Views\\Account\\DigitalForms.cshtml",
+              "ToolTip": "C:\\Users\\Soporte\\source\\repos\\MARCAJE_GT\\purchaseTracking\\Views\\Account\\DigitalForms.cshtml",
+              "RelativeToolTip": "purchaseTracking\\Views\\Account\\DigitalForms.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-23T17:14:42.913Z",
               "EditorCaption": ""
             }
           ]
