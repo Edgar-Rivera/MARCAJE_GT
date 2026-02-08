@@ -491,72 +491,14 @@ namespace purchaseTracking.Controllers
             {
                 requestActivity.U_retrasoDias = "1";
             }
-            // METODO QUE RECIBE EL MODULO Y HACE EL POST EN SAP   
             if (new ServiceLayer.Activity.ActivityComponents().addActivity(requestActivity))
             {
                 var tableSigns = GetListSigns(Convert.ToInt32(Session["code"].ToString()));
-
-                
-
-
-                // VALIDA LA CREACION DE LA ACTIVIDAD EN SAP Y ENVIA CORREO ELECTORNICO
                 var data = new Connection.Activities.DataActivities().GetEjecutivo(requestActivity.HandledBy);
                 ViewBag.email_to = data.correo;
                 ViewBag.email_bcc = requestActivity.U_Correo;
                 ViewBag.activity = new purchaseTracking.Connection.Activities.DataActivities().getID();
                 SendMailer message = new SendMailer();
-
-             
-                // RUTINA PARA CREAR PDF APARTIR DE FORMATO CRYSTAL REPORTS
-               /* string direct = string.Empty;
-                ReportDocument rpt = new ReportDocument();
-                rpt = new VACACIONES();             
-                rpt.SetDatabaseLogon("sa", "M@n4g3rS!st3m$+*");
-                rpt.Subreports[0].SetDataSource(tableSigns);
-
-                // DATA SOURCE FIRMAS
-                int dias = 0;
-                if(!String.IsNullOrEmpty(requestActivity.StartDate) && !string.IsNullOrEmpty(requestActivity.U_FechaActualizacion))
-                {
-                    DateTime fecha1 = Convert.ToDateTime(requestActivity.StartDate);
-                    DateTime fecha2 = Convert.ToDateTime(requestActivity.U_FechaActualizacion);
-                    TimeSpan diferencia = fecha2 - fecha1;
-                    for (int i = 0; i <= diferencia.Days; i++)
-                    {
-                        // Obtener el día actual en la iteración
-                        DateTime fechaActual = Convert.ToDateTime(requestActivity.StartDate).AddDays(i);
-
-                        // Verificar si el día actual es sábado o domingo
-                        if (fechaActual.DayOfWeek != DayOfWeek.Saturday && fechaActual.DayOfWeek != DayOfWeek.Sunday)
-                        {
-                            dias++;
-                        }
-                    }
-                }
-               */
-               
-
-                // DATOS DE FIRMAS
-                /*
-                rpt.SetParameterValue("@FECHA",requestActivity.StartDate);
-                rpt.SetParameterValue("@CODEPDO", Session["internal_code"]);
-                rpt.SetParameterValue("MotivoCambio", "");
-                rpt.SetParameterValue("FechaFin", requestActivity.U_FechaActualizacion);
-                rpt.SetParameterValue("CantidadDiasVacaciones", ""+dias);
-                rpt.SetParameterValue("Observaciones", requestActivity.Details);
-          
-                ExportOptions myoptions;
-                DiskFileDestinationOptions path = new DiskFileDestinationOptions();
-                PdfRtfWordFormatOptions pdf = new PdfRtfWordFormatOptions();
-                path.DiskFileName = "C:\\RequestDocuments\\" + requestActivity.U_Solicitante +  '_' + DateTime.Now.ToString("MM-dd-yyyy") + ".pdf";
-                direct = path.DiskFileName;
-                myoptions = rpt.ExportOptions;
-                myoptions.ExportDestinationType = ExportDestinationType.DiskFile;
-                myoptions.ExportFormatType = ExportFormatType.PortableDocFormat;
-                myoptions.ExportDestinationOptions = path;
-                myoptions.ExportFormatOptions = pdf;
-                rpt.Export();
-                */
                 message.sendMail(data.correo, requestActivity.U_Correo, requestActivity.Details + " - " + requestActivity.U_Solicitante , "", requestActivity.U_Solicitante, ViewBag.activity, "", requestActivity.ActivityType + "-" + requestActivity.U_Observaciones);
                 return View("Success");
             }

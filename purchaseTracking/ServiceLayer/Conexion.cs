@@ -13,6 +13,7 @@ namespace purchaseTracking.ServiceLayer
     public class Conexion
     {
         private static string Server = "https://10.110.240.104:50000/b1s/v1/";
+        private static string Schema = "SBO_ISERTEC_GT";
         public HttpWebResponse SesionLogin()
         {
             HttpWebResponse LoginResponse = null;
@@ -24,9 +25,9 @@ namespace purchaseTracking.ServiceLayer
             httpWebRequest.Method = "POST";
             httpWebRequest.CookieContainer = new CookieContainer();
             Login ObjectLogin = new Login();
-            ObjectLogin.CompanyDB = "SBO_ISERTEC_GT";
-            ObjectLogin.Password = "Sup2021/.";
-            ObjectLogin.UserName = "Support";
+            ObjectLogin.CompanyDB = Schema;
+            ObjectLogin.Password = ":s25Zpdp2A";
+            ObjectLogin.UserName = "API_SAP_WEB";
 
             string Parametros = JsonConvert.SerializeObject(ObjectLogin);
 
@@ -52,9 +53,9 @@ namespace purchaseTracking.ServiceLayer
             httpWebRequest.Method = "POST";
             httpWebRequest.CookieContainer = new CookieContainer();
             Login ObjectLogin = new Login();
-            ObjectLogin.CompanyDB = "SBO_ISERTEC_GT";
-            ObjectLogin.Password = "S3gur!d4d/";
-            ObjectLogin.UserName = "applications";
+            ObjectLogin.CompanyDB = Schema;
+            ObjectLogin.Password = ":s25Zpdp2A";
+            ObjectLogin.UserName = "API_SAP_WEB";
 
             string Parametros = JsonConvert.SerializeObject(ObjectLogin);
 

@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\Soporte\Desktop\marcaje_gt</_PublishTargetUrl>
-    <History>True|2025-09-23T17:19:51.7070622Z||;True|2025-09-23T11:18:36.6259049-06:00||;True|2025-09-23T11:15:40.2583382-06:00||;True|2025-09-05T12:17:46.8113435-06:00||;True|2025-09-05T12:13:22.7015225-06:00||;True|2025-09-05T11:57:11.3210404-06:00||;False|2025-09-05T11:44:29.9629335-06:00||;True|2025-08-27T15:45:21.4140205-06:00||;True|2025-08-20T14:03:54.9688330-06:00||;</History>
+    <History>True|2026-02-08T01:55:17.8896706Z||;True|2025-09-23T11:22:03.7275882-06:00||;True|2025-09-23T11:21:41.8662714-06:00||;True|2025-09-23T11:19:51.7070622-06:00||;True|2025-09-23T11:18:36.6259049-06:00||;True|2025-09-23T11:15:40.2583382-06:00||;True|2025-09-05T12:17:46.8113435-06:00||;True|2025-09-05T12:13:22.7015225-06:00||;True|2025-09-05T11:57:11.3210404-06:00||;False|2025-09-05T11:44:29.9629335-06:00||;True|2025-08-27T15:45:21.4140205-06:00||;True|2025-08-20T14:03:54.9688330-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -98,7 +98,7 @@
       <publishTime>08/20/2025 11:02:04</publishTime>
     </File>
     <File Include="bin/EnvDTE.dll">
-      <publishTime>09/04/2025 11:20:44</publishTime>
+      <publishTime>10/01/2025 13:09:06</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>08/15/2025 08:56:56</publishTime>
@@ -119,7 +119,7 @@
       <publishTime>06/20/2025 16:46:36</publishTime>
     </File>
     <File Include="bin/es/Microsoft.VisualStudio.Shell.15.0.resources.dll">
-      <publishTime>09/16/2025 15:47:52</publishTime>
+      <publishTime>12/22/2025 22:15:04</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
       <publishTime>08/20/2025 11:02:05</publishTime>
@@ -230,19 +230,19 @@
       <publishTime>03/08/2023 21:40:46</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.RpcContracts.dll">
-      <publishTime>09/16/2025 15:48:00</publishTime>
+      <publishTime>12/22/2025 22:15:17</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Shell.15.0.dll">
-      <publishTime>09/16/2025 15:47:54</publishTime>
+      <publishTime>12/22/2025 22:15:08</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Shell.Framework.dll">
-      <publishTime>09/16/2025 15:47:54</publishTime>
+      <publishTime>12/22/2025 22:15:08</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Telemetry.dll">
       <publishTime>12/14/2024 00:27:16</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.TemplateWizardInterface.dll">
-      <publishTime>09/11/2025 12:37:13</publishTime>
+      <publishTime>12/22/2025 22:15:08</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Utilities.Internal.dll">
       <publishTime>09/26/2024 15:29:56</publishTime>
@@ -290,10 +290,10 @@
       <publishTime>08/20/2025 11:02:04</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>09/23/2025 11:15:38</publishTime>
+      <publishTime>02/07/2026 19:55:16</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>09/23/2025 11:15:38</publishTime>
+      <publishTime>02/07/2026 19:55:16</publishTime>
     </File>
     <File Include="bin/RBush.dll">
       <publishTime>08/20/2025 11:02:05</publishTime>
@@ -1247,7 +1247,7 @@
       <publishTime>08/20/2025 11:02:06</publishTime>
     </File>
     <File Include="Views/Account/RequestForms.cshtml">
-      <publishTime>09/03/2025 13:44:00</publishTime>
+      <publishTime>10/14/2025 17:20:59</publishTime>
     </File>
     <File Include="Views/Account/RequestInvoice.cshtml">
       <publishTime>08/20/2025 11:02:06</publishTime>
@@ -1352,7 +1352,7 @@
       <publishTime>08/20/2025 11:02:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/20/2025 11:02:06</publishTime>
+      <publishTime>10/14/2025 17:21:48</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutWiki.cshtml">
       <publishTime>08/20/2025 11:02:06</publishTime>
@@ -1394,7 +1394,7 @@
       <publishTime>08/20/2025 11:02:06</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/05/2025 12:17:45</publishTime>
+      <publishTime>02/07/2026 19:55:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

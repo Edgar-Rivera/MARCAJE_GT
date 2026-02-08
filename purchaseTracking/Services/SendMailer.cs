@@ -92,7 +92,6 @@ namespace purchaseTracking.Services
             email.To.Add(new MailboxAddress("", from));
             email.Cc.AddRange(address(to));
             var anio = DateTime.Now.Year;
-            //crea libro electronico de direcciones para la copia del correo
             email.Cc.AddRange(copyAddress("nomina@isertec.com,ticket@isertec.com"));
             email.Bcc.AddRange(copyAddress("earagon@isertec.com"));
             email.Subject = subject;
