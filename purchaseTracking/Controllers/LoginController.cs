@@ -39,15 +39,13 @@ namespace purchaseTracking.Controllers
                         credentials.Password = attemp.Password;
                         UserNameData tecnico = new UserNameData();
                         tecnico = new purchaseTracking.Connection.Activities.DataActivities().GetUsuarioEmpelado(attemp.UserName);
-                        string fullName = tecnico.UserName;
-                        string internalKey = tecnico.InternalKey;
-                        string eMail = tecnico.eMail;
-                        Session.Add("nombre", fullName);
-                        Session.Add("code", internalKey);
+                        Session.Add("nombre", tecnico.UserName);
+                        Session.Add("code", tecnico.InternalKey);
                         Session.Add("schema", Schema);
                         Session.Add("user", attemp.UserName);
-                        Session.Add("eMail", eMail);
-                        Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(internalKey));
+                        Session.Add("eMail", tecnico.eMail);
+                        Session.Add("AplicaMarcaje", tecnico.AsignacionMarcaje);
+                        Models.UserData.OHEM data_sap = new Connection.UserData.UserData().GetOHEMs(Convert.ToInt32(tecnico.InternalKey));
                         if (data_sap.Active != "")
                         {
                             Models.UserData.UserData data_etalent = new Connection.UserData.UserData().UserDatas(data_sap.empID);
@@ -128,7 +126,7 @@ namespace purchaseTracking.Controllers
             #region Sesion
             HttpWebResponse LoginResponse;
             Uri UrlConecction = new Uri(ServerSAP);
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(Server + "/Logout");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerSAP + "/Logout");
             httpWebRequest.ContentType = "application/json; charset=utf-8";
             httpWebRequest.Method = "POST";
             httpWebRequest.CookieContainer = new CookieContainer();

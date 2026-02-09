@@ -12,7 +12,7 @@ namespace purchaseTracking.ServiceLayer
 {
     public class Conexion
     {
-        private static string Server = "https://10.110.240.104:50000/b1s/v1/";
+        private static string ServerSAP= "https://10.110.240.104:50000/b1s/v1/";
         private static string Schema = "SBO_ISERTEC_GT";
         public HttpWebResponse SesionLogin()
         {
@@ -20,7 +20,7 @@ namespace purchaseTracking.ServiceLayer
             ServicePointManager.ServerCertificateValidationCallback += delegate (object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors ssl) { return true; };
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.MaxServicePointIdleTime = 2000;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(Server + "Login");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerSAP + "Login");
             httpWebRequest.ContentType = "application/json;odata=minimalmetadata";
             httpWebRequest.Method = "POST";
             httpWebRequest.CookieContainer = new CookieContainer();
@@ -48,7 +48,7 @@ namespace purchaseTracking.ServiceLayer
         {
             HttpWebResponse LoginResponse = null;
             ServicePointManager.ServerCertificateValidationCallback += RemoteSSLTLSCertificateValidate;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(Server + "Login");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(ServerSAP + "Login");
             httpWebRequest.ContentType = "application/json; charset=utf-8";
             httpWebRequest.Method = "POST";
             httpWebRequest.CookieContainer = new CookieContainer();

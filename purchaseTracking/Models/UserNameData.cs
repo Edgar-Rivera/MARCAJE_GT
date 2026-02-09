@@ -11,5 +11,6 @@ namespace purchaseTracking.Models
         public string UserName { get; set; }
         public string eMail { get; set; }
         public string Path { get; set; }
+        public string AsignacionMarcaje { get; set; } = "No";
     }
 }

@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\Soporte\Desktop\marcaje_gt</_PublishTargetUrl>
-    <History>True|2026-02-08T01:55:17.8896706Z||;True|2025-09-23T11:22:03.7275882-06:00||;True|2025-09-23T11:21:41.8662714-06:00||;True|2025-09-23T11:19:51.7070622-06:00||;True|2025-09-23T11:18:36.6259049-06:00||;True|2025-09-23T11:15:40.2583382-06:00||;True|2025-09-05T12:17:46.8113435-06:00||;True|2025-09-05T12:13:22.7015225-06:00||;True|2025-09-05T11:57:11.3210404-06:00||;False|2025-09-05T11:44:29.9629335-06:00||;True|2025-08-27T15:45:21.4140205-06:00||;True|2025-08-20T14:03:54.9688330-06:00||;</History>
+    <History>True|2026-02-09T02:17:59.9560646Z||;True|2026-02-07T19:55:17.8896706-06:00||;True|2025-09-23T11:22:03.7275882-06:00||;True|2025-09-23T11:21:41.8662714-06:00||;True|2025-09-23T11:19:51.7070622-06:00||;True|2025-09-23T11:18:36.6259049-06:00||;True|2025-09-23T11:15:40.2583382-06:00||;True|2025-09-05T12:17:46.8113435-06:00||;True|2025-09-05T12:13:22.7015225-06:00||;True|2025-09-05T11:57:11.3210404-06:00||;False|2025-09-05T11:44:29.9629335-06:00||;True|2025-08-27T15:45:21.4140205-06:00||;True|2025-08-20T14:03:54.9688330-06:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -290,10 +290,10 @@
       <publishTime>08/20/2025 11:02:04</publishTime>
     </File>
     <File Include="bin/purchaseTracking.dll">
-      <publishTime>02/07/2026 19:55:16</publishTime>
+      <publishTime>02/08/2026 20:18:49</publishTime>
     </File>
     <File Include="bin/purchaseTracking.pdb">
-      <publishTime>02/07/2026 19:55:16</publishTime>
+      <publishTime>02/08/2026 20:18:49</publishTime>
     </File>
     <File Include="bin/RBush.dll">
       <publishTime>08/20/2025 11:02:05</publishTime>
@@ -1289,7 +1289,7 @@
       <publishTime>08/20/2025 11:02:06</publishTime>
     </File>
     <File Include="Views/Home/page.cshtml">
-      <publishTime>08/20/2025 11:02:06</publishTime>
+      <publishTime>02/08/2026 20:14:44</publishTime>
     </File>
     <File Include="Views/Invoice/BusinessPartnersSalesOrders.cshtml">
       <publishTime>08/20/2025 11:02:06</publishTime>

@@ -103,7 +103,7 @@ namespace purchaseTracking.Connection.Activities
             var data = new Models.UserNameData();
             HanaConnection conn = new HanaConnection();
             conn = connectionHana.connectionResult();
-            HanaCommand cmd = new HanaCommand("SELECT \"INTERNAL_K\", \"U_NAME\", \"E_Mail\" FROM OUSR WHERE \"USER_CODE\" = ?", conn);
+            HanaCommand cmd = new HanaCommand("SELECT \"INTERNAL_K\", \"U_NAME\", \"E_Mail\",\"U_AsignacionMarcaje\"  FROM OUSR WHERE \"USER_CODE\" = ?", conn);
             HanaParameter param = new HanaParameter();
             param.HanaDbType = HanaDbType.NVarChar;
             param.Value = nombre_usuario;
@@ -114,6 +114,7 @@ namespace purchaseTracking.Connection.Activities
                 data.InternalKey = reader.IsDBNull(0) ? string.Empty : reader.GetString(0);
                 data.UserName = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
                 data.eMail = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+                data.AsignacionMarcaje = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
             }
             conn.Close();
             return data;

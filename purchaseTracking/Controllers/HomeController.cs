@@ -13,7 +13,6 @@ namespace purchaseTracking.Controllers
     {
         public ActionResult ObtenerHora()
         {
-            // Obtener la hora del servidor
             DateTime horaServidor = DateTime.Now;
             string horaServidorStr = horaServidor.ToString("HH:mm:ss");
 
@@ -63,7 +62,6 @@ namespace purchaseTracking.Controllers
             if (!string.IsNullOrEmpty(Session["nombre"] as string))
             {
                 var data = new Connection.UserData.UserData().GetSAPData(Convert.ToInt32(ORDR));
-                // METODO PARA REALIZAR MARCAS, SE REALIZA METODO POST DEPENDIENDO DE BOTON
                 if (!string.IsNullOrEmpty(lt) && !string.IsNullOrEmpty(lg))
                 {
                     if (ORDR != "0")
