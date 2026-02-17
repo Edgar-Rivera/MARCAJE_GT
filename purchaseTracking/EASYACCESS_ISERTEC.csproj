@@ -553,8 +553,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Files\Formularios PDF\Asignación de Caja Chica v2.pdf" />
-    <None Include="Properties\PublishProfiles\Edgar Rivera - Marcaje Publish.pubxml" />
-    <None Include="Properties\PublishProfiles\Francisco Lopez - Marcaje.pubxml" />
+    <Content Include="Files\Código de Ética Isertec 2026 GT.pdf" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.esm.min.js.map" />
@@ -744,6 +743,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Connection\CrystalReports\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Views\Bonificaciones\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\Pedidos\" />
