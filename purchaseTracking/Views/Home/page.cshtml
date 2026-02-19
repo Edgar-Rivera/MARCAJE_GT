@@ -9,16 +9,83 @@
 
 }
 <style>
-    #unsafe ul li {
-        padding-left: 0;
-        padding: 0.75rem 1.25rem;
-        border: 1px solid transparent;
-        margin-bottom: 1rem;
-        position: relative;
-        list-style-type: none;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
+    /* 1. Fondo de la página (Gris claro de la foto) */
+    body {
+        background-color: #F4F6F9 !important;
+    }
+
+    /* 2. La Tarjeta (Ancha, Blanca y con la Sombra de la foto) */
+    .tab-content {
+        background: #ffffff !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 12px !important;
+        padding: 30px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+        margin-top: 20px !important;
+    }
+
+    /* 3. Inputs (Gris F4, redondeados y sin bordes, igual que la foto) */
+    .form-control, .form-select, .select2-selection {
+        background-color: #edf1f4 !important;
+        border: none !important;
+        border-radius: 10px !important;
+        height: 45px !important;
+        color: #333 !important;
+        font-weight: 500;
+        margin-bottom: 15px !important;
+    }
+
+    /* 4. Títulos (Verde Isertec de la foto) */
+    .nav-tabs .nav-link.active {
+        color: #1b6d4b !important;
+        border-bottom: 3px solid #1b6d4b !important;
+        font-weight: bold;
+    }
+
+    /* 5. Botones (Colores de la foto, redondeados) */
+    .btn {
+        border-radius: 8px !important;
+        padding: 10px 20px !important;
+        font-weight: 600 !important;
+        border: none !important;
+    }
+
+    /* Colores exactos */
+    .btn-success {
+        background-color: #1b6d4b !important;
+    }
+    /* Verde */
+    .btn-danger {
+        background-color: #dc3545 !important;
+    }
+    /* Rojo */
+    .btn-primary {
+        background-color: #0d6efd !important;
+    }
+    /* Azul Bootstrap */
+
+    /* --- LO QUE ME PEDISTE AÑADIR --- */
+    .col-md-8.mt-2 {
+        position: relative !important;
+    }
+
+    /* Nombre y Correo a la IZQUIERDA */
+    h4.text-center:not(#hora), h6.text-center {
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+
+    /* Hora a la DERECHA */
+    #hora {
+        position: absolute !important;
+        top: 0 !important;
+        right: 15px !important;
+        text-align: right !important;
+        margin: 0 !important;
+    }
+
+    #myTab {
+        margin-top: 30px !important;
     }
 </style>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -97,7 +164,7 @@
     $(document).ready(function () {
         $('#carcode').select2({
             allowClear: true,
-            width: '100%' 
+            width: '100%'
         });
     });
 </script>

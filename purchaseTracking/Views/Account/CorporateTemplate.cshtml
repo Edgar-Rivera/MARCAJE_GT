@@ -2,143 +2,264 @@
     ViewBag.Title = "Plantillas Corporativas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    body {
+        background-color: #F4F6F9;
+    }
+
+
+    .seccion-card {
+        background-color: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+
+    .subtitulo-seccion {
+        color: #1E7F5C;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+
+    .card-formulario {
+        background-color: #E9ECEF;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: 0.25s ease;
+        color: #212529 !important;
+        font-weight: 600;
+    }
+
+
+        .card-formulario a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .card-formulario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .card-formulario .card-body {
+            position: relative;
+        }
+    .card-destacada > div:not(.icono-doc) {
+        color: #1E2329;
+    }
+
+    .icono-doc {
+        font-size: 32px;
+        color:  black;
+    }
+</style>
 
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col-md-11 mt-3">
+        <div class="col-md-10 mt-4">
+
             <h4 class="text-center">Plantillas Corporativas</h4>
-            <hr />
-            <h4>
-                Plantillas para Google Docs
-            </h4>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="https://docs.google.com/document/d/1DKBTv-AYFQp5Sa9Bk8hP_Jc6gKH6sVmd1CeMNYfrvzs/edit?tab=t.0" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Carta de Entregables
-                            </a>
+
+            <div class="seccion-card">
+                <h5 class="subtitulo-seccion">
+                    Plantillas para Google Docs
+                </h5>
+
+                <div class="row g-3 justify-content-center">
+
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <div class="card-formulario">
+                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                <div>
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <a href="https://docs.google.com/document/d/1DKBTv-AYFQp5Sa9Bk8hP_Jc6gKH6sVmd1CeMNYfrvzs/edit?tab=t.0"
+                                   class="stretched-link text-decoration-none fw-semibold ">
+                                    Carta de Entregables
+                                </a>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="https://docs.google.com/document/d/14Av1pWcFV0ZfwldMmlCsqQesN6hFmeQ1HEzJKaP8nIk/edit?tab=t.0" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Hoja Membretada
-                            </a>
+
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <div class="card-formulario">
+                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                <div>
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+                                <a href="https://docs.google.com/document/d/14Av1pWcFV0ZfwldMmlCsqQesN6hFmeQ1HEzJKaP8nIk/edit?tab=t.0" class="stretched-link text-decoration-none  fw-semibold">
+                                    Hoja Membretada
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
+                
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="card-formulario">
                         <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="https://docs.google.com/document/d/19-xvwS_pyB4nwKz3mJNLMhMLfr_k75umBbc3C_CB7OU/edit?tab=t.0" class="stretched-link text-decoration-none text-dark fw-semibold">
+
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+                            <a href="https://docs.google.com/document/d/19-xvwS_pyB4nwKz3mJNLMhMLfr_k75umBbc3C_CB7OU/edit?tab=t.0"
+                               class="stretched-link text-decoration-none fw-semibold">
                                 Hoja Membreatada Numerada
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
+
+                <div class="col-12 col-sm-6 col-md-6">
+                    <div class="card-formulario">
                         <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="https://docs.google.com/document/d/1qwgnzuGoTFlXEvccFlXZnI9s3C4KhcTJylqc8KotJIs/edit?tab=t.0" class="stretched-link text-decoration-none text-dark fw-semibold">
+
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1qwgnzuGoTFlXEvccFlXZnI9s3C4KhcTJylqc8KotJIs/edit?tab=t.0"
+                               class="stretched-link text-decoration-none fw-semibold ">
                                 Plantilla - Proyectos 2025
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4>
-                Plantillas para Office 365
-            </h4>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Plantillas 2025/CartaMembretada.docx" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Carta Membretada
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Plantillas 2025/HojaMembratada.docx" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Hoja Membretada
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Plantillas 2025/HojaMembratadaNumerada.docx" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Hoja Membretada Numerada
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Plantillas 2025/PlantillaGeneral.docx" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Plantilla - Proyectos 2025
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Plantillas 2025/Lexend-VariableFont_wght.ttf" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Tipografía Lexend-VariableFont
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h4>
-               Presentaciones
-            </h4>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📊</span>
-                            <a href="https://docs.google.com/presentation/d/11gbnI-xPP9aEX_JG1U6aMQgiMt-GCDUm8hVTHC71AAI/edit?slide=id.p#slide=id.p" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Plantilla Presentación 
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📊</span>
-                            <a href="https://docs.google.com/presentation/d/1Kx9d4cYcZ--I6ZCR19jRBI_CXLtbUWP2giC5znSMysc/edit?slide=id.p#slide=id.p" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                Presentación General Isertec
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+            <div class="seccion-card">
+                <h5 class="subtitulo-seccion">
+                    Plantillas para Office 365
+                </h5>
+             
+
+                <div class="row g-3 justify-content-center">
+
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <div class="card-formulario">
+                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                <div>
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+                                <a href="~/Files/Plantillas 2025/CartaMembretada.docx"
+                                   class="stretched-link text-decoration-none fw-semibold">
+                                    Carta Membretada
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-md-6">
+
+                        <div class="card-formulario">
+                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                <div>
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+                                <a href="~/Files/Plantillas 2025/HojaMembratada.docx" class="stretched-link text-decoration-none  fw-semibold">
+                                    Hoja Membretada
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <div class="card-formulario">
+                                <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                    <div>
+                                        <i class="bi bi-file-earmark-text icono-doc"></i>
+                                    </div>
+                                    <a href="~/Files/Plantillas 2025/HojaMembratadaNumerada.docx" class="stretched-link text-decoration-none fw-semibold">
+                                        Hoja Membretada Numerada
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <div class="card-formulario">
+                                <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                    <div>
+                                        <i class="bi bi-file-earmark-text icono-doc"></i>
+                                    </div>
+                                    <a href="~/Files/Plantillas 2025/PlantillaGeneral.docx" class="stretched-link text-decoration-none fw-semibold">
+                                        Plantilla - Proyectos 2025
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-12 col-sm-6 col-md-6">
+                                <div class="card-formulario">
+                                    <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                        <div>
+                                            <i class="bi bi-file-earmark-text icono-doc"></i>
+                                        </div>
+                                        <a href="~/Files/Plantillas 2025/Lexend-VariableFont_wght.ttf" class="stretched-link text-decoration-none  fw-semibold">
+                                            Tipografía Lexend-VariableFont
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                      </div> 
+                        
+                    </div>
+                       
+                        <div class="seccion-card">
+                            <h5 class="subtitulo-seccion">
+                                Presentaciones
+                            </h5>
+
+                            <div class="row g-3 mb-3 justify-content-center">
+
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <div class="card-formulario">
+                                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
+
+                                            <div>
+                                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                            </div>
+                                            <a href="https://docs.google.com/presentation/d/11gbnI-xPP9aEX_JG1U6aMQgiMt-GCDUm8hVTHC71AAI/edit?slide=id.p#slide=id.p"
+                                               class="stretched-link text-decoration-none fw-semibold ">
+                                                Plantilla Presentación
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-6">
+                                    <div class="card-formulario">
+                                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
+                                          
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+                                            <a href="https://docs.google.com/presentation/d/1Kx9d4cYcZ--I6ZCR19jRBI_CXLtbUWP2giC5znSMysc/edit?slide=id.p#slide=id.p"
+                                               class="stretched-link text-decoration-none fw-semibold ">
+                                                Presentación General Isertec
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+

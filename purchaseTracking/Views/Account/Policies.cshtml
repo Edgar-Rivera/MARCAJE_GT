@@ -3,90 +3,203 @@
     ViewBag.Title = "Politicas Internas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+
+    body {
+        background-color: #F4F6F9;
+    }
+
+  
+    .card-custom {
+        background-color: #FFFFFF !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        border: none;
+    }
+
+        .card-custom a {
+            color: #1E7F5C;
+        }
+
+            .card-custom a:hover {
+                color: #145C43;
+                transition: 0.3s;
+            }
+
+    
+    .titulo-seccion {
+        color: #166F4F; 
+        font-weight: 700;
+    }
+
+
+    .card-destacada {
+        background-color: #E9ECEF !important;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+
+        .card-destacada a {
+            color: #212529 !important;
+            font-weight: 600;
+        }
+
+            .card-destacada a:hover {
+                color: #212529 !important;
+            }
+
+
+        .card-destacada > div:not(.icono-doc) {
+            color: #212529;
+        }
+
+    .icono-doc {
+        font-size: 32px;
+        color: #000000;
+    }
+
+
+</style>
+
+
+
+
 
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col-md-11 mt-3">
-            <h4>Políticas Internas ISERTEC</h4>
-            <hr />
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/REGLAMENTO INTERIOR DE TRABAJO ISERTEC.pdf" class="stretched-link text-decoration-none text-dark fw-semibold">
+        <div class="col-md-11 mt-4">
+
+            <div class="card-custom p-4">
+
+                <h4 class="titulo-seccion text-center">
+                    Políticas Internas ISERTEC
+                </h4>
+  
+
+                <div class="row g-4" style="margin-top:25px">
+
+
+                    <div class="col-md-4">
+                        <div class="card-destacada text-center p-4 h-100">
+
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+
+
+                            <a href="~/Files/REGLAMENTO INTERIOR DE TRABAJO ISERTEC.pdf"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
                                 Reglamento Interno de Trabajo
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Politicas Comerciales 2024.pdf" class="stretched-link text-decoration-none text-dark fw-semibold">
+
+                    <div class="col-md-4">
+                        <div class="card-destacada text-center p-4 h-100">
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+
+
+                            <a href="~/Files/Politicas Comerciales 2024.pdf"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
                                 Políticas Comerciales
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row g-3 mb-3">
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Politicas Corporativas 2024.pdf" class="stretched-link text-decoration-none text-dark fw-semibold">
+
+                    <div class="col-md-4">
+                        <div class="card-destacada text-center p-4 h-100">
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+
+
+                            <a href="~/Files/Politicas Corporativas 2024.pdf"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
                                 Políticas Corporativas
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border shadow-sm text-center">
-                        <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                            <span class="fs-5">📄</span>
-                            <a href="~/Files/Politicas Operativas 2024.pdf" class="stretched-link text-decoration-none text-dark fw-semibold">
+
+                    <div class="col-md-4">
+                        <div class="card-destacada text-center p-4 h-100">
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                            </div>
+
+
+                            <a href="~/Files/Politicas Operativas 2024.pdf"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
                                 Políticas Operativas
                             </a>
                         </div>
                     </div>
-                </div>
-                </div>
-                <div class="row g-3 mb-3">
+
                     <div class="col-md-4">
-                        <div class="card border shadow-sm text-center">
-                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                                <span class="fs-5">📄</span>
-                                <a href="~/Files/Política del EPP.pdf" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                    Política del EPP
-                                </a>
+                        <div class="card-destacada text-center p-4 h-100">
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
                             </div>
+
+
+                            <a href="~/Files/Política del EPP.pdf"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
+                                Política del EPP
+                            </a>
                         </div>
                     </div>
+
                     <div class="col-md-4">
-                        <div class="card border shadow-sm text-center">
-                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                                <span class="fs-5">📄</span>
-                                <a href="~/Files/Política SSO ISERTEC.pdf" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                    Política SSO ISERTEC
-                                </a>
+                        <div class="card-destacada text-center p-4 h-100">
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
                             </div>
+
+
+                            <a href="~/Files/Política SSO ISERTEC.pdf"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
+                                Política SSO ISERTEC
+                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="row g-3 mb-3">
+
                     <div class="col-md-4">
-                        <div class="card border shadow-sm text-center">
-                            <div class="card-body d-flex justify-content-center align-items-center gap-2">
-                                <span class="fs-5">📄</span>
-                                <a href="@Url.Action("FlujogramaIsertec", "Account")" class="stretched-link text-decoration-none text-dark fw-semibold">
-                                    Flujograma Isertec
-                                </a>
+
+                        <div class="card-destacada text-center p-4 h-100">
+
+                            <div>
+                                <i class="bi bi-file-earmark-text icono-doc"></i>
                             </div>
+
+                            <a href="@Url.Action("FlujogramaIsertec", "Account")"
+                               target="_blank"
+                               class="text-decoration-none fw-semibold fs-5"
+                               style="color:#1E7F5C;">
+                                Flujograma Isertec
+                            </a>
+
                         </div>
                     </div>
+
                 </div>
             </div>
+
+        </div>
     </div>
 </div>
+
+

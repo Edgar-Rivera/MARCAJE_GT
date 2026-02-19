@@ -76,25 +76,30 @@
 
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col-md-4 mb-5">
+        <div class="col-md-8 col-lg-6 mb-5">
+
             <div>
-                <h2>Firma Correo Electrónico</h2>
-                <h4>Instrucciones</h4>
+                <h2 style="margin-top: 25px; color: #166F4F; font-weight:700;">
+                    Firma de Correo electronico
+                </h2>
+                <h4 style="color: #4D4D57; font-weight:600;">
+                    Instrucciónes
+                </h4>
                 <ol>
                     <li>Llena todos los campos TAL Y COMO INDICAN LOS EJEMPLOS.</li>
                     <li>Haz click en "Generar Firma".</li>
                 </ol>
-                <br>
+
             </div>
-            <hr>
+            <hr style="border-color:#D9D9D9;">
             <form id="userForm" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="name">Nombre y Apellido:</label>
-                    <input class="form-control" type="text" id="name" required>
+                    <label for="name" style="color: #4D4D57; font-weight: 600;">Nombre y Apellido:</label>
+                    <input class="form-control" style="border:1px solid #CCCCCC;" type="text" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="unidad">División:</label>
-                    <select   id="unidad" class="form-control" required>
+                    <select id="unidad" class="form-control" required>
                         <option value="">Selecciona División</option>
                         <option value="ISERTEC">ISERTEC</option>
                         <option value="BIOMA">BIOMA</option>
@@ -103,37 +108,38 @@
                 </div>
                 <div class="form-group">
                     <label for="puesto">Puesto:</label>
-                    <input class="form-control" type="text" id="puesto" placeholder="Nombre Empleado" required value="@puesto" readonly>
+                    <input class="form-control" type="text" id="puesto" placeholder="Nombre Empleado" required value="@puesto" readonly style="background:#ECEDE8; border:1px solid #CCCCCC;">
+
                 </div>
 
                 <div class="form-group">
                     <label for="especialidad">Especialidad:</label>
-                    <input class="form-control" type="text" id="especialidad" placeholder="" required maxlength="20">
+                    <input class="form-control" type="text" id="especialidad" placeholder="" required maxlength="20" style="border:1px solid #CCCCCC;">
                 </div>
 
                 <div class="form-group">
                     <label for="especialidad2">Especialidad 2:</label>
-                    <input class="form-control" type="text" id="especialidad2" placeholder="" required maxlength="20">
+                    <input class="form-control" type="text" id="especialidad2" placeholder="" required maxlength="20" style="border:1px solid #CCCCCC;">
                 </div>
 
                 <div class="form-group">
                     <label for="especialidad3">Especialidad 3:</label>
-                    <input class="form-control" type="text" id="especialidad3" placeholder="" required maxlength="20">
+                    <input class="form-control" type="text" id="especialidad3" placeholder="" required maxlength="20" style="border:1px solid #CCCCCC;">
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Tel&eacute;fono:</label>
-                    <input class="form-control" type="tel" id="phone" placeholder="24272427" required>
+                    <input class="form-control" type="tel" id="phone" placeholder="24272427" required style="border:1px solid #CCCCCC;">
                 </div>
 
                 <div class="form-group">
                     <label for="mobile">Whatsapp:</label>
-                    <input class="form-control" type="tel" id="mobile" placeholder="43214321" required>
+                    <input class="form-control" type="tel" id="mobile" placeholder="43214321" required style="border:1px solid #CCCCCC;">
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input class="form-control" type="email" id="email" placeholder="info@isertec.com" required>
+                    <input class="form-control" type="email" id="email" placeholder="info@isertec.com" required style="border:1px solid #CCCCCC;">
                 </div>
 
                 <div class="form-group">
@@ -145,28 +151,43 @@
                     </select>
                 </div>
 
-                <button class="btn btn-second" onclick="displayResult()">Generar Firma</button>
-                <button class="btn btn-second" onclick="copiarAlPortapapeles()">Copiar Contenido</button>
+                <div class="d-flex flex-column flex-md-row gap-2 justify-content-end mt-3">
+                    <button type="button" class="btn btn-secondary" onclick="displayResult()" style="background:#808080; border-color:#808080;">
+                        Generar Firma
+                    </button>
+
+                    <button type="button" class="btn btn-primary" onclick="copiarAlPortapapeles()" style="background:#166F4F; border-color:#166F4F;">
+                        Copiar Contenido
+                    </button>
+                </div>
             </form>
             <br>
             <br>
-            <div id="result" class="result" style="display: flex; align-items: center; width: 100%; border: 1px solid transparent;">
-                <div class="column left" style="flex: 1; padding: 5px; display: flex; justify-content: left;">
-                    <img id="logo" src="https://static.wixstatic.com/media/7ac3b8_732d36fed8eb49379daffc6b182b7fc5~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoisertec_1.png" style="width: 140px;">
+            <div id="result"
+                 class="d-flex flex-column flex-md-row align-items-center gap-3"
+                 style="width:100%;border:1px solid #D9D9D9; border-radius:12px;padding:16px;margin-top:15px; background:#FFFFFF; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+
+
+                <div class="column left" style="flex:1; display:flex; justify-content:left; margin-top:0px;">
+                    <img id="logo"
+                         src="https://static.wixstatic.com/media/7ac3b8_732d36fed8eb49379daffc6b182b7fc5~mv2.png/v1/fill/w_174,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logoisertec_1.png"
+                         style="width:120px; max-width:100%;">
                 </div>
-                <div id="resultContent" class="column right" style="flex: 4; padding: 5px; align-items:flex-start;">
-                    <h3 id="nombre" style="font-weight:bold; font-size: 18px; color:#313538; margin: 0;"></h3>
-                    <p id="puesto_e" style="font-weight:bold; color: #666; font-style: italic; margin: 5px 0;"></p>
-                    <p id="especialidad_formatted" style="color: black; margin: 5px 0; font-size: 12px;"></p>
-                    <p style="margin: 5px 0; font-size: small;">
-                        WhatsApp: <a id="ws" href="#" style="color: #313538;"></a>
-                        <br>
-                        Tel&eacute;fono: <a id="telefono" href="tel:${country}${phone}" style="color: #313538;"></a>
-                        <br>
-                        Correo: <a id="correo" href="mailto:${email}" style="color: #313538;"></a>
+
+                <div id="resultContent" class="column right text-center text-md-start" style="flex:4; padding:5px;>
+                    <h3 id="nombre" style="font-weight:bold; font-size:18px; color:#313538; margin:0;"></h3>
+                    <p id="puesto_e" style="font-weight:bold; color:#666; font-style:italic; margin:5px 0;"></p>
+                    <p id="especialidad_formatted" style="color:black; margin:5px 0; font-size:12px;"></p>
+
+                    <p style="margin:5px 0; font-size:small;">
+                        WhatsApp: <a id="ws" href="#" style="color:#313538;"></a><br>
+                        Tel&eacute;fono: <a id="telefono" href="#" style="color:#313538;"></a><br>
+                        Correo: <a id="correo" href="#" style="color:#313538;"></a>
                     </p>
                 </div>
+
             </div>
+
             <div id="instructions" style="display:none;">
                 <h4>Instrucciones</h4>
                 <ol>

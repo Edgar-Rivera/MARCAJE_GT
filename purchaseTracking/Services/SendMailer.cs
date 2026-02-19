@@ -6,9 +6,11 @@ using MimeKit;
 using purchaseTracking.Models.Orders;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.IO;   
 using System.Linq;
 using System.Web;
+using System.Text.RegularExpressions;
+
 
 namespace purchaseTracking.Services
 {
@@ -45,6 +47,8 @@ namespace purchaseTracking.Services
             }
             mytemplate = mytemplate.Replace("{ejecutivo}", ejecutivo);
             mytemplate = mytemplate.Replace("{solicitud}", solicitud);
+
+
             mytemplate = mytemplate.Replace("{cuerpo}", cuerpo);
             mensaje.HtmlBody = mytemplate;
             if (path != "")
@@ -97,13 +101,19 @@ namespace purchaseTracking.Services
             email.Subject = subject;
             var mensaje = new BodyBuilder();
             string mytemplate = string.Empty;
-            using (StreamReader reader = System.IO.File.OpenText("C:\\Template\\etalent_template.html"))
+            using (   StreamReader reader = System.IO.File.OpenText("C:\\Template\\etalent_template.html"))
             {
                 mytemplate = reader.ReadToEnd();
             }
-            mytemplate = mytemplate.Replace("{solicitud}", Solicitud);
+            string tipoLimpio = Regex.Replace(Solicitud, @"\d+", "").Trim();
+            mytemplate = mytemplate.Replace("{tipo_solicitud}", tipoLimpio);
+
+
+            mytemplate = mytemplate.Replace("{solicitud}", tipoLimpio);
+
             mytemplate = mytemplate.Replace("{empleado}", empleado);
             mytemplate = mytemplate.Replace("{actividad}", actividad);
+
             mytemplate = mytemplate.Replace("{link-confirm}", "https://marcaje.isertec.com/Account/listInvoice/" + actividad);
             mytemplate = mytemplate.Replace("{anio}", anio.ToString());
             

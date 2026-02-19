@@ -33,8 +33,8 @@ namespace purchaseTracking.Controllers
         public ActionResult DigitalForms()
         {
             return View();
-        } 
-        
+        }
+
         public ActionResult CorporateTemplate()
         {
             return View();

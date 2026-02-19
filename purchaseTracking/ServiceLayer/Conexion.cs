@@ -77,6 +77,7 @@ namespace purchaseTracking.ServiceLayer
             HttpWebResponse LoginResponse = null;
             Uri UrlConecction = new Uri("https://10.110.240.104:50000/b1s/v1/");
             ServicePointManager.ServerCertificateValidationCallback += RemoteSSLTLSCertificateValidate;
+            Server = "https://10.110.240.104:50000/b1s/v1";
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(Server + "/Logout");
             httpWebRequest.ContentType = "application/json; charset=utf-8";
             httpWebRequest.Method = "POST";
