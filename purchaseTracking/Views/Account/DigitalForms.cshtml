@@ -51,6 +51,44 @@
         color: #000000; 
     }
 
+
+    .link-card {
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+
+ 
+        .link-card:hover .card-formulario {
+            transform: translateY(-3px);
+            cursor: pointer;
+        }
+
+
+    .icono-container {
+        height: 42px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+
+    .icono-doc {
+        font-size: 32px !important;
+        line-height: 1; 
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #000000;
+    }
+
+    .titulo-formulario {
+        color: #000000 !important; 
+        font-weight: 700;
+        font-size: 1.1rem; 
+    }
 </style>
 
 
@@ -70,187 +108,233 @@
 
                 <div class="row justify-content-center g-3">
 
-
-                    <div class="col-md-5">
-                        <div class="card-formulario">
-
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
-                            </div>
-
-                            <a href="~/Files/Formularios PDF/Anticipo de Salario.pdf">
-                                Anticipo Salario
-                            </a>
-
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-5">
-                        <div class="card-formulario">
-
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
-                            </div>
-
-                            <a href="~/Files/Formularios PDF/Anticipo de Bono 14.pdf">
-                                Antícipo Bono 14
-                            </a>
-
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-md-5">
-                        <div class="card-formulario">
-
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
-                            </div>
-
-                            <a href="~/Files/Formularios PDF/Anticipo de Aguinaldo.pdf">
-                                Anticipo Aguinaldo
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-5">
-                        <div class="card-formulario">
-
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
-                            </div>
-
-                            <a href="~/Files/Formularios PDF/Anticipo de Bonificaciones.pdf">
-                                Anticipo Bonificaciones
-                            </a>
-
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="seccion-card">
-
-                <h5 class="subtitulo-seccion">Asignaciones</h5>
        
-
-                <div class="row justify-content-center g-3">
-
-
                     <div class="col-md-5">
-                        <div class="card-formulario">
+                        <a href="~/Files/Formularios PDF/Anticipo de Salario.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+                                <div class="titulo-formulario">
+                                    Anticipo Salario
+                                </div>
+
                             </div>
-
-                            <a href="~/Files/Formularios PDF/Asignación de Combustible.pdf">
-                                Asignación de Combustible
-                            </a>
-                        </div>
+                        </a>
                     </div>
 
-
-
+           
                     <div class="col-md-5">
-                        <div class="card-formulario">
+                        <a href="~/Files/Formularios PDF/Anticipo de Bono 14.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Anticipo Bono 14
+                                </div>
+
+
+
+
                             </div>
-                            <a href="~/Files/Formularios PDF/Asignación de Caja Chica v2.pdf">
-                                Asignación de Caja Chica
-                            </a>
-                        </div>
+                        </a>
+                    </div>
+
+      
+                    <div class="col-md-5">
+                        <a href="~/Files/Formularios PDF/Anticipo de Aguinaldo.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
+
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+                                <div class="titulo-formulario">
+                                    Anticipo Aguinaldo
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+
+               
+                    <div class="col-md-5">
+                        <a href="~/Files/Formularios PDF/Anticipo de Bonificaciones.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
+
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Anticipo Bonificaciones
+                                </div>
+
+                            </div>
+                        </a>
                     </div>
 
                 </div>
             </div>
+
+
 
             <div class="seccion-card">
 
-                <h5 class="subtitulo-seccion">Descuentos</h5>
+                <h5 class="subtitulo-seccion text-center">Asignaciones</h5>
 
                 <div class="row justify-content-center g-3">
 
-
                     <div class="col-md-5">
-                        <div class="card-formulario">
+                        <a href="~/Files/Formularios PDF/Asignación de Combustible.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Asignación de Combustible
+                                </div>
+
                             </div>
-                            <a href="~/Files/Formularios PDF/Autorización de Descuentos.pdf">
-                                Autorización de Descuentos
-                            </a>
-                        </div>
+                        </a>
                     </div>
 
+                    <div class="col-md-5">
+                        <a href="~/Files/Formularios PDF/Asignación de Caja Chica v2.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Asignación de Caja Chica
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
             </div>
+
+
+
+
+
             <div class="seccion-card">
 
-                <h5 class="subtitulo-seccion">Otras Solicitudes</h5>
-        
+                <h5 class="subtitulo-seccion text-center">Descuentos</h5>
+
+                <div class="row justify-content-center g-3">
+
+         
+                    <div class="col-md-5">
+                        <a href="~/Files/Formularios PDF/Autorización de Descuentos.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
+
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+                                <div class="titulo-formulario">
+                                    Autorización de Descuentos
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="seccion-card">
+
+                <h5 class="subtitulo-seccion text-center">Otras Solicitudes</h5>
 
                 <div class="row justify-content-center g-3">
 
                     <div class="col-md-5">
-                        <div class="card-formulario">
+                        <a href="~/Files/Formularios PDF/Préstamo Interno.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Préstamos Internos
+                                </div>
+
                             </div>
-                            <a href="~/Files/Formularios PDF/Préstamo Interno.pdf">
-                                Préstamos Internos
-                            </a>
-                        </div>
+                        </a>
                     </div>
 
-
-
+                   
                     <div class="col-md-5">
-                        <div class="card-formulario">
+                        <a href="~/Files/Formularios PDF/Cambio de Horario.pdf"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Cambio de Horario
+                                </div>
+
                             </div>
-                            <a href="~/Files/Formularios PDF/Cambio de Horario.pdf">
-                                Cambio de Horario
-                            </a>
-                        </div>
+                        </a>
                     </div>
 
-
-
-
-
+                
                     <div class="col-md-5">
-                        <div class="card-formulario">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSel9pb5SVIyQjFL9jOjY3UhQE_cauD2TMvJDrv8_zW00wfYvg/viewform"
+                           class="link-card"
+                           target="_blank">
+                            <div class="card-formulario">
 
-                            <div class="icono-container">
-                                <i class="bi bi-file-earmark-text icono-doc"></i>
+                                <div class="icono-container">
+                                    <i class="bi bi-file-earmark-text icono-doc"></i>
+                                </div>
+
+                                <div class="titulo-formulario">
+                                    Requerimiento de Capacitación, Evento y Certificación
+                                </div>
+
                             </div>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSel9pb5SVIyQjFL9jOjY3UhQE_cauD2TMvJDrv8_zW00wfYvg/viewform">
-                                Requerimiento de Capacitación, Evento y Certificación.
-                            </a>
-                        </div>
+                        </a>
                     </div>
-
-
-
-
-
-
 
                 </div>
             </div>
+
+
+
 
         </div>
     </div>

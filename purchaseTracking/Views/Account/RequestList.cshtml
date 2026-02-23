@@ -95,7 +95,7 @@
         height: 65vh !important;
         overflow-y: auto;
     }
-    /*cambiar aqui los valores dependiendo del tamaño de la pantalla karen */
+
     .card-view {
         display: none;
     }
@@ -162,17 +162,23 @@
                     </div>
                 </div>
                 <div class="row g-2 align-items-end">
-                    <div class="col-sm-2">
+
+                    <div class="col-12 col-md-3">
                         @Html.DropDownList("filterString", new List<SelectListItem>
-                           {
-                          new SelectListItem{ Text="Todos los datos", Value = "" },
-                               new SelectListItem{ Text="Solicitud Vacaciones", Value = "Solicitud Vacaciones" },
-                                new SelectListItem{ Text="Solicitud Permiso", Value = "Solicitud Permiso" }
-                           }, new { @class = "form-control" })
+                        {
+                            new SelectListItem{ Text="Todos los datos", Value = "" },
+                            new SelectListItem{ Text="Solicitud Vacaciones", Value = "Solicitud Vacaciones" },
+                            new SelectListItem{ Text="Solicitud Permiso", Value = "Solicitud Permiso" }
+                        }, new { @class = "form-control" })
                     </div>
-                    <div class="col-sm-auto">
-                        <button type="submit" class="btn btn-success" style="margin-left:1480px;"><i class="fas fa-filter"></i> Aplicar Filtro</button>
+
+                
+                    <div class="col-12 col-md-auto ms-md-auto">
+                        <button type="submit" class="btn btn-success w-100 w-md-auto">
+                            <i class="fas fa-filter"></i> Aplicar Filtro
+                        </button>
                     </div>
+
                 </div>
 
             }
