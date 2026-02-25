@@ -1,74 +1,50 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Solicitudes Digitales";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
     body {
-        background-color: #F4F6F9 !important; /* Fondo general */
+        background-color: #F4F6F9 !important;
     }
 
     .card {
         position: relative;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        text-align: center;
         min-width: 0;
         word-wrap: break-word;
         background-color: #fff;
-        border-radius: 12px !important; /* Unifica con Marcas Proyectos */
+        border-radius: 12px !important;
         margin-bottom: 1.5rem;
-        padding: 15px;
+        padding: 25px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         border: 0;
+        transition: transform .15s ease, box-shadow .15s ease;
     }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+        }
 
     a[href] {
         color: black !important;
         text-decoration: none;
     }
 
-    /* Iconos circulares */
-    .rounded-circle {
-        border-radius: 50% !important;
+    h4 {
+        text-align: center;
     }
 
-    .card .rounded-circle {
-        min-width: 60px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 27px;
+    hr {
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
     }
 
-    /* Colores por tipo */
-    .bg-primary {
-        background-color: #0d6efd !important;
-    }
-
-    .bg-success {
-        background-color: #1b6d4b !important;
-    }
-
-    .bg-info {
-        background-color: #17a2b8 !important;
-    }
-
-    .bg-warning {
-        background-color: #ffdf40 !important;
-    }
-
-    .bg-danger {
-        background-color: #dc3545 !important;
-    }
-
-    /* Textos */
-    .text-white {
-        color: #fff !important;
-    }
-
-    /* Tabla scroll */
     .table-responsive {
         height: 200px;
         overflow: auto;
@@ -81,16 +57,16 @@
         z-index: 10;
     }
 </style>
+
 @{
     string temp_body_j = string.Empty;
     if (Session["code"].ToString() == "36" || Session["code"].ToString() == "5" || Session["code"].ToString() == "4" || Session["code"].ToString() == "233" || Session["code"].ToString() == "311"
-                        || Session["code"].ToString() == "167" || Session["code"].ToString() == "265" || Session["code"].ToString() == "281" || Session["code"].ToString() == "182" || Session["code"].ToString() == "95"
-                        || Session["code"].ToString() == "204" || Session["code"].ToString() == "40" || Session["code"].ToString() == "340" || Session["code"].ToString() == "8" || Session["code"].ToString() == "1"
-                        || Session["code"].ToString() == "300" || Session["code"].ToString() == "201" || Session["code"].ToString() == "270" || Session["code"].ToString() == "13" || Session["code"].ToString() == "89"
-                        || Session["code"].ToString() == "150" || Session["code"].ToString() == "276" || Session["code"].ToString() == "320" || Session["code"].ToString() == "200" || Session["code"].ToString() == "5"
-                        || Session["code"].ToString() == "298" || Session["code"].ToString() == "263" || Session["code"].ToString() == "432" || Session["code"].ToString() == "345" || Session["code"].ToString() == "278"
-                        || Session["code"].ToString() == "317"
-                        )
+        || Session["code"].ToString() == "167" || Session["code"].ToString() == "265" || Session["code"].ToString() == "281" || Session["code"].ToString() == "182" || Session["code"].ToString() == "95"
+        || Session["code"].ToString() == "204" || Session["code"].ToString() == "40" || Session["code"].ToString() == "340" || Session["code"].ToString() == "8" || Session["code"].ToString() == "1"
+        || Session["code"].ToString() == "300" || Session["code"].ToString() == "201" || Session["code"].ToString() == "270" || Session["code"].ToString() == "13" || Session["code"].ToString() == "89"
+        || Session["code"].ToString() == "150" || Session["code"].ToString() == "276" || Session["code"].ToString() == "320" || Session["code"].ToString() == "200"
+        || Session["code"].ToString() == "298" || Session["code"].ToString() == "263" || Session["code"].ToString() == "432" || Session["code"].ToString() == "345"
+        || Session["code"].ToString() == "278" || Session["code"].ToString() == "317")
     {
         temp_body_j = "block";
     }
@@ -99,8 +75,6 @@
         temp_body_j = "none";
     }
 }
-
-
 
 @{
     string temp_body = string.Empty;
@@ -113,150 +87,116 @@
         temp_body = "none";
     }
 }
+
 <div class="container-fluid">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
         <div class="col-md-11 mt-3">
+
             @if (string.IsNullOrEmpty(ViewBag.source))
             {
-                <div class="alert alert-danger" role="alert">
-                    <b> No se encuentra una firma registrada!, por favor cree su firma Digital en la opción "Firma Digital de Empleado" </b>
+                <div class="alert alert-danger text-center" role="alert">
+                    <b>No se encuentra una firma registrada!, por favor cree su firma Digital en la opción "Firma Digital de Empleado"</b>
                 </div>
             }
 
-        <div style="display:@temp_body" class="mb-3">
-            <h4>Control y Gestión de Nómina</h4>
-            <hr />
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mb-2 g-3">
-                <div class="col">
-                    <a href="@Url.Action("VacationsRequest", "Account")">
-                        <div class="card h-100">
-                            <div class="card-body d-flex align-items-center justify-content-between">
-                                <div class="me-2">
-                                    <h5 class="mb-1 text-dark">Título</h5>
-                                    <p class="mb-0 text-muted small">Descripción</p>
-                                </div>
-                                <div class="rounded-circle bg-success text-white">
-                                    <i class="fas fa-calendar fa-2x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            
+            <div style="display:@temp_body" class="mb-3">
+                <h4>Control y Gestión de Nómina</h4>
+                <hr />
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mb-2 g-3 justify-content-center">
 
+                    <div class="col d-flex">
+                        <a href="@Url.Action("VacationsRequest", "Account")" class="w-100">
+                            <div class="card h-100">
+                                <h5 class="mb-1 text-dark">Solicitud Disfrute de Vacaciones / Permisos</h5>
+                                <p class="mb-0 text-muted small">Vacaciones y permisos laborales</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
             </div>
-        </div>
+
+         
             <h4>Formularios de Solicitud</h4>
             <hr />
-            <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 mb-3">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-xl-4 mb-3 justify-content-center">
+
                 @if (!string.IsNullOrEmpty(ViewBag.source))
                 {
                     if (Session["code"].ToString() != "265" && Session["code"].ToString() != "311" && Session["code"].ToString() != "182")
                     {
-                        <div class="col">
-                            <a href="@Url.Action("VacationsRequest", "Account")" class="text-decoration-none">
-                                <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                            <div class="me-2">
-                                                <h5 class="mb-1 text-dark">Crear Solicitud de Vacaciones / Permiso</h5>
-                                                <p class="mb-0 text-muted small">Nueva Solicitud digital</p>
-                                            </div>
-                                            <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center"
-                                                 style="min-width: 60px; height: 60px;">
-                                                <i class="fas fa-calendar fa-2x"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col d-flex">
+                            <a href="@Url.Action("VacationsRequest", "Account")" class="w-100">
+                                <div class="card h-100">
+                                    <h5 class="mb-1 text-dark">Crear Solicitud de Vacaciones / Permiso</h5>
+                                    <p class="mb-0 text-muted small">Nueva Solicitud digital</p>
                                 </div>
                             </a>
                         </div>
                     }
                 }
+
             </div>
+
+            
             <h4>Mis Solicitudes / Firma Digital</h4>
             <hr />
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
-                <div class="col">
-                    <a href="@Url.Action("RequestList", "Account")" class="text-decoration-none">
-                        <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                    <div class="me-2">
-                                        <h5 class="mb-1 text-dark">Mis solicitudes Creadas</h5>
-                                        <p class="mb-0 text-muted small">Gestione y controle el estado de sus solicitudes realizadas</p>
-                                    </div>
-                                    <div class="rounded-circle bg-warning text-white d-flex justify-content-center align-items-center"
-                                         style="min-width: 60px; height: 60px;">
-                                        <i class="fas fa-share fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3 justify-content-center">
+
+                <div class="col d-flex">
+                    <a href="@Url.Action("RequestList", "Account")" class="w-100">
+                        <div class="card h-100">
+                            <h5 class="mb-1 text-dark">Mis solicitudes Creadas</h5>
+                            <p class="mb-0 text-muted small">
+                                Gestione y controle el estado de sus solicitudes realizadas
+                            </p>
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="@Url.Action("createSignDigital", "Account")" class="text-decoration-none">
-                        <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                    <div class="me-2">
-                                        <h5 class="mb-1 text-dark">Firma Digital de Empleado</h5>
-                                        <p class="mb-0 text-muted small">Creación de Firma digital para solicitudes</p>
-                                    </div>
-                                    <div class="rounded-circle bg-info text-white d-flex justify-content-center align-items-center"
-                                         style="min-width: 60px; height: 60px;">
-                                        <i class="fas fa-signature fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
+
+                <div class="col d-flex">
+                    <a href="@Url.Action("createSignDigital", "Account")" class="w-100">
+                        <div class="card h-100">
+                            <h5 class="mb-1 text-dark">Firma Digital de Empleado</h5>
+                            <p class="mb-0 text-muted small">
+                                Creación de firma digital para solicitudes
+                            </p>
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="@Url.Action("MailSign", "Account")" class="text-decoration-none">
-                        <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                    <div class="me-2">
-                                        <h5 class="mb-1 text-dark">Firma de Correo Electrónico</h5>
-                                        <p class="mb-0 text-muted small">Creación de Firma de tu correo electrónico</p>
-                                    </div>
-                                    <div class="rounded-circle bg-success text-white d-flex justify-content-center align-items-center"
-                                         style="min-width: 60px; height: 60px;">
-                                        <i class="fas fa-envelope fa-2x"></i>
-                                    </div>
-                                </div>
-                            </div>
+
+                <div class="col d-flex">
+                    <a href="@Url.Action("MailSign", "Account")" class="w-100">
+                        <div class="card h-100">
+                            <h5 class="mb-1 text-dark">Firma de Correo Electrónico</h5>
+                            <p class="mb-0 text-muted small">
+                                Creación de firma para tu correo electrónico
+                            </p>
                         </div>
                     </a>
                 </div>
 
             </div>
+
+            
             <div style="display:@temp_body_j">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
-                    <div class="col">
-                        <a href="@Url.Action("listRequest", "Account")" class="text-decoration-none">
-                            <div class="card radius-10 border-start border-0 border-3 border-info h-100">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center justify-content-between flex-nowrap">
-                                        <div class="me-2">
-                                            <h5 class="mb-1 text-dark">Solicitudes Asignadas</h5>
-                                            <p class="mb-0 text-muted small">Apruebe o desapruebe las solicitudes de sus empleados</p>
-                                        </div>
-                                        <div class="rounded-circle bg-danger text-white d-flex justify-content-center align-items-center"
-                                             style="min-width: 60px; height: 60px;">
-                                            <i class="fas fa-check-circle fa-2x"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 justify-content-center">
+
+                    <div class="col d-flex">
+                        <a href="@Url.Action("listRequest", "Account")" class="w-100">
+                            <div class="card h-100">
+                                <h5 class="mb-1 text-dark">Solicitudes Asignadas</h5>
+                                <p class="mb-0 text-muted small">
+                                    Apruebe o desapruebe las solicitudes de sus empleados
+                                </p>
                             </div>
                         </a>
                     </div>
+
                 </div>
             </div>
+
         </div>
-        
     </div>
 </div>
-
-
